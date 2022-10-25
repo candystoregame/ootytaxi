@@ -67,7 +67,7 @@ $(document).ready(function(){
             }
         });
         $( "#amount" ).val( "Rs " + $( "#slider-range" ).slider( "values", 0 ) +
-        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        " - Rs" + $( "#slider-range" ).slider( "values", 1 ) );
         
         
         // Quantity Buttons Shop
