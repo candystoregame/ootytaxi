@@ -12,3 +12,6 @@ x[myIndex].style.display = "block";
 x[myIndex+1].style.display = "block";
 setTimeout(myslider, 5);
 }myslider();
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");

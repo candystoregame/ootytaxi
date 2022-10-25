@@ -61,7 +61,7 @@ $(document).ready(function(){
             range: true,
             min: 0,
             max: 100000,
-            values: [ 2677, 9241 ],
+            values: [ 0, 15000 ],
             slide: function( event, ui ) {
             $( "#amount" ).val( "Rs " + ui.values[ 0 ] + " - Rs " + ui.values[ 1 ] );
             }
