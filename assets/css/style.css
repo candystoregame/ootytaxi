@@ -154,7 +154,7 @@ html,body{
     transition:.7s;
 }
 .is-sticky .header-area{
-
+position: relative;
 }
 .is-sticky .header-area:after{
     position:absolute;
@@ -377,7 +377,7 @@ html,body{
 		4. 	Travel-box
 --------------------------------------*/
 .single-travel-boxes {
-    margin-top: -850px;
+    margin-top: -800px;
     background: #fff;
 }
 .tab-para p {
