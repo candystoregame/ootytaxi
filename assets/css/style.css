@@ -391,6 +391,24 @@ position: relative;
         transform : rotate3d(1,2,1,360deg);
     }
 }
+
+.booknowring
+{
+    position: fixed; 
+    top: 70%; 
+    right: 10px; 
+    z-index: 9999; 
+    background-attachment: fixed;
+    transform-style: preserve-3d;
+    animation: moveeffe 1s linear infinite;
+}
+@keyframes moveeffe
+{
+    100%{
+        transform : rotate3d(1,2,1,-360deg);
+    }
+}
+
 .whatsapp
 {
     position: fixed; 
@@ -398,7 +416,7 @@ position: relative;
     right: 10px; 
     z-index: 9999; 
     background-attachment: fixed;
-    
+   
 }
 
 /*-------------------------------------
