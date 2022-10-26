@@ -373,6 +373,25 @@ position: relative;
 }
 /*about-us-content*/
 
+/*booknow*/
+
+.booknow
+{
+    position: fixed; 
+    top: 50%; 
+    right: 10px; 
+    z-index: 9999; 
+    background-attachment: fixed; 
+    animation: moveeff 1s linear infinite;
+}
+@keyframes moveeff
+{
+    100%{
+        transform : rotate3d(1,2,1,360deg);
+    }
+}
+
+
 /*-------------------------------------
 		4. 	Travel-box
 --------------------------------------*/
@@ -487,7 +506,7 @@ position: relative;
     pointer-events: none;
     border:1px solid #d7d7d7;
     border-bottom: transparent;
-    padding: 10px 8px;
+    padding: 10px 0px;
 }/*travel-select-icon*/
 
 .travel-select-icon  select,.travel-check-icon  input {
