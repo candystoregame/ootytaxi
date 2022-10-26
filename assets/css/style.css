@@ -378,7 +378,7 @@ position: relative;
 .booknow
 {
     position: fixed; 
-    top: 50%; 
+    top: 70%; 
     right: 10px; 
     z-index: 9999; 
     background-attachment: fixed;
@@ -391,7 +391,15 @@ position: relative;
         transform : rotate3d(1,2,1,360deg);
     }
 }
-
+.whatsapp
+{
+    position: fixed; 
+    top: 80%; 
+    right: 10px; 
+    z-index: 9999; 
+    background-attachment: fixed;
+    
+}
 
 /*-------------------------------------
 		4. 	Travel-box
