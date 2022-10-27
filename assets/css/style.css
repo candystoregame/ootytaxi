@@ -374,6 +374,48 @@ position: relative;
 }
 /*about-us-content*/
 
+/*-------------Fall Menu Effect Start------------------*/
+
+.navbar-collapse ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background: black;
+    opacity: 0.9;
+	padding:0;
+}
+
+.navbar-collapse ul ul li
+{
+	float:none;
+	width:350px;  
+    height: 60px;
+}
+
+.navbar-collapse ul ul a
+{
+	line-height:50%;
+	padding: 5px 5px;
+	/*background: #121314;*/
+}
+
+.navbar-collapse ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+.navbar-collapse ul li:hover > ul
+{
+	display:block;
+    z-index: 11;
+}
+
+
+/*-------------Fall Menu Effect End------------------*/
+
 /*booknow*/
 
 .booknow
