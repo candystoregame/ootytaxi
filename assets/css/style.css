@@ -293,7 +293,18 @@ position: relative;
     border: 1px solid #00d8d5;
 }/*book-btn*/
 
+.planner{
+    
+    display: flex;
+    justify-content: center;
+    background-color: #222222;
+    align-items: center;
+	position: relative;
+	background-size: cover;
+   	background-position: center;
+	min-height: 650px;
 
+}
 /*-------------------------------------
 		3. 	About
 --------------------------------------*/
