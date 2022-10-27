@@ -3,7 +3,7 @@ function myslider() {
     var i;
     var x = document.getElementsByClassName("home1-testm item");
     for (i=0; i < x.length; i++) {
-      x[i].style.display;/* = "none";*/
+      x[i].style.display = "none";
     }
 myIndex++;
 if (myIndex > x.length) { myIndex = 1}

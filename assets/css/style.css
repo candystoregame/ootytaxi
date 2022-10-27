@@ -423,34 +423,31 @@ position: relative;
     position: fixed; 
     top: 70%; 
     left : 10px; 
-    z-index: 9999; 
+    z-index: 9999;
+    background-color: #ffdf00; 
     background-attachment: fixed;
+    box-shadow: 1px 1px 1px #00000080,
+                3px 3px 4px #00000080,
+                inset 2px 2px 10px #00000080;
+    text-shadow: 0px 0px 71px #ffdf00,
+                 0px 0px 72px #ffdf00,
+                 0px 0px 73px #ffdf00,
+                 0px 0px 74px #ffdf00;
+                
     transform-style: preserve-3d;
-    animation: moveeff 1s linear infinite;
+    animation: moveeff 3s linear infinite;
 }
 @keyframes moveeff
 {
-    100%{
-        transform:translateY(10%);
+    from{
+           filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
     }
 } 
 
-.booknowring
-{
-    position: fixed; 
-    top: 80%; 
-    left: 10px; 
-    z-index: 9999; 
-    background-attachment: fixed;
-    transform-style: preserve-3d;
-    animation: moveeffe 1s linear infinite;
-}
-@keyframes moveeffe
-{
-    100%{
-        transform : rotate3d(1,2,1,-360deg);
-    }
-}
+
 
 .whatsapp
 {
