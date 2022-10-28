@@ -396,6 +396,7 @@ position: relative;
 	background: black;
     opacity: 0.9;
 	padding:0;
+    
 }
 
 .navbar-collapse ul ul li
@@ -403,6 +404,7 @@ position: relative;
 	float:none;
 	width:350px;  
     height: 60px;
+    
 }
 
 .navbar-collapse ul ul a
