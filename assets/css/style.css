@@ -434,9 +434,9 @@ position: relative;
 .booknow
 {
     position: fixed; 
-    top: 70%; 
+    top: 78%; 
     left : 10px; 
-    z-index: 9999;
+    z-index: 9;
     background-color: #ffdf00; 
     background-attachment: fixed;
     box-shadow: 1px 1px 1px #00000080,
@@ -445,15 +445,15 @@ position: relative;
     text-shadow: 0px 0px 71px #ffdf00,
                  0px 0px 72px #ffdf00,
                  0px 0px 73px #ffdf00,
-                 0px 0px 74px #ffdf00;
-                
+                 0px 0px 74px #ffdf00;              
     transform-style: preserve-3d;
-    animation: moveeff 3s linear infinite;
+    animation: moveeff 1s linear infinite;
 }
 @keyframes moveeff
 {
     from{
            filter: hue-rotate(0deg);
+
     }
     to{
         filter: hue-rotate(360deg);
