@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
     height: 100vh;
     background-repeat: no-repeat;
@@ -105,7 +105,7 @@ input[type='submit'] {
     border: none;
     border-radius: 10px;
     font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 input[type='submit'] {
