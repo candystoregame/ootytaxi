@@ -13,10 +13,6 @@ body {
     background-position: center;
 }
 
-#modal-open:hover {
-    background: #00d8ff;
-}
-
 #contact-modal {
     display: none;
     position: fixed;

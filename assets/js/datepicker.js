@@ -21,10 +21,10 @@ var DEFAULTS = {
   autoShow: false,
 
   // Hide the datepicker automatically when picked
-  autoHide: false,
+  autoHide: true,
 
   // Pick the initial date automatically when initialized
-  autoPick: false,
+  autoPick: true,
 
   // Enable inline mode
   inline: false,
@@ -1121,7 +1121,9 @@ var Datepicker = function () {
       this.oldValue = initialValue;
       date = this.parseDate(date || initialValue);
 
-      if (startDate) {
+      if (!startDate) {
+        //startDate = this.parseDate(startDate);
+        startDate = this.pick();
         startDate = this.parseDate(startDate);
 
         if (date.getTime() < startDate.getTime()) {

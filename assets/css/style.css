@@ -447,8 +447,8 @@ position: relative;
                  0px 0px 72px #ffdf00,
                  0px 0px 73px #ffdf00,
                  0px 0px 74px #ffdf00;              
-    transform-style: preserve-3d;
-    animation: moveeff 1s linear infinite;
+                 transition: all 0.5s ease-in-out 0s;
+    animation: moveeff 30ms linear infinite;
 }
 @keyframes moveeff
 {
@@ -459,6 +459,10 @@ position: relative;
     to{
         filter: hue-rotate(360deg);
     }
+}
+
+.booknow:hover {
+    transform: rotate(360deg); 
 }
 
 
