@@ -434,9 +434,10 @@ position: relative;
 .booknow
 {
     position: fixed; 
-    top: 78%; 
+    top: 80%; 
     left : 10px; 
     z-index: 9;
+    border-radius: 50px;
     background-color: #ffdf00; 
     background-attachment: fixed;
     box-shadow: 1px 1px 1px #00000080,
