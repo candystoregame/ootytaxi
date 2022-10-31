@@ -8,7 +8,5 @@ function myslider() {
 myIndex++;
 if (myIndex > x.length) { myIndex = 1}
 x[myIndex-1].style.display = "block";
-x[myIndex].style.display = "block";
-x[myIndex+1].style.display = "block";
 setTimeout(myslider, 5);
 }myslider();

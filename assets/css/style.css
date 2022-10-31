@@ -51,7 +51,7 @@ body{
 	color: #222222;
 	background: #fff;
 	font-family: 'Poppins', sans-serif;
-    max-width:1920px;
+    max-width:100%;
     margin:0 auto;
 	overflow-x:hidden;
 
@@ -467,7 +467,7 @@ position: relative;
     position: fixed; 
     top: 80%; 
     right: 10px; 
-    z-index: 9999; 
+    z-index: 9; 
     background-attachment: fixed;
    
 }

@@ -1,6 +1,6 @@
 let modal = document.getElementById('contact-modal'),
     openModal = document.getElementById('modal-open'),
-    closeModal = document.querySelector('.close-modal');
+    closeModal = document.querySelector('.close-button');
 
 openModal.addEventListener('click', function() {
     modal.style.display = 'block';
