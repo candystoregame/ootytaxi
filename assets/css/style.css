@@ -175,6 +175,12 @@ position: relative;
     bottom: 17.6px;
 }/*.sticky-wrapper */
 
+.planner-toparea {
+    position: absolute;
+    background: rgba(77,78,84,1);
+    width: 100%;
+}
+
 /*.logo*/
 .logo a, .logo a:hover, .logo a:focus{
     color: #fff;
