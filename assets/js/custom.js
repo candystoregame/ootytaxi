@@ -173,7 +173,7 @@ $(document).ready(function(){
                 scrollTop: $(anchor.attr('href')).offset().top - -1
             }, 1200,'easeInOutExpo');
         });
-        
+
         $('body').scrollspy({
             target:'.navbar-collapse',
             offset:0

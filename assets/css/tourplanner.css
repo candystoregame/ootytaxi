@@ -1,7 +1,6 @@
-/*Spliting*/
+/* /* /*Spliting*/
 /* Split the screen in half */
 .split {
-    height: 100vh;
     left : 28%;
     right :72%;
     position: fixed;
@@ -13,6 +12,7 @@
   /* Control the left side */
   .left {
     left: 0;
+    height: 100vh;
     background-color: #00d8ff;  
   }
   
@@ -30,9 +30,34 @@
   }
 
   .centered-planner ul li {
+    font-weight: 500;
     padding: 7px;
   }
 
   .centered-planner ul h3 {
     padding: 8px;
+    position: relative;
+  }
+
+  .centered-planner .tariff-planner h3::before {
+    content: "";
+    position: absolute;
+    left: 115px;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
+  }
+
+
+  .centered-planner .packages-planner h3::before {
+    content: "";
+    position: absolute;
+    left: 92px;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
   }
