@@ -12,8 +12,9 @@
   /* Control the left side */
   .left {
     left: 0;
+    display: flex;
     height: 100vh;
-    background-color: #00d8ff;  
+    background-color: #00d8ff;
   }
   
   /* Control the right side */
@@ -31,7 +32,7 @@
 
   .centered-planner ul li {
     font-weight: 500;
-    padding: 7px;
+    padding: 5px;
   }
 
   .centered-planner ul h3 {
@@ -60,4 +61,52 @@
     width: 30px;
     border-radius: 5px;
     background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
+  }
+
+  /* Side Pane buttons */
+
+  .btn-plan-style {
+    background-color: var(--background-color);
+    color: #222;
+    padding: 2px;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+
+    --background-color: #00d8ff;
+    --border-size: 2px;
+    --accent-color: black;
+  }
+
+  .btn-plan-style::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transition: transform 500ms ease-in-out;
+  
+    transform: scale(1.5);
+  }
+  
+  .btn-plan-style:hover::before,
+  .btn-plan-style:focus::before {
+    transform: scale(0);
+  }
+  
+  .btn-plan-style {
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    transition: color 100ms ease-in-out;
+  }
+  
+  .btn-plan-style:hover,
+  .btn-plan-style:focus {
+    color: white;
   }
