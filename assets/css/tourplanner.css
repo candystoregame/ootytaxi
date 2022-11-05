@@ -1,8 +1,8 @@
 /* /* /*Spliting*/
 /* Split the screen in half */
 .split {
-    left : 28%;
-    right :72%;
+    left : 20%;
+    right :80%;
     position: fixed;
     z-index: 1;
     top: 78px;
@@ -15,6 +15,7 @@
     display: flex;
     height: 100vh;
     background-color: #00d8ff;
+    justify-content: center;
   }
   
   /* Control the right side */
@@ -36,26 +37,26 @@
   }
 
   .centered-planner ul h3 {
-    padding: 8px;
+    padding: 7px;
     position: relative;
   }
 
   .centered-planner .tariff-planner h3::before {
     content: "";
     position: absolute;
-    left: 115px;
+    left: 40px;
     bottom: 0;
     height: 3px;
     width: 30px;
     border-radius: 5px;
-    background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
+    background: linear-gradient(135deg, #1a1b1b, #a9bbbe);
   }
 
 
   .centered-planner .packages-planner h3::before {
     content: "";
     position: absolute;
-    left: 92px;
+    left: 15px;
     bottom: 0;
     height: 3px;
     width: 30px;
@@ -63,7 +64,7 @@
     background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
   }
 
-  /* Side Pane buttons */
+  /* Side Pane buttons Start*/
 
   .btn-plan-style {
     background-color: var(--background-color);
@@ -103,10 +104,12 @@
     z-index: 1;
     overflow: hidden;
     background-color: var(--accent-color);
-    transition: color 100ms ease-in-out;
+    transition: color 70ms ease-in-out;
   }
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
     color: white;
   }
+
+  /* Side Pane buttons End*/
