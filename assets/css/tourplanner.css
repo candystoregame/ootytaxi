@@ -20,7 +20,7 @@
   grid-area: plan-midmenu;
   position: relative;
   height: auto;
-  background-color: black;
+  background-color: whitesmoke;
   justify-content: center;
 }
 
@@ -37,6 +37,12 @@
 }
 
 /* Planner's Grid End */
+
+.plan-btn-pane {
+  position: relative;
+  top: 0;
+  align-items: center;
+}
 
   .centered-planner {
     position: relative;
@@ -90,7 +96,7 @@
 
     --background-color: #00d8ff;
     --border-size: 2px;
-    --accent-color: black;
+    --accent-color: white;
   }
 
   .btn-plan-style::before {
@@ -121,6 +127,48 @@
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
-    color: white;
+    color: black;
   }
   /* Side Pane buttons End*/
+
+ /* Mid Pane buttons Start*/
+
+ .btn-plan-submenu {
+  background-color: var(--background-color);
+  color: #222;
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+ }
+
+ .btn-plan-submenu::before {
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  transition: transform 500ms ease-in-out;
+  transform: scale(1.5);
+}
+
+.btn-plan-submenu:hover::before,
+.btn-plan-submenu:focus::before {
+  transform: scale(0);
+}
+
+.btn-plan-submenu {
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--accent-color);
+  transition: color 70ms ease-in-out;
+}
+
+.btn-plan-submenu:hover,
+.btn-plan-submenu:focus {
+  color: black;
+}

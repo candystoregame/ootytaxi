@@ -215,7 +215,7 @@
 			<div class="centered-planner">
 				<ul class="tariff-planner">
 					<h3> OUR TARIFFS</h3>
-					<li><button class="btn-plan-style" value="1. Local Sightseeing (Hour Basis).xlsx" onclick="fetchElement(value)">Local Sightseeing(Hour Basis)</button></li>
+					<li><button class="btn-plan-style" value="Local Sightseeing (Hour Basis).xlsx" onclick="fetchElement(value)">Local Sightseeing(Hour Basis)</button></li>
 					<li><button class="btn-plan-style" value="2. Dropping Duty (Fixed).xlsx" onclick="fetchElement(value)">Dropping Duty(Fixed)</button></li>
 					<li><button class="btn-plan-style" value="3. Out Station Duty (KM Basis).xlsx" onclick="fetchElement(value)">Out Station Duty(KM Basis)</button></li>
 					<li><button class="btn-plan-style" value="4. Dropping Duty (KM Basis).xlsx" onclick="fetchElement(value)">Dropping Duty(KM Basis)</button></li>
@@ -345,6 +345,11 @@
 	<!-- footer-copyright end -->
 	<script src="assets/js/jquery.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!--Including ExcelJS Library-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" 
+    integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
     <!--plannerna.js-->
 		<script src="assets/js/plannernav.js"></script>
 	<!--modernizr.min.js-->
