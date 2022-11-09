@@ -8,6 +8,7 @@ function fetchMidMenu(fileName)
   fName = './assets/dataFiles/' + fileName;
   console.log(fileName);
   let tablecon = document.querySelector('.plan-midmenu');
+  tablecon.innerHTML='';
     (
       async() => {
         var text;
@@ -18,10 +19,11 @@ function fetchMidMenu(fileName)
         for (var key in html) {
             for (var header in html[key]) {
                 text = html[key][header];
-                console.log(text);
+                //console.log(text);
                 var _button = document.createElement("button");
                 _button.classList.add("btn-plan-submenu");
                 _button.value = text;
+                _button.type = 'button';
                 _button.onclick = function() { alert(this.value); };
                 _button.innerHTML = text;
             }
