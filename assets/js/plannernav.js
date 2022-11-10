@@ -6,7 +6,7 @@ function fetchMidMenu(fileName)
 {
   let newDiv = document.createElement("div");
   fName = './assets/dataFiles/' + fileName;
-  console.log(fileName);
+  //console.log(fileName);
   let tablecon = document.querySelector('.plan-midmenu');
   tablecon.innerHTML='';
     (
@@ -15,11 +15,11 @@ function fetchMidMenu(fileName)
         let workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
         let worksheet = workbook.SheetNames;
         let html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
-        console.log(html);
+        //console.log(html);
         for (let key in html) {
           for (let header in html[key]) {
             text = html[key][header];
-            console.log(header);
+            //console.log(header);
             token = header;
             _button = document.createElement("button");
             _button.type = 'button';

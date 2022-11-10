@@ -40,6 +40,8 @@
 
 /* Planner's Grid End */
 
+/* Side Pane buttons  and h3 tag Start*/
+
   .centered-planner {
     position: relative;
     top: 0;
@@ -66,8 +68,6 @@
     border-radius: 5px;
     background: linear-gradient(135deg, #1a1b1b, #a9bbbe);
   }
-
-  /* Side Pane buttons Start*/
 
   .btn-plan-style {
     background-color: var(--background-color);
@@ -109,7 +109,8 @@
   .btn-plan-style:focus {
     color: black;
   }
-  /* Side Pane buttons End*/
+
+/* Side Pane buttons  and h3 tag End*/
 
  /* Mid Pane buttons Start*/
 
@@ -138,7 +139,6 @@
   border-radius: 5px;
   background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
 }
-
 
 .btn-plan-submenu {
   position: relative;
@@ -180,6 +180,4 @@
   color: black;
 }
 
-
 /* Mid Pane buttons End*/
-
