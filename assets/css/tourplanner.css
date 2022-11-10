@@ -7,10 +7,13 @@
                        "plan-footer plan-footer plan-footer";
   --delta: 22%;
   --background-color: #00d8ff;
+  --border-size: 2px;
+  --accent-color: white;
 }
 
 .plan-sidebar {
   grid-area: plan-sidebar;
+  display: flex;
   position: relative;
   height: auto;
   background-color: var(--background-color);
@@ -20,6 +23,7 @@
 .plan-midmenu {
   grid-area: plan-midmenu;
   background-color: var(--background-color);
+  padding: 75px 0 0;
 }
 
 .plan-rightcontent {
@@ -47,12 +51,12 @@
     padding: 6px;
   }
 
-  .centered-planner ul h3 {
+  .centered-planner h3 {
     position: relative;
     padding: 3px;
   }
 
-  .centered-planner .tariff-planner h3::before {
+  .centered-planner h3::before {
     content: "";
     position: absolute;
     left: var(--delta)+3;
@@ -61,18 +65,6 @@
     width: 30px;
     border-radius: 5px;
     background: linear-gradient(135deg, #1a1b1b, #a9bbbe);
-  }
-
-
-  .centered-planner .packages-planner h3::before {
-    content: "";
-    position: absolute;
-    left: var(--delta)-3;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
   }
 
   /* Side Pane buttons Start*/
@@ -85,10 +77,6 @@
     outline: none;
     position: relative;
     cursor: pointer;
-
-    --background-color: #00d8ff;
-    --border-size: 2px;
-    --accent-color: white;
   }
 
   .btn-plan-style::before {
@@ -127,28 +115,41 @@
 
  .plan-btn-pane {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   position: relative;
-  justify-content: space-around;
+  font-weight: 500;
+  justify-content: center;
   align-items: center;
-  background: no-repeat;
-  border-color: #1a1b1b;
+  gap: 15px ;
+}
+
+.plan-btn-pane h3 {
+  position: relative;
+  padding: 3px;
+}
+
+.plan-btn-pane h3::before {
+  content: "";
+  position: absolute;
+  left: var(--delta)+3;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
 }
 
 
-button .btn-plan-submenu {
-  position: absolute;
-  background-color: var(--background-color);
+.btn-plan-submenu {
+  position: relative;
   color: #222;
-  padding: 10px;
+  padding: 2px;
   border: none;
   outline: none;
   cursor: pointer;
-  /*display: block;*/
  }
 
- .plan-btn-pane button .btn-plan-submenu::after {
+ .btn-plan-submenu::before {
   content: '';
   top: 0;
   left: 0;
@@ -162,20 +163,20 @@ button .btn-plan-submenu {
   transform: scale(1.5);
 }
 
-.plan-btn-pane button .btn-plan-submenu:hover::after,
-.plan-btn-pane button .btn-plan-submenu:focus::after {
+.btn-plan-submenu:hover::before,
+.btn-plan-submenu:focus::before {
   transform: scale(0);
 }
 
-.plan-btn-pane button .btn-plan-submenu {
+.btn-plan-submenu {
   z-index: 1;
   overflow: hidden;
   background-color: var(--accent-color);
   transition: color 70ms ease-in-out;
 }
 
-.plan-btn-pane button .btn-plan-submenu:hover,
-.plan-btn-pane button .btn-plan-submenu:focus {
+.btn-plan-submenu:hover,
+.btn-plan-submenu:focus {
   color: black;
 }
 
