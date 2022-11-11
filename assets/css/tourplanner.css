@@ -16,21 +16,21 @@
   display: flex;
   position: relative;
   height: auto;
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
   justify-content: center;
 }
 
 .plan-midmenu {
   grid-area: plan-midmenu;
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
   padding: 75px 0 0;
 }
 
 .plan-rightcontent {
   grid-area: plan-rightcontent;
+  padding: 75px 20px 0;
   position: relative;
-  height: auto;
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
   justify-content: center;
 }
 
@@ -181,3 +181,63 @@
 }
 
 /* Mid Pane buttons End*/
+
+/* Start of Rightcontent */
+
+.pln-tbl-content,
+.pln-tbl-content th,
+.pln-tbl-content td {
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-size: 0.9em;
+    font-weight: bold;
+    width: 750px;
+}
+
+.pln-tbl-content th,
+.pln-tbl-content td {
+    padding: 2px 5px;
+    text-align: center;
+}
+
+.pln-tbl-content th {
+    font-size: large;
+    background-color: var(--background-color);
+}
+
+.pln-tbl-content tr:nth-child(2) {
+
+    font-size: medium;
+    color: var(--background-color);
+    background-color: black;
+}
+
+.pln-tbl-content tr:nth-child(3) {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.pln-tbl-content tr:nth-child(3) td:nth-child(7) {
+    font-weight: bold;
+    background-color: var(--background-color);
+    border-radius: 2px;
+    /*animation: shake .3s infinite;*/
+}
+.pln-tablebook {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    height: 20px;
+    width: 100%;
+    border-radius: 2px;
+}
+/* @keyframes shake {
+    0%{transform: translateX(3px);}
+    25%{transform: translateX(-3px);}
+    50%{transform: translateX(3px);}
+    75%{transform: translateX(-3px);}
+    100%{transform: translateX(3px);}
+} */
+
+/* End of Rightcontent */
