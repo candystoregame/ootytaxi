@@ -219,7 +219,7 @@
 
 .pln-tbl-content tr:nth-child(3) td:nth-child(7) {
     font-weight: bold;
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
     border-radius: 2px;
     /*animation: shake .3s infinite;*/
 }
@@ -232,12 +232,18 @@
     width: 100%;
     border-radius: 2px;
 }
-/* @keyframes shake {
-    0%{transform: translateX(3px);}
-    25%{transform: translateX(-3px);}
-    50%{transform: translateX(3px);}
-    75%{transform: translateX(-3px);}
-    100%{transform: translateX(3px);}
-} */
+
+.pln-shake {
+  font-weight: 2000;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  animation: shake .3s infinite;
+}
+
+@keyframes shake {
+    25%{transform: translateY(4px);}
+    50%{transform: translateY(-4px);}
+    75%{transform: translateY(4px);}
+}
 
 /* End of Rightcontent */
