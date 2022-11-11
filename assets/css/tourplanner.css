@@ -70,8 +70,8 @@
   }
 
   .btn-plan-style {
-    background-color: var(--background-color);
-    color: #222;
+    background-color: #222;
+    color: black;
     padding: 2px;
     border: none;
     outline: none;
@@ -87,7 +87,7 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
     border-radius: 50%;
     transition: transform 500ms ease-in-out;
     transform: scale(1.5);
@@ -101,7 +101,7 @@
   .btn-plan-style {
     z-index: 1;
     overflow: hidden;
-    background-color: var(--accent-color);
+    background-color: var(--background-color);
     transition: color 70ms ease-in-out;
   }
   
@@ -157,7 +157,7 @@
   bottom: 0;
   position: absolute;
   z-index: -1;
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
   border-radius: 50%;
   transition: transform 500ms ease-in-out;
   transform: scale(1.5);
@@ -171,7 +171,7 @@
 .btn-plan-submenu {
   z-index: 1;
   overflow: hidden;
-  background-color: var(--accent-color);
+  background-color: var(--background-color);
   transition: color 70ms ease-in-out;
 }
 
