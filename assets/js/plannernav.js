@@ -1,4 +1,5 @@
 function fetchElement(value) {
+  //alert(value);
   fetchMidMenu(value);
 }
 

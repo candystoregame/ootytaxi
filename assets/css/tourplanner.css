@@ -1,14 +1,22 @@
+/* Variables Declaration */
+* {
+--delta: 22%;
+--background-color: #00d8ff;
+--border-size: 2px;
+--border-radius: 2px;
+--accent-color: white;
+--menu-background-color: #222222;
+}
+
 /* Planner's Grid Start */
+
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
   grid-template-columns: var(--delta) auto 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
+                       "plan-notesection plan-notesection plan-notesection"
                        "plan-footer plan-footer plan-footer";
-  --delta: 22%;
-  --background-color: #00d8ff;
-  --border-size: 2px;
-  --accent-color: white;
 }
 
 .plan-sidebar {
@@ -32,6 +40,10 @@
   position: relative;
   background-color: var(--accent-color);
   justify-content: center;
+}
+
+.plan-notesection {
+  grid-area: plan-notesection;
 }
 
 .plan-footer {
@@ -70,8 +82,8 @@
   }
 
   .btn-plan-style {
-    background-color: #222;
-    color: black;
+    background-color: var(--menu-background-color);
+    color: var(--menu-background-color);
     padding: 2px;
     border: none;
     outline: none;
@@ -107,7 +119,7 @@
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
-    color: black;
+    color: var(--menu-background-color);
   }
 
 /* Side Pane buttons  and h3 tag End*/
@@ -142,7 +154,7 @@
 
 .btn-plan-submenu {
   position: relative;
-  color: #222;
+  color: var(--menu-background-color);
   padding: 2px;
   border: none;
   outline: none;
@@ -177,7 +189,7 @@
 
 .btn-plan-submenu:hover,
 .btn-plan-submenu:focus {
-  color: black;
+  color: var(--menu-background-color);
 }
 
 /* Mid Pane buttons End*/
@@ -188,7 +200,7 @@
 .pln-tbl-content th,
 .pln-tbl-content td {
     border-collapse: collapse;
-    border: 2px solid black;
+    border: var(--border-size) solid var(--menu-background-color);
     font-size: 0.9em;
     font-weight: bold;
     width: 750px;
@@ -209,7 +221,7 @@
 
     font-size: medium;
     color: var(--background-color);
-    background-color: black;
+    background-color: var(--menu-background-color);
 }
 
 .pln-tbl-content tr:nth-child(3) {
@@ -220,23 +232,23 @@
 .pln-tbl-content tr:nth-child(3) td:nth-child(7) {
     font-weight: bold;
     background-color: var(--accent-color);
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     /*animation: shake .3s infinite;*/
 }
 .pln-tablebook {
     display: flex;
     justify-content: center;
     text-align: center;
-    color: black;
+    color: var(--menu-background-color);
     height: 20px;
     width: 100%;
-    border-radius: 2px;
+    border-radius: var(--border-radius);
 }
 
 .pln-shake {
   font-weight: 2000;
   background-color: var(--accent-color);
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   animation: shake .3s infinite;
 }
 
