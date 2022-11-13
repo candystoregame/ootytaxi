@@ -4,8 +4,8 @@
 --background-color: #00d8ff;
 --border-size: 2px;
 --border-radius: 2px;
---accent-color: white;
---menu-background-color: #222222;
+--accent-color: black; /*white*/
+--menu-background-color: #d4af37; /*#222222*/
 }
 
 /* Planner's Grid Start */
@@ -210,17 +210,19 @@
 .pln-tbl-content td {
     padding: 2px 5px;
     text-align: center;
+    color: whitesmoke;
 }
 
 .pln-tbl-content th {
     font-size: large;
-    background-color: var(--background-color);
+    color: whitesmoke;
+    background-color: black;
 }
 
 .pln-tbl-content tr:nth-child(2) {
 
     font-size: medium;
-    color: var(--background-color);
+    color: black;
     background-color: var(--menu-background-color);
 }
 
@@ -239,7 +241,8 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    color: var(--menu-background-color);
+    color: black;
+    background-color: whitesmoke;
     height: 20px;
     width: 100%;
     border-radius: var(--border-radius);
