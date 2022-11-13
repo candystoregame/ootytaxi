@@ -1,11 +1,12 @@
 /* Variables Declaration */
 * {
 --delta: 22%;
---background-color: #00d8ff;
---border-size: 2px;
---border-radius: 2px;
+--theme-blue-color: #00d8ff;
+--font-hover-color: whitesmoke;
+--font-plain-color: #d4af37;
+--border-size-offset: 2px;
 --accent-color: black; /*white*/
---menu-background-color: #d4af37; /*#222222*/
+--hover-background-color: #d4af37; /*#222222*/
 }
 
 /* Planner's Grid Start */
@@ -31,12 +32,11 @@
 .plan-midmenu {
   grid-area: plan-midmenu;
   background-color: var(--accent-color);
-  padding: 75px 0 0;
+  padding-bottom: 1rem;
 }
 
 .plan-rightcontent {
   grid-area: plan-rightcontent;
-  padding: 75px 20px 0;
   position: relative;
   background-color: var(--accent-color);
   justify-content: center;
@@ -82,9 +82,9 @@
   }
 
   .btn-plan-style {
-    background-color: var(--menu-background-color);
-    color: var(--menu-background-color);
-    padding: 2px;
+    background-color: var(--hover-background-color);
+    color: var(--font-plain-color);
+    padding: var(--border-size-offset);
     border: none;
     outline: none;
     position: relative;
@@ -113,13 +113,13 @@
   .btn-plan-style {
     z-index: 1;
     overflow: hidden;
-    background-color: var(--background-color);
+    background-color: whitesmoke;
     transition: color 70ms ease-in-out;
   }
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
-    color: var(--menu-background-color);
+    color: var(--font-plain-color);
   }
 
 /* Side Pane buttons  and h3 tag End*/
@@ -128,6 +128,9 @@
 
  .plan-btn-pane {
   display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   position: relative;
   font-weight: 500;
@@ -153,21 +156,22 @@
 }
 
 .btn-plan-submenu {
-  position: relative;
-  color: var(--menu-background-color);
-  padding: 2px;
+  background-color: var(--hover-background-color);
+  color: var(--font-plain-color);
+  padding: var(--border-size-offset);
   border: none;
   outline: none;
+  position: relative;
   cursor: pointer;
  }
 
  .btn-plan-submenu::before {
   content: '';
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  position: absolute;
   z-index: -1;
   background-color: var(--accent-color);
   border-radius: 50%;
@@ -183,24 +187,31 @@
 .btn-plan-submenu {
   z-index: 1;
   overflow: hidden;
-  background-color: var(--background-color);
+  background-color: whitesmoke;
   transition: color 70ms ease-in-out;
 }
 
 .btn-plan-submenu:hover,
 .btn-plan-submenu:focus {
-  color: var(--menu-background-color);
+  color: var(--font-plain-color);
 }
 
 /* Mid Pane buttons End*/
 
 /* Start of Rightcontent */
 
+.pln-tbl-content {
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
 .pln-tbl-content,
 .pln-tbl-content th,
 .pln-tbl-content td {
     border-collapse: collapse;
-    border: var(--border-size) solid var(--menu-background-color);
+    border: var(--border-size-offset) solid var(--hover-background-color);
     font-size: 0.9em;
     font-weight: bold;
     width: 750px;
@@ -208,7 +219,7 @@
 
 .pln-tbl-content th,
 .pln-tbl-content td {
-    padding: 2px 5px;
+    padding: var(--border-size-offset) 5px;
     text-align: center;
     color: whitesmoke;
 }
@@ -223,7 +234,7 @@
 
     font-size: medium;
     color: black;
-    background-color: var(--menu-background-color);
+    background-color: var(--hover-background-color);
 }
 
 .pln-tbl-content tr:nth-child(3) {
@@ -252,10 +263,12 @@
   font-weight: 2000;
   background-color: var(--accent-color);
   border-radius: var(--border-radius);
-  animation: shake .3s infinite;
+  animation: shake .3s;
+  animation-delay: 0s;
 }
 
 @keyframes shake {
+
     25%{transform: translateY(4px);}
     50%{transform: translateY(-4px);}
     75%{transform: translateY(4px);}

@@ -63,7 +63,7 @@ function fetchTable (fetchMidMenu, sheetName) {
                     table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
                 }
                 else if(row == 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<td colspan="7">'+sheet_data[row][cell]+'<a class = "pln-shake">&darr;</a></td>';
+                  table_output += '<td colspan="7">'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
               }
                 else if (row > 2 && cell == sheet_data[row].length-1) {
                     table_output += '<td><button title = "Click Book Now" type="button" class = "pln-tablebook">'+sheet_data[row][cell]+'</button></td>';
