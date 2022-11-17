@@ -41,9 +41,17 @@ function fetchMidMenu(fileName)
     return fName;
 }
 
+function bookdetails(lavi) {
+  let bclass = document.getElementById(lavi);
+  let pplan = bclass.getAttribute("pplan");
+  let vehicle = bclass.getAttribute("vehicle");
+  alert(pplan+vehicle)
+}
+
 function fetchTable (fetchMidMenu, sheetName) {
   const tableContent = document.querySelector('.plan-rightcontent');
   const fName = fetchMidMenu;
+  let plname, veh, freekm, freehrs, xhr, xkm, pamount;
   tableContent.innerHTML='';
   (
     async() => {
@@ -63,13 +71,40 @@ function fetchTable (fetchMidMenu, sheetName) {
                     table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
                 }
                 else if(row == 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<td colspan="7">'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
-              }
+                  table_output += '<td>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
+                }
                 else if (row > 2 && cell == sheet_data[row].length-1) {
-                    table_output += '<td><button title = "Click Book Now" type="button" class = "pln-tablebook">'+sheet_data[row][cell]+'</button></td>';
+                  table_output += '<td><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
                 }
                 else {
                     table_output += '<td>'+sheet_data[row][cell]+'</td>';
+                    if(row == 2) { 
+                      if (sheet_data[row][cell].search("VEHICLES") == 0) {
+                        veh=cell;
+                        console.log(veh);
+                      }
+                      if (sheet_data[row][cell].search("HRS") == 0) {
+                        freehrs=cell;
+                        console.log(freehrs);
+                      }
+                      if (sheet_data[row][cell].search("FREE KMS") == 0) {
+                        freekm=cell;
+                        console.log(freekm);
+                      }
+                      if (sheet_data[row][cell].search("Extra Hrs.") == 14) {
+                        xhr=cell;
+                        console.log(xhr);
+                      }
+                      if (sheet_data[row][cell].search("After Free KMs") == 14) {
+                        xkm=cell;
+                        console.log(xkm);
+                      }
+                      if (sheet_data[row][cell].search("AMOUNT") == 0) {
+                        pamount=cell;
+                        console.log(pamount);
+                      }
+                      console.log(sheet_data[0][0]);
+                    }
                 }
             }
             table_output += '</tr>';
