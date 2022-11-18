@@ -1,0 +1,277 @@
+/* Variables Declaration */
+* {
+--delta: 22%;
+--theme-blue-color: #00d8ff;
+--font-hover-color: whitesmoke;
+--font-plain-color: #d4af37;
+--border-size-offset: 2px;
+--accent-color: black; /*white*/
+--hover-background-color: #d4af37; /*#222222*/
+}
+
+/* Planner's Grid Start */
+
+.plan-grid {
+  display: grid;
+  padding: 78px 0 0;
+  grid-template-columns: var(--delta) auto 1fr;
+  grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
+                       "plan-notesection plan-notesection plan-notesection"
+                       "plan-footer plan-footer plan-footer";
+}
+
+.plan-sidebar {
+  grid-area: plan-sidebar;
+  display: flex;
+  position: relative;
+  height: auto;
+  background-color: var(--accent-color);
+  justify-content: center;
+}
+
+.plan-midmenu {
+  grid-area: plan-midmenu;
+  background-color: var(--accent-color);
+  padding-bottom: 1rem;
+}
+
+.plan-rightcontent {
+  grid-area: plan-rightcontent;
+  position: relative;
+  background-color: var(--accent-color);
+  justify-content: center;
+}
+
+.plan-notesection {
+  grid-area: plan-notesection;
+}
+
+.plan-footer {
+  grid-area: plan-footer;
+}
+
+/* Planner's Grid End */
+
+/* Side Pane buttons  and h3 tag Start*/
+
+  .centered-planner {
+    position: relative;
+    top: 0;
+    text-align: center;
+  }
+
+  .centered-planner ul li {
+    font-weight: 500;
+    padding: 6px;
+  }
+
+  .centered-planner h3 {
+    position: relative;
+    padding: 3px;
+  }
+
+  .centered-planner h3::before {
+    content: "";
+    position: absolute;
+    left: var(--delta)+3;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #1a1b1b, #a9bbbe);
+  }
+
+  .btn-plan-style {
+    background-color: var(--hover-background-color);
+    color: var(--font-plain-color);
+    padding: var(--border-size-offset);
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .btn-plan-style::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    transition: transform 500ms ease-in-out;
+    transform: scale(1.5);
+  }
+  
+  .btn-plan-style:hover::before,
+  .btn-plan-style:focus::before {
+    transform: scale(0);
+  }
+  
+  .btn-plan-style {
+    z-index: 1;
+    overflow: hidden;
+    background-color: whitesmoke;
+    transition: color 70ms ease-in-out;
+  }
+  
+  .btn-plan-style:hover,
+  .btn-plan-style:focus {
+    color: var(--font-plain-color);
+  }
+
+/* Side Pane buttons  and h3 tag End*/
+
+ /* Mid Pane buttons Start*/
+
+ .plan-btn-pane {
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  position: relative;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  gap: 15px ;
+}
+
+.plan-btn-pane h3 {
+  position: relative;
+  padding: 3px;
+}
+
+.plan-btn-pane h3::before {
+  content: "";
+  position: absolute;
+  left: var(--delta)+3;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #a9bbbe, #1a1b1b);
+}
+
+.btn-plan-submenu {
+  background-color: var(--hover-background-color);
+  color: var(--font-plain-color);
+  padding: var(--border-size-offset);
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+ }
+
+ .btn-plan-submenu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  transition: transform 500ms ease-in-out;
+  transform: scale(1.5);
+}
+
+.btn-plan-submenu:hover::before,
+.btn-plan-submenu:focus::before {
+  transform: scale(0);
+}
+
+.btn-plan-submenu {
+  z-index: 1;
+  overflow: hidden;
+  background-color: whitesmoke;
+  transition: color 70ms ease-in-out;
+}
+
+.btn-plan-submenu:hover,
+.btn-plan-submenu:focus {
+  color: var(--font-plain-color);
+}
+
+/* Mid Pane buttons End*/
+
+/* Start of Rightcontent */
+
+.pln-tbl-content {
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.pln-tbl-content,
+.pln-tbl-content th,
+.pln-tbl-content td {
+    border-collapse: collapse;
+    border: var(--border-size-offset) solid var(--hover-background-color);
+    font-size: 0.9em;
+    font-weight: bold;
+    width: 750px;
+}
+
+.pln-tbl-content th,
+.pln-tbl-content td {
+    padding: var(--border-size-offset) 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.pln-tbl-content th {
+    font-size: large;
+    color: whitesmoke;
+    background-color: black;
+}
+
+.pln-tbl-content tr:nth-child(2) {
+
+    font-size: medium;
+    color: black;
+    background-color: var(--hover-background-color);
+}
+
+.pln-tbl-content tr:nth-child(3) {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.pln-tbl-content tr:nth-child(3) td:nth-child(7) {
+    font-weight: bold;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    /*animation: shake .3s infinite;*/
+}
+.pln-tablebook {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    background-color: whitesmoke;
+    height: 20px;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.pln-shake {
+  font-weight: 2000;
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  animation: shake .3s;
+  animation-delay: 0s;
+}
+
+@keyframes shake {
+
+    25%{transform: translateY(4px);}
+    50%{transform: translateY(-4px);}
+    75%{transform: translateY(4px);}
+}
+
+/* End of Rightcontent */
