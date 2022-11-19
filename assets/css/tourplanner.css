@@ -9,6 +9,7 @@
 --hover-background-color: #d4af37; /*#222222*/
 }
 
+
 /* Planner's Grid Start */
 
 .plan-grid {
@@ -205,6 +206,7 @@
 .pln-tbl-content {
   top: 50%;
   left: 50%;
+  border-style: inset;
   position: relative;
   transform: translate(-50%, -50%);
 }
@@ -248,7 +250,6 @@
     font-weight: bold;
     background-color: var(--accent-color);
     border-radius: var(--border-radius);
-    /*animation: shake .3s infinite;*/
 }
 .pln-tablebook {
     display: flex;

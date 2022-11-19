@@ -15,7 +15,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
 		rel="stylesheet">
 
-	<!-- TITLE OF SITE -->
+			
+		<!-- TITLE OF SITE -->
 	<title>Ooty Taxi</title>
 
 	<!-- favicon img -->
@@ -218,7 +219,13 @@
       </div>
       <div class = "booknow-grid">
         <div class="booknow-leftpane">
-          <div class="left-plan-select"></div>
+          <div class="left-plan-select">
+			<p>Plan Selected: Ooty Planned From Jupiter</p>
+			<p>Plan Selected: Ooty Planned From Jupiter</p>
+			<p>Plan Selected: Ooty Planned From Jupiter</p>
+			<p>Plan Selected: Ooty Planned From Jupiter</p>
+			<p>Plan Selected: Ooty Planned From Jupiter</p>
+		  </div>
         </div>
         <div id="pop-pln-body">
           <form action="#">
@@ -275,11 +282,11 @@
             </div>
             <div id = "plandatelabel" class="pln-pop-forms-group">
               <label for="Pickup">Pickup Date</label>
-              <input type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY">
+              <input type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY" required>
             </div>
             <div class="pln-pop-forms-group">
               <label for="message">Pickup Address</label>
-              <textarea id="message" rows="4" placeholder="Enter Your Pickup Address" required></textarea>
+              <textarea id="message" rows="5" placeholder="Enter Your Pickup Address" required></textarea>
             </div>
             <div class="pln-contact-channel">
               <input type="radio" name="channel" id="plan-dot-1">
@@ -289,15 +296,15 @@
               <div class="pln-category">
                 <label for="plan-dot-1">
                   <span class="dot one"></span>
-                  <span class="channel">Phone</span>
+                  <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
                 </label>
                 <label for="plan-dot-2">
                   <span class="dot two"></span>
-                  <span class="channel">Email</span>
+                  <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
                 </label>
                 <label for="plan-dot-3">
                   <span class="dot three"></span>
-                  <span class="channel">WhatsApp</span>
+                  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
                 </label>
               </div>
             </div>
