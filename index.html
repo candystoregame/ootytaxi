@@ -154,19 +154,19 @@
 					<div class="user-details">
 					  <div class="input-box">
 						<span class="details">First Name</span>
-						<input type="text" placeholder="Enter your First Name" required>
+						<input type="text" id="fname" placeholder="Enter your First Name" required>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Last Name</span>
-						<input type="text" placeholder="Enter your Last Name" required>
+						<input type="text" id="lname" placeholder="Enter your Last Name" required>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Email</span>
-						<input type="text" placeholder="Enter your email" required>
+						<input type="text" id="mail" placeholder="Enter your email" required>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Phone Number</span>
-						<input type="text" placeholder="Enter your number" required>
+						<input type="text" id="phone" placeholder="Enter your number" required>
 					  </div>
 					</div>
 					<div class="input-box">
@@ -1194,7 +1194,85 @@
 		<!--Custom JS-->
 		<script src="assets/js/custom.js"></script>
 
+			
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script type="text/javascript">
+		emailjs.init('TlCzdwwNr71E2Ixgk')
+	  </script>
+
+	<script>
+		function whatsapp(){
+		var fname = document.getElementById('fname').value;
+		var lname = document.getElementById('lname').value;
+		var mail = document.getElementById('mail').value;
+		var phone = document.getElementById('phone').value;
+		var message = document.getElementById('message').value;
+
+		var url = "https://wa.me/919743096772?text="
+		+"First Name: "+fname+"%0a"
+		+"Last Name: "+lname+"%0a"
+		+"Email: "+mail+"%0a"
+		+"Phone: "+phone+"%0a"
+		+"Message: "+message ;
+		window.open(url,'_blank').focus();
+		}
+		function validate(){
+		  let fname = document.getElementById("fname");
+		  let lname = document.getElementById("lname");
+		  let email = document.getElementById("mail");
+		  let message = document.getElementById("message");
+		  let submit = document.getElementById("submit");
+		  let dot;
+		  var markedCheckbox = document.getElementsByName("check1");
+  
+		  submit.addEventListener("click", (e)=>{
+			e.preventDefault();
+			for (var checkbox of markedCheckbox){
+			if(checkbox.checked){
+			  dot = checkbox.value;
+			}
+		  }
+  
+			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+			  inputEmpty();
+			} else {
+			  sendMail(dot, fname.value, lname.value, email.value, message.value);
+			  success();
+			  console.log("email sent");
+			}
+		  });
+		}
+		validate();
+		whatsapp();
+  
+		function sendMail(dot, name, email, message) {
+		  emailjs.send('service_b741cig', 'template_7v3m2xr', {
+			dot : dot,
+			fname: fname,
+			lname: lname,
+			email : email,
+			message: message,
+		  });
+		}
+  
+		function success() {
+		  swal({
+			title: "Thank you!",
+			text: "we'll get back to you soon",
+			icon: "success",
+		  });
+		}
+		function inputEmpty() {
+		  swal({
+			title: "Oops...!",
+			text: "Input fields are required!",
+			icon: "error",
+		  });
+		}
+	  </script>
 </body>
 
 </html>
