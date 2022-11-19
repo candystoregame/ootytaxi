@@ -209,6 +209,109 @@
 			<img title="Open WhatsApp" src="assets/logo/whatsapp.png" width="50" height="45"></a>
 	</div>
 
+<!--Planner Book Now Start-->
+<div id="contact-pln-pop" class="popplnmodal">
+    <div id="pln-pop-content">
+      <div id="pln-pop-header">
+        <div class="title">Book Now</div>
+        <button data-close-button class="close-pln-pop">&times;</button>
+      </div>
+      <div class = "booknow-grid">
+        <div class="booknow-leftpane">
+          <div class="left-plan-select"></div>
+        </div>
+        <div id="pop-pln-body">
+          <form action="#">
+            <div class="pln-pop-user-details">
+              <div class="pln-pop-forms-group">
+                <span class="details">First Name</span>
+                <input type="text" placeholder="Enter your First Name" required>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Last Name</span>
+                <input type="text" placeholder="Enter your Last Name" required>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Email</span>
+                <input type="email" placeholder="Enter your email" required>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Phone Number</span>
+                <input type="text" placeholder="Enter your number" required>
+              </div>
+              <div class="pln-pop-forms-group">
+                <label for="Adults">Adults:</label>
+                <select name="Adults" id="Adults" required>
+                  <option value="">Select</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="pln-pop-forms-group">
+                <label for="child">Children:</label>
+                <select name="child" id="child" required>
+                  <option value="">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+            </div>
+            <div id = "plandatelabel" class="pln-pop-forms-group">
+              <label for="Pickup">Pickup Date</label>
+              <input type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY">
+            </div>
+            <div class="pln-pop-forms-group">
+              <label for="message">Pickup Address</label>
+              <textarea id="message" rows="4" placeholder="Enter Your Pickup Address" required></textarea>
+            </div>
+            <div class="pln-contact-channel">
+              <input type="radio" name="channel" id="plan-dot-1">
+              <input type="radio" name="channel" id="plan-dot-2">
+              <input type="radio" name="channel" id="plan-dot-3">
+              <span class="channel-title">Preferred channel to reach you:</span>
+              <div class="pln-category">
+                <label for="plan-dot-1">
+                  <span class="dot one"></span>
+                  <span class="channel">Phone</span>
+                </label>
+                <label for="plan-dot-2">
+                  <span class="dot two"></span>
+                  <span class="channel">Email</span>
+                </label>
+                <label for="plan-dot-3">
+                  <span class="dot three"></span>
+                  <span class="channel">WhatsApp</span>
+                </label>
+              </div>
+            </div>
+            <div class="pln-book-button">
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Planner Book Now End-->
+
 
 	<!--Grid Planner Start-->
 	<div class="plan-grid">
@@ -225,14 +328,14 @@
 				</ul>
 				<h3>TOUR PACKAGES</h3>
 				<ul class="packages-planner">
-					<li><button class="btn-plan-style">One Day Tour Packages</button></li>
-					<li><button class="btn-plan-style">Two Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Three Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Four Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Five Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Six Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Seven Days Tour Packages</button></li>
-					<li><button class="btn-plan-style">Honey Moon Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="One Day Tour Packages.xlsx" onclick="fetchElement(value);">One Day Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Two Days Tour Packages.xlsx" onclick="fetchElement(value);">Two Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Three Days Tour Packages.xlsx" onclick="fetchElement(value);">Three Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Four Days Tour Packages.xlsx" onclick="fetchElement(value);">Four Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Five Days Tour Packages.xlsx" onclick="fetchElement(value);">Five Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Six Days Tour Packages.xlsx" onclick="fetchElement(value);">Six Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Seven Days Tour Packages.xlsx" onclick="fetchElement(value);">Seven Days Tour Packages</button></li>
+					<li><button class="btn-plan-style" value="Honeymoon Tour Packages.xlsx" onclick="fetchElement(value);">Honey Moon Tour Packages</button></li>
 				</ul>
 			</div>
 		</div>

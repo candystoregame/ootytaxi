@@ -68,6 +68,7 @@
   .centered-planner h3 {
     position: relative;
     padding: 3px;
+    color: whitesmoke;
   }
 
   .centered-planner h3::before {
@@ -142,6 +143,7 @@
 .plan-btn-pane h3 {
   position: relative;
   padding: 3px;
+  color: whitesmoke;
 }
 
 .plan-btn-pane h3::before {

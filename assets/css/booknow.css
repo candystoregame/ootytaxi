@@ -32,7 +32,7 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     margin: 15px auto;
     width: 50%;
-    box-shadow: 4px, 4px, 5px rgba(0, 0, 0, 0.25);
+    /*box-shadow: 4px, 4px, 5px rgba(0, 0, 0, 0.25);*/
     animation-name: modalSlideUp;
     animation-duration: 1s;
 }
@@ -215,6 +215,268 @@ form .button input:hover {
 
     }
 
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Planner Book Now CSS */
+
+.booknow-grid {
+    display: grid;
+    font-size: medium;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+      'pop-pln-body booknow-leftpane'
+  }
+  
+  .booknow-leftpane {
+    grid-area: booknow-leftpane;
+    padding: 10px 15px;
+    display: flex;
+    border-radius: 5px;
+    border-color: aqua;
+    border-width: 4px;
+  }
+
+  #pop-pln-body {
+    grid-area: pop-pln-body;
+    padding: 10px 15px;
+}
+
+#contact-pln-pop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#pln-pop-content {
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    margin: 15px auto;
+    width: 60%;
+    height: 80%;
+    max-height: max-content;
+    animation-name: modalSlideUp;
+    animation-duration: 1s;
+}
+
+#pln-pop-header {
+    padding: 1px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+#pln-pop-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  position: relative;
+}
+  
+#pln-pop-header .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
+  
+#pln-pop-header .close-pln-pop {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+  
+#pln-pop-header .close-pln-pop:hover {
+  color: #00d8ff;
+  cursor: pointer;
+}
+
+#pop-pln-body form .pln-pop-user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 0px 0;
+  }
+
+form .pln-pop-user-details .pln-pop-forms-group {
+    margin-bottom: 5px;
+    width: calc(80% / 2 + 40px);
+  }
+
+form .pln-pop-forms-group span.details {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+#contact-pln-pop .pln-pop-forms-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+form .pln-contact-channel .channel-title {
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+
+  form .pln-category {
+    display: flex;
+    width: 100%;
+    margin: 14px 0;
+    justify-content: space-between;
+  }
+
+  form .pln-category label {
+    display: flex;
+    font-size: 0.9rem;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  form .pln-category label .dot {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  #plan-dot-1:checked~.pln-category label .one,
+  #plan-dot-2:checked~.pln-category label .two,
+  #plan-dot-3:checked~.pln-category label .three {
+    background: #00d8ff;
+    border-color: #d9d9d9;
+  }
+
+  #pop-pln-body form input[type="radio"] {
+    display: none;
+  }
+
+  #pop-pln-body form .pln-book-button {
+    height: 45px;
+    margin: 20px 0
+  }
+
+  form .pln-book-button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #71b7e6, #00d8ff);
+  }
+
+  form .pln-book-button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #00d8ff);
+  }
+
+#contact-pln-pop .pln-pop-forms-group textarea {
+    width: 100%;
+    outline: none;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    margin-top: 3px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  #plandatelabel {
+    display: flex;
+    margin-top: 4px;
+    width: calc (100% / 2);
+    justify-content: space-between;
+    justify-items: center;
+    
+  }
+  
+  #plandatelabel label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: fit-content;
+    padding-top: 0.75rem;
+  }
+
+  .pln-pop-user-details .pln-pop-forms-group input,
+  .pln-pop-user-details .pln-pop-forms-group select {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .pln-pop-user-details .pln-pop-forms-group input:focus,
+  .pln-pop-user-details .pln-pop-forms-group select:focus,
+  .pln-pop-user-details .pln-pop-forms-group input:valid,
+  .pln-pop-user-details .pln-pop-forms-group select:valid {
+    border-color: #00d8ff;
+  }
+
+  #contact-pln-pop .pln-pop-forms-group input.form-control {
+    height: 40px;
+    width: 82%;
+    outline: none;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+#contact-pln-pop .pln-pop-forms-group textarea:focus,
+#contact-pln-pop .pln-pop-forms-group textarea:valid {
+  outline: none !important;
+  border-color: 2px #00d8ff;
+  box-shadow: 0 0 5px #00d8ff;
+}
+
+.left-plan-select {
+  display: block;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
+
+@keyframes modalSlideUp {
+    0% {
+        transform :translateX(1500px);
+
+    }
     100% {
         transform: translateY(0);
     }

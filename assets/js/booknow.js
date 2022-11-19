@@ -1,18 +1,18 @@
-let modal = document.getElementById('contact-modal'),
-    openModal = document.getElementById('modal-open'),
-    closeModal = document.querySelector('.close-button');
+let bmodal = document.getElementById('contact-modal'),
+    bopenModal = document.getElementById('modal-open'),
+    bcloseModal = document.querySelector('.close-button');
 
-openModal.addEventListener('click', function() {
-    modal.style.display = 'block';
+bopenModal.addEventListener('click', function() {
+    bmodal.style.display = 'block';
 })
 
-closeModal.addEventListener('click', function() {
-    modal.style.display = 'none';
+bcloseModal.addEventListener('click', function() {
+    bmodal.style.display = 'none';
 
 })
 
 window.addEventListener('click',function(e) {
-    if(e.target == modal) {
-        modal.style.display = 'none';
+    if(e.target == bmodal) {
+        bmodal.style.display = 'none';
     }
 })
