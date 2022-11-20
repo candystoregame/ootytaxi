@@ -9,6 +9,7 @@
 --hover-background-color: #d4af37; /*#222222*/
 }
 
+
 /* Planner's Grid Start */
 
 .plan-grid {
@@ -68,6 +69,7 @@
   .centered-planner h3 {
     position: relative;
     padding: 3px;
+    color: whitesmoke;
   }
 
   .centered-planner h3::before {
@@ -142,6 +144,7 @@
 .plan-btn-pane h3 {
   position: relative;
   padding: 3px;
+  color: whitesmoke;
 }
 
 .plan-btn-pane h3::before {
@@ -203,6 +206,7 @@
 .pln-tbl-content {
   top: 50%;
   left: 50%;
+  border-style: inset;
   position: relative;
   transform: translate(-50%, -50%);
 }
@@ -246,7 +250,6 @@
     font-weight: bold;
     background-color: var(--accent-color);
     border-radius: var(--border-radius);
-    /*animation: shake .3s infinite;*/
 }
 .pln-tablebook {
     display: flex;

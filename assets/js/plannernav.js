@@ -42,10 +42,23 @@ function fetchMidMenu(fileName)
 }
 
 function bookdetails(lavi) {
+  let poppln = document.getElementById('contact-pln-pop'),
+    closepoppln = document.querySelector('.close-pln-pop');
+  poppln.style.display = 'block';
+  closepoppln.addEventListener('click', function() {
+    poppln.style.display = 'none';
+  })
+
+  window.addEventListener('click',function(e) {
+    if(e.target == poppln) {
+        poppln.style.display = 'none';
+    }
+  })
+
   let bclass = document.getElementById(lavi);
   let pplan = bclass.getAttribute("pplan");
   let vehicle = bclass.getAttribute("vehicle");
-  alert(pplan+vehicle)
+  //alert(pplan+vehicle)
 }
 
 function fetchTable (fetchMidMenu, sheetName) {
