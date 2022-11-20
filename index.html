@@ -150,7 +150,7 @@
 				<button data-close-button class="close-button">&times;</button>
 			</div>
 			<div id="modal-body">
-				<form action="#">
+				<form action="#" id="myform">
 					<div class="user-details">
 					  <div class="input-box">
 						<span class="details">First Name</span>
@@ -193,7 +193,7 @@
 						</label>
 					  </div>
 					</div>
-					<div class="button">
+					<div class="button" type="submit" id="submit">
 					  <input type="submit" value="Submit">
 					</div>
 				  </form>
@@ -417,11 +417,9 @@
 												<!--Removed col sm-5-->
 												<div class="clo-sm-7">
 													<div class="about-btn travel-mrt-0 pull-right">
-														<button class="about-view travel-btn">
-															estimate
-														</button>
-														<!--/.travel-btn-->
+															<input id="bn" type="submit" class="about-view travel-btn" value="estimate">
 													</div>
+
 													<!--/.about-btn-->
 												</div>
 												<!--/.col-->
@@ -1219,6 +1217,7 @@
 		+"Message: "+message ;
 		window.open(url,'_blank').focus();
 		}
+		
 		function validate(){
 		  let fname = document.getElementById("fname");
 		  let lname = document.getElementById("lname");
@@ -1242,13 +1241,14 @@
 			  sendMail(dot, fname.value, lname.value, email.value, message.value);
 			  success();
 			  console.log("email sent");
+			  document.getElementById('myform').reset();
 			}
 		  });
 		}
 		validate();
 		whatsapp();
   
-		function sendMail(dot, name, email, message) {
+		function sendMail(dot, fname, lname, email, message) {
 		  emailjs.send('service_b741cig', 'template_7v3m2xr', {
 			dot : dot,
 			fname: fname,
@@ -1272,6 +1272,14 @@
 			icon: "error",
 		  });
 		}
+	  </script>
+
+	  <script>
+		$(document).ready(function(e) {
+        $('#bn').click(function(){
+				$(this).val("Book Now");
+			});
+    });
 	  </script>
 </body>
 
