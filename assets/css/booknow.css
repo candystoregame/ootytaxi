@@ -481,3 +481,52 @@ form .pln-contact-channel .channel-title {
         transform: translateY(0);
     }
 }
+
+#phonecustombox {
+  position: relative;
+  width: 192px;
+  height: 75px;
+  background: rgba(77,78,84,1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#phonecustombox::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 192px;
+  height: 75px;
+  z-index: 5;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate112 6s linear infinite;
+}
+
+@keyframes animate112 {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+#phonecustombox::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 192px;
+  height: 75px;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate112 6s linear infinite;
+  animation-delay: -3s;
+}
+
+#phonecustombox a {
+  position: absolute;
+  inset: 2px;
+  z-index: 5;
+  background: rgba(77,78,84,1);
+  border-radius: 8px;
+  padding: 26px 10px;
+}
