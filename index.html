@@ -194,7 +194,7 @@
 						</label>
 					  </div>
 					</div>
-					<div class="button" type="submit" id="submit">
+					<div class="button" type="button" id="submit" onclick="whatsapp();">
 					  <input type="submit" value="Submit">
 					</div>
 				  </form>
@@ -1216,6 +1216,7 @@
 		+"Email: "+mail+"%0a"
 		+"Phone: "+phone+"%0a"
 		+"Message: "+message ;
+		
 		window.open(url,'_blank').focus();
 		}
 		
@@ -1247,7 +1248,6 @@
 		  });
 		}
 		validate();
-		whatsapp();
   
 		function sendMail(dot, fname, lname, email, message) {
 		  emailjs.send('service_b741cig', 'template_7v3m2xr', {
