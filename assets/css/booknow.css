@@ -135,10 +135,9 @@ form .input-box textarea:valid {
 }
 
 form .contact-channel .channel-title {
-    font-size: 20px;
-    font-weight: 500;
-    font-weight: bold;
-    position: relative;
+  position: relative;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 form .contact-channel .channel-title::before {
@@ -233,10 +232,6 @@ form .button input:hover {
   .booknow-leftpane {
     grid-area: booknow-leftpane;
     padding: 10px 15px;
-    display: flex;
-    border-radius: 5px;
-    border-color: aqua;
-    border-width: 4px;
   }
 
   #pop-pln-body {
@@ -335,9 +330,22 @@ form .pln-pop-forms-group span.details {
 }
 
 form .pln-contact-channel .channel-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-  }
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-bottom: 3px;
+}
+
+form .pln-contact-channel .channel-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
 
   form .pln-category {
     display: flex;
@@ -349,6 +357,7 @@ form .pln-contact-channel .channel-title {
   form .pln-category label {
     display: flex;
     font-size: 1.5rem;
+    font-weight: 500;
     align-items: center;
     cursor: pointer;
   }
@@ -467,11 +476,6 @@ form .pln-contact-channel .channel-title {
   box-shadow: 0 0 5px #00d8ff;
 }
 
-.left-plan-select {
-  display: block;
-  background: linear-gradient(135deg, #71b7e6, #00d8ff);
-}
-
 @keyframes modalSlideUp {
     0% {
         transform :translateX(1500px);
@@ -490,6 +494,60 @@ form .pln-contact-channel .channel-title {
   border-radius: 8px;
   overflow: hidden;
 }
+
+.booknowleftpanebox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.booknowleftpanebox::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #013a44, aqua);
+  transform-origin: bottom right;
+  animation: animate113 6s linear infinite;
+}
+
+@keyframes animate113 {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.booknowleftpanebox::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, aqua, #d4235e);
+  transform-origin: bottom right;
+  animation: animate113 6s linear infinite;
+  animation-delay: -3s;
+}
+
+.listofitems-selected {
+  position: absolute;
+  inset: 3px;
+  background: whitesmoke;
+  border-radius: 8px;
+  z-index: 4;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Call Memu Item Start*/
 
 #phonecustombox::before {
   content: '';
@@ -530,3 +588,5 @@ form .pln-contact-channel .channel-title {
   border-radius: 8px;
   padding: 26px 10px;
 }
+
+/*Call Memu Item Start*/
