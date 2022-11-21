@@ -124,6 +124,11 @@
     color: var(--font-plain-color);
   }
 
+  .btn-plan-style.active::before {
+    color: var(--font-plain-color);
+    transform: scale(0);
+  }
+
 /* Side Pane buttons  and h3 tag End*/
 
  /* Mid Pane buttons Start*/
@@ -138,7 +143,7 @@
   font-weight: 500;
   justify-content: center;
   align-items: center;
-  gap: 15px ;
+  gap: 5px ;
 }
 
 .plan-btn-pane h3 {

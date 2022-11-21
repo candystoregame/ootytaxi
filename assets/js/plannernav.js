@@ -1,64 +1,11 @@
+function rma() {
+  if (document.querySelector('.centered-planner .active') !== null) {
+    document.querySelector('.active').classList.remove('active');
+  }
+}
+
 function fetchElement(value) {
-  //alert(value);
   fetchMidMenu(value);
-}
-
-function fetchMidMenu(fileName)
-{
-  const newDiv = document.createElement("div");
-  const fName = './assets/dataFiles/' + fileName;
-  //console.log(fName);
-  const midMenu = document.querySelector('.plan-midmenu');
-  midMenu.innerHTML='';
-    (
-      async() => {
-        let text, _button, counter = 0, token;
-        const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
-        const worksheet = workbook.SheetNames;
-        const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
-        //console.log(html);
-        for (let key in html) {
-          for (let header in html[key]) {
-            text = html[key][header];
-            //console.log(header);
-            token = header;
-            _button = document.createElement("button");
-            _button.type = 'button';
-            _button.classList.add("btn-plan-submenu");
-            //_button.value = text;
-            _button.value = 'Sheet' + (2+counter)
-            _button.onclick = function() { fetchTable (fName, this.value); };
-            _button.innerHTML = text;
-          }
-          newDiv.classList.add("plan-btn-pane");
-          if (counter == 0) { let hEader = document.createElement("h3"); hEader.innerHTML=token; newDiv.appendChild(hEader); }
-          newDiv.appendChild(_button);
-          midMenu.appendChild(newDiv);
-          counter = counter+1;
-        }
-      }
-    )()
-    return fName;
-}
-
-function bookdetails(lavi) {
-  let poppln = document.getElementById('contact-pln-pop'),
-    closepoppln = document.querySelector('.close-pln-pop');
-  poppln.style.display = 'block';
-  closepoppln.addEventListener('click', function() {
-    poppln.style.display = 'none';
-  })
-
-  window.addEventListener('click',function(e) {
-    if(e.target == poppln) {
-        poppln.style.display = 'none';
-    }
-  })
-
-  let bclass = document.getElementById(lavi);
-  let pplan = bclass.getAttribute("pplan");
-  let vehicle = bclass.getAttribute("vehicle");
-  //alert(pplan+vehicle)
 }
 
 function fetchTable (fetchMidMenu, sheetName) {
@@ -128,3 +75,64 @@ function fetchTable (fetchMidMenu, sheetName) {
     }
   )()
 }
+
+
+function fetchMidMenu(fileName)
+{
+  const newDiv = document.createElement("div");
+  const fName = './assets/dataFiles/' + fileName;
+  //console.log(fName);
+  const midMenu = document.querySelector('.plan-midmenu');
+  midMenu.innerHTML='';
+    (
+      async() => {
+        let text, _button, counter = 0, token;
+        const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
+        const worksheet = workbook.SheetNames;
+        const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
+        //console.log(html);
+        for (let key in html) {
+          for (let header in html[key]) {
+            text = html[key][header];
+            //console.log(header);
+            token = header;
+            _button = document.createElement("button");
+            _button.type = 'button';
+            _button.classList.add("btn-plan-submenu");
+            //_button.value = text;
+            _button.value = 'Sheet' + (2+counter)
+            _button.onclick = function() { fetchTable (fName, this.value); };
+            _button.innerHTML = text;
+          }
+          newDiv.classList.add("plan-btn-pane");
+          if (counter == 0) { let hEader = document.createElement("h3"); hEader.innerHTML=token; newDiv.appendChild(hEader); }
+          newDiv.appendChild(_button);
+          midMenu.appendChild(newDiv);
+          counter = counter+1;
+        }
+      }
+    )()
+    fetchTable(fName, 'Sheet2');
+    return fName;
+}
+
+function bookdetails(lavi) {
+  let poppln = document.getElementById('contact-pln-pop'),
+  closepoppln = document.querySelector('.close-pln-pop');
+  poppln.style.display = 'block';
+  closepoppln.addEventListener('click', function() {
+    poppln.style.display = 'none';
+  })
+
+  window.addEventListener('click',function(e) {
+    if(e.target == poppln) {
+        poppln.style.display = 'none';
+    }
+  })
+
+  let bclass = document.getElementById(lavi);
+  let pplan = bclass.getAttribute("pplan");
+  let vehicle = bclass.getAttribute("vehicle");
+  //alert(pplan+vehicle)
+}
+

@@ -83,7 +83,7 @@
 					<div class="col-sm-2">
 						<div class="logo">
 							<a href="index.html">
-								<img src="assets/logo/Alpha_Logo.png" width="40" height="40">
+								<img src="assets/logo/Alpha_Logo.png" alt="Primary Log" width="40" height="40">
 								Ooty<span>Taxi</span>
 							</a>
 						</div><!-- /.logo-->
@@ -172,7 +172,7 @@
 					</div>
 					<div class="input-box">
 						<label for="message">Your Message</label>
-						<textarea id="message" rows="4" placeholder="Enter Your Message" required></textarea>
+						<textarea id="message-float" rows="4" placeholder="Enter Your Message" required></textarea>
 					</div>
 					<div class="contact-channel">
 						<input type="radio" name="channel" id="dot-1">
@@ -207,7 +207,7 @@
 
 	<div class="whatsapp">
 		<a href="https://wa.me/919743096772?text=Congratulations" title="click to open whatsapp chat">
-			<img title="Open WhatsApp" src="assets/logo/whatsapp.png" width="50" height="45"></a>
+			<img title="Open WhatsApp" src="assets/logo/whatsapp.png" alt="WhatsApp Icon" width="50" height="45"></a>
 	</div>
 
 <!--Planner Book Now Start-->
@@ -291,7 +291,7 @@
             </div>
             <div class="pln-pop-forms-group">
               <label for="message">Pickup Address</label>
-              <textarea id="message" rows="5" placeholder="Enter Your Pickup Address" required></textarea>
+              <textarea id="message-plan" rows="5" placeholder="Enter Your Pickup Address" required></textarea>
             </div>
             <div class="pln-contact-channel">
               <input type="radio" name="channel" id="plan-dot-1">
@@ -331,23 +331,23 @@
 			<div class="centered-planner">
 				<h3> OUR TARIFFS</h3>
 				<ul class="tariff-planner">
-					<li><button class="btn-plan-style" value="Local Sightseeing (Hour Basis).xlsx" onclick="fetchElement(value);">Local Sightseeing(Hour Basis)</button></li>
-					<li><button class="btn-plan-style" value="Dropping Duty (Fixed).xlsx" onclick="fetchElement(value);">Dropping Duty(Fixed)</button></li>
-					<li><button class="btn-plan-style" value="Out Station Duty (KM Basis).xlsx" onclick="fetchElement(value);">Out Station Duty(KM Basis)</button></li>
-					<li><button class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="fetchElement(value)">Dropping Duty(KM Basis)</button></li>
-					<li><button class="btn-plan-style" value="Tour Packages.xlsx" onclick="fetchElement(value)">Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Minimum Charges Day Rent(KM Basis).xlsx" onclick="fetchElement(value)">Minimum Charges Day Rent(KM Basis)</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Local Sightseeing (Hour Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Local Sightseeing(Hour Basis)</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Dropping Duty (Fixed).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(Fixed)</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Out Station Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Out Station Duty(KM Basis)</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Minimum Charges Day Rent(KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Minimum Charges Day Rent(KM Basis)</button></li>
 				</ul>
 				<h3>TOUR PACKAGES</h3>
 				<ul class="packages-planner">
-					<li><button class="btn-plan-style" value="One Day Tour Packages.xlsx" onclick="fetchElement(value);">One Day Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Two Days Tour Packages.xlsx" onclick="fetchElement(value);">Two Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Three Days Tour Packages.xlsx" onclick="fetchElement(value);">Three Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Four Days Tour Packages.xlsx" onclick="fetchElement(value);">Four Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Five Days Tour Packages.xlsx" onclick="fetchElement(value);">Five Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Six Days Tour Packages.xlsx" onclick="fetchElement(value);">Six Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Seven Days Tour Packages.xlsx" onclick="fetchElement(value);">Seven Days Tour Packages</button></li>
-					<li><button class="btn-plan-style" value="Honeymoon Tour Packages.xlsx" onclick="fetchElement(value);">Honey Moon Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="One Day Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">One Day Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Two Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Two Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Three Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Three Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Four Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Four Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Five Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Five Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Six Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Six Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Seven Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Seven Days Tour Packages</button></li>
+					<li><button type = "button" class="btn-plan-style" value="Honeymoon Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Honey Moon Tour Packages</button></li>
 				</ul>
 			</div>
 		</div>
