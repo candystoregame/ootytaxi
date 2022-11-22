@@ -36,6 +36,11 @@ body {
     animation-name: modalSlideUp;
     animation-duration: 1s;
 }
+@media screen and (max-width: 769px) {
+  #modal-content {
+    width: 90%;
+    }
+}
 
 #modal-header {
     padding: 10px 15px;
