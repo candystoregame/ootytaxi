@@ -99,8 +99,8 @@ form .user-details .input-box {
 form .input-box span.details,
 form .input-box label {
     display: block;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: bolder;
     margin-bottom: 5px;
 }
 
