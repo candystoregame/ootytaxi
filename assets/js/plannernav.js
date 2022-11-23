@@ -9,7 +9,7 @@ function fetchElement(value) {
 }
 
 function fetchTable (fetchMidMenu, sheetName) {
-  const tableContent = document.querySelector('.plan-rightcontent');
+  const tableContent = document.querySelector('.table-right-content');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
   tableContent.innerHTML='';
