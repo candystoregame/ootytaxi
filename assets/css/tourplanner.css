@@ -15,7 +15,7 @@
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
-  grid-template-columns: var(--delta) auto 1fr;
+  grid-template-columns: 20% 25% 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
                        "plan-notesection plan-notesection plan-notesection"
                        "plan-footer plan-footer plan-footer";
@@ -32,18 +32,50 @@
 
 .plan-midmenu {
   grid-area: plan-midmenu;
-  background-color: var(--accent-color);
+  position: relative;
+  height: auto;
+  background-color: blue;
   padding-bottom: 1rem;
 }
 
 .plan-rightcontent {
   grid-area: plan-rightcontent;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
   position: relative;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--accent-color);
+  gap: 5px;
+}
+
+/*.plan-rightcontent {
+  grid-area: plan-rightcontent;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10%, 10%, 60%, 20%;
+  grid-template-areas: "options-right-box"
+                       "heading-right-box"
+                       "table-right-box"
+                       "placevisit-right-box";
+  position: relative;
   background-color: var(--accent-color);
 }
+
+.options-right-box {
+  grid-area: options-right-box;
+}
+
+.heading-right-box {
+  grid-area: heading-right-box;
+}
+
+.table-right-box {
+  grid-area: table-right-box;
+}
+
+.placevisit-right-box {
+  grid-area: placevisit-right-box;
+}*/
 
 .plan-notesection {
   grid-area: plan-notesection;
@@ -210,17 +242,15 @@
 
 /* Start of Rightcontent */
 
-.plan-rightcontent .pln-tbl-content {
+.table-right-content .pln-tbl-content {
   position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
   border-style: inset;
 }
 
-.pln-tbl-content,
-.pln-tbl-content th,
-.pln-tbl-content td {
+.table-right-content .pln-tbl-content,
+.table-right-content .pln-tbl-content th,
+.table-right-content .pln-tbl-content td {
     border-collapse: collapse;
     border: var(--border-size-offset) solid var(--hover-background-color);
     font-size: 0.9em;
@@ -228,43 +258,43 @@
     /*width: 750px;*/
 }
 
-.pln-tbl-content th,
-.pln-tbl-content td {
+.table-right-content .pln-tbl-content th,
+.table-right-content .pln-tbl-content td {
     padding: var(--border-size-offset) 5px;
     text-align: center;
     color: whitesmoke;
 }
 
-.pln-tbl-content th {
+.table-right-content .pln-tbl-content th {
     font-size: large;
     color: whitesmoke;
     background-color: black;
 }
 
-.pln-tbl-content tr:nth-child(2) {
+.table-right-content .pln-tbl-content tr:nth-child(2) {
 
     font-size: medium;
     color: black;
     background-color: var(--hover-background-color);
 }
 
-.pln-tbl-content tr:nth-child(3) {
+.table-right-content .pln-tbl-content tr:nth-child(3) {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.pln-tbl-content tr:nth-child(3) td:nth-child(7) {
+.table-right-content .pln-tbl-content tr:nth-child(3) td:nth-child(7) {
     font-weight: bold;
     background-color: var(--accent-color);
     border-radius: var(--border-radius);
 }
-.pln-tablebook {
+.table-right-content .pln-tbl-content .pln-tablebook {
     display: flex;
     justify-content: center;
     text-align: center;
     color: black;
     background-color: whitesmoke;
-    height: 20px;
+    height: fit-content;
     width: 100%;
     border-radius: var(--border-radius);
 }
@@ -287,7 +317,8 @@
 
 .plan-rightcontent .options-right-box {
   position: relative;
-  width: 100%;
+  width: 99%;
+  margin: 0px 5px;
   height: fit-content;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -305,12 +336,40 @@
   padding: 10px;
   justify-content: center;
   align-items: center;
-  opacity: 1;
 }
 
 .plan-rightcontent .options-right-box .options-right-content h3 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2em;
+}
+
+.plan-rightcontent .heading-right-box {
+  position: relative;
+  width: 99%;
+  margin: 2px 5px;
+  height: fit-content;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.plan-rightcontent .heading-right-box .heading-right-content {
+  text-decoration: none;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.plan-rightcontent .heading-right-box .heading-right-content h3 {
   color: #fff;
-  font-size: 1em;
+  font-size: 2em;
 }
 
 /* End of Rightcontent */
