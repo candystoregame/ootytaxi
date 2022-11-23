@@ -1218,6 +1218,15 @@
 		+"Message: "+message ;
 		
 		window.open(url,'_blank').focus();
+		submit.addEventListener("click", (e)=>{
+			e.preventDefault();
+  
+			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+			  inputEmpty();
+			} else {
+			  success();
+			}
+		  });
 		}
 		
 		function validate(){
@@ -1258,11 +1267,22 @@
 			message: message,
 		  });
 		}
-  
+		function success2() {
+		  swal({
+			title: "Thank you!",
+			text: "Whatsapp initiated, redirecting",
+			icon: "success",
+			timer: 3000,
+		});
+    	function me() {
+        location.reload(true);
+        tr.hide();
+		  };
+		}
 		function success() {
 		  swal({
 			title: "Thank you!",
-			text: "we'll get back to you soon",
+			text: "Email sent successfully",
 			icon: "success",
 		  });
 		}
