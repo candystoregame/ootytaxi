@@ -22,7 +22,7 @@ function fetchTable (fetchMidMenu, sheetName) {
         var table_output = '<table class="pln-tbl-content">';
         for(var row = 0; row < sheet_data.length; row++)
         {
-            if (row !=0) {table_output += '<tr>';}
+            table_output += '<tr>';
             for(var cell = 0; cell < sheet_data[row].length; cell++)
             {
                 if(row == 0) {
@@ -69,7 +69,6 @@ function fetchTable (fetchMidMenu, sheetName) {
                         pamount=cell;
                         console.log(pamount);
                       }
-                      console.log(sheet_data[0][0]);
                     }
                 }
             }
