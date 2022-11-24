@@ -1,3 +1,5 @@
+let lolelement;
+
 function rma() {
   if (document.querySelector('.centered-planner .active') !== null) {
     document.querySelector('.active').classList.remove('active');
@@ -5,6 +7,20 @@ function rma() {
 }
 
 function fetchElement(value) {
+  /*const IdToActive;
+  if (lolelement != null) {
+    const setOffsetActive = document.querySelectorAll('.btn-plan-style');
+    alert(setOffsetActive.length);
+    for (let i = 0; i < setOffsetActive.length; i++) {
+      alert(setOffsetActive[i].value)
+      if (setOffsetActive[i].value == lolelement) {
+        IdToActive = getElementById(setOffsetActive.getAttribute('id'));
+        alert(IdToActive);
+        IdToActive.classList.add('active');        
+        break;
+      }
+    }
+  }*/
   fetchMidMenu(value);
 }
 
@@ -148,3 +164,9 @@ function bookdetails(lavi) {
   //alert(pplan+vehicle)
 }
 
+window.addEventListener("load", () => {
+  lolelement = localStorage.getItem('thelolname');
+  localStorage.removeItem('thelolname');
+  console.log(lolelement);
+  fetchElement(lolelement);
+})

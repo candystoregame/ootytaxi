@@ -10,3 +10,8 @@ if (myIndex > x.length) { myIndex = 1}
 x[myIndex-1].style.display = "block";
 setTimeout(myslider, 1);
 }myslider();
+
+function heist(value) {
+  localStorage.setItem('thelolname', value);
+  location.assign("tourplanner.html");
+}
