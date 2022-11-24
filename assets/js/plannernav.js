@@ -51,7 +51,7 @@ function fetchTable (fetchMidMenu, sheetName) {
                 }
                 else {
                     table_output += '<td>'+sheet_data[row][cell]+'</td>';
-                    if(row == 2) { 
+                    /*if(row == 2) { 
                       if (sheet_data[row][cell].search("VEHICLES") == 0) {
                         veh=cell;
                         console.log(veh);
@@ -76,7 +76,7 @@ function fetchTable (fetchMidMenu, sheetName) {
                         pamount=cell;
                         console.log(pamount);
                       }
-                    }
+                    }*/
                 }
             }
             if (row > 1) {table_output += '</tr>';}
