@@ -15,7 +15,7 @@
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
-  grid-template-columns: 20% 25% 1fr;
+  grid-template-columns: 22% 18% 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
                        "plan-notesection plan-notesection plan-notesection"
                        "plan-footer plan-footer plan-footer";
@@ -265,21 +265,20 @@
 }
 
 .table-right-content .pln-tbl-content th {
-    font-size: large;
+    font-size: small;
     color: whitesmoke;
     background-color: black;
 }
 
-.table-right-content .pln-tbl-content tr:nth-child(2) {
-
-    font-size: medium;
+.table-right-content .pln-tbl-content tr:nth-child(1) {
+    font-size: bold;
     color: black;
     background-color: var(--hover-background-color);
 }
 
-.table-right-content .pln-tbl-content tr:nth-child(3) {
+.table-right-content .pln-tbl-content tr:nth-child(2) {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: normal;
 }
 
 .table-right-content .pln-tbl-content tr:nth-child(3) td:nth-child(7) {

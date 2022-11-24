@@ -32,8 +32,6 @@ function fetchTable (fetchMidMenu, sheetName) {
                     TableHeading.innerHTML='';
                     hEader.innerHTML=sheet_data[row][cell];
                     TableHeading.appendChild(hEader);
-
-
                 }
                 else if(row == 1) {
                     //table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
@@ -41,6 +39,9 @@ function fetchTable (fetchMidMenu, sheetName) {
                     VisitContent.innerHTML='';
                     hEader.innerHTML=sheet_data[row][cell];
                     VisitContent.appendChild(hEader);
+                }
+                else if(row == 2) {
+                  table_output += '<th>'+sheet_data[row][cell]+'</th>';
                 }
                 else if(row == 2 && cell == sheet_data[row].length-1) {
                   table_output += '<td>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
