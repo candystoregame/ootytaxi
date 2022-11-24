@@ -34,7 +34,7 @@
   grid-area: plan-midmenu;
   position: relative;
   height: auto;
-  background-color: blue;
+  background-color: var(--accent-color);
   padding-bottom: 1rem;
 }
 
