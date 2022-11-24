@@ -11,6 +11,7 @@ function fetchElement(value) {
 function fetchTable (fetchMidMenu, sheetName) {
   const tableContent = document.querySelector('.table-right-content');
   const TableHeading = document.querySelector('.heading-right-content');
+  const VisitContent = document.querySelector('.placevisit-right-content');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
   tableContent.innerHTML='';
@@ -22,19 +23,24 @@ function fetchTable (fetchMidMenu, sheetName) {
         var table_output = '<table class="pln-tbl-content">';
         for(var row = 0; row < sheet_data.length; row++)
         {
-            table_output += '<tr>';
+            if (row > 1 ) {table_output += '<tr>';}
             for(var cell = 0; cell < sheet_data[row].length; cell++)
             {
                 if(row == 0) {
                     //table_output += '<th colspan="7">'+sheet_data[row][cell]+'</th>';
-                    let hEader = document.createElement("h2");
+                    let hEader = document.createElement("h3");
+                    TableHeading.innerHTML='';
                     hEader.innerHTML=sheet_data[row][cell];
                     TableHeading.appendChild(hEader);
 
 
                 }
                 else if(row == 1) {
-                    table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
+                    //table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
+                    let hEader = document.createElement("p");
+                    VisitContent.innerHTML='';
+                    hEader.innerHTML=sheet_data[row][cell];
+                    VisitContent.appendChild(hEader);
                 }
                 else if(row == 2 && cell == sheet_data[row].length-1) {
                   table_output += '<td>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
@@ -72,7 +78,7 @@ function fetchTable (fetchMidMenu, sheetName) {
                     }
                 }
             }
-            if (row !=0) {table_output += '</tr>';}
+            if (row > 1) {table_output += '</tr>';}
         }
         table_output += '</table>';
         tableContent.innerHTML = table_output;

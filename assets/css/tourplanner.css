@@ -42,7 +42,6 @@
   grid-area: plan-rightcontent;
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
   position: relative;
   background-color: var(--accent-color);
   gap: 5px;
@@ -317,8 +316,8 @@
 
 .plan-rightcontent .options-right-box {
   position: relative;
-  width: 99%;
-  margin: 0px 5px;
+  width: 100%;
+  margin: 3px 0px;
   height: fit-content;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -345,8 +344,8 @@
 
 .plan-rightcontent .heading-right-box {
   position: relative;
-  width: 99%;
-  margin: 2px 5px;
+  width: 100%;
+  margin: 0px 0px;
   height: fit-content;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -368,6 +367,35 @@
 }
 
 .plan-rightcontent .heading-right-box .heading-right-content h3 {
+  color: #fff;
+  font-size: 2em;
+}
+
+.plan-rightcontent .placevisit-right-box {
+  position: relative;
+  width: 100%;
+  margin: 2px 0px;
+  height: fit-content;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.plan-rightcontent .placevisit-right-box .placevisit-right-content {
+  text-decoration: none;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.plan-rightcontent .placevisit-right-box .placevisit-right-content h3 {
   color: #fff;
   font-size: 2em;
 }
