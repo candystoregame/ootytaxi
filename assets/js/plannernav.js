@@ -1,26 +1,16 @@
-let lolelement;
-
 function rma() {
   if (document.querySelector('.centered-planner .active') !== null) {
     document.querySelector('.active').classList.remove('active');
   }
 }
 
+function rsma() {
+  if (document.querySelector('.plan-midmenu .active') !== null) {
+    document.querySelector('.active').classList.remove('active');
+  }
+}
+
 function fetchElement(value) {
-  /*const IdToActive;
-  if (lolelement != null) {
-    const setOffsetActive = document.querySelectorAll('.btn-plan-style');
-    alert(setOffsetActive.length);
-    for (let i = 0; i < setOffsetActive.length; i++) {
-      alert(setOffsetActive[i].value)
-      if (setOffsetActive[i].value == lolelement) {
-        IdToActive = getElementById(setOffsetActive.getAttribute('id'));
-        alert(IdToActive);
-        IdToActive.classList.add('active');        
-        break;
-      }
-    }
-  }*/
   fetchMidMenu(value);
 }
 
@@ -30,6 +20,7 @@ function fetchTable (fetchMidMenu, sheetName) {
   const VisitContent = document.querySelector('.placevisit-right-content');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
+  rsma();
   tableContent.innerHTML='';
   (
     async() => {
@@ -122,14 +113,14 @@ function fetchMidMenu(fileName)
         for (let key in html) {
           for (let header in html[key]) {
             text = html[key][header];
-            //console.log(header);
             token = header;
             _button = document.createElement("button");
             _button.type = 'button';
-            _button.classList.add("btn-plan-submenu");
-            //_button.value = text;
+            _button.id = 'btn-plan-submenu-id' + (counter + 1);
+            /*if (counter == 0) {_button.classList.add("btn-plan-submenu"); _button.className += ' active';}
+            else {*/_button.classList.add("btn-plan-submenu");//}
             _button.value = 'Sheet' + (2+counter)
-            _button.onclick = function() { fetchTable (fName, this.value); };
+            _button.onclick = function() { rsma(); fetchTable (fName, this.value); this.classList.toggle('active');};
             _button.innerHTML = text;
           }
           newDiv.classList.add("plan-btn-pane");
@@ -165,8 +156,10 @@ function bookdetails(lavi) {
 }
 
 window.addEventListener("load", () => {
-  lolelement = localStorage.getItem('thelolname');
-  localStorage.removeItem('thelolname');
-  console.log(lolelement);
-  fetchElement(lolelement);
+  let lolelement = localStorage.getItem('thelolname');
+  if (lolelement !== null) {
+    localStorage.removeItem('thelolname');
+    document.getElementById(lolelement).className += " active";
+    fetchElement(document.getElementById(lolelement).value);
+  }
 })

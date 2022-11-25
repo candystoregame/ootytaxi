@@ -237,6 +237,11 @@
   color: var(--font-plain-color);
 }
 
+.btn-plan-submenu.active::before {
+  color: var(--font-plain-color);
+  transform: scale(0);
+}
+
 /* Mid Pane buttons End*/
 
 /* Start of Rightcontent */
