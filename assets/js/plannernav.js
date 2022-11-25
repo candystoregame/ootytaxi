@@ -30,7 +30,8 @@ function fetchTable (fetchMidMenu, sheetName) {
         var table_output = '<table class="pln-tbl-content">';
         for(var row = 0; row < sheet_data.length; row++)
         {
-            if (row > 1 ) {table_output += '<tr>';}
+            if (row > 2 ) {table_output += '<tr>';}
+            if (row == 2) {table_output += '<thead><tr>';}
             for(var cell = 0; cell < sheet_data[row].length; cell++)
             {
                 if(row == 0) {
@@ -49,15 +50,39 @@ function fetchTable (fetchMidMenu, sheetName) {
                 }
                 else if(row == 2) {
                   table_output += '<th>'+sheet_data[row][cell]+'</th>';
+                  if (sheet_data[row][cell].search("VEHICLES") == 0) {
+                    veh=cell;
+                    console.log(veh);
+                  }
+                  if (sheet_data[row][cell].search("HRS") == 0) {
+                    freehrs=cell;
+                    console.log(freehrs);
+                  }
+                  if (sheet_data[row][cell].search("FREE KMS") == 0) {
+                    freekm=cell;
+                    console.log(freekm);
+                  }
+                  if (sheet_data[row][cell].search("Extra Hrs.") == 14) {
+                    xhr=cell;
+                    console.log(xhr);
+                  }
+                  if (sheet_data[row][cell].search("After Free KMs") == 14) {
+                    xkm=cell;
+                    console.log(xkm);
+                  }
+                  if (sheet_data[row][cell].search("AMOUNT") == 0) {
+                    pamount=cell;
+                    console.log(pamount);
+                  }
                 }
                 else if(row == 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<td>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></td>';
+                  table_output += '<th>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></th>';
                 }
                 else if (row > 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<td><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
+                  table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
                 }
                 else {
-                    table_output += '<td>'+sheet_data[row][cell]+'</td>';
+                    table_output += '<td table-data-label="'+sheet_data[2][cell]+'">'+sheet_data[row][cell]+'</td>';
                     /*if(row == 2) { 
                       if (sheet_data[row][cell].search("VEHICLES") == 0) {
                         veh=cell;
@@ -86,7 +111,8 @@ function fetchTable (fetchMidMenu, sheetName) {
                     }*/
                 }
             }
-            if (row > 1) {table_output += '</tr>';}
+            if (row > 2) {table_output += '</tr>';}
+            if (row == 2) {table_output += '</tr></thead>';}
         }
         table_output += '</table>';
         tableContent.innerHTML = table_output;
