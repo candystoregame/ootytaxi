@@ -117,8 +117,8 @@ function fetchMidMenu(fileName)
             _button = document.createElement("button");
             _button.type = 'button';
             _button.id = 'btn-plan-submenu-id' + (counter + 1);
-            /*if (counter == 0) {_button.classList.add("btn-plan-submenu"); _button.className += ' active';}
-            else {*/_button.classList.add("btn-plan-submenu");//}
+            if (counter == 0) {_button.classList.add("btn-plan-submenu"); _button.className += ' active';}
+            else {_button.classList.add("btn-plan-submenu");}
             _button.value = 'Sheet' + (2+counter)
             _button.onclick = function() { rsma(); fetchTable (fName, this.value); this.classList.toggle('active');};
             _button.innerHTML = text;
