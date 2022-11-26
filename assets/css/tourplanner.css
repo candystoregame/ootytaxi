@@ -268,7 +268,7 @@
   padding: 12px;
   text-align: center;
   vertical-align: top;
-  border: 1px solid #dee2e685;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .table-right-content .pln-tbl-content tbody tr td {
@@ -276,10 +276,10 @@
   letter-spacing: 400;
   font-weight: normal;
   color: #f1f1f1;
-  background-color: #3c3f44;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 4px;
   text-align: center;
-  border: 1px solid #dee2e685;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -314,34 +314,25 @@
 }
 
 .table-right-content .pln-tbl-content tbody tr td .pln-tablebook {
-  width: auto;
+  width: 100%;
   text-decoration: none;
-  line-height: 35px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  line-height: 15px;
   display: inline-block;
-  border-radius: 5px;
-  background-color: #00d8ff;
-  font-weight: medium;
-  color: #FFFFFF;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  color: #00d8ff;
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  border: 1px solid transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 1.2rem;
   opacity: 1;
 }
 
 /*-------------------Table End-----------------------*/
-
-/*.table-right-content .pln-tbl-content .pln-tablebook {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: black;
-    background-color: whitesmoke;
-    height: fit-content;
-    width: 100%;
-    border-radius: var(--border-radius);
-}*/
 
 .pln-shake {
   font-weight: 900;
