@@ -1,13 +1,11 @@
 function rma() {
-  if (document.querySelector('.centered-planner .active') !== null) {
-    document.querySelector('.active').classList.remove('active');
-  }
+  const cplanner= document.querySelectorAll('.btn-plan-style');
+  cplanner.forEach(item => item.classList.remove('active'));
 }
 
 function rsma() {
-  if (document.querySelector('.plan-midmenu .active') !== null) {
-    document.querySelector('.active').classList.remove('active');
-  }
+  const subplanner = document.querySelectorAll('.btn-plan-submenu');
+  subplanner.forEach((item) => item.classList.remove('active'));
 }
 
 function fetchElement(value) {
@@ -20,7 +18,6 @@ function fetchTable (fetchMidMenu, sheetName) {
   const VisitContent = document.querySelector('.placevisit-right-content');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
-  rsma();
   tableContent.innerHTML='';
   (
     async() => {
@@ -185,7 +182,15 @@ window.addEventListener("load", () => {
   let lolelement = localStorage.getItem('thelolname');
   if (lolelement !== null) {
     localStorage.removeItem('thelolname');
+    rma();
     document.getElementById(lolelement).className += " active";
     fetchElement(document.getElementById(lolelement).value);
+    lolelement = null;
   }
 })
+
+function localmenu(lval) {
+  rma();
+  fetchElement(document.getElementById(lval).value);
+  document.getElementById(lval).className += ' active';
+}

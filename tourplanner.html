@@ -103,25 +103,25 @@
 									<li class="justlink"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> home</a></li>
 									<li class="justlink"><a href="#gallery">Tariff</a>
 										<ul>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner1').value);">local sightseeing(hour basis)</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner2').value);">dropping duty(fixed)</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner3').value);">out station duty(KM basis) </a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner4').value);">dropping duty (KM basis)</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner5').value);">tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('tariff-planner6').value);">Minimum charges(dayrent & km basis)</a>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner1')">local sightseeing(hour basis)</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner2')">dropping duty(fixed)</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner3')">out station duty(KM basis) </a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner4')">dropping duty (KM basis)</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner5')">tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner6')">Minimum charges(dayrent & km basis)</a>
 											</li>
 										</ul>
 									</li>
 									<li class="justlink"><a href="#pack">Tour Packages </a>
 										<ul>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner1').value);">one day tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner2').value);">two days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner3').value);">three days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner4').value);">four days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner5').value);">five days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner6').value);">six days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner7').value);">seven days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="fetchElement(document.getElementById('packages-planner8').value);">Honey Moon tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner1')">one day tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner2')">two days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner3')">three days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner4')">four days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner5')">five days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner6')">six days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner7')">seven days tour packages</a></li>
+											<li class="justlink"><a href="#" onclick="localmenu('packages-planner8')">Honey Moon tour packages</a></li>
 										</ul>
 									</li>
 									<li class="justlink"><a href="tourplanner.html">Tour Planner</a></li>
@@ -332,7 +332,7 @@
 			<div class="centered-planner">
 				<h3> OUR TARIFFS</h3>
 				<ul class="tariff-planner">
-					<li><button type = "button" id="tariff-planner1" class="btn-plan-style" value="Local Sightseeing (Hour Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Local Sightseeing(Hour Basis)</button></li>
+					<li><button type = "button" id="tariff-planner1" class="btn-plan-style active" value="Local Sightseeing (Hour Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Local Sightseeing(Hour Basis)</button></li>
 					<li><button type = "button" id="tariff-planner2" class="btn-plan-style" value="Dropping Duty (Fixed).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(Fixed)</button></li>
 					<li><button type = "button" id="tariff-planner3" class="btn-plan-style" value="Out Station Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Out Station Duty(KM Basis)</button></li>
 					<li><button type = "button" id="tariff-planner4" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
