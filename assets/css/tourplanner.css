@@ -437,3 +437,42 @@
 }
 
 /* End of Rightcontent */
+
+
+/*Plan Note Container Start*/
+
+.plan-note-container {
+  margin: 0;
+  padding: 10px;
+  position: relative;
+}
+
+.plan-note-container .plan-note {
+  display: none;
+}
+
+.plan-note-container .plan-note.active {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.plan-note-container .plan-note.active h4 {
+  color: black;
+  font-weight: 900;
+  margin: 10px 10px 10px 10px;
+}
+
+.plan-note-container .plan-note.active ol {
+  color: whitesmoke;
+  margin: 10px 10px 10px 10px;
+  }

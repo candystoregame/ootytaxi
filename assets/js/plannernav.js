@@ -1,3 +1,26 @@
+const keynotemap = new Map([
+  ["Local Sightseeing (Hour Basis).xlsx", "tariffnote1"],
+  ["Dropping Duty (Fixed).xlsx", "tariffnote2"],
+  ["Out Station Duty (KM Basis).xlsx", "tariffnote3"],
+  ["Dropping Duty (KM Basis).xlsx", "tariffnote4"],
+  ["Tour Packages.xlsx", "tariffnote1"],
+  ["Minimum Charges Day Rent(KM Basis).xlsx", "tariffnote1"],
+  ["One Day Tour Packages.xlsx", "tariffnote1"],
+  ["Two Days Tour Packages.xlsx", "tariffnote1"],
+  ["Three Days Tour Packages.xlsx", "tariffnote1"],
+  ["Four Days Tour Packages.xlsx", "tariffnote1"],
+  ["Five Days Tour Packages.xlsx", "tariffnote1"],
+  ["Six Days Tour Packages.xlsx", "tariffnote1"],
+  ["Seven Days Tour Packages.xlsx", "tariffnote1"],
+  ["Honeymoon Tour Packages.xlsx", "tariffnote1"]
+]);
+
+function noterma(value) {
+  const nplanner= document.querySelectorAll('.plan-note');
+  nplanner.forEach(item => item.classList.remove('active'));
+  document.getElementById(keynotemap.get(value)).className += ' active';
+}
+
 function rma() {
   const cplanner= document.querySelectorAll('.btn-plan-style');
   cplanner.forEach(item => item.classList.remove('active'));
@@ -9,6 +32,7 @@ function rsma() {
 }
 
 function fetchElement(value) {
+  noterma(value);
   fetchMidMenu(value);
 }
 
