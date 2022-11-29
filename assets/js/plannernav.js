@@ -15,17 +15,21 @@ const keynotemap = new Map([
   ["Honeymoon Tour Packages.xlsx", "tariffnote5"]
 ]);
 
+var globalfilepath;
+var globaltableflag = 0;
+
 function noterma(value) {
   const nplanner= document.querySelectorAll('.plan-note');
   nplanner.forEach(item => item.classList.remove('active'));
   document.getElementById(keynotemap.get(value)).className += ' active';
 }
 
-function sprma(fName, value, divID) {
+function sprma(divID) {
+  let sheetsubname = divID;
   const oplanner= document.querySelectorAll('.options-button');
   oplanner.forEach(item => item.classList.remove('active'));
   document.getElementById(divID).className += ' active';
-  fetchTable(fName, value);
+  fetchTable(globalfilepath, sheetsubname);
 }
 
 function rma() {
@@ -47,8 +51,13 @@ function fetchTable (fetchMidMenu, sheetName) {
   const tableContent = document.querySelector('.table-right-content');
   const TableHeading = document.querySelector('.heading-right-content');
   const VisitContent = document.querySelector('.placevisit-right-content');
+  const rightMainDiv = document.getElementById('planner-right-container');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
+  //console.log(sprma(value));
+  if (globaltableflag != 1) {
+    rightMainDiv.innerHTML='';
+  }
   tableContent.innerHTML='';
   (
     async() => {
@@ -58,18 +67,18 @@ function fetchTable (fetchMidMenu, sheetName) {
       if(sheet_data.length == 0) {
         let j=0;
         const multisheet = [];
+        globaltableflag = 1;
         for (let i =0 ; i < workbook.SheetNames.length; i++){
           if (worksheet[i].match(sheetName+'-')) {
             multisheet[j] = worksheet[i];
             j++;
           }
         }
-        const rightMainDiv = document.getElementById('planner-right-container');
         var PlanContent = '<div class="options-right-box"><div class="options-right-content">';
         for(i = 0; i<multisheet.length; i++) {
           const SplitVar = multisheet[i].split('-');
-          if(i==0){PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button active" value="'+multisheet[i]+'" onclick="sprma('+fName+', value, '+multisheet[i]+');">';}
-          else {PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button" value="'+multisheet[i]+'" onclick="sprma('+fName+', value, '+multisheet[i]+');">';}
+          if(i==0){PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button active" value="'+multisheet[i]+'" onclick="sprma(value);">';}
+          else {PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button" value="'+multisheet[i]+'" onclick="sprma(value);">';}
           PlanContent += '<span class="button__content">'+SplitVar[1]+' Hours</span>';
           PlanContent += '<span class="button__icon"><ion-icon name="car-sport-outline"></ion-icon></span></button>';
         }
@@ -178,6 +187,7 @@ function fetchMidMenu(fileName)
   const newDiv = document.createElement("div");
   const fName = './assets/dataFiles/' + fileName;
   const midMenu = document.querySelector('.plan-midmenu');
+  globaltableflag = 0;
   midMenu.innerHTML='';
     (
       async() => {
@@ -208,6 +218,7 @@ function fetchMidMenu(fileName)
       }
     )()
     fetchTable(fName, 'Sheet2');
+    globalfilepath = fName;
     return fName;
 }
 

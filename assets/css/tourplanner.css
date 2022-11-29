@@ -462,6 +462,28 @@
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+.technoplan {
+  position: relative;
+}
+
+.technoplan::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  color: rgb(255, 255, 255, 0.5);
+  width: 100%;
+  animation: technoplan 3s steps(4) alernate infinite,
+             line 0.5s infinite;
+}
+
+@keyframes technoplan {
+  to { width: 0%;}
+}
+
+@keyframes line {
+  50% { color: rgb(255, 255, 255, 0);}
+}
+
 .plan-note-container .plan-note.active h4 {
   color: black;
   font-weight: 900;
