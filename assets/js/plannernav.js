@@ -147,7 +147,6 @@ function fetchMidMenu(fileName)
 {
   const newDiv = document.createElement("div");
   const fName = './assets/dataFiles/' + fileName;
-  //console.log(fName);
   const midMenu = document.querySelector('.plan-midmenu');
   midMenu.innerHTML='';
     (
