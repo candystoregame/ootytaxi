@@ -12,7 +12,7 @@ const keynotemap = new Map([
   ["Five Days Tour Packages.xlsx", "tariffnote1"],
   ["Six Days Tour Packages.xlsx", "tariffnote1"],
   ["Seven Days Tour Packages.xlsx", "tariffnote1"],
-  ["Honeymoon Tour Packages.xlsx", "tariffnote1"]
+  ["Honeymoon Tour Packages.xlsx", "tariffnote5"]
 ]);
 
 function noterma(value) {
@@ -46,31 +46,78 @@ function fetchTable (fetchMidMenu, sheetName) {
   (
     async() => {
       const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
+      const worksheet = workbook.SheetNames;
       const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
+      /*if(sheet_data.length == 0) {
+        let j=0;
+        const multisheet = [];
+        for (let i =0 ; i < workbook.SheetNames.length; i++){
+          if (worksheet[i].match(sheetName+'-')) {
+            multisheet[j] = worksheet[i];
+            j++;
+          }
+        }fetchTable (fetchMidMenu, multisheet.sort()[1]);
+        const newDiv1 = document.createElement("div");
+        const newDiv2 = document.createElement("div");
+      }*/
       if(sheet_data.length > 0) {
         var table_output = '<table class="pln-tbl-content">';
         for(var row = 0; row < sheet_data.length; row++)
         {
-            if (row > 2 ) {table_output += '<tr>';}
-            if (row == 2) {table_output += '<thead><tr>';}
-            for(var cell = 0; cell < sheet_data[row].length; cell++)
-            {
-                if(row == 0) {
-                    //table_output += '<th colspan="7">'+sheet_data[row][cell]+'</th>';
-                    let hEader = document.createElement("h3");
-                    TableHeading.innerHTML='';
-                    hEader.innerHTML=sheet_data[row][cell];
-                    TableHeading.appendChild(hEader);
-                }
-                else if(row == 1) {
-                    //table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
-                    let hEader = document.createElement("p");
-                    VisitContent.innerHTML='';
-                    hEader.innerHTML=sheet_data[row][cell];
-                    VisitContent.appendChild(hEader);
-                }
-                else if(row == 2) {
-                  table_output += '<th>'+sheet_data[row][cell]+'</th>';
+          if (row > 2 ) {table_output += '<tr>';}
+          if (row == 2) {table_output += '<thead><tr>';}
+          for(var cell = 0; cell < sheet_data[row].length; cell++)
+          {
+            if(row == 0) {
+                //table_output += '<th colspan="7">'+sheet_data[row][cell]+'</th>';
+                let hEader = document.createElement("h3");
+                TableHeading.innerHTML='';
+                hEader.innerHTML=sheet_data[row][cell];
+                TableHeading.appendChild(hEader);
+            }
+            else if(row == 1) {
+                //table_output += '<td colspan="7">'+sheet_data[row][cell]+'</td>';
+                let hEader = document.createElement("p");
+                VisitContent.innerHTML='';
+                hEader.innerHTML=sheet_data[row][cell];
+                VisitContent.appendChild(hEader);
+            }
+            else if(row == 2) {
+              table_output += '<th>'+sheet_data[row][cell]+'</th>';
+              if (sheet_data[row][cell].search("VEHICLES") == 0) {
+                veh=cell;
+                console.log(veh);
+              }
+              if (sheet_data[row][cell].search("HRS") == 0) {
+                freehrs=cell;
+                console.log(freehrs);
+              }
+              if (sheet_data[row][cell].search("FREE KMS") == 0) {
+                freekm=cell;
+                console.log(freekm);
+              }
+              if (sheet_data[row][cell].search("Extra Hrs.") == 14) {
+                xhr=cell;
+                console.log(xhr);
+              }
+              if (sheet_data[row][cell].search("After Free KMs") == 14) {
+                xkm=cell;
+                console.log(xkm);
+              }
+              if (sheet_data[row][cell].search("AMOUNT") == 0) {
+                pamount=cell;
+                console.log(pamount);
+              }
+            }
+            else if(row == 2 && cell == sheet_data[row].length-1) {
+              table_output += '<th>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></th>';
+            }
+            else if (row > 2 && cell == sheet_data[row].length-1) {
+              table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
+            }
+            else {
+                table_output += '<td table-data-label="'+sheet_data[2][cell]+'">'+sheet_data[row][cell]+'</td>';
+                /*if(row == 2) { 
                   if (sheet_data[row][cell].search("VEHICLES") == 0) {
                     veh=cell;
                     console.log(veh);
@@ -95,45 +142,11 @@ function fetchTable (fetchMidMenu, sheetName) {
                     pamount=cell;
                     console.log(pamount);
                   }
-                }
-                else if(row == 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<th>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class = "pln-shake">&darr;</a></th>';
-                }
-                else if (row > 2 && cell == sheet_data[row].length-1) {
-                  table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
-                }
-                else {
-                    table_output += '<td table-data-label="'+sheet_data[2][cell]+'">'+sheet_data[row][cell]+'</td>';
-                    /*if(row == 2) { 
-                      if (sheet_data[row][cell].search("VEHICLES") == 0) {
-                        veh=cell;
-                        console.log(veh);
-                      }
-                      if (sheet_data[row][cell].search("HRS") == 0) {
-                        freehrs=cell;
-                        console.log(freehrs);
-                      }
-                      if (sheet_data[row][cell].search("FREE KMS") == 0) {
-                        freekm=cell;
-                        console.log(freekm);
-                      }
-                      if (sheet_data[row][cell].search("Extra Hrs.") == 14) {
-                        xhr=cell;
-                        console.log(xhr);
-                      }
-                      if (sheet_data[row][cell].search("After Free KMs") == 14) {
-                        xkm=cell;
-                        console.log(xkm);
-                      }
-                      if (sheet_data[row][cell].search("AMOUNT") == 0) {
-                        pamount=cell;
-                        console.log(pamount);
-                      }
-                    }*/
-                }
+                }*/
             }
-            if (row > 2) {table_output += '</tr>';}
-            if (row == 2) {table_output += '</tr></thead>';}
+          }
+          if (row > 2) {table_output += '</tr>';}
+          if (row == 2) {table_output += '</tr></thead>';}
         }
         table_output += '</table>';
         tableContent.innerHTML = table_output;
