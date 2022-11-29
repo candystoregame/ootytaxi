@@ -21,6 +21,13 @@ function noterma(value) {
   document.getElementById(keynotemap.get(value)).className += ' active';
 }
 
+function sprma(fName, value, divID) {
+  const oplanner= document.querySelectorAll('.options-button');
+  oplanner.forEach(item => item.classList.remove('active'));
+  document.getElementById(divID).className += ' active';
+  fetchTable(fName, value);
+}
+
 function rma() {
   const cplanner= document.querySelectorAll('.btn-plan-style');
   cplanner.forEach(item => item.classList.remove('active'));
@@ -48,7 +55,7 @@ function fetchTable (fetchMidMenu, sheetName) {
       const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
       const worksheet = workbook.SheetNames;
       const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
-      /*if(sheet_data.length == 0) {
+      if(sheet_data.length == 0) {
         let j=0;
         const multisheet = [];
         for (let i =0 ; i < workbook.SheetNames.length; i++){
@@ -56,11 +63,21 @@ function fetchTable (fetchMidMenu, sheetName) {
             multisheet[j] = worksheet[i];
             j++;
           }
-        }fetchTable (fetchMidMenu, multisheet.sort()[1]);
-        const newDiv1 = document.createElement("div");
-        const newDiv2 = document.createElement("div");
-      }*/
-      if(sheet_data.length > 0) {
+        }
+        const rightMainDiv = document.getElementById('planner-right-container');
+        var PlanContent = '<div class="options-right-box"><div class="options-right-content">';
+        for(i = 0; i<multisheet.length; i++) {
+          const SplitVar = multisheet[i].split('-');
+          if(i==0){PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button active" value="'+multisheet[i]+'" onclick="sprma('+fName+', value, '+multisheet[i]+');">';}
+          else {PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button" value="'+multisheet[i]+'" onclick="sprma('+fName+', value, '+multisheet[i]+');">';}
+          PlanContent += '<span class="button__content">'+SplitVar[1]+' Hours</span>';
+          PlanContent += '<span class="button__icon"><ion-icon name="car-sport-outline"></ion-icon></span></button>';
+        }
+        PlanContent += '</div></div>';
+        rightMainDiv.innerHTML = PlanContent;
+        fetchTable(fetchMidMenu, multisheet[0]);
+      }
+      else if(sheet_data.length > 0) {
         var table_output = '<table class="pln-tbl-content">';
         for(var row = 0; row < sheet_data.length; row++)
         {

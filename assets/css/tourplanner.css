@@ -350,7 +350,7 @@
 }
 
 
-.plan-rightcontent .options-right-box {
+.plan-rightcontent #planner-right-container .options-right-box {
   position: relative;
   width: 100%;
   margin: 5px 0 0;
@@ -366,14 +366,14 @@
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.plan-rightcontent .options-right-box .options-right-content {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content {
   text-decoration: none;
   padding: 10px;
   justify-content: center;
   align-items: center;
 }
 
-.plan-rightcontent .options-right-box .options-right-content h3 {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content h3 {
   color: rgba(255, 255, 255, 0.5);
   font-size: 2em;
 }
@@ -478,11 +478,11 @@
   margin: 10px 10px 10px 10px;
 }
 
-.options-right-box .options-right-content {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content {
   display: flex;
   gap: 20px;
 }
-.options-right-box .options-right-content .options-button {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button {
   display: flex;
   position: relative;
   padding: 0;
@@ -501,28 +501,28 @@
   transition: all;
 }
 
-.options-right-box .options-right-content .options-button:hover {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button:hover {
   background: #00d8ff;
 }
 
-.options-right-box .options-right-content .options-button:active {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button:active {
   background: #34defc;
   transform: scale(.95);
 }
 
-.options-right-box .options-right-content .options-button .button__content {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button .button__content {
   position: relative;
   padding: 0 5px 0;
   color: black;
 }
 
-.options-right-box .options-right-content .options-button .button__icon {
+.plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button .button__icon {
   position: relative;
   padding: 8px 5px 0;
   font-size: 2.5rem;
   color: aqua;
   background: linear-gradient(to right, rgb(67,124,205), rgb(69,214,202));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
 }
