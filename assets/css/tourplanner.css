@@ -15,7 +15,7 @@
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
-  grid-template-columns: 22% 18% 1fr;
+  grid-template-columns: 22% auto 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
                        "plan-notesection plan-notesection plan-notesection"
                        "plan-footer plan-footer plan-footer";
@@ -168,20 +168,24 @@
 
  .plan-btn-pane {
   display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 5px 5px 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
   flex-direction: column;
   position: relative;
   font-weight: 500;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items:flex-start;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
   gap: 5px;
 }
 
 .plan-btn-pane h3 {
   position: relative;
   padding: 3px;
+  font-size: 1.5rem;
   color: whitesmoke;
 }
 
@@ -198,6 +202,7 @@
 
 .btn-plan-submenu {
   background-color: var(--hover-background-color);
+  font-size: 1.2rem;
   color: var(--font-plain-color);
   padding: var(--border-size-offset);
   border: none;
@@ -485,7 +490,7 @@
 }
 
 .plan-note-container .plan-note.active h4 {
-  color: black;
+  color: whitesmoke;
   font-weight: 900;
   margin: 10px 10px 10px 10px;
 }
