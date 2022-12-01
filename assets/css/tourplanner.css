@@ -26,7 +26,7 @@
   display: flex;
   position: relative;
   height: auto;
-  background-color: var(--accent-color);
+  background-color: whitesmoke;
   justify-content: center;
 }
 
@@ -34,7 +34,7 @@
   grid-area: plan-midmenu;
   position: relative;
   height: auto;
-  background-color: var(--accent-color);
+  background-color: whitesmoke;
   padding-bottom: 1rem;
 }
 
@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--accent-color);
+  background-color: whitesmoke;
   gap: 5px;
 }
 
@@ -91,7 +91,7 @@
   .centered-planner {
     position: relative;
     top: 0;
-    text-align: center;
+    text-align: left;
   }
 
   .centered-planner ul li {
@@ -101,8 +101,10 @@
 
   .centered-planner h3 {
     position: relative;
+    font-size: 1.5rem;
     padding: 3px;
-    color: whitesmoke;
+    background-color: var(--theme-blue-color);
+    color: black;
   }
 
   .centered-planner h3::before {
@@ -117,8 +119,8 @@
   }
 
   .btn-plan-style {
-    background-color: var(--hover-background-color);
-    color: var(--font-plain-color);
+    background-color: white;
+    color: black;
     padding: var(--border-size-offset);
     border: none;
     outline: none;
@@ -134,7 +136,8 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-color: var(--accent-color);
+    background-color: whitesmoke;
+    border-radius: 5px;
     border-radius: 50%;
     transition: transform 500ms ease-in-out;
     transform: scale(1.5);
@@ -154,7 +157,7 @@
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
-    color: var(--font-plain-color);
+    color: black;
   }
 
   .btn-plan-style.active::before {
@@ -186,7 +189,7 @@
   position: relative;
   padding: 3px;
   font-size: 1.5rem;
-  color: whitesmoke;
+  color: black;
 }
 
 .plan-btn-pane h3::before {
@@ -203,7 +206,7 @@
 .btn-plan-submenu {
   background-color: var(--hover-background-color);
   font-size: 1.2rem;
-  color: var(--font-plain-color);
+  color: black;
   padding: var(--border-size-offset);
   border: none;
   outline: none;
@@ -219,7 +222,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: var(--accent-color);
+  background-color: white;
   border-radius: 50%;
   transition: transform 500ms ease-in-out;
   transform: scale(1.5);
@@ -233,7 +236,7 @@
 .btn-plan-submenu {
   z-index: 1;
   overflow: hidden;
-  background-color: whitesmoke;
+  background-color: white;
   transition: color 70ms ease-in-out;
 }
 
@@ -268,23 +271,23 @@
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.35px;
-  color: #FFFFFF;
+  color: black;
   opacity: 1;
   padding: 12px;
   text-align: center;
   vertical-align: top;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .table-right-content .pln-tbl-content tbody tr td {
   font-size: 1.2rem;
   letter-spacing: 400;
   font-weight: normal;
-  color: #f1f1f1;
+  color: black;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 4px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -325,9 +328,9 @@
   line-height: 15px;
   display: inline-block;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #5cb85c;
   font-weight: 600;
-  color: #00d8ff;
+  color: whitesmoke;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -406,7 +409,7 @@
 }
 
 .plan-rightcontent .heading-right-box .heading-right-content h3 {
-  color: #fff;
+  color: black;
   font-size: 2em;
 }
 
@@ -433,7 +436,7 @@
 }
 
 .plan-rightcontent .placevisit-right-box .placevisit-right-content p {
-  color: #fff;
+  color: black;
   font-size: 1.25rem;
 }
 
@@ -461,7 +464,7 @@
   align-items: center;
   gap: 20px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -490,18 +493,18 @@
 }
 
 .plan-note-container .plan-note.active h4 {
-  color: whitesmoke;
+  color: black;
   font-weight: 900;
   margin: 10px 10px 10px 10px;
 }
 
 .plan-note-container .plan-note.active ol {
-  color: white;
+  color: black;
   margin: 10px 10px 10px 10px;
 }
 
 .plan-note-container .plan-note.active ul {
-  color: white;
+  color: black;
   margin: 10px 10px 10px 10px;
 }
 
