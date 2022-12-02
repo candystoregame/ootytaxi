@@ -557,8 +557,6 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
   width: 192px;
   height: 75px;
   z-index: 5;
@@ -575,8 +573,6 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
   width: 192px;
   height: 75px;
   background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
@@ -587,11 +583,18 @@ form .pln-contact-channel .channel-title::before {
 
 #phonecustombox a {
   position: absolute;
+  color: yellow;
+  font-size: 1rem;
   inset: 2px;
   z-index: 5;
   background: rgba(77,78,84,1);
   border-radius: 8px;
-  padding: 26px 10px;
+  padding: 25px 10px;
+}
+
+#phonecustombox a span {
+  font-size: 1.2rem;
+  color: white;
 }
 
 /*Call Memu Item Start*/
