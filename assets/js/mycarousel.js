@@ -40,7 +40,7 @@ btns.forEach((btn, i) => {
 });
 // Javascript for image slider autoplay navigation
 let repeat = function(activeClass) {
-    const specifcactive = getElementById('ootyslider-popup');
+    const specifcactive = document.getElementById("ootyslider-popup");
     const active = specifcactive.getElementsByClassName('active');
     let i = 1;
     let repeater = () => {
