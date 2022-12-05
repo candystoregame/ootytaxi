@@ -1557,7 +1557,7 @@ position: relative;
     transition: .5s ease-in-out;
     
 }
-/*
+
 .single-footer-txt p a:hover{
     -webkit-transition:scaleX(1.2);
     -moz-transition:scaleX(1.2);
@@ -1565,7 +1565,7 @@ position: relative;
     -o-transition:scaleX(1.2);
     transform:scaleX(1.2);
     color: #00d8ff;
-}/*single-footer-txt*/*/
+}/*single-footer-txt*/
 
 .footer-copyright hr{
     border-top: 1px solid #ebebeb;
