@@ -18,11 +18,11 @@ window.addEventListener('click',function(e) {
 })
 
 
-var slides = document.querySelectorAll('.ooty-slide');
-var btns = document.querySelectorAll('.slider-btn');
+const slides = document.querySelectorAll('.ooty-slide');
+const btns = document.querySelectorAll('.slider-btn');
 let currentSlide = 1;
 // Javascript for image slider manual navigation
-var manualNav = function(manual){
+let manualNav = function(manual){
   slides.forEach((slide) => {
     slide.classList.remove('active');
     btns.forEach((btn) => {
@@ -39,27 +39,27 @@ btns.forEach((btn, i) => {
   });
 });
 // Javascript for image slider autoplay navigation
-var repeat = function(activeClass){
-    let specifcactive = getElementById('ootyslider-popup');
-  let active = specifcactive.getElementsByClassName('active');
-  let i = 1;
-  var repeater = () => {
-    setTimeout(function(){
-      [...active].forEach((activeSlide) => {
-        activeSlide.classList.remove('active');
-      });
-    slides[i].classList.add('active');
-    btns[i].classList.add('active');
-    i++;
-    if(slides.length == i){
-      i = 0;
-    }
-    if(i >= slides.length){
-      return;
+let repeat = function(activeClass) {
+    const specifcactive = getElementById('ootyslider-popup');
+    const active = specifcactive.getElementsByClassName('active');
+    let i = 1;
+    let repeater = () => {
+      setTimeout(function(){
+        [...active].forEach((activeSlide) => {
+          activeSlide.classList.remove('active');
+        });
+      slides[i].classList.add('active');
+      btns[i].classList.add('active');
+      i++;
+      if(slides.length == i){
+        i = 0;
+      }
+      if(i >= slides.length){
+        return;
+      }
+      repeater();
+    }, 10000);
     }
     repeater();
-  }, 10000);
-  }
-  repeater();
-}
+}  
 repeat();
