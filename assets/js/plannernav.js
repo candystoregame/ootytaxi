@@ -1,5 +1,3 @@
-
-
 const keynotemap = new Map([
   ["Local Sightseeing (Hour Basis).xlsx", "tariffnote1"],
   ["Dropping Duty (Fixed).xlsx", "tariffnote2"],
