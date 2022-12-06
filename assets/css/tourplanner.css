@@ -23,7 +23,7 @@
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
-  grid-template-columns: 22% auto 1fr;
+  grid-template-columns: 22% fit-content(28%) 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
                        "plan-notesection plan-notesection plan-notesection"
                        "plan-footer plan-footer plan-footer";
@@ -49,6 +49,7 @@
   border-radius: 8px;
   background-color: var(--page-background-color);
   padding-bottom: 1rem;
+  overflow: hidden;
 }
 
 .plan-rightcontent {
