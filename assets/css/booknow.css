@@ -642,15 +642,14 @@ form .pln-contact-channel .channel-title::before {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 6;
   background: rgba(0, 0, 0, 0.1);
+  z-index: 3;
 }
 
 #ootyslider-pop-header .close-ootyslider-pop {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 14;
   margin-right: 7px;
   color: aliceblue;
   cursor: pointer;
@@ -704,7 +703,6 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .ooty-slide {
-  z-index: 7;
   position: absolute;
   width: 100%;
   clip-path: circle(0% at 0 50%);
@@ -717,7 +715,6 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .ooty-slide img {
-  z-index: 7;
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
@@ -747,7 +744,6 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .navigation {
-  z-index: 8;
   position: absolute;
   display: flex;
   bottom: 30px;
