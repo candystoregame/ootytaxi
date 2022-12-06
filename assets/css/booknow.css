@@ -704,7 +704,7 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .ooty-slide {
-  z-index: 5;
+  z-index: 7;
   position: absolute;
   width: 100%;
   clip-path: circle(0% at 0 50%);
@@ -717,7 +717,7 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .ooty-slide img {
-  z-index: 5;
+  z-index: 7;
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
@@ -747,7 +747,7 @@ form .pln-contact-channel .channel-title::before {
 }
 
 .ootyslider-container .img-slider .navigation {
-  z-index: 6;
+  z-index: 8;
   position: absolute;
   display: flex;
   bottom: 30px;
