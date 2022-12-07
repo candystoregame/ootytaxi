@@ -47,14 +47,13 @@ function fetchElement(value) {
   fetchMidMenu(value);
 }
 
-function fetchTable (fetchMidMenu, sheetName) {
+function fetchTable(fetchMidMenu, sheetName) {
   const tableContent = document.querySelector('.table-right-content');
   const TableHeading = document.querySelector('.heading-right-content');
   const VisitContent = document.querySelector('.placevisit-right-content');
   const rightMainDiv = document.getElementById('planner-right-container');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
-  fetchslidecontent("Sheet1");
   //console.log(sprma(value));
   if (globaltableflag != 1) {
     rightMainDiv.innerHTML='';
