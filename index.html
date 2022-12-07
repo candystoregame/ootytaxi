@@ -153,56 +153,12 @@
 
 	<div id="ootyslider-popup">
 		<div id="ootyslider-container-id" class="ootyslider-container">
-		  <div class="img-slider">
-			<div class="ooty-slide active">
-			  <img src="assets/images/myslider/ooty/1.jpg" loading="lazy" alt="The Slide Image">
-			  <div class="info">
-				<h2>Slide 01</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			  </div>
+			<div id="slider_image_switch" class="img-slider"></div>
+			<div id="ootyslider-pop-header">
+				<a href="#" class="close-ootyslider-pop">&times;</a>
 			</div>
-			<div class="ooty-slide">
-			  <img src="assets/images/myslider/ooty/2.jpg" loading="lazy" alt="A true bio-diversity">
-			  <div class="info">
-				<h2>Slide 02</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			  </div>
-			</div>
-			<div class="ooty-slide">
-			  <img src="assets/images/myslider/ooty/3.jpg" loading="lazy" alt="A common ginormous in its turf">
-			  <div class="info">
-				<h2>Slide 03</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			  </div>
-			</div>
-			<div class="ooty-slide">
-			  <img src="assets/images/myslider/ooty/4.jpg" loading="lazy" alt="An epitome for camera cannot match our nacked eye">
-			  <div class="info">
-				<h2>Slide 04</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			  </div>
-			</div>
-			<div class="ooty-slide">
-			  <img src="assets/images/myslider/ooty/5.jpg" loading="lazy" alt="A joy that you'll find with Ooty Taxi">
-			  <div class="info">
-				<h2>Slide 05</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			  </div>
-			</div>
-			<div class="navigation">
-			  <div class="slider-btn active"></div>
-			  <div class="slider-btn"></div>
-			  <div class="slider-btn"></div>
-			  <div class="slider-btn"></div>
-			  <div class="slider-btn"></div>
-			</div>
-		  </div>
-		  <div id="ootyslider-pop-header">
-			<a href="#" class="close-ootyslider-pop">&times;</a>
-		  </div>
-		  </div>
 		</div>
-	  </div>
+	</div>
 
 	<!--Slider End-->
 
@@ -1159,11 +1115,11 @@
 							<div class="single-footer-item">
 								<h2>popular destination</h2>
 								<div class="single-footer-txt">
-									<p><a id="ootyslider-pop-open" href="#">Ooty</a></p>
-									<p><a href="#">Coonoor</a></p>
-									<p><a href="#">Kotagiri</a></p>
-									<p><a href="#">Munnar</a></p>
-									<p><a href="#">Mysore</a></p>
+									<p><a href="#" value="Ooty" onclick="clickslider(this.getAttribute('value'));">Ooty</a></p>
+									<p><a href="#" value="Coonoor" onclick="clickslider(this.getAttribute('value'));">Coonoor</a></p>
+									<p><a href="#" value="Kotagiri" onclick="clickslider(this.getAttribute('value'));">Kotagiri</a></p>
+									<p><a href="#" value="Munnar" onclick="clickslider(this.getAttribute('value'));">Munnar</a></p>
+									<p><a href="#" value="Mysore" onclick="clickslider(this.getAttribute('value'));">Mysore</a></p>
 								</div>
 								<!--/.single-footer-txt-->
 							</div>

@@ -407,3 +407,57 @@ cursor.init();
  
 
 /* Mouse Tracker Function End */
+
+
+/*Slider Fetch Table Start*/
+
+function fetchslidecontent(sheetName) {
+  const slideContent = document.getElementById('slider_image_switch');
+  const newDiv = document.createElement("div");
+  const fName = './assets/dataFiles/sliderref.xlsx';
+  let slidepath, slideheading, slidefilename, slidecomments;
+  let slide_output="";
+  let slide_btn_output="";
+  (
+    async() => {
+      const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
+      const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
+      if(sheet_data.length > 0) {
+        slideContent.innerHTML='';
+        for(var row = 0; row < sheet_data.length; row++)
+        {
+          for(var cell = 0; cell < sheet_data[row].length; cell++)
+          {
+            if (row > 0 && cell == 0) {
+              slidepath = sheet_data[row][cell];
+            }
+            if (row > 0 && cell == 1) {
+              slideheading = sheet_data[row][cell];
+            }
+            if (row > 0 && cell == 2) {
+              slidefilename = sheet_data[row][cell];
+            }
+            if (row > 0 && cell == 3) {
+              slidecomments = sheet_data[row][cell];
+            }
+          }
+          if (row == 1) {
+            slide_output = '<div class="ooty-slide active"><img src="'+slidepath+slidefilename+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            slide_btn_output = '<div class="slider-btn active"></div>';
+          }
+          if (row > 1) {
+            slide_output += '<div class="ooty-slide"><img src="'+slidepath+slidefilename+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            slide_btn_output += '<div class="slider-btn"></div>';
+          }
+        }
+        slideContent.innerHTML = slide_output;
+        newDiv.id = "slider_btn_navigation";
+        newDiv.classList.add("slider-navigation");
+        slideContent.appendChild(newDiv);
+        newDiv.innerHTML = slide_btn_output;
+      }
+    }
+  )()
+}
+
+/*Slider Fetch Table End*/
