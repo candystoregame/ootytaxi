@@ -20,7 +20,7 @@ window.addEventListener('click',function(e) {
 
 const slides = document.querySelectorAll('.ooty-slide');
 const btns = document.querySelectorAll('.slider-btn');
-let currentSlide = 1;
+var currentSlide = 1;
 // Javascript for image slider manual navigation
 let manualNav = function(manual){
   slides.forEach((slide) => {
@@ -36,13 +36,14 @@ btns.forEach((btn, i) => {
   btn.addEventListener("click", () => {
     manualNav(i);
     currentSlide = i;
+    console.log(i);
   });
 });
 // Javascript for image slider autoplay navigation
-let repeat = function(activeClass) {
+let repeat = function() {
     const specifcactive = document.getElementById("ootyslider-popup");
     const active = specifcactive.getElementsByClassName('active');
-    let i = 1;
+    let i = currentSlide;
     let repeater = () => {
       setTimeout(function(){
         [...active].forEach((activeSlide) => {
@@ -63,3 +64,29 @@ let repeat = function(activeClass) {
     repeater();
 }  
 repeat();
+
+
+function fetchslidecontent (sheetName) {
+  const tableContent = document.querySelector('.img-slider');
+  const fName = './assets/dataFiles/sliderref.xlsx';
+  (
+    async() => {
+      const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
+      const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
+      if(sheet_data.length > 0) {
+//        tableContent.innerHTML='';
+        let table_output="";
+        for(var row = 0; row < sheet_data.length; row++)
+        {
+          for(var cell = 0; cell < sheet_data[row].length; cell++)
+          {
+            if(row == 1) {
+              console.log(sheet_data[row][cell]);
+            }
+          }
+        }
+        //tableContent.innerHTML = table_output;
+      }
+    }
+  )()
+}

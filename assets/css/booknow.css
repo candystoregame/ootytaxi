@@ -622,13 +622,13 @@ form .pln-contact-channel .channel-title::before {
     background-color: orangered;
 }
 
-/*.cursor-dot-outline {
+.cursor-dot-outline {
     size: 40px;
     width: 40px;
     height: 40px;
     z-index: 12;
     background-color: hsla(0, 0%, 3%, 0.3);
-}*/
+}
 
 /*Mouse Tracker End*/
 

@@ -155,7 +155,7 @@
 		<div id="ootyslider-container-id" class="ootyslider-container">
 		  <div class="img-slider">
 			<div class="ooty-slide active">
-			  <img src="assets/images/myslider/ooty/1.jpg" loading="lazy" alt="All the green, naturally">
+			  <img src="assets/images/myslider/ooty/1.jpg" loading="lazy" alt="The Slide Image">
 			  <div class="info">
 				<h2>Slide 01</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -376,7 +376,7 @@
 														</div><!-- /.travel-select-icon -->
 
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter your destination location
 																</option><!-- /.option-->
@@ -427,7 +427,7 @@
 													<div class="single-tab-select-box">
 														<h2>Vehicle</Select></h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 																<option value="default">Indica</option><!-- /.option-->
 																<option value="Tavera">Tavera</option><!-- /.option-->
 																<option value="Traveller">Traveller</option>
@@ -459,7 +459,7 @@
 													<div class="single-tab-select-box">
 														<h2>members</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">1</option><!-- /.option-->
 
@@ -508,7 +508,7 @@
 														<h2>destination</h2>
 
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter your destination country
 																</option><!-- /.option-->
@@ -522,7 +522,7 @@
 														</div><!-- /.travel-select-icon -->
 
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter your destination location
 																</option><!-- /.option-->
@@ -575,7 +575,7 @@
 													<div class="single-tab-select-box">
 														<h2>duration</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">5</option><!-- /.option-->
 
@@ -595,7 +595,7 @@
 													<div class="single-tab-select-box">
 														<h2>members</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">1</option><!-- /.option-->
 
@@ -667,7 +667,7 @@
 														<h2>from</h2>
 
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter your location</option>
 																<!-- /.option-->
@@ -718,7 +718,7 @@
 													<div class="single-tab-select-box">
 														<h2>adults</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">5</option><!-- /.option-->
 
@@ -738,7 +738,7 @@
 													<div class="single-tab-select-box">
 														<h2>childs</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">1</option><!-- /.option-->
 
@@ -764,7 +764,7 @@
 														<h2>to</h2>
 
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter your destination location
 																</option><!-- /.option-->
@@ -787,7 +787,7 @@
 
 														<h2>class</h2>
 														<div class="travel-select-icon">
-															<select class="form-control ">
+															<select class="form-control" aria-label="Plan Travel">
 
 																<option value="default">enter class</option>
 																<!-- /.option-->
@@ -1197,9 +1197,9 @@
 				<hr>
 				<div class="foot-icons ">
 					<ul class="footer-social-links list-inline list-unstyled">
-						<li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" title="Facebook" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" title="Twitter" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" title="Instagram" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
 					</ul>
 					<p>&copy; 2022 <a href="https://www.bridgewisely.com">BridgeWisely</a>. All Right Reserved</p>
 
@@ -1267,6 +1267,9 @@
 	<script type="text/javascript">
 		emailjs.init('TlCzdwwNr71E2Ixgk')
 	  </script>
+	
+	<!--GSAP CDN-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	<script>
 		function whatsapp(){

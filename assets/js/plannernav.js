@@ -54,6 +54,7 @@ function fetchTable (fetchMidMenu, sheetName) {
   const rightMainDiv = document.getElementById('planner-right-container');
   const fName = fetchMidMenu;
   let plname, veh, freekm, freehrs, xhr, xkm, pamount;
+  fetchslidecontent("Sheet1");
   //console.log(sprma(value));
   if (globaltableflag != 1) {
     rightMainDiv.innerHTML='';
@@ -363,6 +364,19 @@ var cursor = {
       
       requestAnimationFrame(this.animateDotOutline.bind(self));
   },
+
+  /*startAnimation: function() {
+    var self = this;
+    self.animationElements = document.querySelectorAll('.cursor-dot');
+
+    for (let i = 0; i < this.animationElements.length+2; i++) {
+        //scale
+        gsap.fromTo(this.animationElements[i], { scale: 1 }, { scale: 5, repeat: -1, duration: 1.5, delay: i * 1.5 / 2, ease: Linear.easeNone });
+
+        //opacity
+        gsap.fromTo(this.animationElements[i], { opacity: .175 }, { opacity: 0, repeat: -1, duration: 1.5, delay: i * 1.5 / 2, ease: Power4.easeIn });
+    }
+},*/
   
   toggleCursorSize: function() {
       var self = this;
@@ -372,6 +386,7 @@ var cursor = {
           self.$outline.style.transform = 'translate(-50%, -50%) scale(1.5)';
       } else {
           self.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
+          //self.startAnimation();
           self.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
       }
   },
