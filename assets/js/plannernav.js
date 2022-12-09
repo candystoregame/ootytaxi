@@ -15,6 +15,8 @@ const keynotemap = new Map([
   ["Honeymoon Tour Packages.xlsx", "tariffnote5"]
 ]);
 
+let defaultmenu = 'tariff-planner1';
+
 var globalfilepath;
 var globaltableflag = 0;
 
@@ -246,6 +248,7 @@ function bookdetails(lavi) {
 
 window.addEventListener("load", () => {
   let lolelement = localStorage.getItem('thelolname');
+  if (defaultmenu !== null) {localmenu(defaultmenu);}
   if (lolelement !== null) {
     localStorage.removeItem('thelolname');
     rma();
@@ -253,6 +256,7 @@ window.addEventListener("load", () => {
     fetchElement(document.getElementById(lolelement).value);
     lolelement = null;
   }
+  defaultmenu = null;
 })
 
 function localmenu(lval) {
@@ -408,6 +412,18 @@ cursor.init();
 
 /* Mouse Tracker Function End */
 
+function writeimagetolocalstorage(path, key) {
+  const img = new Image();
+  img.src = path;
+  img.load = function() {
+    const canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    let context = canvas.getContext('2d');
+    context.drawImage(img, 0, 0);
+    const data = context.getImageData(x, y, img.width, img.height).data;
+    localStorage.setItem(key, data); // save image data
+  };
+}
 
 /*Slider Fetch Table Start*/
 
@@ -415,7 +431,7 @@ function fetchslidecontent(sheetName) {
   const slideContent = document.getElementById('slider_image_switch');
   const newDiv = document.createElement("div");
   const fName = './assets/dataFiles/sliderref.xlsx';
-  let slidepath, slideheading, slidefilename, slidecomments;
+  let slidepath, slideheading, slidefilename, slidecomments, lpath, key, path;
   let slide_output="";
   let slide_btn_output="";
   (
@@ -442,11 +458,19 @@ function fetchslidecontent(sheetName) {
             }
           }
           if (row == 1) {
-            slide_output = '<div class="ooty-slide active"><img src="'+slidepath+slidefilename+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            lpath = slidepath+slidefilename;
+            key = 'ooty09'+row;
+            writeimagetolocalstorage(lpath, key);
+            path = localStorage.getItem(key);
+            slide_output = '<div class="ooty-slide active"><img src="'+path+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
             slide_btn_output = '<div class="slider-btn active"></div>';
           }
           if (row > 1) {
-            slide_output += '<div class="ooty-slide"><img src="'+slidepath+slidefilename+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            lpath = slidepath+slidefilename;
+            key = 'ooty09'+row;
+            writeimagetolocalstorage(lpath, key);
+            path = localStorage.getItem(key);
+            slide_output += '<div class="ooty-slide"><img src="'+path+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
             slide_btn_output += '<div class="slider-btn"></div>';
           }
         }

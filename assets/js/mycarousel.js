@@ -3,7 +3,9 @@ let turnoffslider = "true";
 
 function clickslider(value) {
   slidertoken = value;
-  fetchslidecontent(slidertoken);
+  setTimeout(function() {
+    fetchslidecontent(slidertoken);
+  }, 30000);
   console.log(slidertoken);
   let popslider = document.getElementById('ootyslider-popup'),
     //openpopslider = document.getElementById('ootyslider-pop-open'),
@@ -46,7 +48,7 @@ function clickslider(value) {
           return;
         }
         repeater();
-      }, 10000);
+      }, 5000);
     }
     repeater();
   }
