@@ -601,8 +601,8 @@ form .pln-contact-channel .channel-title::before {
 
 /*Mouse Tracker Start*/
 
-.cursor-dot,
-.cursor-dot-outline {
+.cursor-dot/*,
+.cursor-dot-outline*/ {
     pointer-events: none;
     position: absolute;
     top: 50%;
@@ -619,16 +619,16 @@ form .pln-contact-channel .channel-title::before {
     size: 16px;
     width: 16px;
     height: 16px;
-    background-color: orangered;
+    background-color: #FF923E;
 }
 
-.cursor-dot-outline {
+/*.cursor-dot-outline {
     size: 40px;
     width: 40px;
     height: 40px;
     z-index: 12;
     background-color: hsla(0, 0%, 3%, 0.3);
-}
+}*/
 
 /*Mouse Tracker End*/
 
