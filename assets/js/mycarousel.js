@@ -1,6 +1,4 @@
 fetchslidecontent('Ooty');
-let turnoffslider = "true";
-
 function clickslider(value) {
   slidertoken = value;
   fetchslidecontent(slidertoken);
@@ -8,7 +6,6 @@ function clickslider(value) {
   let popslider = document.getElementById('ootyslider-popup'),
       closepopslider = document.querySelector('.close-ootyslider-pop');
   popslider.style.display = 'block';
-  turnoffslider = "false";
   quitslider = setTimeout(function() {
     const slidetrack = document.querySelector('.img-slider');
     const cslides = Array.from(document.querySelectorAll('.ooty-slide'));
@@ -55,7 +52,6 @@ function clickslider(value) {
 
   closepopslider.addEventListener('click', function() {
       popslider.style.display = 'none';
-      turnoffslider = "true";
       clearInterval(timer);
       clearInterval(quitslider);
   })
@@ -63,7 +59,8 @@ function clickslider(value) {
   window.addEventListener('click',function(e) {
       if(e.target == popslider) {
           popslider.style.display = 'none';
-          turnoffslider = "true";
+          clearInterval(timer);
+          clearInterval(quitslider);
       }
     })
   }
