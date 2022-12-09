@@ -1,69 +1,69 @@
-fetchslidecontent("Ooty");
+fetchslidecontent('Ooty');
 let turnoffslider = "true";
 
 function clickslider(value) {
   slidertoken = value;
-  setTimeout(function() {
-    fetchslidecontent(slidertoken);
-  }, 30000);
+  fetchslidecontent(slidertoken);
   console.log(slidertoken);
   let popslider = document.getElementById('ootyslider-popup'),
-    //openpopslider = document.getElementById('ootyslider-pop-open'),
-    closepopslider = document.querySelector('.close-ootyslider-pop');
-
-//openpopslider.addEventListener('click', function() {
+      closepopslider = document.querySelector('.close-ootyslider-pop');
   popslider.style.display = 'block';
   turnoffslider = "false";
-  const slidetrack = document.querySelector('.img-slider');
-  const cslides = Array.from(document.querySelectorAll('.ooty-slide'));
-  const navtrack = document.querySelector('.slider-navigation');
-  console.log(navtrack);
-  const cslidedots = Array.from(document.querySelectorAll('.slider-btn'));
-  let sliderpivot = 1;
-  navtrack.addEventListener('click', e => {
-    const targetdot = e.target.closest("div.slider-btn");
-    if (!targetdot) return;
-    const targetIndex  = cslidedots.findIndex (dot => dot === targetdot);
-    slidetrack.querySelector(".active").classList.remove('active');
-    navtrack.querySelector(".active").classList.remove('active');
-    cslides[targetIndex].classList.add("active");
-    cslidedots[targetIndex].classList.add("active");
-    sliderpivot = targetIndex;
-  })
+  quitslider = setTimeout(function() {
+    const slidetrack = document.querySelector('.img-slider');
+    const cslides = Array.from(document.querySelectorAll('.ooty-slide'));
+    const navtrack = document.querySelector('.slider-navigation');
+    let sliderpivot = 1;
+    const cslidedots = Array.from(document.querySelectorAll('.slider-btn'));
+    let timer = setInterval(autoSlide, 3000);
+    navtrack.addEventListener('click', e => {
+      const targetdot = e.target.closest("div.slider-btn");
+      if (!targetdot) return;
+      const targetIndex  = cslidedots.findIndex (dot => dot === targetdot);
+      slidetrack.querySelector(".active").classList.remove('active');
+      navtrack.querySelector(".active").classList.remove('active');
+      cslides[targetIndex].classList.add("active");
+      cslidedots[targetIndex].classList.add("active");
+      sliderpivot = targetIndex;
+      resetTimer();
+    })
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(autoSlide, 8000);
+    }
   
-  // Javascript for image slider autoplay navigation
-  const repeat = function(){
-    const repeater = () => {
-      console.log(sliderpivot);
-      setTimeout(function() {
-        slidetrack.querySelector(".active").classList.remove('active');
-        navtrack.querySelector(".active").classList.remove('active');
-        cslides[sliderpivot].classList.add('active');
-        cslidedots[sliderpivot].classList.add('active');
-        sliderpivot++;
-        if(cslides.length == sliderpivot) {
-          sliderpivot = 0;
-        }
-        if(sliderpivot >= cslides.length) {
-          return;
-        }
-        repeater();
-      }, 5000);
+    function autoSlide() {
+      sliderpivot += 1;
+      slidefun(sliderpivot);
     }
-    repeater();
+  
+    function slidefun(n) {
+      slidetrack.querySelector(".active").classList.remove('active');
+      navtrack.querySelector(".active").classList.remove('active');
+      if(n > cslides.length){
+        sliderpivot = 1;
+         }
+      if(n < 1){
+        sliderpivot = myslide.length;
+         }
+         console.log(sliderpivot);
+      cslides[sliderpivot - 1].classList.add("active");
+      cslidedots[sliderpivot - 1].classList.add("active");
+    }
+  }, 1000);
+
+  closepopslider.addEventListener('click', function() {
+      popslider.style.display = 'none';
+      turnoffslider = "true";
+      clearInterval(timer);
+      clearInterval(quitslider);
+  })
+
+  window.addEventListener('click',function(e) {
+      if(e.target == popslider) {
+          popslider.style.display = 'none';
+          turnoffslider = "true";
+      }
+    })
   }
-  repeat();
-//})
-
-closepopslider.addEventListener('click', function() {
-    popslider.style.display = 'none';
-    turnoffslider = "true";
-})
-
-window.addEventListener('click',function(e) {
-    if(e.target == popslider) {
-        popslider.style.display = 'none';
-        turnoffslider = "true";
-    }
-})
-}
