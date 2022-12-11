@@ -248,7 +248,6 @@ function bookdetails(lavi) {
 
 window.addEventListener("load", () => {
   let lolelement = localStorage.getItem('thelolname');
-  if (defaultmenu !== null) {localmenu(defaultmenu);}
   if (lolelement !== null) {
     localStorage.removeItem('thelolname');
     rma();
@@ -256,6 +255,7 @@ window.addEventListener("load", () => {
     fetchElement(document.getElementById(lolelement).value);
     lolelement = null;
   }
+  else if (defaultmenu !== null) {localmenu(defaultmenu);}
   defaultmenu = null;
 })
 

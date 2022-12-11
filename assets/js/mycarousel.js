@@ -12,7 +12,7 @@ function clickslider(value) {
     const navtrack = document.querySelector('.slider-navigation');
     let sliderpivot = 1;
     const cslidedots = Array.from(document.querySelectorAll('.slider-btn'));
-    let timer = setInterval(autoSlide, 3000);
+    let timer = setInterval(autoSlide, 6000);
     navtrack.addEventListener('click', e => {
       const targetdot = e.target.closest("div.slider-btn");
       if (!targetdot) return;
@@ -27,7 +27,7 @@ function clickslider(value) {
 
     function resetTimer() {
       clearInterval(timer);
-      timer = setInterval(autoSlide, 8000);
+      timer = setInterval(autoSlide, 6000);
     }
   
     function autoSlide() {
