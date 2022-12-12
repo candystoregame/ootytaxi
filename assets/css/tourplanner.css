@@ -441,6 +441,7 @@
 .plan-rightcontent .placevisit-right-box .placevisit-right-content div h5 {
   width: 113px;
   margin-right: 10px;
+  text-align: right;
   font-size: var(--medium-font-size);
   font-weight: 600;
   color: black;
@@ -451,7 +452,7 @@
 }
 
 .plan-rightcontent .placevisit-right-box .placevisit-right-content div p {
-  width: fit-content;
+  width: 100%;
   padding-left: 20px;
   font-size: var(--normal-font-size);
   font-weight: 400;
