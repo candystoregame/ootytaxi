@@ -4,7 +4,7 @@ const keynotemap = new Map([
   ["Out Station Duty (KM Basis).xlsx", "tariffnote3"],
   ["Dropping Duty (KM Basis).xlsx", "tariffnote4"],
   ["Tour Packages.xlsx", "tariffnote1"],
-  ["Minimum Charges Day Rent(KM Basis).xlsx", "tariffnote1"],
+  ["Minimum Charges Day Rent (KM Basis).xlsx", "tariffnote1"],
   ["One Day Tour Packages.xlsx", "tariffnote1"],
   ["Two Days Tour Packages.xlsx", "tariffnote1"],
   ["Three Days Tour Packages.xlsx", "tariffnote1"],
