@@ -431,7 +431,7 @@
 }
 
 .plan-rightcontent .placevisit-right-box .placevisit-right-content div {
-  margin: 0 0 0 2px;
+  margin: 0 0 2px 2px;
   display: flex;
   justify-content: center;
   align-items: center;
