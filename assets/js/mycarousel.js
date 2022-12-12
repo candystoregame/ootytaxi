@@ -12,7 +12,7 @@ function clickslider(value) {
     const navtrack = document.querySelector('.slider-navigation');
     let sliderpivot = 1;
     const cslidedots = Array.from(document.querySelectorAll('.slider-btn'));
-    let timer = setInterval(autoSlide, 2000);
+    let timer = setInterval(autoSlide, 3000);
     navtrack.addEventListener('click', e => {
       const targetdot = e.target.closest("div.slider-btn");
       if (!targetdot) return;
@@ -31,11 +31,13 @@ function clickslider(value) {
     }
   
     function autoSlide() {
+      if (slidertoken === null) { clearInterval(timer); clearInterval(quitslider); }
       sliderpivot += 1;
       slidefun(sliderpivot);
     }
   
     function slidefun(n) {
+      if (slidertoken === null) { clearInterval(timer); clearInterval(quitslider); }
       slidetrack.querySelector(".active").classList.remove('active');
       navtrack.querySelector(".active").classList.remove('active');
       if(n > cslides.length){
@@ -52,15 +54,15 @@ function clickslider(value) {
 
   closepopslider.addEventListener('click', function() {
       popslider.style.display = 'none';
-      clearInterval(timer);
-      clearInterval(quitslider);
+      slidertoken = null;      
   })
 
   window.addEventListener('click',function(e) {
       if(e.target == popslider) {
           popslider.style.display = 'none';
-          clearInterval(timer);
-          clearInterval(quitslider);
+          slidertoken = null;
+          //clearInterval(timer);
+          //clearInterval(quitslider);
       }
     })
   }
