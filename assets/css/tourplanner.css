@@ -456,6 +456,7 @@
   font-size: var(--normal-font-size);
   font-weight: 400;
   border-style: solid;
+  border-radius: 5px;
   border-width: 1px;
   color: black;
 }
