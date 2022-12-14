@@ -114,42 +114,17 @@ function fetchTable(fetchMidMenu, sheetName) {
             }
             else if(row == 2) {
               table_output += '<th>'+sheet_data[row][cell]+'</th>';
-              if (sheet_data[row][cell].search("VEHICLES") == 0) {
-                veh=cell;
-                console.log(veh);
-              }
-              if (sheet_data[row][cell].search("HRS") == 0) {
-                freehrs=cell;
-                console.log(freehrs);
-              }
-              if (sheet_data[row][cell].search("FREE KMS") == 0) {
-                freekm=cell;
-                console.log(freekm);
-              }
-              if (sheet_data[row][cell].search("Extra Hrs.") == 14) {
-                xhr=cell;
-                console.log(xhr);
-              }
-              if (sheet_data[row][cell].search("After Free KMs") == 14) {
-                xkm=cell;
-                console.log(xkm);
-              }
-              if (sheet_data[row][cell].search("AMOUNT") == 0) {
-                pamount=cell;
-                console.log(pamount);
-              }
             }
             else if(row == 2 && cell == sheet_data[row].length-1) {
               table_output += '<th>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class="pln-shake">&darr;</a></th>';
             }
             else if (row > 2 && cell == sheet_data[row].length-1) {
-              table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class = "pln-tablebook" vehicle="'+sheet_data[row][veh]+'" amount="'+sheet_data[row][pamount]+'" freehrs="'+sheet_data[row][freehrs]+'" freekm="'+sheet_data[row][freekm]+'" extrahours="'+sheet_data[row][xhr]+'" extrakm="'+sheet_data[row][xkm]+'" pplan="'+sheet_data[0][0]+'">'+sheet_data[row][cell]+'</button></td>';
+              table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class="pln-tablebook">'+sheet_data[row][cell]+'</button></td>';
             }
             else {
                 table_output += '<td table-data-label="'+sheet_data[2][cell]+'">'+sheet_data[row][cell]+'</td>';
                 let neyabba = {planmap: buttonmap, key: sheet_data[2][cell], value: sheet_data[row][cell]};
                 planner_booknow_map[indext++]=neyabba;
-                console.log(planner_booknow_map);
             }
           }
           if (row > 2) {table_output += '</tr>';}
@@ -176,7 +151,6 @@ function fetchMidMenu(fileName)
         const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
         const worksheet = workbook.SheetNames;
         const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
-        console.log(worksheet.length);
         if(worksheet.length > 2) {
           for (let key in html) {
             for (let header in html[key]) {
@@ -219,7 +193,7 @@ function bookdetails(lavi) {
   listplanvarsdata = '<ul>';
   for (let i=0; i<itercount; i++) {
     let mapdata = Number(i+selectmapdata);
-    listplanvarsdata += '<li>'+(i+1)+'. '+planner_booknow_map[mapdata].key+': '+planner_booknow_map[mapdata].value+'</li>';
+    listplanvarsdata += '<li>'+(i+1)+'. '+planner_booknow_map[mapdata].key+': <b>'+planner_booknow_map[mapdata].value+'</b></li>';
   }
   listplanvarsdata += '</ul>';
   listplanvars.innerHTML = listplanvarsdata;
@@ -306,7 +280,16 @@ var cursor = {
               self.toggleCursorSize();
           });
       });
-      
+      document.querySelectorAll('button').forEach(function(el) {
+        el.addEventListener('mouseover', function() {
+            self.cursorEnlarged = true;
+            self.toggleCursorSize();
+        });
+        el.addEventListener('mouseout', function() {
+            self.cursorEnlarged = false;
+            self.toggleCursorSize();
+        });
+    });
       // Click events
       document.addEventListener('mousedown', function() {
           self.cursorEnlarged = true;

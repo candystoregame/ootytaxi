@@ -113,42 +113,18 @@
     position: relative;
     cursor: pointer;
   }
-
-  .btn-plan-style::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: var(--page-background-color);
-    border-radius: 5px;
-    border-radius: 50%;
-    transition: transform 500ms ease-in-out;
-    transform: scale(1.5);
-  }
-  
-  .btn-plan-style:hover::before,
-  .btn-plan-style:focus::before {
-    transform: scale(0);
-  }
-  
-  .btn-plan-style {
-    z-index: 1;
-    overflow: hidden;
-    background-color: var(--page-background-color);
-    transition: color 70ms ease-in-out;
-  }
   
   .btn-plan-style:hover,
   .btn-plan-style:focus {
-    color: black;
+    color: var(--theme-blue-color);
+    
+    transform: scale(1.03);
+    transition: transform 100ms ease-in-out;
   }
 
-  .btn-plan-style.active::before {
-    color: var(--font-plain-color);
-    transform: scale(0);
+  .btn-plan-style.active {
+    color: var(--theme-blue-color);
+    transform: scale(1.03);
   }
 
 /* Side Pane buttons  and h3 tag End*/
@@ -165,6 +141,7 @@
   position: relative;
   font-weight: 500;
   padding-left: 5px;
+  padding-right: 5px;
   justify-content: left;
   align-items:flex-start;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -191,7 +168,7 @@
 }
 
 .btn-plan-submenu {
-  background-color: var(--hover-background-color);
+  background-color: var(--page-background-color);
   font-size: var(--medium-font-size);
   color: black;
   text-align: left;
@@ -202,40 +179,16 @@
   cursor: pointer;
  }
 
- .btn-plan-submenu::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-color: var(--page-background-color);
-  border-radius: 50%;
-  transition: transform 500ms ease-in-out;
-  transform: scale(1.5);
-}
-
-.btn-plan-submenu:hover::before,
-.btn-plan-submenu:focus::before {
-  transform: scale(0);
-}
-
-.btn-plan-submenu {
-  z-index: 1;
-  overflow: hidden;
-  background-color: var(--page-background-color);
-  transition: color 70ms ease-in-out;
-}
-
 .btn-plan-submenu:hover,
 .btn-plan-submenu:focus {
-  color: var(--font-plain-color);
+  color: var(--theme-blue-color);
+  transition: transform 200ms ease-in-out;
+  transform: scale(1.03);
 }
 
-.btn-plan-submenu.active::before {
-  color: var(--font-plain-color);
-  transform: scale(0);
+.btn-plan-submenu.active {
+  color: var(--theme-blue-color);
+  transform: scale(1.03);
 }
 
 /* Mid Pane buttons End*/
@@ -287,7 +240,7 @@
 }
 
 @media (max-width: 768px) {
-  .table-right-content .pln-tbl-content .head {
+  .table-right-content .pln-tbl-content thead {
     display: none;
   }
   .table-right-content .pln-tbl-content,
@@ -524,9 +477,12 @@
   margin: 10px 10px 10px 10px;
 }
 
-.plan-note-container .plan-note.active ul {
+.plan-note-container .plan-note.active li {
   color: black;
-  margin: 10px 10px 10px 10px;
+}
+
+.plan-note-container .plan-note.active li span{
+  color: red;
 }
 
 .plan-rightcontent #planner-right-container .options-right-box .options-right-content {
