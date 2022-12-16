@@ -565,11 +565,6 @@ form .pln-contact-channel .channel-title::before {
   animation: animate112 6s linear infinite;
 }
 
-@keyframes animate112 {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
-}
-
 #phonecustombox::after {
   content: '';
   position: absolute;
@@ -595,6 +590,11 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox a span {
   font-size: 1.2rem;
   color: white;
+}
+
+@keyframes animate112 {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }
 
 /*Call Memu Item Start*/
