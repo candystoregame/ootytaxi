@@ -319,7 +319,7 @@ position: relative;
     justify-content: center;
     align-items: center;
 	position: relative;
-	background: url(../../assets/images/home/banner.jpg)no-repeat;
+	background: url(../../assets/images/home/banner.jpg) no-repeat;
 	background-size: cover;
    	background-position: center;
 	min-height: 1000px;
@@ -453,22 +453,22 @@ position: relative;
                  0px 0px 72px #ffdf00,
                  0px 0px 73px #ffdf00,
                  0px 0px 74px #ffdf00;              
-                 transition: all 0.5s ease-in-out 0s;
+                 transition: all 300ms cubic-bezier(.97,-0.46,0,1.81) 0s;
     animation: moveeff 30ms linear infinite;
 }
 @keyframes moveeff
 {
     from{
-           filter: hue-rotate(0deg);
+           filter: hue-rotate(60deg);
 
     }
     to{
-        filter: hue-rotate(360deg);
+        filter: hue-rotate(160deg);
     }
 }
 
 .booknow:hover {
-    transform: rotate(360deg); 
+    transform: rotate3d(0.5, 0, 0.5, 60deg);
 }
 
 
@@ -480,7 +480,11 @@ position: relative;
     right: 10px; 
     z-index: 9; 
     background-attachment: fixed;
-   
+    transition: all 300ms cubic-bezier(.97,-0.46,0,1.81);
+}
+
+.whatsapp:hover {
+    transform: rotate3d(1, 1, 1, 45deg);
 }
 
 /*-------------------------------------

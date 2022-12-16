@@ -118,7 +118,7 @@
   .btn-plan-style:focus {
     color: var(--theme-blue-color);
     transform: scale(1.03);
-    transition: transform 200ms cubic-bezier(.97,-0.46,0,1.81);
+    transition: transform 600ms ease-in-out;
   }
 
   .btn-plan-style.active {
@@ -181,7 +181,7 @@
 .btn-plan-submenu:hover,
 .btn-plan-submenu:focus {
   color: var(--theme-blue-color);
-  transition: transform 200ms cubic-bezier(.97,-0.46,0,1.81);
+  transition: transform 600ms ease-in-out;
   transform: scale(1.03);
 }
 

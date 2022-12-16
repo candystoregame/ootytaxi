@@ -209,24 +209,7 @@ function bookdetails(lavi) {
   })
 }
 
-window.addEventListener("load", () => {
-  let lolelement = localStorage.getItem('thelolname');
-  if (lolelement !== null) {
-    localStorage.removeItem('thelolname');
-    rma();
-    document.getElementById(lolelement).className += " active";
-    fetchElement(document.getElementById(lolelement).value);
-    lolelement = null;
-  }
-  else if (defaultmenu !== null) {localmenu(defaultmenu);}
-  defaultmenu = null;
-})
 
-function localmenu(lval) {
-    rma();
-    fetchElement(document.getElementById(lval).value);
-    document.getElementById(lval).className += ' active';
-}
 
 /* Mouse Tracker Function Start */
 
