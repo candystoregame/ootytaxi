@@ -492,7 +492,7 @@ position: relative;
 --------------------------------------*/
 .single-travel-boxes {
     margin-top: -800px;
-    background: #fff;
+    background: rgba(0,0,0,.5);
 }
 .tab-para p {
     font-size: 24px;
@@ -504,7 +504,7 @@ position: relative;
 }
 .desc-tabs .nav-tabs {
     display: inline-block;
-    border-right: 1px solid #fff;
+    /*border-right: 1px solid #fff;*/
 }
 
 .desc-tabs .nav-tabs>li.active>a{
