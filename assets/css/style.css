@@ -492,7 +492,7 @@ position: relative;
 --------------------------------------*/
 .single-travel-boxes {
     margin-top: -800px;
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,0.7);
 }
 .tab-para p {
     font-size: 24px;
@@ -561,7 +561,7 @@ position: relative;
 	padding: 83px 42px 24px;
 }
 .single-tab-select-box h2{
-	color: #565a5c;
+	color: #fff;/*#565a5c;*/
     font-size: 20px;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
