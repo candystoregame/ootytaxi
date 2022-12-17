@@ -19,7 +19,7 @@ function initMap() {
     infowindow.open(map, marker);
   });
 
-  service = new google.maps.places.PlacesService(map);
+  /*service = new google.maps.places.PlacesService(map);
   var request = {
     placeId: 'ChIJqfItYyuWqDsRjBHi9Xa-URM',
     fields: ['reviews'],
@@ -47,7 +47,7 @@ function initMap() {
                         }
         
     }
-  }
+  }*/
 }
 
 //google.maps.event.addDomListener(window, 'load', initMap);

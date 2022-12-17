@@ -1075,6 +1075,32 @@ position: relative;
     padding:120px 0;
 }
 
+
+
+#ooty-taxi-map-content {
+    display: flex;
+    background: #fff;
+    margin: 5%;
+    height: 450px;
+    border-radius: 15px;
+    padding: 50px 0;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    -webkit-transition: .5s; 
+    -moz-transition:.5s; 
+    -ms-transition:.5s; 
+    -o-transition:.5s;
+    transition: .5s;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+#ooty-taxi-map-content:hover {
+    transform: scale(1);
+}
+
+
+
+
 /*testemonial-carousel*/
 .home1-testm-single {
     max-width: 345px;
