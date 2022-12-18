@@ -311,6 +311,20 @@ position: relative;
 	min-height: 650px;
 
 }
+
+
+.map_title_display {
+    font-weight: 800;
+}
+
+.map_title_display p {
+    color: rgba(0,0,0,.8);
+}
+
+.map_title_display span{
+    color: #00d8d5;
+}
+
 /*-------------------------------------
 		3. 	About
 --------------------------------------*/
@@ -1158,12 +1172,20 @@ position: relative;
     color: #aaa;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     max-width: 284px;
+    max-height: 100px;
     margin: 0 auto;
     padding: 20px 0;
+    overflow: hidden;
+}
+.home1-testm-txt p:hover {
+    max-height: fit-content;
+    transition: max-height 500ms cubic-bezier(0.075, 0.82, 0.165, 1) ease-in-out;
 }
 .home1-testm-txt h3 a{
     display: block;
+    margin-top: 10px;
     color: #00d8ff;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;

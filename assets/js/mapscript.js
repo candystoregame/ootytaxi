@@ -2,8 +2,10 @@ var map, service;
 
 function initMap() {
   const mapOptions = {
-    zoom: 8,
     center: { lat: 11.412, lng: 76.704 },
+    zoom: 17,
+    gestureHandling: "none",
+    zoomControl: false,
   };
   map = new google.maps.Map(document.getElementById("ooty-taxi-map-content"), mapOptions);
   const marker = new google.maps.Marker({
@@ -12,14 +14,13 @@ function initMap() {
     title: "Ooty Taxi",
   });
   const infowindow = new google.maps.InfoWindow({
-    //content: `<p>Marker Location:${marker.getPosition()}<span class="map_title_display">Ooty Taxi</span></p>`,
-    content: `<p>Ooty<span class="map_title_display">Taxi</span></p>`,
+    content: `<p class="map_title_display">Ooty<span>&nbsp;Taxi</span></p>`,
   });
   google.maps.event.addListener(marker, "click", () => {
     infowindow.open(map, marker);
   });
 
-  /*service = new google.maps.places.PlacesService(map);
+  service = new google.maps.places.PlacesService(map);
   var request = {
     placeId: 'ChIJqfItYyuWqDsRjBHi9Xa-URM',
     fields: ['reviews'],
@@ -27,31 +28,27 @@ function initMap() {
   service.getDetails(request, callback);
   function callback(place, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      let reviewEl = document.querySelector('.owl-carousel');
+      const review_img = document.querySelectorAll(".reviewer_img");
+      const review_content = document.querySelectorAll(".review_content");
+      const reviewer_name = document.querySelectorAll(".reviewer_name");
+      const review_star = document.querySelectorAll(".review_stars");
+      console.log(review_star.length);
+      let i=1;
       for (let review of place.reviews){
-        reviewEl.innerHTML =`<div class="home1-testm item">
-                                <div class="home1-testm-single text-center">
-                                    <div class="home1-testm-img">
-                                        <img src="${review.profile_photo_url}" alt="img"/>
-                                    </div>
-							        <div class="home1-testm-txt">
-							  	      <span class="icon section-icon">
-							  	        <i class="fa fa-quote-left" aria-hidden="true"></i>
-							  	      </span>
-							  	      <p>${review.text}</p>
-							  	      <h3><a href="#">${review.author_name}</a></h3>
-							  	      <h4>${starmapping(review.rating)}</h4>
-							        </div>
-						        </div>
-                            </div>`;
-                        }
-        
+        review_img[i].src=review.profile_photo_url;
+        review_content[i].innerHTML = review.text;
+        reviewer_name[i].innerHTML = review.author_name;
+        reviewer_name[i].href = review.author_url;
+        review_star[i].innerHTML = starmapping(review.rating);
+        i++;
+        if(i==review_star.length-1) {i = 0;}
+        console.log(review);
+      }
     }
-  }*/
+  }
 }
 
-//google.maps.event.addDomListener(window, 'load', initMap);
-window.addEventListener('load', (event) => { initMap });
+window.addEventListener('load', (event) => { initMap; myslider(); });
 window.initMap = initMap;
 
 function starmapping(quantify) {
@@ -62,38 +59,3 @@ function starmapping(quantify) {
     }
     return starquantify;
   }
-
-/*function searchResult(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    // show first result on map and request for details
-    var place = results[0];
-    var marker = new google.maps.Marker({
-      position: place.geometry.location,
-      map: map,
-      title: place.name
-    });
-    var infowindow = new google.maps.InfoWindow({
-      content: place.name
-    });
-    infowindow.open(map, marker);
-
-    service.getDetails({placeId: place.place_id}, function(place, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        let rating = document.querySelector('#rating');
-        let reviewEl = document.querySelector('.review-list');
-        
-        rating.innerHTML = place.rating;
-        
-        for (let review of place.reviews){
-          let li = document.createElement('li');
-          li.innerHTML = `<div>Author: ${review.author_name}</div>
-                          <em>${review.text}</em>
-                          <img src="${review.profile_photo_url}" alt="Customer Image">
-                          <div>Rating: ${review.rating} star(s)</div>`;
-          reviewEl.appendChild(li);
-          console.log(review);
-        }
-      }
-    });
-  }
-}*/

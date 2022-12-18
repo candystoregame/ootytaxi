@@ -9,7 +9,7 @@ myIndex++;
 if (myIndex > x.length) { myIndex = 1}
 x[myIndex-1].style.display = "block";
 setTimeout(myslider, 0);
-}myslider();
+}
 
 function heist(value) {
   localStorage.setItem('thelolname', value);
