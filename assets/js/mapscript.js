@@ -48,7 +48,7 @@ function initMap() {
   }
 }
 
-window.addEventListener('load', (event) => { initMap; myslider(); });
+window.addEventListener('load', (event) => { initMap; });
 window.initMap = initMap;
 
 function starmapping(quantify) {

@@ -11,6 +11,8 @@ x[myIndex-1].style.display = "block";
 setTimeout(myslider, 0);
 }
 
+window.addEventListener('load', (event) => { myslider(); });
+
 function heist(value) {
   localStorage.setItem('thelolname', value);
   location.assign("tourplanner.html");
