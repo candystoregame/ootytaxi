@@ -128,7 +128,7 @@ $(document).ready(function(){
             
             loop:true,
             autoplay:true,
-            smartSpeed:500,
+            smartSpeed:100,
             
             //nav:false,
             //navText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],

@@ -1,5 +1,5 @@
 var map, service;
-
+let review_data_map = [];
 function initMap() {
   const mapOptions = {
     center: { lat: 11.412, lng: 76.704 },
@@ -33,22 +33,30 @@ function initMap() {
       const reviewer_name = document.querySelectorAll(".reviewer_name");
       const review_star = document.querySelectorAll(".review_stars");
       console.log(review_star.length);
-      let i=1;
-      for (let review of place.reviews){
-        review_img[i].src=review.profile_photo_url;
-        review_content[i].innerHTML = review.text;
-        reviewer_name[i].innerHTML = review.author_name;
-        reviewer_name[i].href = review.author_url;
-        review_star[i].innerHTML = starmapping(review.rating);
+      let j=0;
+      if (review_data_map.length !=5) {
+        for (let review of place.reviews) {
+          review_data_map[j] = {name: review.author_name, namelink: review.author_url, photo: review.profile_photo_url, content: review.text, stars: review.rating}
+          j++;
+        }
+      }
+      let i = 0;
+      for(let j=0; j<review_star.length; j++) {
+        review_img[j].src=review_data_map[i].photo;
+        review_content[j].innerHTML = review_data_map[i].content;
+        reviewer_name[j].innerHTML = review_data_map[i].name;
+        reviewer_name[j].href = review_data_map[i].namelink;
+        review_star[j].innerHTML = starmapping(review_data_map[i].stars);
         i++;
-        if(i==review_star.length-1) {i = 0;}
-        console.log(review);
+        if (i === 5) {
+          i=0;
+        }
       }
     }
   }
 }
 
-window.addEventListener('load', (event) => { initMap; });
+window.addEventListener('load', (event) => { initMap;});
 window.initMap = initMap;
 
 function starmapping(quantify) {
