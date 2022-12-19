@@ -195,10 +195,10 @@
 					  <label for="message">Your Message</label>
 					  <textarea id="message" rows="4" placeholder="Enter Your Message" required></textarea>
 					</div>
-					<div class="contact-channel">
-					  <input type="radio" name="channel" id="dot-1" required>
-					  <input type="radio" name="channel" id="dot-2">
-					  <input type="radio" name="channel" id="dot-3">
+					<div class="contact-channel" id="book_radio_select">
+					  <input type="radio" value="Phone" name="channel" id="dot-1" required>
+					  <input type="radio" value="Email" name="channel" id="dot-2">
+					  <input type="radio" value="WhatsApp" name="channel" id="dot-3">
 					  <span class="channel-title">Preferred channel to reach you:</span>
 					  <div class="category">
 						<label for="dot-1">
@@ -1124,7 +1124,7 @@
 		  let email = document.getElementById("mail");
 		  let message = document.getElementById("message");
 		  let submit = document.getElementById("submit");
-		  let dot;
+		  let dot = document.querySelector("input[name=channel]:checked").value;
 		  var markedCheckbox = document.getElementsByName("check1");
   
 		  submit.addEventListener("click", (e)=>{
