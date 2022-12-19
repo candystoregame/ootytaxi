@@ -557,8 +557,10 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox::before {
   content: '';
   position: absolute;
-  width: 192px;
-  height: 75px;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
   z-index: 5;
   background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
   transform-origin: bottom right;
@@ -568,8 +570,10 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox::after {
   content: '';
   position: absolute;
-  width: 192px;
-  height: 75px;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
   transform-origin: bottom right;
   animation: animate112 6s linear infinite;
