@@ -809,9 +809,7 @@
 					<h2>
 						clients reviews
 					</h2>					
-					<p>
-						Duis aute irure dolor in  velit esse cillum dolore eu fugiat nulla. 
-					</p>
+					<p></p>
 
 				</div>
 				<!--/.gallery-header-->
@@ -919,106 +917,6 @@
 					</div>
 					<!--/.item-->
 
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img class="reviewer_img" src="" alt="img" />
-							</div>
-							<!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p class="review_content"></p>
-								<h3><a class="reviewer_name" href="" target="_blank"></a></h3>
-								<h4 class="review_stars"></h4>
-							</div>
-							<!--/.home1-testm-txt-->
-						</div>
-						<!--/.home1-testm-single-->
-					</div>
-					<!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img class="reviewer_img" src="" alt="img" />
-							</div>
-							<!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p class="review_content"></p>
-								<h3><a class="reviewer_name" href="" target="_blank"></a></h3>
-								<h4 class="review_stars"></h4>
-							</div>
-							<!--/.home1-testm-txt-->
-						</div>
-						<!--/.home1-testm-single-->
-					</div>
-					<!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img class="reviewer_img" src="" alt="img" />
-							</div>
-							<!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p class="review_content"></p>
-								<h3><a class="reviewer_name" href="" target="_blank"></a></h3>
-								<h4 class="review_stars"></h4>
-							</div>
-							<!--/.home1-testm-txt-->
-						</div>
-						<!--/.home1-testm-single-->
-					</div>
-					<!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img class="reviewer_img" src="" alt="img" />
-							</div>
-							<!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p class="review_content"></p>
-								<h3><a class="reviewer_name" href="" target="_blank"></a></h3>
-								<h4 class="review_stars"></h4>
-							</div>
-							<!--/.home1-testm-txt-->
-						</div>
-						<!--/.home1-testm-single-->
-					</div>
-					<!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img class="reviewer_img" src="" alt="img" />
-							</div>
-							<!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p class="review_content"></p>
-								<h3><a class="reviewer_name" href="" target="_blank"></a></h3>
-								<h4 class="review_stars"></h4>
-							</div>
-							<!--/.home1-testm-txt-->
-						</div>
-						<!--/.home1-testm-single-->
-					</div>
-					<!--/.item-->
-
 				</div>
 				<!--/.testemonial-carousel-->
 			</div>
@@ -1029,7 +927,7 @@
 
 		<section class="ooty_taxi_map">
 			<div class="ooty_taxi_map_container">
-				<div id="ooty-taxi-map-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa ratione tenetur tempora veniam non labore nam dolores omnis eaque voluptate quidem, iure vero nulla exercitationem. Maiores quae ducimus ab!</div>
+				<div id="ooty-taxi-map-content"></div>
 			</div>
 		</section>
 
@@ -1141,7 +1039,7 @@
 		<script src="assets/js/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<!-- Including SheetJS Latest Version Library -->
-		<script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+		<script src="assets/js/xlsx.mini.min.js"></script>
         <!--plannerna.js-->
 		<script src="assets/js/plannernav.js"></script>
 		<!--modernizr.min.js-->
@@ -1187,7 +1085,7 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		emailjs.init('TlCzdwwNr71E2Ixgk')
+		emailjs.init('tVHA46lNMDT1eJJga')
 	  </script>
 	
 	<!--GSAP CDN-->
@@ -1271,6 +1169,7 @@
 		  };
 		}
 		function success() {
+			bmodal.style.display = 'none';
 		  swal({
 			title: "Thank you!",
 			text: "Email sent successfully",
