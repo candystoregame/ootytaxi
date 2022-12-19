@@ -1138,7 +1138,7 @@
 			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
 			  inputEmpty();
 			} else {
-			  sendMail(dot, fname.value, lname.value, email.value, message.value);
+			  sendMail(dot.value, fname.value, lname.value, email.value, message.value);
 			  success();
 			  console.log("email sent");
 			  document.getElementById('myform').reset();
@@ -1148,7 +1148,7 @@
 		validate();
   
 		function sendMail(dot, fname, lname, email, message) {
-		  emailjs.send('service_b741cig', 'template_7v3m2xr', {
+		  emailjs.send('service_pr91e7g', 'template_rsivdhg', {
 			dot : dot,
 			fname: fname,
 			lname: lname,
