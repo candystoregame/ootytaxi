@@ -1132,23 +1132,24 @@
   
 		  submit.addEventListener("click", (e)=>{
 			e.preventDefault();
-			for (var checkbox of markedCheckbox){
+			for (let checkbox of markedCheckbox){
 			if(checkbox.checked){
 			  dot = checkbox.value;
 			  console.log(dot);
 			}
 		  }
+		  console.log(validateemail(),validatefname(), validatelname(), validatemessage(), validatephone(), validatechannel());
   
-			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+			/*if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
 				inputEmpty();
-			}
-			/*if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel()) {
+			}*/
+			if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel()) {
 				submiterror.style.display = 'block';
                 submiterror.innerHTML = 'Please fix error to Submit';
                 setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
 				console.log("all went through");
-                validate();
-			}*/
+                return false;
+			}
 			else {
 				sendMail(dot, fname.value, lname.value, email.value, message.value);
 			    success();
@@ -1156,7 +1157,7 @@
 			    document.getElementById('myform').reset();
 			}
 		});
-	}
+	} validate();
   
 		function sendMail(dot, fname, lname, email, message) {
 		  emailjs.send('service_4xhn7mk', 'template_rsivdhg', {

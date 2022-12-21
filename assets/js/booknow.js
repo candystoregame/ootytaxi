@@ -3,6 +3,7 @@ let bmodal = document.getElementById('contact-modal'),
     bcloseModal = document.querySelector('.close-button');
 
 bopenModal.addEventListener('click', function() {
+    reseterrortags();
     bmodal.style.display = 'block';
 })
 
@@ -26,6 +27,16 @@ const emailerror = document.getElementById('email-error');
 const messageerror = document.getElementById('message-error');
 const submiterror = document.getElementById('submit-error');
 const channelerror = document.getElementById('contact-channel-error');
+
+function reseterrortags() {
+    fnameerror.innerHTML="";
+    lnameerror.innerHTML="";
+    phoneerror.innerHTML="";
+    emailerror.innerHTML="";
+    messageerror.innerHTML="";
+    submiterror.innerHTML="";
+    channelerror.innerHTML="";
+}
 
 function validatefname() {
     let name = document.getElementById('fname').value;
