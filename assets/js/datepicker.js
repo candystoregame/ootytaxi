@@ -24,7 +24,7 @@ var DEFAULTS = {
   autoHide: true,
 
   // Pick the initial date automatically when initialized
-  autoPick: true,
+  autoPick: false,
 
   // Enable inline mode
   inline: false,

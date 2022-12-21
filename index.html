@@ -194,6 +194,28 @@
 						<input type="text" id="phone" placeholder="Phone" required onkeyup="validatephone()">
 						<span id="phone-error"></span>
 					  </div>
+					  <div class="input-box">
+						<label class="details" for="source">Choose Source Location</label>
+						<select name="source" id="source" required onkeyup="validatesource()">
+							<option value="">Select</option>
+							<option value="Ooty">Ooty</option>
+							<option value="Coimbatore">Coimbatore</option>
+							<option value="Coonoor">Coonoor</option>
+							<option value="Kotagiri">Kotagiri</option>
+						</select>
+						<span id="source-error"></span>
+					  </div>
+					  <div class="input-box">
+						<label class="details" for="destination">Choose Destination Location</label>
+						<select name="destination" id="destination" required onkeyup="validatedestination()">
+							<option value="">Select</option>
+							<option value="Ooty">Ooty</option>
+							<option value="Coimbatore">Coimbatore</option>
+							<option value="Coonoor">Coonoor</option>
+							<option value="Kotagiri">Kotagiri</option>
+						</select>
+						<span id="destination-error"></span>
+					  </div>
 					</div>
 					<div class="input-box">
 					  <label for="message">Your Message</label>
@@ -816,7 +838,7 @@
 					<h2>
 						clients reviews
 					</h2>					
-					<p></p>
+					<p>Here is what Customers have to say about us...!</p>
 
 				</div>
 				<!--/.gallery-header-->
@@ -1053,7 +1075,6 @@
 		<script src="assets/js/bootsnav.js"></script>
 		<!--autoslide js-->
 		<script src="assets/js/autoslide.js"></script>
-
 		<!-- jquery.filterizr.min.js -->
 		<script src="assets/js/jquery.filterizr.min.js"></script>
 
@@ -1081,137 +1102,117 @@
 
 		<!--MyCarousel JS-->
 		<script src="assets/js/mycarousel.js"></script>
+		<!--Email JS-->
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	    <script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
+		<!--Sweet Alert-->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-			
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-	<script type="text/javascript">
-		emailjs.init('tVHA46lNMDT1eJJga')
-	  </script>
-	
-	<!--GSAP CDN-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-	<script>
-		/*function whatsapp(){
-		var fname = document.getElementById('fname').value;
-		var lname = document.getElementById('lname').value;
-		var mail = document.getElementById('mail').value;
-		var phone = document.getElementById('phone').value;
-		var message = document.getElementById('message').value;
-
-		var url = "https://wa.me/919743096772?text="
-		+"First Name: "+fname+"%0a"
-		+"Last Name: "+lname+"%0a"
-		+"Email: "+mail+"%0a"
-		+"Phone: "+phone+"%0a"
-		+"Message: "+message ;
-		
-		window.open(url,'_blank').focus();
-		submit.addEventListener("click", (e)=>{
-			e.preventDefault();
-  
-			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
-			  inputEmpty();
-			} else {
-			  success();
-			}
-		  });
-		}*/
-
-		function validate(){
-		  let fname = document.getElementById("fname");
-		  let lname = document.getElementById("lname");
-		  let email = document.getElementById("mail");
-		  let message = document.getElementById("message");
-		  let submit = document.getElementById("submit");
-		  let dot;
-		  var markedCheckbox = document.getElementsByName("channel");
-  
-		  submit.addEventListener("click", (e)=>{
-			e.preventDefault();
-			for (let checkbox of markedCheckbox){
-			if(checkbox.checked){
-			  dot = checkbox.value;
-			  console.log(dot);
-			}
-		  }
-		  console.log(validateemail(),validatefname(), validatelname(), validatemessage(), validatephone(), validatechannel());
-  
-			/*if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
-				inputEmpty();
-			}*/
-			if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel()) {
-				submiterror.style.display = 'block';
-                submiterror.innerHTML = 'Please fix error to Submit';
-                setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
-				console.log("all went through");
-                return false;
-			}
-			else {
-				sendMail(dot, fname.value, lname.value, email.value, message.value);
-			    success();
-			    console.log("email sent");
-			    document.getElementById('myform').reset();
-			}
-		});
-	} validate();
-  
-		function sendMail(dot, fname, lname, email, message) {
-		  emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
-			dot : dot,
-			fname: fname,
-			lname: lname,
-			email : email,
-			message: message,
-		  });
-		}
-		function success2() {
-		  swal({
-			title: "Thank you!",
-			text: "Whatsapp initiated, redirecting",
-			icon: "success",
-			timer: 3000,
-		});
-    	function me() {
-        location.reload(true);
-        tr.hide();
-		  };
-		}
-		function success() {
-			bmodal.style.display = 'none';
-		  swal({
-			title: "Thank you!",
-			text: "Email sent successfully, we'll contact you shortly...",
-			icon: "success",
-		  });
-		}
-		function inputEmpty() {
-		  swal({
-			title: "Oops...!",
-			text: "Input fields are required!",
-			icon: "error",
-		  });
-		}
-
-		function inputcorrection(val) {
-		  swal({
-			title: "Oops...!",
-			text: val + "Input field is required...!",
-			icon: "error",
-		  });
-		}
-	  </script>
-
-	  <script>
-		$(document).ready(function(e) {
-        $('#bn').click(function(){
-				$(this).val("Book Now");
-			});
-    });
-	  </script>
+	    <script>
+	    	/*function whatsapp(){
+	    	var fname = document.getElementById('fname').value;
+	    	var lname = document.getElementById('lname').value;
+	    	var mail = document.getElementById('mail').value;
+	    	var phone = document.getElementById('phone').value;
+	    	var message = document.getElementById('message').value;
+    
+	    	var url = "https://wa.me/919743096772?text="
+	    	+"First Name: "+fname+"%0a"
+	    	+"Last Name: "+lname+"%0a"
+	    	+"Email: "+mail+"%0a"
+	    	+"Phone: "+phone+"%0a"
+	    	+"Message: "+message ;
+	    	
+	    	window.open(url,'_blank').focus();
+	    	submit.addEventListener("click", (e)=>{
+	    		e.preventDefault();
+      
+	    		if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+	    		  inputEmpty();
+	    		} else {
+	    		  success();
+	    		}
+	    	  });
+	    	}*/
+    
+	    	function validate() {
+	    		let fname = document.getElementById("fname");
+	    	    let lname = document.getElementById("lname");
+	    	    let email = document.getElementById("mail");
+	    	    let message = document.getElementById("message");
+	    	    let submit = document.getElementById("submit");
+				let bsource = document.getElementById('source');
+				let bdest = document.getElementById('destination');
+	    	    let dot;
+	    	    var markedCheckbox = document.getElementsByName("channel");
+	    	    submit.addEventListener("click", (e) => {
+	    			e.preventDefault();
+	    			for (let checkbox of markedCheckbox){
+	    				if(checkbox.checked) {
+	    					dot = checkbox.value;
+	    				}
+	    			}
+	    		    if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
+	    		    	submiterror.style.display = 'block';
+                        //submiterror.innerHTML = 'Please fix error to Submit';
+	    		    	inputEmpty();
+                        setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
+	    		        return false;
+	    		    }
+	    		    else {
+	    		    	sendMail(dot, fname.value, lname.value, email.value, message.value, bsource.value, bdest.value);
+	    		        success();
+	    		        document.getElementById('myform').reset();
+	    		    }
+	    		});
+	    	} validate();
+    
+      
+	        function sendMail(dot, fname, lname, email, message, source, destination) {
+	    		emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
+	    			dot : dot,
+	        	    fname: fname,
+	        	    lname: lname,
+	        	    email : email,
+	        	    message: message,
+					source: source,
+					destination: destination,
+	    		});
+	    	}
+	        function success2() {
+	    		swal({
+	    			title: "Thank you!",
+	        	    text: "Whatsapp initiated, redirecting",
+	        	    icon: "success",
+	        	    timer: 3000,
+	    		});
+	    		function me() {
+	    			location.reload(true);
+	    			tr.hide();
+	    		};
+	    	}
+	        function success() {
+	    		bmodal.style.display = 'none';
+	    		swal({
+	    			title: "Thank you!",
+	        	    text: "Email sent successfully, we'll contact you shortly...",
+	        	    icon: "success",
+	    		});
+	    	}
+	        function inputEmpty() {
+	    		swal({
+	    			title: "Oops...!",
+	    			text: "Please fix error to Submit...!",
+	    			icon: "error",
+	    		});
+	    	}
+	    </script>
+	    <script>
+	    	$(document).ready(function(e) {
+	    		$('#bn').click(function(){
+	    			$(this).val("Book Now");
+	    		});
+	    	});
+	    </script>
 </body>
-
 </html>

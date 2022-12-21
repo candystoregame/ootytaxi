@@ -149,67 +149,96 @@
 
 	<!--Mouse Tracker End-->
 
-	<div id="modal-open" class="booknow"><img alt="Book Online Icon" src="assets/logo/booknowpng1.png" width="50" height="50"></div>
-	<div id="contact-modal" class="modal">
-		<div id="modal-content">
-			<div id="modal-header">
-				<div class="title">Contact Us...</div>
-				<button data-close-button class="close-button">&times;</button>
-			</div>
-			<div id="modal-body">
-				<form action="#">
-					<div class="user-details">
-						<div class="input-box">
-							<span class="details">First Name</span>
-							<input type="text" placeholder="Enter your First Name" required>
-						</div>
-						<div class="input-box">
-							<span class="details">Last Name</span>
-							<input type="text" placeholder="Enter your Last Name" required>
-						</div>
-						<div class="input-box">
-							<span class="details">Email</span>
-							<input type="text" placeholder="Enter your email" required>
-						</div>
-						<div class="input-box">
-							<span class="details">Phone Number</span>
-							<input type="text" placeholder="Enter your number" required>
-						</div>
-					</div>
-					<div class="input-box">
-						<label for="message">Your Message</label>
-						<textarea id="message-float" rows="4" placeholder="Enter Your Message" required></textarea>
-					</div>
-					<div class="contact-channel">
-						<input type="radio" name="channel" id="dot-1" required>
-						<input type="radio" name="channel" id="dot-2">
-						<input type="radio" name="channel" id="dot-3">
-						<span class="channel-title">Preferred channel to reach you:</span>
-						<div class="category">
-							<label for="dot-1">
-								<span class="dot one"></span>
-								<span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
-							</label>
-							<label for="dot-2">
-								<span class="dot two"></span>
-								<span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp
-									Email</span>
-							</label>
-							<label for="dot-3">
-								<span class="dot three"></span>
-								<span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp
-									WhatsApp</span>
-							</label>
-						</div>
-					</div>
-					<div class="button">
-						<input type="submit" value="Submit">
-					</div>
-				</form>
-			</div>
+<!--Book Now Popup Start-->
+<div id="modal-open" class="booknow"><img src="assets/logo/booknowpng1.png" width="50" height="50" alt="Book Now"></div>
+<div id="contact-modal" class="modal">
+	<div id="modal-content">
+		<div id="modal-header">
+			<div class="title">Contact Us...</div>
+			<button data-close-button class="close-button">&times;</button>
+		</div>
+		<div id="modal-body">
+			<form action="#" id="myform">
+				<div class="user-details">
+				  <div class="input-box">
+					<span class="details">First Name</span>
+					<input type="text" id="fname" placeholder="First Name" required onkeyup="validatefname()">
+					<span id="fname-error"></span>
+				  </div>
+				  <div class="input-box">
+					<span class="details">Last Name</span>
+					<input type="text" id="lname" placeholder="Last Name" required onkeyup="validatelname()">
+					<span id="lname-error"></span>
+				  </div>
+				  <div class="input-box">
+					<span class="details">Email</span>
+					<input type="text" id="mail" placeholder="Email" required onkeyup="validateemail()">
+					<span id="email-error"></span>
+				  </div>
+				  <div class="input-box">
+					<span class="details">Phone Number</span>
+					<input type="text" id="phone" placeholder="Phone" required onkeyup="validatephone()">
+					<span id="phone-error"></span>
+				  </div>
+				  <div class="input-box">
+					<label class="details" for="source">Choose Source Location</label>
+					<select name="source" id="source" required onkeyup="validatesource()">
+						<option value="">Select</option>
+						<option value="Ooty">Ooty</option>
+						<option value="Coimbatore">Coimbatore</option>
+						<option value="Coonoor">Coonoor</option>
+						<option value="Kotagiri">Kotagiri</option>
+					</select>
+					<span id="source-error"></span>
+				  </div>
+				  <div class="input-box">
+					<label class="details" for="destination">Choose Destination Location</label>
+					<select name="destination" id="destination" required onkeyup="validatedestination()">
+						<option value="">Select</option>
+						<option value="Ooty">Ooty</option>
+						<option value="Coimbatore">Coimbatore</option>
+						<option value="Coonoor">Coonoor</option>
+						<option value="Kotagiri">Kotagiri</option>
+					</select>
+					<span id="destination-error"></span>
+				  </div>
+				</div>
+				<div class="input-box">
+				  <label for="message">Your Message</label>
+				  <textarea id="message" rows="4" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
+				  <span id="message-error"></span>
+				</div>
+				<div class="contact-channel" id="book_radio_select">
+				  <input class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
+				  <input class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
+				  <input class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
+				  <span class="channel-title">Preferred channel to reach you:</span>
+				  <div class="category">
+					<label for="dot-1">
+					  <span class="dot one"></span>
+					  <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
+					</label>
+					<label for="dot-2">
+					  <span class="dot two"></span>
+					  <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
+					</label>
+					<label for="dot-3">
+					  <span class="dot three"></span>
+					  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
+					</label>
+				  </div>
+				  <span id="contact-channel-error"></span>
+				</div>
+				<div class="button" type="button" id="submit">
+				  <input type="submit" value="Submit">
+				  <span id="submit-error"></span>
+				</div>
+			  </form>
 		</div>
 	</div>
-	</div>
+</div>
+</div>
+<!--Book Now Popup End-->
 
 	<!--Slider Start-->
 
@@ -243,27 +272,31 @@
 			</div>
         </div>
         <div id="pop-pln-body">
-          <form action="#">
+          <form id="plan-form-id" action="#">
             <div class="pln-pop-user-details">
               <div class="pln-pop-forms-group">
                 <span class="details">First Name</span>
-                <input type="text" placeholder="Enter your First Name" required>
+                <input id="pfname" type="text" placeholder="Enter your First Name" required>
+				<span id="plan-fname-error"></span>
               </div>
               <div class="pln-pop-forms-group">
                 <span class="details">Last Name</span>
-                <input type="text" placeholder="Enter your Last Name" required>
+                <input id="plname" type="text" placeholder="Enter your Last Name" required>
+				<span id="plan-lname-error"></span>
               </div>
               <div class="pln-pop-forms-group">
                 <span class="details">Email</span>
-                <input type="email" placeholder="Enter your email" required>
+                <input id="pemail" type="email" placeholder="Enter your email" required>
+				<span id="plan-email-error"></span>
               </div>
               <div class="pln-pop-forms-group">
                 <span class="details">Phone Number</span>
-                <input type="text" placeholder="Enter your number" required>
+                <input id="pphone" type="text" placeholder="Enter your number" required>
+				<span id="plan-phone-error"></span>
               </div>
               <div class="pln-pop-forms-group">
                 <label for="Adults">Adults:</label>
-                <select name="Adults" id="Adults" required>
+                <select id="padults" name="Adults" id="Adults" required>
                   <option value="">Select</option>
                   <option value="0">0</option>
                   <option value="1">1</option>
@@ -277,10 +310,11 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
+				<span id="plan-padult-error"></span>
               </div>
               <div class="pln-pop-forms-group">
                 <label for="child">Children:</label>
-                <select name="child" id="child" required>
+                <select id="pchild" name="child" id="child" required>
                   <option value="">Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -293,20 +327,23 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
+				<span id="plan-pchild-error"></span>
               </div>
             </div>
-            <div id = "plandatelabel" class="pln-pop-forms-group">
+            <div id="plandatelabel" class="pln-pop-forms-group">
               <label for="Pickup">Pickup Date</label>
-              <input type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY" required>
+              <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY" required>
+			  <span id="pickup-date-error"></span>
             </div>
             <div class="pln-pop-forms-group">
               <label for="message">Pickup Address</label>
               <textarea id="message-plan" rows="5" placeholder="Enter Your Pickup Address" required></textarea>
+			  <span id="plan-message-error"></span>
             </div>
             <div class="pln-contact-channel">
-              <input type="radio" name="channel" id="plan-dot-1" required>
-              <input type="radio" name="channel" id="plan-dot-2">
-              <input type="radio" name="channel" id="plan-dot-3">
+              <input dname="channel" type="radio" name="channel" id="plan-dot-1" required>
+              <input dname="channel" type="radio" name="channel" id="plan-dot-2">
+              <input dname="channel" type="radio" name="channel" id="plan-dot-3">
               <span class="channel-title">Preferred channel to reach you:</span>
               <div class="pln-category">
                 <label for="plan-dot-1">
@@ -322,9 +359,11 @@
                   <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
                 </label>
               </div>
+			  <span id="plan-contact-channel-error"></span>
             </div>
-            <div class="pln-book-button">
+            <div id="plan_submit" class="pln-book-button">
               <input type="submit" value="Submit">
+			  <span id="plan-submit-error"></span>
             </div>
           </form>
         </div>
@@ -604,6 +643,110 @@
             fetchElement(document.getElementById(lval).value);
             document.getElementById(lval).className += ' active';
         }
+	</script>
+	<!--Email JS-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	<script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
+	<!--Sweet Alert-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		/*function whatsapp(){
+		var fname = document.getElementById('fname').value;
+		var lname = document.getElementById('lname').value;
+		var mail = document.getElementById('mail').value;
+		var phone = document.getElementById('phone').value;
+		var message = document.getElementById('message').value;
+
+		var url = "https://wa.me/919743096772?text="
+		+"First Name: "+fname+"%0a"
+		+"Last Name: "+lname+"%0a"
+		+"Email: "+mail+"%0a"
+		+"Phone: "+phone+"%0a"
+		+"Message: "+message ;
+		
+		window.open(url,'_blank').focus();
+		submit.addEventListener("click", (e)=>{
+			e.preventDefault();
+  
+			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+			  inputEmpty();
+			} else {
+			  success();
+			}
+		  });
+		}*/
+
+		function validate() {
+			let fname = document.getElementById("fname");
+			let lname = document.getElementById("lname");
+			let email = document.getElementById("mail");
+			let message = document.getElementById("message");
+			let submit = document.getElementById("submit");
+			let bsource = document.getElementById('source');
+			let bdest = document.getElementById('destination');
+			let dot;
+			var markedCheckbox = document.getElementsByName("channel");
+			submit.addEventListener("click", (e) => {
+				e.preventDefault();
+				for (let checkbox of markedCheckbox){
+					if(checkbox.checked) {
+						dot = checkbox.value;
+					}
+				}
+				if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
+					submiterror.style.display = 'block';
+					//submiterror.innerHTML = 'Please fix error to Submit';
+					inputEmpty();
+					setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
+					return false;
+				}
+				else {
+					sendMail(dot, fname.value, lname.value, email.value, message.value, bsource.value, bdest.value);
+					success();
+					document.getElementById('myform').reset();
+				}
+			});
+		} validate();
+
+  
+		function sendMail(dot, fname, lname, email, message, source, destination) {
+			emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
+				dot : dot,
+				fname: fname,
+				lname: lname,
+				email : email,
+				message: message,
+				source: source,
+				destination: destination,
+			});
+		}
+		function success2() {
+			swal({
+				title: "Thank you!",
+				text: "Whatsapp initiated, redirecting",
+				icon: "success",
+				timer: 3000,
+			});
+			function me() {
+				location.reload(true);
+				tr.hide();
+			};
+		}
+		function success() {
+			bmodal.style.display = 'none';
+			swal({
+				title: "Thank you!",
+				text: "Email sent successfully, we'll contact you shortly...",
+				icon: "success",
+			});
+		}
+		function inputEmpty() {
+			swal({
+				title: "Oops...!",
+				text: "Please fix error to Submit...!",
+				icon: "error",
+			});
+		}
 	</script>
 </body>
 </html>

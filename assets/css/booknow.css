@@ -145,8 +145,9 @@ form .input-box textarea {
     transition: all 0.3s ease;
 }
 
-form .user-details .input-box input {
-    height: 45px;
+form .user-details .input-box input,
+form .user-details .input-box select {
+    height: 35px;
     width: 100%;
     outline: none;
     font-size: 16px;
@@ -158,7 +159,9 @@ form .user-details .input-box input {
 }
 
 form .user-details .input-box input:focus,
-form .user-details .input-box input:valid {
+form .user-details .input-box input:valid,
+form .user-details .input-box select:focus,
+form .user-details .input-box select:valid {
     border-color: #00d8ff;
 }
 
@@ -468,6 +471,21 @@ form .pln-contact-channel .channel-title::before {
     font-weight: 500;
     width: fit-content;
     padding-top: 0.75rem;
+  }
+
+  #plandatelabel input::after {
+    position: absolute;
+    content: "\f073";
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: #aaa;
+    background: #f9f9f9;
+    font-family: "fontAwesome";
+    pointer-events: none;
+    border:1px solid #d7d7d7;
+    border-bottom: transparent;
+    padding: 10px 0px;
   }
 
   .pln-pop-user-details .pln-pop-forms-group input,

@@ -27,6 +27,8 @@ const emailerror = document.getElementById('email-error');
 const messageerror = document.getElementById('message-error');
 const submiterror = document.getElementById('submit-error');
 const channelerror = document.getElementById('contact-channel-error');
+const sourceerror = document.getElementById('source-error');
+const desterror = document.getElementById('destination-error');
 
 function reseterrortags() {
     fnameerror.innerHTML="";
@@ -36,6 +38,8 @@ function reseterrortags() {
     messageerror.innerHTML="";
     submiterror.innerHTML="";
     channelerror.innerHTML="";
+    sourceerror.innerHTML="";
+    desterror.innerHTML="";
 }
 
 function validatefname() {
@@ -118,5 +122,31 @@ function validatechannel() {
     else { 
         channelerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Choose preferred channel to contact you';
         return false;
+    }
+}
+
+function validatesource() {
+    const bsource = document.getElementById('source');
+    const optionsindex = bsource.options[bsource.selectedIndex].value;
+    if (optionsindex == "") {
+        sourceerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    else {
+        sourceerror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+        return true;
+    }
+}
+
+function validatedestination() {
+    const bdestination = document.getElementById('destination');
+    const optionsindex = bdestination.options[bdestination.selectedIndex].value;
+    if (optionsindex == "") {
+        desterror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    else {
+        desterror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+        return true;
     }
 }
