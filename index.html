@@ -176,29 +176,34 @@
 					<div class="user-details">
 					  <div class="input-box">
 						<span class="details">First Name</span>
-						<input type="text" id="fname" placeholder="First Name" required>
+						<input type="text" id="fname" placeholder="First Name" required onkeyup="validatefname()">
+						<span id="fname-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Last Name</span>
-						<input type="text" id="lname" placeholder="Last Name" required>
+						<input type="text" id="lname" placeholder="Last Name" required onkeyup="validatelname()">
+						<span id="lname-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Email</span>
-						<input type="text" id="mail" placeholder="Email" required>
+						<input type="text" id="mail" placeholder="Email" required onkeyup="validateemail()">
+						<span id="email-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Phone Number</span>
-						<input type="text" id="phone" placeholder="Phone" required>
+						<input type="text" id="phone" placeholder="Phone" required onkeyup="validatephone()">
+						<span id="phone-error"></span>
 					  </div>
 					</div>
 					<div class="input-box">
 					  <label for="message">Your Message</label>
-					  <textarea id="message" rows="4" placeholder="Enter Your Message" required></textarea>
+					  <textarea id="message" rows="4" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
+					  <span id="message-error"></span>
 					</div>
 					<div class="contact-channel" id="book_radio_select">
-					  <input type="radio" value="Phone" name="channel" id="dot-1" required>
-					  <input type="radio" value="Email" name="channel" id="dot-2">
-					  <input type="radio" value="WhatsApp" name="channel" id="dot-3">
+					  <input class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
+					  <input class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
+					  <input class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
 					  <span class="channel-title">Preferred channel to reach you:</span>
 					  <div class="category">
 						<label for="dot-1">
@@ -214,9 +219,11 @@
 						  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
 						</label>
 					  </div>
+					  <span id="contact-channel-error"></span>
 					</div>
-					<div class="button" type="button" id="submit" onclick="whatsapp();">
+					<div class="button" type="button" id="submit">
 					  <input type="submit" value="Submit">
+					  <span id="submit-error"></span>
 					</div>
 				  </form>
 			</div>
@@ -1031,11 +1038,7 @@
 		<script src="assets/js/booknow.js"></script>
 		<!-- footer-copyright end -->
 		<script src="assets/js/mapscript.js"></script>
-		<script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8j80bnbdH4s_s-Lbj5fMO2EqTa4o5-A&libraries=places&callback=initMap">
-</script>
-
-
+		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8j80bnbdH4s_s-Lbj5fMO2EqTa4o5-A&libraries=places&callback=initMap"></script>
 		<script src="assets/js/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<!-- Including SheetJS Latest Version Library -->
@@ -1117,7 +1120,7 @@
 			}
 		  });
 		}*/
-		
+
 		function validate(){
 		  let fname = document.getElementById("fname");
 		  let lname = document.getElementById("lname");
@@ -1137,16 +1140,23 @@
 		  }
   
 			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
-			  inputEmpty();
-			} else {
-			  sendMail(dot, fname.value, lname.value, email.value, message.value);
-			  success();
-			  console.log("email sent");
-			  document.getElementById('myform').reset();
+				inputEmpty();
 			}
-		  });
-		}
-		validate();
+			/*if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel()) {
+				submiterror.style.display = 'block';
+                submiterror.innerHTML = 'Please fix error to Submit';
+                setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
+				console.log("all went through");
+                validate();
+			}*/
+			else {
+				sendMail(dot, fname.value, lname.value, email.value, message.value);
+			    success();
+			    console.log("email sent");
+			    document.getElementById('myform').reset();
+			}
+		});
+	}
   
 		function sendMail(dot, fname, lname, email, message) {
 		  emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
@@ -1181,6 +1191,14 @@
 		  swal({
 			title: "Oops...!",
 			text: "Input fields are required!",
+			icon: "error",
+		  });
+		}
+
+		function inputcorrection(val) {
+		  swal({
+			title: "Oops...!",
+			text: val + "Input field is required...!",
 			icon: "error",
 		  });
 		}

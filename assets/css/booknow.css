@@ -92,8 +92,38 @@ form .user-details {
 }
 
 form .user-details .input-box {
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+form .user-details .input-box .fa-times-circle {
+  font-size: medium;
+  color: red;
+}
+
+#contact-channel-error .fa-times-circle {
+  font-size: medium;
+  color: red;
+}
+
+#contact-channel-error .fa-check-circle {
+  font-size: medium;
+  color: greenyellow;
+}
+
+form .user-details .input-box .fa-check-circle {
+  font-size: medium;
+  color: greenyellow;
+}
+
+form .input-box .fa-times-circle {
+  font-size: medium;
+  color: red;
+}
+
+form .input-box .fa-check-circle {
+  font-size: medium;
+  color: greenyellow;
 }
 
 form .input-box span.details,
