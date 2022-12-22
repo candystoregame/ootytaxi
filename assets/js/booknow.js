@@ -20,21 +20,6 @@ window.addEventListener('click',function(e) {
     }
 })
 
-let poppln_home = document.getElementById('contact-pln-pop'),
-    open_home_book = document.getElementById('bn'),
-    closepoppln_home = document.querySelector('.close-pln-pop');
-open_home_book.addEventListener('click', function() {
-    poppln_home.style.display = 'block';
-})
-closepoppln_home.addEventListener('click', function() {
-    poppln_home.style.display = 'none';
-})
-window.addEventListener('click', function(e) {
-    if(e.target == poppln_home) {
-        poppln_home.style.display = 'none';
-    }
-})
-
 const fnameerror = document.getElementById('fname-error');
 const lnameerror = document.getElementById('lname-error');
 const phoneerror = document.getElementById('phone-error');
