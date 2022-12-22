@@ -20,6 +20,21 @@ window.addEventListener('click',function(e) {
     }
 })
 
+let poppln_home = document.getElementById('contact-pln-pop'),
+    open_home_book = document.getElementById('bn'),
+    closepoppln_home = document.querySelector('.close-pln-pop');
+open_home_book.addEventListener('click', function() {
+    poppln_home.style.display = 'block';
+})
+closepoppln_home.addEventListener('click', function() {
+    poppln_home.style.display = 'none';
+})
+window.addEventListener('click', function(e) {
+    if(e.target == poppln_home) {
+        poppln_home.style.display = 'none';
+    }
+})
+
 const fnameerror = document.getElementById('fname-error');
 const lnameerror = document.getElementById('lname-error');
 const phoneerror = document.getElementById('phone-error');
@@ -254,7 +269,7 @@ function validatepdate() {
         return false;
     }
     if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
-        pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Phone number should be all 10 digits';
+        pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
         return false;
     }
     pdateerror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
@@ -291,37 +306,3 @@ function validatepchannel() {
         return false;
     }
 }
-
-function pvalidate() {
-    let fname = document.getElementById("pfname");
-    let lname = document.getElementById("plname");
-    let email = document.getElementById("pemail");
-    let message = document.getElementById("message-plan");
-    let pphone = document.getElementById("pphone");
-    let padults = document.getElementById("padults");
-    let pchild = document.getElementById("pchild");
-    let submit = document.getElementById("plan_submit");
-    let plandate = document.getElementById("plandate");
-    let dot;
-    var markedCheckbox = document.querySelectorAll('[dname]');
-    submit.addEventListener("click", (e) => {
-        e.preventDefault();
-        for (let checkbox of markedCheckbox){
-            if(checkbox.checked) {
-                dot = checkbox.value;
-            }
-        }
-        if (!validatepchannel() || !validatepmessage() || !validatepdate() || !validatepchild() || !validatepadults() || !validatepphone() || !validatepemail() || !validateplname() || !validatepfname()) {
-            psubmiterror.style.display = 'block';
-            //psubmiterror.innerHTML = 'Please fix error to Submit';
-            inputEmpty();
-            setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
-            return false;
-        }
-        else {
-            sendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value);
-            success();
-            document.getElementById('plan-form-id').reset();
-        }
-    });
-} pvalidate();

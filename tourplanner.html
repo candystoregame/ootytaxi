@@ -386,7 +386,7 @@
 					<li><button type = "button" id="tariff-planner4" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
 					<li><button type = "button" id="tariff-planner5" class="btn-plan-style" value="Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Tour Packages</button></li>
 					<li><button type = "button" id="tariff-planner6" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Minimum Charges Day Rent(KM Basis)</button></li>
-					<li><button type = "button" id="tariff-planner7" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Customize Plan</button></li>
+					<li><button type = "button" id="tariff-planner7" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();customizeplan(value);this.classList.toggle('active');">Customize Plan</button></li>
 				</ul>
 				<h3>TOUR PACKAGES</h3>
 				<ul class="packages-planner">
@@ -708,6 +708,39 @@
 			});
 		} validate();
 
+		function pvalidate() {
+            let fname = document.getElementById("pfname");
+            let lname = document.getElementById("plname");
+            let email = document.getElementById("pemail");
+            let message = document.getElementById("message-plan");
+            let pphone = document.getElementById("pphone");
+            let padults = document.getElementById("padults");
+            let pchild = document.getElementById("pchild");
+            let submit = document.getElementById("plan_submit");
+            let plandate = document.getElementById("plandate");
+            let dot;
+            var markedCheckbox = document.querySelectorAll('[dname]');
+            submit.addEventListener("click", (e) => {
+                e.preventDefault();
+                for (let checkbox of markedCheckbox){
+                    if(checkbox.checked) {
+                        dot = checkbox.value;
+                    }
+                }
+                if (!validatepchannel() || !validatepmessage() || !validatepdate() || !validatepchild() || !validatepadults() || !validatepphone() || !validatepemail() || !validateplname() || !validatepfname()) {
+                    psubmiterror.style.display = 'block';
+                    //psubmiterror.innerHTML = 'Please fix error to Submit';
+                    inputEmpty();
+                    setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
+                    return false;
+                }
+                else {
+                    sendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value);
+                    success();
+                    document.getElementById('plan-form-id').reset();
+                }
+            });
+		} pvalidate();
   
 		function sendMail(dot, fname, lname, email, message, source, destination) {
 			emailjs.send('service_4xhn7mk', 'template_rsivdhg', {

@@ -31,7 +31,7 @@
 	<!--datepicker.css-->
 	<link rel="stylesheet" href="assets/css/datepicker.css">
 
-	<!--book now button.css-->
+	<!--Book Online button.css-->
 	<link rel="stylesheet" href="assets/css/booknow.css">
 
 	<!--owl.carousel.css-->
@@ -161,8 +161,8 @@
 
 	<!--Slider End-->
 
-<!--Book Now Popup Start-->
-	<div id="modal-open" class="booknow"><img src="assets/logo/booknowpng1.png" width="50" height="50" alt="Book Now"></div>
+<!--Book Online Popup Start-->
+	<div id="modal-open" class="booknow"><img src="assets/logo/booknowpng1.png" width="50" height="50" alt="Book Online"></div>
 	<div id="contact-modal" class="modal">
 		<div id="modal-content">
 			<div id="modal-header">
@@ -250,7 +250,123 @@
 		</div>
 	</div>
 	</div>
-<!--Book Now Popup End-->
+<!--Book Online Popup End-->
+
+<!--Book Now Main Box Menu Start-->
+
+<div id="contact-pln-pop" class="popplnmodal">
+    <div id="pln-pop-content">
+      <div id="pln-pop-header">
+        <div class="title">Book Now</div>
+        <button data-close-button class="close-pln-pop">&times;</button>
+      </div>
+      <div class = "booknow-grid">
+        <div class="booknow-leftpane">
+			<div class="booknowleftpanebox">
+				<div class="listofitems-selected"></div>
+			</div>
+        </div>
+        <div id="pop-pln-body">
+          <form id="plan-form-id" action="#">
+            <div class="pln-pop-user-details">
+              <div class="pln-pop-forms-group">
+                <span class="details">First Name</span>
+                <input id="pfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
+				<span id="plan-fname-error"></span>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Last Name</span>
+                <input id="plname" type="text" placeholder="Enter your Last Name" required onkeyup="validateplname()">
+				<span id="plan-lname-error"></span>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Email</span>
+                <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
+				<span id="plan-email-error"></span>
+              </div>
+              <div class="pln-pop-forms-group">
+                <span class="details">Phone Number</span>
+                <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
+				<span id="plan-phone-error"></span>
+              </div>
+              <div class="pln-pop-forms-group">
+                <label for="Adults">Adults:</label>
+                <select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+                  <option value="">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+				<span id="plan-padult-error"></span>
+              </div>
+              <div class="pln-pop-forms-group">
+                <label for="child">Children:</label>
+                <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+                  <option value="">Select</option>
+				  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+				<span id="plan-pchild-error"></span>
+              </div>
+            </div>
+            <div id="plandatelabel" class="pln-pop-forms-group">
+              <label for="Pickup">Pickup Date</label>
+              <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="MM/DD/YYYY" required onkeyup="validatepdate()">
+			  <span id="pickup-date-error"></span>
+            </div>
+            <div class="pln-pop-forms-group">
+              <label for="message">Pickup Address</label>
+              <textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onkeyup="validatepmessage()"></textarea>
+			  <span id="plan-message-error"></span>
+            </div>
+            <div class="pln-contact-channel">
+              <input dname="channel" type="radio" name="channel" id="plan-dot-1" required>
+              <input dname="channel" type="radio" name="channel" id="plan-dot-2">
+              <input dname="channel" type="radio" name="channel" id="plan-dot-3">
+              <span class="channel-title">Preferred channel to reach you:</span>
+              <div class="pln-category">
+                <label for="plan-dot-1">
+                  <span class="dot one"></span>
+                  <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
+                </label>
+                <label for="plan-dot-2">
+                  <span class="dot two"></span>
+                  <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
+                </label>
+                <label for="plan-dot-3">
+                  <span class="dot three"></span>
+                  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
+                </label>
+              </div>
+			  <span id="plan-contact-channel-error"></span>
+            </div>
+            <div id="plan_submit" class="pln-book-button">
+              <input type="submit" value="Submit">
+			  <span id="plan-submit-error"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Book Now Main Box Menu End-->
 
 <!--WhatsApp Declare Start-->
 	<div class="whatsapp">
@@ -470,7 +586,7 @@
 												<!--Removed col sm-5-->
 												<div class="clo-sm-7">
 													<div class="about-btn travel-mrt-0 pull-right">
-															<input id="bn" type="submit" class="about-view travel-btn" value="estimate">
+															<input id="bn" type="submit" class="about-view travel-btn" value="Book Now">
 													</div>
 
 													<!--/.about-btn-->
@@ -1206,13 +1322,6 @@
 	    			icon: "error",
 	    		});
 	    	}
-	    </script>
-	    <script>
-	    	$(document).ready(function(e) {
-	    		$('#bn').click(function(){
-	    			$(this).val("Book Now");
-	    		});
-	    	});
 	    </script>
 </body>
 </html>

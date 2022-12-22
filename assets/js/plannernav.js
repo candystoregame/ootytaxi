@@ -424,3 +424,20 @@ function fetchslidecontent(sheetName) {
 }
 
 /*Slider Fetch Table End*/
+
+/*Customize Plan Start*/
+
+function customizeplan(value) {
+  const midMenu = document.querySelector('.plan-midmenu');
+  const rightMainDiv = document.getElementById('planner-right-container');
+  const tableContent = document.querySelector('.table-right-content');
+  const headContent = document.querySelector('.heading-right-content');
+  const visitContent = document.querySelector('.placevisit-right-content');
+  midMenu.innerHTML = "";
+  rightMainDiv.innerHTML = "";
+  tableContent.innerHTML = "";
+  headContent.innerHTML = "";
+  visitContent.innerHTML = "";
+}
+
+/*Customize Plan End*/
