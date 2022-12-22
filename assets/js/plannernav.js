@@ -119,7 +119,7 @@ function fetchTable(fetchMidMenu, sheetName) {
               table_output += '<th>'+sheet_data[row][cell]+'&nbsp;&nbsp;<a class="pln-shake">&darr;</a></th>';
             }
             else if (row > 2 && cell == sheet_data[row].length-1) {
-              table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick = "bookdetails(this.id);" title = "Click Book Now" type="button" class="pln-tablebook">'+sheet_data[row][cell]+'</button></td>';
+              table_output += '<td table-data-label="#"><button id="planbutton'+(row-2)+'" onclick="bookdetails(this.id);" title = "Click Book Now" type="button" class="pln-tablebook">'+sheet_data[row][cell]+'</button></td>';
             }
             else {
                 table_output += '<td table-data-label="'+sheet_data[2][cell]+'">'+sheet_data[row][cell]+'</td>';
@@ -183,6 +183,7 @@ function bookdetails(lavi) {
   let poppln = document.getElementById('contact-pln-pop'),
       listplanvars = document.querySelector('.listofitems-selected'),
       closepoppln = document.querySelector('.close-pln-pop');
+      document.getElementById('plan-form-id').reset();
   let listplanvarsdata, tabcount, divcount;
   tabcount = planner_booknow_map[planner_booknow_map.length-1].planmap;
   lavi = Number(lavi.substring(10));
@@ -200,11 +201,13 @@ function bookdetails(lavi) {
   poppln.style.display = 'block';
   closepoppln.addEventListener('click', function() {
     poppln.style.display = 'none';
+    resetplanerrortags();
   })
 
   window.addEventListener('click',function(e) {
     if(e.target == poppln) {
         poppln.style.display = 'none';
+        resetplanerrortags();
     }
   })
 }

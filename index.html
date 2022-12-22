@@ -1139,6 +1139,7 @@
 	    		let fname = document.getElementById("fname");
 	    	    let lname = document.getElementById("lname");
 	    	    let email = document.getElementById("mail");
+				let phone = document.getElementById("phone");
 	    	    let message = document.getElementById("message");
 	    	    let submit = document.getElementById("submit");
 				let bsource = document.getElementById('source');
@@ -1154,13 +1155,13 @@
 	    			}
 	    		    if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
 	    		    	submiterror.style.display = 'block';
-                        //submiterror.innerHTML = 'Please fix error to Submit';
+                        submiterror.innerHTML = 'Please fix error to Submit';
 	    		    	inputEmpty();
                         setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
 	    		        return false;
 	    		    }
 	    		    else {
-	    		    	sendMail(dot, fname.value, lname.value, email.value, message.value, bsource.value, bdest.value);
+	    		    	sendMail(dot, fname.value, lname.value, email.value, phone.value, message.value, bsource.value, bdest.value);
 	    		        success();
 	    		        document.getElementById('myform').reset();
 	    		    }
@@ -1168,12 +1169,13 @@
 	    	} validate();
     
       
-	        function sendMail(dot, fname, lname, email, message, source, destination) {
+	        function sendMail(dot, fname, lname, email, phone, message, source, destination) {
 	    		emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
 	    			dot : dot,
 	        	    fname: fname,
 	        	    lname: lname,
 	        	    email : email,
+					phone: phone,
 	        	    message: message,
 					source: source,
 					destination: destination,
