@@ -338,6 +338,11 @@ position: relative;
    	background-position: center;
 	min-height: 1000px;
 }
+
+.about-us video {
+    position: absolute;
+}
+
 .about-us:before{
 	position: absolute;
 	content: "";
@@ -507,6 +512,7 @@ position: relative;
 .single-travel-boxes {
     margin-top: -800px;
     background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
 }
 .tab-para p {
     font-size: 24px;
