@@ -253,7 +253,7 @@ function validatepdate() {
         pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
         return false;
     }
-    if(!pdate.match(/^(((0[1-9]|[12][0-9]|3[01])[- /.](0[13578]|1[02])|(0[1-9]|[12][0-9]|30)[- /.](0[469]|11)|(0[1-9]|1\d|2[0-8])[- /.]02)[- /.]\d{4}|29[- /.]02[- /.](\d{2}(0[48]|[2468][048]|[13579][26])|([02468][048]|[1359][26])00))$/)) {
+    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
         pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Phone number should be all 10 digits';
         return false;
     }
@@ -319,23 +319,9 @@ function pvalidate() {
             return false;
         }
         else {
-            sendMailsendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value);
+            sendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value);
             success();
             document.getElementById('plan-form-id').reset();
         }
     });
 } pvalidate();
-
-function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate) {
-    emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
-        date : plandate,
-        fname: fname,
-        lname: lname,
-        email : email,
-        phone: phone,
-        address: address,
-        adults: adults,
-        children: children,
-        dot : dot,
-    });
-}

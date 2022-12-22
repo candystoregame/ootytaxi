@@ -96,34 +96,14 @@ form .user-details .input-box {
   width: calc(100% / 2 - 20px);
 }
 
-form .user-details .input-box .fa-times-circle {
-  font-size: medium;
-  color: red;
-}
-
-#contact-channel-error .fa-times-circle {
-  font-size: medium;
-  color: red;
-}
-
-#contact-channel-error .fa-check-circle {
+.fa-check-circle {
   font-size: medium;
   color: greenyellow;
 }
 
-form .user-details .input-box .fa-check-circle {
-  font-size: medium;
-  color: greenyellow;
-}
-
-form .input-box .fa-times-circle {
+.fa-times-circle {
   font-size: medium;
   color: red;
-}
-
-form .input-box .fa-check-circle {
-  font-size: medium;
-  color: greenyellow;
 }
 
 form .input-box span.details,
@@ -470,27 +450,12 @@ form .pln-contact-channel .channel-title::before {
     font-size: 1.5rem;
     font-weight: 500;
     width: fit-content;
-    padding-top: 0.75rem;
-  }
-
-  #plandatelabel input::after {
-    position: absolute;
-    content: "\f073";
-    right: 0;
-    top: 0;
-    font-size: 1.5rem;
-    color: #aaa;
-    background: #f9f9f9;
-    font-family: "fontAwesome";
-    pointer-events: none;
-    border:1px solid #d7d7d7;
-    border-bottom: transparent;
-    padding: 10px 0px;
+    padding-top: 3px;
   }
 
   .pln-pop-user-details .pln-pop-forms-group input,
   .pln-pop-user-details .pln-pop-forms-group select {
-    height: 40px;
+    height: 35px;
     width: 100%;
     outline: none;
     font-size: 1.5rem;
@@ -511,8 +476,8 @@ form .pln-contact-channel .channel-title::before {
   }
 
   #contact-pln-pop .pln-pop-forms-group input.form-control {
-    height: 40px;
-    width: 79%;
+    height: 35px;
+    width: 75%;
     outline: none;
     font-size: 1.5rem;
     border-radius: 5px;
@@ -632,7 +597,7 @@ form .pln-contact-channel .channel-title::before {
   position: absolute;
   color: yellow;
   font-size: 1rem;
-  inset: 2px;
+  inset: 3px;
   z-index: 5;
   background: rgba(77,78,84,1);
   border-radius: 8px;

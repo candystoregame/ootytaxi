@@ -296,9 +296,8 @@
               </div>
               <div class="pln-pop-forms-group">
                 <label for="Adults">Adults:</label>
-                <select id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+                <select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
                   <option value="">Select</option>
-                  <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -314,8 +313,9 @@
               </div>
               <div class="pln-pop-forms-group">
                 <label for="child">Children:</label>
-                <select id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+                <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
                   <option value="">Select</option>
+				  <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -332,12 +332,12 @@
             </div>
             <div id="plandatelabel" class="pln-pop-forms-group">
               <label for="Pickup">Pickup Date</label>
-              <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="DD/MM/YYYY" required onkeyup="validatepdate()">
+              <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="MM/DD/YYYY" required onkeyup="validatepdate()">
 			  <span id="pickup-date-error"></span>
             </div>
             <div class="pln-pop-forms-group">
               <label for="message">Pickup Address</label>
-              <textarea id="message-plan" rows="5" placeholder="Enter Your Pickup Address" required onkeyup="validatepmessage()"></textarea>
+              <textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onkeyup="validatepmessage()"></textarea>
 			  <span id="plan-message-error"></span>
             </div>
             <div class="pln-contact-channel">
@@ -386,7 +386,7 @@
 					<li><button type = "button" id="tariff-planner4" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
 					<li><button type = "button" id="tariff-planner5" class="btn-plan-style" value="Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Tour Packages</button></li>
 					<li><button type = "button" id="tariff-planner6" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Minimum Charges Day Rent(KM Basis)</button></li>
-					<li><button type = "button" id="tariff-planner6" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Customize Plan</button></li>
+					<li><button type = "button" id="tariff-planner7" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Customize Plan</button></li>
 				</ul>
 				<h3>TOUR PACKAGES</h3>
 				<ul class="packages-planner">
@@ -685,7 +685,7 @@
 			let bsource = document.getElementById('source');
 			let bdest = document.getElementById('destination');
 			let dot;
-			var markedCheckbox = document.getElementsByName("channel");
+			var markedCheckbox = document.querySelectorAll('[dname]');
 			submit.addEventListener("click", (e) => {
 				e.preventDefault();
 				for (let checkbox of markedCheckbox){
@@ -718,6 +718,19 @@
 				message: message,
 				source: source,
 				destination: destination,
+			});
+		}
+		function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate) {
+			emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
+				date : plandate,
+                fname: fname,
+                lname: lname,
+                email : email,
+                phone: phone,
+                address: address,
+                adults: adults,
+                children: children,
+                dot : dot,
 			});
 		}
 		function success2() {
