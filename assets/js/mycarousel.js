@@ -1,8 +1,6 @@
-fetchslidecontent('Ooty');
 function clickslider(value) {
   slidertoken = value;
   fetchslidecontent(slidertoken);
-  console.log(slidertoken);
   let popslider = document.getElementById('ootyslider-popup'),
       closepopslider = document.querySelector('.close-ootyslider-pop');
   popslider.style.display = 'block';
@@ -46,7 +44,6 @@ function clickslider(value) {
       if(n < 1){
         sliderpivot = myslide.length;
          }
-         console.log(sliderpivot);
       cslides[sliderpivot - 1].classList.add("active");
       cslidedots[sliderpivot - 1].classList.add("active");
     }
@@ -61,8 +58,6 @@ function clickslider(value) {
       if(e.target == popslider) {
           popslider.style.display = 'none';
           slidertoken = null;
-          //clearInterval(timer);
-          //clearInterval(quitslider);
       }
     })
   }

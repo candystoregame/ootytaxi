@@ -32,7 +32,6 @@ function initMap() {
       const review_content = document.querySelectorAll(".review_content");
       const reviewer_name = document.querySelectorAll(".reviewer_name");
       const review_star = document.querySelectorAll(".review_stars");
-      console.log(review_star.length);
       let j=0;
       if (review_data_map.length !=5) {
         for (let review of place.reviews) {
