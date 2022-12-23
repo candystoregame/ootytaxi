@@ -597,7 +597,7 @@ form .pln-contact-channel .channel-title::before {
   position: absolute;
   color: yellow;
   font-size: 1rem;
-  inset: 3px;
+  inset: 2px;
   z-index: 5;
   background: rgba(77,78,84,1);
   border-radius: 8px;
