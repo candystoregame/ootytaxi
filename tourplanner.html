@@ -754,6 +754,9 @@
 			});
 		}
 		function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate) {
+			let poppln = document.getElementById('contact-pln-pop');
+			poppln.style.display = 'none';
+			resetplanerrortags();
 			emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
 				date: plandate,
                 fname: fname,
