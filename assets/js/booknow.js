@@ -291,3 +291,63 @@ function validatepchannel() {
         return false;
     }
 }
+
+const hserror = document.getElementById('home_source_error');
+const hderror = document.getElementById('home_destination_error');
+const starterror = document.getElementById('pickup_error');
+const enderror = document.getElementById('drop_error');
+
+function resethomeerrortags() {
+    hserror.innerHTML="";
+    hderror.innerHTML="";
+    starterror.innerHTML="";
+    enderror.innerHTML="";
+}
+
+function validatehpdate() {
+    let pdate = document.getElementById('home_start').value;
+    if ( pdate.length == 0) {
+        starterror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
+        starterror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        return false;
+    }
+    starterror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}
+
+function validatehddate() {
+    let pdate = document.getElementById('home_end').value;
+    if ( pdate.length == 0) {
+        enderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
+        enderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        return false;
+    }
+    enderror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}
+
+function validatehpickup() {
+    let startloc = document.getElementById('home_pickup').value;
+    if ( startloc.length == 0) {
+        hserror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    hserror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}
+
+function validatehdesti() {
+    let destloc = document.getElementById('home_destination').value;
+    if ( destloc.length == 0) {
+        hderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    hderror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}

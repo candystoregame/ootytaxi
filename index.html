@@ -461,20 +461,22 @@
 													<div class="single-tab-select-box">
 														<h2>Plan your travel</h2>
 														<div class="travel-select-icon">
-															<select id="home_pickup" class="form-control" aria-label="Plan Travel">
-																<option value="default">enter your pickup location</option><!-- /.option-->
+															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onkeyup="validatehpickup()">
+																<option value="">enter your pickup location</option><!-- /.option-->
 																<option value="Ooty">Ooty</option><!-- /.option-->
 																<option value="Coonoor">Coonoor</option><!-- /.option-->
 																<option value="Kotagiri">Kotagiri</option><!-- /.option-->
 															</select><!-- /.select-->
+															<span id="home_source_error"></span>
 														</div><!-- /.travel-select-icon -->
 														<div class="travel-select-icon">
-															<select id="home_destination" class="form-control" aria-label="Plan Travel">
-																<option value="default">enter your destination location</option><!-- /.option-->
+															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onkeyup="validatehdesti()">
+																<option value="">enter your destination location</option><!-- /.option-->
 																<option value="Munnar">Munnar</option><!-- /.option-->
 																<option value="Kodaikanal">Kodaikanal</option><!-- /.option-->
 																<option value="Mysore">Mysore</option><!-- /.option-->
 															</select><!-- /.select-->
+															<span id="home_destination_error"></span>
 														</div><!-- /.travel-select-icon -->
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
@@ -484,7 +486,8 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_start" type="text" name="check_in" class="form-control"
-																	data-toggle="datepicker" placeholder="DD/MM/YYYY">
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onkeyup="validatehpdate()">
+																<span id="pickup_error"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -495,7 +498,8 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_end" type="text" name="check_out" class="form-control"
-																	data-toggle="datepicker" placeholder="DD/MM/YYYY">
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onkeyup="validatehddate()">
+																<span id="drop_error"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -505,7 +509,7 @@
 														<h2>Vehicle</Select></h2>
 														<div class="travel-select-icon">
 															<select id="home_car" class="form-control" aria-label="Plan Travel">
-																<option value="default">Indica</option><!-- /.option-->
+																<option value="Indica">Indica</option><!-- /.option-->
 																<option value="Tavera">Tavera</option><!-- /.option-->
 																<option value="Traveller">Traveller</option><!-- /.option-->
 																<option value="Indigo AC">Indigo A/C</option><!-- /.option-->
@@ -525,7 +529,7 @@
 														<h2>members</h2>
 														<div class="travel-select-icon">
 															<select id="home_members" class="form-control" aria-label="Plan Travel">
-																<option value="default">1</option><!-- /.option-->
+																<option value="1">1</option><!-- /.option-->
 																<option value="2">2</option><!-- /.option-->
 																<option value="4">4</option><!-- /.option-->
 																<option value="8">8</option><!-- /.option-->
@@ -1268,13 +1272,31 @@
                 open_home_book = document.getElementById('bn'),
                 closepoppln_home = document.querySelector('.close-pln-pop');
             open_home_book.addEventListener('click', function() {
-				poppln_home.style.display = 'block';
+				if (!validatehpickup() || !validatehdesti() || !validatehpdate() || !validatehddate()) {
+					inputEmpty1();
+					return false;
+				}
+				else {
+					let homeboxvars = document.querySelector('.listofitems-selected');
+				    let listvarsdata = '<ul>';
+				    	listvarsdata += '<li>Pickup: <b>'+home_pickup.value+'</b></li>';
+				    	listvarsdata += '<li>Destination: <b>'+home_destination.value+'</b></li>';
+				    	listvarsdata += '<li>Start Date: <b>'+home_start.value+'</b></li>';
+				    	listvarsdata += '<li>End Date: <b>'+home_end.value+'</b></li>';
+				    	listvarsdata += '<li>Car: <b>'+home_car.value+'</b></li>';
+				    	listvarsdata += '<li>Total Members: <b>'+home_members.value+'</b></li>';
+				    	listvarsdata += '</ul>';
+				    poppln_home.style.display = 'block';
+				    homeboxvars.innerHTML = listvarsdata;
+				}
 			})
             closepoppln_home.addEventListener('click', function() {
+				resethomeerrortags();
 				poppln_home.style.display = 'none';
 			})
             window.addEventListener('click', function(e) {
 				if(e.target == poppln_home) {
+					resethomeerrortags();
 					poppln_home.style.display = 'none';
 				}
 			})
@@ -1335,6 +1357,14 @@
 	    		swal({
 	    			title: "Oops...!",
 	    			text: "Please fix error to Submit...!",
+	    			icon: "error",
+	    		});
+	    	}
+			function inputEmpty1() {
+				//resethomeerrortags();
+	    		swal({
+	    			title: "Oops...!",
+	    			text: "Please fill all the fields...!",
 	    			icon: "error",
 	    		});
 	    	}
