@@ -80,7 +80,7 @@ function fetchTable(fetchMidMenu, sheetName) {
   if (globaltableflag != 1) {
     rightMainDiv.innerHTML='';
   }
-  animateCSS('.table-right-content', 'jackInTheBox');
+  animateCSS('.table-right-content', 'bounceInLeft');
   tableContent.innerHTML='';
   (
     async() => {
