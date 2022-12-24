@@ -1621,7 +1621,7 @@ position: relative;
     -moz-transition:scaleX(1.2);
     -ms-transition:scaleX(1.2);
     -o-transition:scaleX(1.2);
-    transform:scaleX(1.2);
+    transition:scaleX(1.2);
     color: #00d8ff;
 }/*single-footer-txt*/
 
