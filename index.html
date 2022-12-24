@@ -340,9 +340,9 @@
 						<span id="plan-message-error"></span>
 					</div>
 					<div class="pln-contact-channel">
-						<input dname="channel" type="radio" name="channel" id="plan-dot-1" required>
-						<input dname="channel" type="radio" name="channel" id="plan-dot-2">
-						<input dname="channel" type="radio" name="channel" id="plan-dot-3">
+						<input dname="channel" type="radio" value="Phone" name="channel" id="plan-dot-1" required>
+						<input dname="channel" type="radio" value="Email" name="channel" id="plan-dot-2">
+						<input dname="channel" type="radio" value="WhatsApp" name="channel" id="plan-dot-3">
 						<span class="channel-title">Preferred channel to reach you:</span>
 						<div class="pln-category">
 							<label for="plan-dot-1">
@@ -1225,7 +1225,15 @@
 	    		        return false;
 	    		    }
 	    		    else {
-	    		    	sendMail(dot, fname.value, lname.value, email.value, phone.value, message.value, bsource.value, bdest.value);
+						let sting = `First Name: ${fname.value}\n`;
+			            sting += `Last Name: ${lname.value}\n`;
+				        sting += `Email Address: ${email.value}\n`;
+				        sting += `Phone Numer: ${phone.value}\n`;
+				        sting += `Source: ${bsource.value}\n`;
+				        sting += `Destination: ${bdest.value}\n`;
+				        sting += `Message: ${message.value}\n`;
+				        sting += `Preferred Channel To Contact Me: ${dot}`;
+					    sendMail("Book Online", sting);
 	    		        success();
 	    		        document.getElementById('myform').reset();
 	    		    }
@@ -1255,6 +1263,7 @@
                 for (let checkbox of markedCheckbox){
                     if(checkbox.checked) {
                         dot = checkbox.value;
+						console.log(dot);
                     }
                 }
                 if (!validatepfname() || !validateplname() || !validatepemail() || !validatepphone() || !validatepadults() || !validatepchild() || !validatepaccom() || !validatepmessage() || !validatepchannel()) {
@@ -1265,7 +1274,21 @@
                     return false;
                 }
                 else {
-                    sendMailHomeBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value, home_pickup.value, home_destination.value, home_start.value, home_end.value, home_car.value, home_members.value);
+					let sting = `First Name: ${fname.value}\n`;
+			            sting += `Last Name: ${lname.value}\n`;
+				        sting += `Email Address: ${email.value}\n`;
+				        sting += `Phone Numer: ${pphone.value}\n`;
+						sting += `Adults: ${padults.value}\n`;
+						sting += `Children: ${pchild.value}\n`;
+						sting += `Accommodation Required: ${plandate.value}\n`;
+				        sting += `Pickup: ${home_pickup.value}\n`;
+				        sting += `Destination: ${home_destination.value}\n`;
+						sting += `Start Date: ${home_start.value}\n`;
+						sting += `End Date: ${home_end.value}\n`;
+						sting += `Vehicle: ${home_car.value}\n`;
+				        sting += `Pickup Address: ${message.value}\n`;
+				        sting += `Preferred Channel To Contact Me: ${dot}`;
+                    sendMail("Book Now", sting);
                     success();
                     document.getElementById('home-form-id').reset();
                 }
@@ -1304,35 +1327,10 @@
 					poppln_home.style.display = 'none';
 				}
 			})
-	        function sendMail(dot, fname, lname, email, phone, message, source, destination) {
+	        function sendMail(title, blob) {
 	    		emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
-	    			dot : dot,
-	        	    fname: fname,
-	        	    lname: lname,
-	        	    email : email,
-					phone: phone,
-	        	    message: message,
-					source: source,
-					destination: destination,
-	    		});
-	    	}
-			function sendMailHomeBookNow(dot, fname, lname, email, message, phone, adults, child, plandate, pickup, destination, start, end, car, members) {
-	    		emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
-	    			dot : dot,
-	        	    fname: fname,
-	        	    lname: lname,
-					email: email,
-					address: message,
-					phone: phone,
-					adults: adults,
-					child: child,
-	        	    plandate: plandate,
-					pickup: pickup,
-					destination: destination,
-					start: start,
-					end: end,
-					car: car,
-					members: members,
+	    			title: title,
+	        	    blob: blob,
 	    		});
 	    	}
 	        function success2() {

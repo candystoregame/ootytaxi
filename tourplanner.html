@@ -341,9 +341,9 @@
 			  <span id="plan-message-error"></span>
             </div>
             <div class="pln-contact-channel">
-              <input dname="channel" type="radio" name="channel" id="plan-dot-1" required>
-              <input dname="channel" type="radio" name="channel" id="plan-dot-2">
-              <input dname="channel" type="radio" name="channel" id="plan-dot-3">
+              <input dname="channel" type="radio" value="Phone" name="channel" id="plan-dot-1" required>
+              <input dname="channel" type="radio" value="Email" name="channel" id="plan-dot-2">
+              <input dname="channel" type="radio" value="WhatsApp" name="channel" id="plan-dot-3">
               <span class="channel-title">Preferred channel to reach you:</span>
               <div class="pln-category">
                 <label for="plan-dot-1">
@@ -689,6 +689,7 @@
 			let fname = document.getElementById("fname");
 			let lname = document.getElementById("lname");
 			let email = document.getElementById("mail");
+			let phone = document.getElementById("phone");
 			let message = document.getElementById("message");
 			let submit = document.getElementById("submit");
 			let bsource = document.getElementById('source');
@@ -702,7 +703,7 @@
 						dot = checkbox.value;
 					}
 				}
-				if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
+				if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatesource() || !validatedestination() || !validatemessage() || !validatechannel()) {
 					submiterror.style.display = 'block';
 					//submiterror.innerHTML = 'Please fix error to Submit';
 					inputEmpty();
@@ -710,7 +711,15 @@
 					return false;
 				}
 				else {
-					sendMail(dot, fname.value, lname.value, email.value, message.value, bsource.value, bdest.value);
+					let sting = `First Name: ${fname.value}\n`;
+			        sting += `Last Name: ${lname.value}\n`;
+				    sting += `Email Address: ${email.value}\n`;
+				    sting += `Phone Numer: ${phone.value}\n`;
+				    sting += `Source: ${bsource.value}\n`;
+				    sting += `Destination: ${bdest.value}\n`;
+				    sting += `Message: ${message.value}\n`;
+				    sting += `Preferred Channel To Contact Me: ${dot}`;
+					sendMail("Book Online Form", blob);
 					success();
 					document.getElementById('myform').reset();
 				}
@@ -751,15 +760,10 @@
             });
 		} pvalidate();
   
-		function sendMail(dot, fname, lname, email, message, source, destination) {
+		function sendMail(title, blob) {				
 			emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
-				dot : dot,
-				fname: fname,
-				lname: lname,
-				email : email,
-				message: message,
-				source: source,
-				destination: destination,
+				title : title,
+				blob: blob,
 			});
 		}
 		function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate, blob) {
