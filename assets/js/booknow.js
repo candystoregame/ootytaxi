@@ -247,14 +247,10 @@ function validatepchild() {
     return true;
 }
 
-function validatepdate() {
+function validatepaccom() {
     let pdate = document.getElementById('plandate').value;
     if ( pdate.length == 0) {
         pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
-        return false;
-    }
-    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
-        pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
         return false;
     }
     pdateerror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
@@ -319,13 +315,20 @@ function validatehpdate() {
 }
 
 function validatehddate() {
-    let pdate = document.getElementById('home_end').value;
-    if ( pdate.length == 0) {
+    let hpdate = document.getElementById('home_start').value;
+    let hddate = document.getElementById('home_end').value;
+    let x = new Date(hpdate);
+    let y = new Date(hddate);
+    if ( hddate.length == 0) {
         enderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
         return false;
     }
-    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
+    if(!hddate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
         enderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        return false;
+    }
+    if (y < x) {
+        enderror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> End Date is less than Start Date';
         return false;
     }
     enderror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';

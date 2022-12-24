@@ -37,8 +37,8 @@ let planner_booknow_map = [];
 
 let defaultmenu = 'tariff-planner1';
 
-var globalfilepath;
-var globaltableflag = 0;
+let globalfilepath;
+let globaltableflag = 0;
 
 function noterma(value) {
   const nplanner= document.querySelectorAll('.plan-note');
@@ -97,7 +97,7 @@ function fetchTable(fetchMidMenu, sheetName) {
             j++;
           }
         }
-        var PlanContent = '<div class="options-right-box"><div class="options-right-content">';
+        let PlanContent = '<div class="options-right-box"><div class="options-right-content">';
         for(i = 0; i<multisheet.length; i++) {
           const SplitVar = multisheet[i].split('-');
           if(i==0){PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button active" value="'+multisheet[i]+'" onclick="sprma(value);">';}
@@ -110,19 +110,20 @@ function fetchTable(fetchMidMenu, sheetName) {
         fetchTable(fetchMidMenu, multisheet[0]);
       }
       else if(sheet_data.length > 0) {
-        var table_output = '<table class="pln-tbl-content">';
-        for(var row = 0; row < sheet_data.length; row++)
+        let table_output = '<table class="pln-tbl-content">';
+        for(let row = 0; row < sheet_data.length; row++)
         {
           if (row > 2 ) {table_output += '<tr>';}
           if (row == 2) {table_output += '<thead><tr>';}
           buttonmap = 'planbutton'+(row-2);
-          for(var cell = 0; cell < sheet_data[row].length; cell++)
+          for(let cell = 0; cell < sheet_data[row].length; cell++)
           {
             if(row == 0) {
-                let hEader = document.createElement("h3");
-                TableHeading.innerHTML='';
-                hEader.innerHTML=sheet_data[row][cell];
-                TableHeading.appendChild(hEader);
+              planheader = sheet_data[row][cell];
+              let hEader = document.createElement("h3");
+              TableHeading.innerHTML='';
+              hEader.innerHTML=sheet_data[row][cell];
+              TableHeading.appendChild(hEader);
             }
             else if(row == 1) {
                 let hEader = document.createElement("p");
@@ -209,13 +210,17 @@ function bookdetails(lavi) {
   divcount = planner_booknow_map.length;
   const itercount = divcount/tabcount;
   let selectmapdata = (lavi * itercount) - itercount;
-  listplanvarsdata = '<ul>';
+  listplanvarsdata = '<ul><li> Plan: <b>'+planheader+'</b></li>';
   for (let i=0; i<itercount; i++) {
     let mapdata = Number(i+selectmapdata);
     listplanvarsdata += '<li>'+(i+1)+'. '+planner_booknow_map[mapdata].key+': <b>'+planner_booknow_map[mapdata].value+'</b></li>';
+    let heep = planner_booknow_map[mapdata].key;
+    let heepvalue = planner_booknow_map[mapdata].value;
+    planner_blob[i] = {key: heep, value: heepvalue};
   }
   listplanvarsdata += '</ul>';
   listplanvars.innerHTML = listplanvarsdata;
+  console.log(planner_blob);
   poppln.style.display = 'block';
   closepoppln.addEventListener('click', function() {
     poppln.style.display = 'none';
@@ -403,9 +408,9 @@ function fetchslidecontent(sheetName) {
       const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
       if(sheet_data.length > 0) {
         slideContent.innerHTML='';
-        for(var row = 0; row < sheet_data.length; row++)
+        for(let row = 0; row < sheet_data.length; row++)
         {
-          for(var cell = 0; cell < sheet_data[row].length; cell++)
+          for(let cell = 0; cell < sheet_data[row].length; cell++)
           {
             if (row > 0 && cell == 0) {
               slidepath = sheet_data[row][cell];

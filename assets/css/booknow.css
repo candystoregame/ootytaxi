@@ -438,8 +438,7 @@ form .pln-contact-channel .channel-title::before {
 
   #plandatelabel {
     display: flex;
-    margin-top: 4px;
-    width: calc (40% / 2);
+    flex-wrap: wrap;
     justify-content: space-between;
     justify-items: center;
     
@@ -450,7 +449,18 @@ form .pln-contact-channel .channel-title::before {
     font-size: 1.5rem;
     font-weight: 500;
     width: fit-content;
-    padding-top: 3px;
+  }
+
+  #plandatelabel select {
+    height: 35px;
+    width: 100%;
+    outline: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
   }
 
   .pln-pop-user-details .pln-pop-forms-group input,
@@ -471,7 +481,9 @@ form .pln-contact-channel .channel-title::before {
   .pln-pop-user-details .pln-pop-forms-group input:valid,
   .pln-pop-user-details .pln-pop-forms-group select:valid,
   #contact-pln-pop .pln-pop-forms-group input.form-control:focus,
-  #contact-pln-pop .pln-pop-forms-group input.form-control:valid {
+  #contact-pln-pop .pln-pop-forms-group input.form-control:valid,
+  #plandatelabel select:valid,
+  #plandatelabel select:focus {
     border-color: #00d8ff;
   }
 
