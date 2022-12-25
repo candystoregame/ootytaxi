@@ -3,7 +3,7 @@ let review_data_map = [];
 function initMap() {
   const mapOptions = {
     center: { lat: 11.412, lng: 76.704 },
-    zoom: 17,
+    zoom: 15,
     gestureHandling: "none",
     zoomControl: false,
   };
@@ -14,11 +14,13 @@ function initMap() {
     title: "Ooty Taxi",
   });
   const infowindow = new google.maps.InfoWindow({
-    content: `<p class="map_title_display">Ooty<span>&nbsp;Taxi</span></p>`,
+    content: `<p class="map_title_display">Ooty<span>&nbsp;Taxi</span></p>`+
+    `<div><p>#9/11, Abu Sait Street, Main Bazzar, The Nilgiris Fernhill Post, Ooty Tamilnadu, India</p></div>`,
   });
   google.maps.event.addListener(marker, "click", () => {
     infowindow.open(map, marker);
   });
+  infowindow.open(map, marker);
 
   service = new google.maps.places.PlacesService(map);
   var request = {

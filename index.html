@@ -174,27 +174,27 @@
 					<div class="user-details">
 					  <div class="input-box">
 						<span class="details">First Name</span>
-						<input type="text" id="fname" autocomplete="off" placeholder="First Name" required onkeyup="validatefname()">
+						<input type="text" id="fname" autocomplete="off" placeholder="First Name" required onchange="validatefname()">
 						<span id="fname-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Last Name</span>
-						<input type="text" id="lname" autocomplete="off" placeholder="Last Name" required onkeyup="validatelname()">
+						<input type="text" id="lname" autocomplete="off" placeholder="Last Name" required onchange="validatelname()">
 						<span id="lname-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Email</span>
-						<input type="text" id="mail" autocomplete="off" placeholder="Email" required onkeyup="validateemail()">
+						<input type="text" id="mail" autocomplete="off" placeholder="Email" required onchange="validateemail()">
 						<span id="email-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Phone Number</span>
-						<input type="text" id="phone" autocomplete="off" placeholder="Phone" required onkeyup="validatephone()">
+						<input type="text" id="phone" autocomplete="off" placeholder="Phone" required onchange="validatephone()">
 						<span id="phone-error"></span>
 					  </div>
 					  <div class="input-box">
 						<label class="details" for="source">Choose Source Location</label>
-						<select name="source" id="source" required onkeyup="validatesource()">
+						<select name="source" id="source" required onchange="validatesource()">
 							<option value="">Select</option>
 							<option value="Ooty">Ooty</option>
 							<option value="Coimbatore">Coimbatore</option>
@@ -205,7 +205,7 @@
 					  </div>
 					  <div class="input-box">
 						<label class="details" for="destination">Choose Destination Location</label>
-						<select name="destination" id="destination" required onkeyup="validatedestination()">
+						<select name="destination" id="destination" required onchange="validatedestination()">
 							<option value="">Select</option>
 							<option value="Ooty">Ooty</option>
 							<option value="Coimbatore">Coimbatore</option>
@@ -217,7 +217,7 @@
 					</div>
 					<div class="input-box">
 					  <label for="message">Your Message</label>
-					  <textarea id="message" rows="4" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
+					  <textarea id="message" rows="4" placeholder="Enter Your Message" required onchange="validatemessage()"></textarea>
 					  <span id="message-error"></span>
 					</div>
 					<div class="contact-channel" id="book_radio_select">
@@ -271,27 +271,27 @@
 					<div class="pln-pop-user-details">
 						<div class="pln-pop-forms-group">
 							<span class="details">First Name</span>
-							<input id="pfname" type="text" autocomplete="off" placeholder="Enter your First Name" required onkeyup="validatepfname()">
+							<input id="pfname" type="text" autocomplete="off" placeholder="Enter your First Name" required onchange="validatepfname()">
 							<span id="plan-fname-error"></span>
 						</div>
 						<div class="pln-pop-forms-group">
 							<span class="details">Last Name</span>
-							<input id="plname" type="text" autocomplete="off" placeholder="Enter your Last Name" required onkeyup="validateplname()">
+							<input id="plname" type="text" autocomplete="off" placeholder="Enter your Last Name" required onchange="validateplname()">
 							<span id="plan-lname-error"></span>
 						</div>
 						<div class="pln-pop-forms-group">
 							<span class="details">Email</span>
-							<input id="pemail" type="email" autocomplete="off" placeholder="Enter your email" required onkeyup="validatepemail()">
+							<input id="pemail" type="email" autocomplete="off" placeholder="Enter your email" required onchange="validatepemail()">
 							<span id="plan-email-error"></span>
 						</div>
 						<div class="pln-pop-forms-group">
 							<span class="details">Phone Number</span>
-							<input id="pphone" type="text" autocomplete="off" placeholder="Enter your number" required onkeyup="validatepphone()">
+							<input id="pphone" type="text" autocomplete="off" placeholder="Enter your number" required onchange="validatepphone()">
 							<span id="plan-phone-error"></span>
 						</div>
 						<div class="pln-pop-forms-group">
 							<label for="Adults">Adults</label>
-							<select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+							<select title="Total Adults" id="padults" name="Adults" id="Adults" required onchange="validatepadults()">
 								<option value="">Select</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -308,7 +308,7 @@
 						</div>
 						<div class="pln-pop-forms-group">
 							<label for="child">Children</label>
-							<select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+							<select title="Total Child" id="pchild" name="child" id="child" required onchange="validatepchild()">
 								<option value="">Select</option>
 								<option value="0">0</option>
                                 <option value="1">1</option>
@@ -327,7 +327,7 @@
 					</div>
 					<div id="plandatelabel" class="pln-pop-forms-group">
 						<label for="Pickup">Accommodation Required</label>
-						<select id="plandate" type="text" name="Pickup" class="form-control" required onkeyup="validatepaccom()">
+						<select id="plandate" type="text" name="Pickup" class="form-control" required onchange="validatepaccom()">
 							<option value="">Select</option>
 							<option value="Yes">Yes</option>
 							<option value="No">No</option>
@@ -336,7 +336,7 @@
 					</div>
 					<div class="pln-pop-forms-group">
 						<label for="message">Pickup Address</label>
-						<textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onkeyup="validatepmessage()"></textarea>
+						<textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
 						<span id="plan-message-error"></span>
 					</div>
 					<div class="pln-contact-channel">
@@ -465,7 +465,7 @@
 													<div class="single-tab-select-box">
 														<h2>Plan your travel</h2>
 														<div class="travel-select-icon">
-															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onkeyup="validatehpickup()">
+															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onchange="validatehpickup()">
 																<option value="">enter your pickup location</option><!-- /.option-->
 																<option value="Ooty">Ooty</option><!-- /.option-->
 																<option value="Coonoor">Coonoor</option><!-- /.option-->
@@ -474,7 +474,7 @@
 															<span id="home_source_error"></span>
 														</div><!-- /.travel-select-icon -->
 														<div class="travel-select-icon">
-															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onkeyup="validatehdesti()">
+															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onchange="validatehdesti()">
 																<option value="">enter your destination location</option><!-- /.option-->
 																<option value="Munnar">Munnar</option><!-- /.option-->
 																<option value="Kodaikanal">Kodaikanal</option><!-- /.option-->
@@ -490,7 +490,7 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_start" type="text" name="check_in" class="form-control"
-																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onkeyup="validatehpdate()">
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatehpdate()">
 																<span id="pickup_error"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
@@ -502,7 +502,7 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_end" type="text" name="check_out" class="form-control"
-																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onkeyup="validatehddate()">
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatehddate()">
 																<span id="drop_error" style="color: whitesmoke;"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
@@ -902,7 +902,7 @@
 					<h2>
 						clients reviews
 					</h2>					
-					<p>Here is what Customers have to say about us...!</p>
+					<p>Here is what our Customers have to say about us...!</p>
 
 				</div>
 				<!--/.gallery-header-->
