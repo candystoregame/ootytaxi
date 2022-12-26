@@ -15,6 +15,36 @@ const keynotemap = new Map([
   ["Honeymoon Tour Packages.xlsx", "tariffnote5"]
 ]);
 
+const keyanimationmap = new Map ([
+  [1, "bounce"],
+  [2, "flash"],
+  [3, "pulse"],
+  [4, "rubberBand"],
+  [5, "shakeX"],
+  [6, "shakeY"],
+  [7, "headShake"],
+  [8, "swing"],
+  [9, "tada"],
+  [10, "wobble"],
+  [11, "jello"],
+  [12, "heartBeat"],
+  [13, "bounceIn"],
+  [14, "bounceInDown"],
+  [15, "bounceInLeft"],
+  [16, "bounceInRight"],
+  [17, "bounceInUp"],
+  [18, "flip"],
+  [19, "flipInX"],
+  [20, "flipInY"],
+  [21, "flipOutX"],
+  [22, "flipOutY"],
+  [23, "rotateIn"],
+  [24, "rotateInDownLeft"],
+  [25, "rotateInDownRight"]
+]);
+
+let animationcount = 1;
+
 const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it
   new Promise((resolve, reject) => {
@@ -80,7 +110,6 @@ function fetchTable(fetchMidMenu, sheetName) {
   if (globaltableflag != 1) {
     rightMainDiv.innerHTML='';
   }
-  animateCSS('.table-right-content', 'bounceInLeft');
   tableContent.innerHTML='';
   (
     async() => {
@@ -110,6 +139,9 @@ function fetchTable(fetchMidMenu, sheetName) {
         fetchTable(fetchMidMenu, multisheet[0]);
       }
       else if(sheet_data.length > 0) {
+        animationcount++;
+        if (animationcount >= 26 || animationcount <=0) animationcount = 1;
+        animateCSS('.table-right-content', keyanimationmap.get(animationcount));
         let table_output = '<table class="pln-tbl-content">';
         for(let row = 0; row < sheet_data.length; row++)
         {
