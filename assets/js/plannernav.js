@@ -267,8 +267,6 @@ function bookdetails(lavi) {
   })
 }
 
-
-
 /* Mouse Tracker Function Start */
 
 var cursor = {
@@ -381,18 +379,6 @@ var cursor = {
       requestAnimationFrame(this.animateDotOutline.bind(self));
   },
 
-  /*startAnimation: function() {
-    var self = this;
-    self.animationElements = document.querySelectorAll('.cursor-dot');
-
-    for (let i = 0; i < this.animationElements.length+2; i++) {
-        //scale
-        gsap.fromTo(this.animationElements[i], { scale: 1 }, { scale: 5, repeat: -1, duration: 1.5, delay: i * 1.5 / 2, ease: Linear.easeNone });
-
-        //opacity
-        gsap.fromTo(this.animationElements[i], { opacity: .175 }, { opacity: 0, repeat: -1, duration: 1.5, delay: i * 1.5 / 2, ease: Power4.easeIn });
-    }
-},*/
   
   toggleCursorSize: function() {
       var self = this;
@@ -482,7 +468,8 @@ function fetchslidecontent(sheetName) {
 
 /*Customize Plan Start*/
 
-function customizeplan(value) {
+function customizeplan() {
+  const tablediv = document.createElement("div");
   const midMenu = document.querySelector('.plan-midmenu');
   const rightMainDiv = document.getElementById('planner-right-container');
   const tableContent = document.querySelector('.table-right-content');
@@ -493,6 +480,45 @@ function customizeplan(value) {
   tableContent.innerHTML = "";
   headContent.innerHTML = "";
   visitContent.innerHTML = "";
+  headContent.innerHTML = `<h3>Customize your plan</h3>`;
+  visitContent.innerHTML = `Please select the pickup location`;
+  let contenttable = `<table>
+  <tr>
+    <th>Pickup Date</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Distance</th>
+  </tr>
+  <tr>
+  <td><input type="date" placeholder="mm/dd/yyyy" required"></td>
+    <td>
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    </td>
+    <td>
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    </td>
+    <td><input type="text" id="fname" name="fname"></td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>`;
+tablediv.id = 'dynamictableID';
+tablediv.classList.add('dynamictabclass');
+tableContent.appendChild(tablediv);
+tablediv.innerHTML = contenttable;
 }
 
 /*Customize Plan End*/
