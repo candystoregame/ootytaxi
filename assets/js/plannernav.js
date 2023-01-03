@@ -466,9 +466,38 @@ function fetchslidecontent(sheetName) {
 
 /*Slider Fetch Table End*/
 
+/* Function to Calculate Distance using Google Maps */
+
+function GoogleDistace(source, destination) {
+  let directionsService = new google.maps.DirectionsService();
+  const logdistance = document.getElementById('distanceid');
+  let request = {
+    origin: source,
+    destination: destination,
+    travelMode: google.maps.TravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC
+  }
+  directionsService.route(request, (result, status) => {
+    if ( status == google.maps.DirectionsStatus.OK) {
+      const output = result.routes[0].legs[0].distance.text;
+      //Duration result.routes[0].legs[0].duration.text;
+      //show on map directionsDisplay.setDirections(result);
+      //code to return the result.
+      logdistance.value = output;
+      console.log(output);
+    }
+    else {
+      //directionsDisplay.setDirections({ routes: []});
+      //map.setCenter(myLatLng);
+      //code for error message.
+    }
+  });
+}
+
 /*Customize Plan Start*/
 
 function customizeplan() {
+  const currentd = new Date().toISOString().split('T')[0];
   const tablediv = document.createElement("div");
   const midMenu = document.querySelector('.plan-midmenu');
   const rightMainDiv = document.getElementById('planner-right-container');
@@ -481,7 +510,21 @@ function customizeplan() {
   headContent.innerHTML = "";
   visitContent.innerHTML = "";
   headContent.innerHTML = `<h3>Customize your plan</h3>`;
-  visitContent.innerHTML = `Please select the pickup location`;
+  visitContent.innerHTML = `<div class="customplanpickup"><a>Please select the pickup city</a><select name="pickupcity" id="pickupcity" required aria-required="true">
+  <option value="">Select Pickup Location</option>
+  <option value="Bengaluru">Bengaluru</option>
+  <option value="Cochin">Cochin</option>
+  <option value="Coimbatore">Coimbatore</option>
+  <option value="Kodaikanal">Kodaikanal</option>
+  <option value="Madurai">Madurai</option>
+  <option value="Mettupalayam">Mettupalayam</option>
+  <option value="Munnar">Munnar</option>
+  <option value="Mysore">Mysore</option>
+  <option value="Ooty">Ooty</option>
+  <option value="Thanjavur">Thanjavur</option>
+  <option value="Tirunelveli">Tirunelveli</option>
+  <option value="Tirupur">Tirupur</option>
+</select><span id="customplanpickupid"></span></div>`;
   let contenttable = `<table>
   <tr>
     <th>Pickup Date</th>
@@ -490,35 +533,37 @@ function customizeplan() {
     <th>Distance</th>
   </tr>
   <tr>
-  <td><input type="date" placeholder="mm/dd/yyyy" required"></td>
+  <td>
+  <input type="date" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required>
+  </td>
     <td>
-    <select name="cars" id="cars">
-      <option value="volvo">Volvo</option>
+    <select name="cars" id="customsource" required aria-required="true">
+      <option value="">Pickup Location</option>
+      <option value="Amrita University">Amrita University</option>
       <option value="saab">Saab</option>
       <option value="mercedes">Mercedes</option>
       <option value="audi">Audi</option>
     </select>
     </td>
     <td>
-    <select name="cars" id="cars">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
+    <select name="droplocation" id="droplocation" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource").value, document.getElementById("droplocation").value);'>
+      <option value="">Drop Location</option>  
+      <option value="Alleppey, Kerala">Alleppey, Kerala</option>
+      <option value="Amrita University">Amrita University</option>
       <option value="mercedes">Mercedes</option>
       <option value="audi">Audi</option>
     </select>
     </td>
-    <td><input type="text" id="fname" name="fname"></td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td><input type="text" id="distanceid" name="fname" required aria-required="true"></td>
+    <td><a><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>
   </tr>
 </table>`;
 tablediv.id = 'dynamictableID';
 tablediv.classList.add('dynamictabclass');
 tableContent.appendChild(tablediv);
 tablediv.innerHTML = contenttable;
+//const datesetting= document.querySelectorAll('.localdate');
+//datesetting.forEach(item => item.min = currentd);
 }
 
 /*Customize Plan End*/

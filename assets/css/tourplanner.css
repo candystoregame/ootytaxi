@@ -524,6 +524,21 @@
   color: black;
 }
 
+/* Customize Plan Start*/
+
+.placevisit-right-content select {
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+
 .plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button .button__icon {
   position: relative;
   padding: 8px 5px 0;  
@@ -545,7 +560,8 @@
   transform: scale(.95);
 }
 
-.table-right-content .dynamictabclass {
+.table-right-content .dynamictabclass,
+.placevisit-right-content .customplanpickup {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -553,13 +569,77 @@
 }
 
 .table-right-content .dynamictabclass table tbody tr th {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 40px;
 }
 
 .table-right-content .dynamictabclass table tbody tr td {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 3rem;
 }
 
-.table-right-content .dynamictabclass table tbody tr::after {
-  content: ' +';
+.table-right-content .dynamictabclass table tbody tr td select,
+.table-right-content .dynamictabclass table tbody tr td input,
+.placevisit-right-content select {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.table-right-content .dynamictabclass table tbody tr td input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.table-right-content .dynamictabclass table tbody tr td select:focus,
+.table-right-content .dynamictabclass table tbody tr td select:valid,
+.table-right-content .dynamictabclass table tbody tr td input:focus,
+.table-right-content .dynamictabclass table tbody tr td input:valid,
+.placevisit-right-content select:focus,
+.placevisit-right-content select:valid {
+  border-color: #00d8ff;
+}
+
+.placevisit-right-content .customplanpickup select {
+  width: 50%;
+}
+
+.table-right-content .dynamictabclass table tbody tr td a {
+  margin-left: -20px;
+  font-size: 2rem;
+}
+
+.placevisit-right-content .customplanpickup a {
+  font-weight: 600;
+  padding: 0 10px 0 0;
+  width: 320px;
+  font-size: 1.5rem;
+  color: rgba(0, 120, 255, 0.5);
+}
+
+.placevisit-right-content .customplanpickup span .fa-exclamation-triangle {
+  color: red;
+  padding: 0 0 0 0;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.placevisit-right-content .customplanpickup span .fa-check-circle {
+  color: green;
+  padding: 0 0 0 0;
+  font-size: 2rem;
+  margin-left: 1rem;
 }
