@@ -205,13 +205,13 @@
 				</div>
 				<div class="input-box">
 				  <label for="message">Your Message</label>
-				  <textarea id="message" rows="4" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
+				  <textarea id="message" rows="2" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
 				  <span id="message-error"></span>
 				</div>
 				<div class="contact-channel" id="book_radio_select">
-				  <input class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
-				  <input class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
-				  <input class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
+				  <input bnname="channel" class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
+				  <input bnname="channel" class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
+				  <input bnname="channel" class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
 				  <span class="channel-title">Preferred channel to reach you:</span>
 				  <div class="category">
 					<label for="dot-1">
@@ -696,7 +696,7 @@
 			let bsource = document.getElementById('source');
 			let bdest = document.getElementById('destination');
 			let dot;
-			var markedCheckbox = document.querySelectorAll('[dname]');
+			var markedCheckbox = document.querySelectorAll('[bnname]');
 			submit.addEventListener("click", (e) => {
 				e.preventDefault();
 				for (let checkbox of markedCheckbox){
@@ -720,7 +720,7 @@
 				    sting += `Destination: ${bdest.value}\n`;
 				    sting += `Message: ${message.value}\n`;
 				    sting += `Preferred Channel To Contact Me: ${dot}`;
-					sendMail("Book Online Form", blob);
+					sendMail("Book Online Form", sting);
 					success();
 					document.getElementById('myform').reset();
 				}
