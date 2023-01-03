@@ -44,6 +44,7 @@ function reseterrortags() {
 
 function validatefname() {
     let name = document.getElementById('fname').value;
+    let css_of_after = window.getComputedStyle(name, "::after");
     if ( name.length == 0) {
         fnameerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
         return false;

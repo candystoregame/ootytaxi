@@ -43,6 +43,152 @@ const keyanimationmap = new Map ([
   [25, "rotateInDownRight"]
 ]);
 
+const citymap = new Map ([
+  [0, "Alleppey, Kerala"],
+  [1, "Amrita University"],
+  [2, "Ettimadai, Tamil Nadu"],
+  [3, "Anaikatti, Sterling Resorts, Kerala"],
+  [4, "Anaikatti, Tamil Nadu"],
+  [5, "Anaimalai Hills, Tamil Nadu"],
+  [6, "Aruppukkottai, Tamil Nadu"],
+  [7, "Ashtamudi - Kerala"],
+  [8, "Athirappilly Water Falls, Kerala"],
+  [9, "Avalanche - Ooty, Tamil Nadu"],
+  [10, "Avinashi, Tamil Nadu"],
+  [11, "Bandipur, Karnataka"],
+  [12, "Bangalore International Airport (BIAL), Karnataka"],
+  [13, "Bangalore, Karnataka"],
+  [14, "Bannari Amman Temple, Bannari, Tamil Nadu"],
+  [15, "Bekal, Kerala"],
+  [16, "Bylakuppe, Karnataka"],
+  [17, "Calicut, Kerala"],
+  [18, "Chengalpattu, Tamil Nadu"],
+  [19, "Chennai, Tamil Nadu"],
+  [20, "Chidambaram, Tamil Nadu"],
+  [21, "Chikmagalur, Karnataka"],
+  [22, "Chottanikkara Temple, Kerala"],
+  [23, "Cochin International Airport, Kerala"],
+  [24, "Cochin, Kerala"],
+  [25, "Coimbatore Airport, Tamil Nadu"],
+  [26, "Coimbatore Railway station, Tamil Nadu"],
+  [27, "Coimbatore, Tamil Nadu"],
+  [28, "Coonoor, Tamil Nadu"],
+  [29, "Coorg, Karnataka"],
+  [30, "Courtallam, Tamil Nadu"],
+  [31, "Damalcheruvu, Andhra Pradesh"],
+  [32, "Devala, Tamil Nadu"],
+  [33, "Dharmasthala, Karnataka"],
+  [34, "Dindigul, Tamil Nadu"],
+  [35, "Erode, Tamil Nadu"],
+  [36, "Gokarna,Karnataka"],
+  [37, "Guruvayur, Kerala"],
+  [38, "Hampi,Karnataka"],
+  [39, "Hassan, Karnataka"],
+  [40, "Hogenakkal, Tamil Nadu"],
+  [41, "Hosur, Tamil Nadu"],
+  [42, "Hubli,Karnataka"],
+  [43, "Hyderabad, Telangana"],
+  [44, "Isha Yoga Center, Coimbatore, Tamil Nadu"],
+  [45, "Kabini, Karnataka"],
+  [46, "Kalady, Kerala"],
+  [47, "Kallakurichi, Tamil Nadu"],
+  [48, "Kalpetta, Kerala"],
+  [49, "Kanchipuram, Tamil Nadu"],
+  [50, "Kannur, Kerala"],
+  [51, "Kanyakumari, Tamil Nadu"],
+  [52, "Karaikal,Puducherry"],
+  [53, "Karaikudi, Tamil nadu"],
+  [54, "Karur, Tamil Nadu"],
+  [55, "Kodai road Railway station, Tamil Nadu"],
+  [56, "Kodaikanal, Tamil Nadu"],
+  [57, "Kodungallur, Kerala"],
+  [58, "Kollam, Kerala"],
+  [59, "Kollur,Karnataka"],
+  [60, "Kotagiri ,Tamil Nadu"],
+  [61, "Kovalam, Kerala1"],
+  [62, "Krishnagiri, Tamil Nadu"],
+  [63, "Kumarakom, Kerala"],
+  [64, "Kumbakonam, Tamil Nadu"],
+  [65, "Lakkidi, Kerala"],
+  [66, "Local Sightseeing"],
+  [67, "Madurai Airport, Tamil Nadu"],
+  [68, "Madurai, Tamil Nadu"],
+  [69, "Mahabalipuram, Tamil Nadu"],
+  [70, "Mangalore, Karnataka"],
+  [71, "Manipal, Karnataka"],
+  [72, "Mannargudi, Tamil Nadu"],
+  [73, "Marthandam, Tamil Nadu"],
+  [74, "Masinagudi, Tamil Nadu"],
+  [75, "Mayiladuthurai, Tamil Nadu"],
+  [76, "Mettupalayam, Tamil Nadu"],
+  [77, "Mettur, Tamil Nadu"],
+  [78, "Mudumalai Wildlife Sanctuary, Tamil Nadu"],
+  [79, "Mukkali, Kerala"],
+  [80, "Munnar Sterling Resorts, Kerala"],
+  [81, "Munnar, Kerala"],
+  [82, "Murudeshwara, Karnataka"],
+  [83, "Musiri, Tamil Nadu"],
+  [84, "Mysore, Karnataka"],
+  [85, "Nagarhole National Park, Karnataka"],
+  [86, "Nagercoil, Tamil Nadu"],
+  [87, "Namakkal, Tamil Nadu"],
+  [88, "Navagraha Temples, Tamil Nadu"],
+  [89, "Nelliyampathy, Kerala146Neyveli, Tamil Nadu"],
+  [90, "Oddanchatram, Tamil Nadu"],
+  [91, "Ooty, Tamil Nadu"],
+  [92, "Palakkad, Kerala"],
+  [93, "Palani, Tamil Nadu"],
+  [94, "Panaji, Goa"],
+  [95, "Parambikulam, Kerala"],
+  [96, "Pattukkottai, Tamil Nadu"],
+  [97, "Pillayarpatti, Tamil Nadu"],
+  [98, "Pollachi, Tamil Nadu"],
+  [99, "Pondicherry, Pondicherry"],
+  [100, "Poovar, Kerala"],
+  [101, "Puttaparthi, Andhra Pradesh"],
+  [102, "Pyramid Valley, Bangalore"],
+  [103, "Rameshwaram, Tamil Nadu"],
+  [104, "Rasipuram, Tamil Nadu"],
+  [105, "Sabarimalai, Kerala"],
+  [106, "Salem, Tamil Nadu"],
+  [107, "Sathyamangalam, Tamil Nadu"],
+  [108, "Shoranur, Kerala"],
+  [109, "Shravanabelagola, Karnataka"],
+  [110, "Sivakasi, Tamil Nadu"],
+  [111, "Sringeri,Karnataka"],
+  [112, "Sriperumbudur, Tamil Nadu"],
+  [113, "Suchindram, Tamil Nadu"],
+  [114, "Tenkasi, Tamil Nadu"],
+  [115, "Thanjavur, Tamil Nadu"],
+  [116, "Thekkady, Kerala"],
+  [117, "Theni, Tamil Nadu"],
+  [118, "Thiruchirapalli, Tamil Nadu"],
+  [119, "Thirunallar, Puducherry"],
+  [120, "Thiruvarur, Tamil Nadu"],
+  [121, "Thoothukudi, Tamil Nadu"],
+  [122, "Thrissur, Kerala"],
+  [123, "Tiruchendur, Tamil Nadu"],
+  [124, "Tiruchengode, Tamil Nadu"],
+  [125, "Tirunelveli, Tamil Nadu"],
+  [126, "Tirupati, Andhra Pradesh"],
+  [127, "Tirupur, Tamil Nadu"],
+  [128, "Tiruvannamalai, Tamil Nadu"],
+  [129, "Topslip, Tamil Nadu"],
+  [130, "Trivandrum, Kerala"],
+  [131, "Udumalaipettai, Tamil Nadu"],
+  [132, "Udupi, Karnataka"],
+  [133, "Ulundurpet, Tamil Nadu"],
+  [134, "Vadavalli, Coimbatore, Tamil Nadu"],
+  [135, "Valparai, Tamil Nadu"],
+  [136, "Varkala,Kerala"],
+  [137, "Vathalagundu, Tamil Nadu"],
+  [138, "Velankanni, Tamil Nadu"],
+  [139, "Vellore, Tamil Nadu"],
+  [140, "Vythiri, Kerala"],
+  [141, "Wayanad, Kerala"],
+  [142, "Yercaud, Tamil Nadu"]
+]);
+
 let animationcount = 1;
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
@@ -465,105 +611,3 @@ function fetchslidecontent(sheetName) {
 }
 
 /*Slider Fetch Table End*/
-
-/* Function to Calculate Distance using Google Maps */
-
-function GoogleDistace(source, destination) {
-  let directionsService = new google.maps.DirectionsService();
-  const logdistance = document.getElementById('distanceid');
-  let request = {
-    origin: source,
-    destination: destination,
-    travelMode: google.maps.TravelMode.DRIVING,
-    unitSystem: google.maps.UnitSystem.METRIC
-  }
-  directionsService.route(request, (result, status) => {
-    if ( status == google.maps.DirectionsStatus.OK) {
-      const output = result.routes[0].legs[0].distance.text;
-      //Duration result.routes[0].legs[0].duration.text;
-      //show on map directionsDisplay.setDirections(result);
-      //code to return the result.
-      logdistance.value = output;
-      console.log(output);
-    }
-    else {
-      //directionsDisplay.setDirections({ routes: []});
-      //map.setCenter(myLatLng);
-      //code for error message.
-    }
-  });
-}
-
-/*Customize Plan Start*/
-
-function customizeplan() {
-  const currentd = new Date().toISOString().split('T')[0];
-  const tablediv = document.createElement("div");
-  const midMenu = document.querySelector('.plan-midmenu');
-  const rightMainDiv = document.getElementById('planner-right-container');
-  const tableContent = document.querySelector('.table-right-content');
-  const headContent = document.querySelector('.heading-right-content');
-  const visitContent = document.querySelector('.placevisit-right-content');
-  midMenu.innerHTML = "";
-  rightMainDiv.innerHTML = "";
-  tableContent.innerHTML = "";
-  headContent.innerHTML = "";
-  visitContent.innerHTML = "";
-  headContent.innerHTML = `<h3>Customize your plan</h3>`;
-  visitContent.innerHTML = `<div class="customplanpickup"><a>Please select the pickup city</a><select name="pickupcity" id="pickupcity" required aria-required="true">
-  <option value="">Select Pickup Location</option>
-  <option value="Bengaluru">Bengaluru</option>
-  <option value="Cochin">Cochin</option>
-  <option value="Coimbatore">Coimbatore</option>
-  <option value="Kodaikanal">Kodaikanal</option>
-  <option value="Madurai">Madurai</option>
-  <option value="Mettupalayam">Mettupalayam</option>
-  <option value="Munnar">Munnar</option>
-  <option value="Mysore">Mysore</option>
-  <option value="Ooty">Ooty</option>
-  <option value="Thanjavur">Thanjavur</option>
-  <option value="Tirunelveli">Tirunelveli</option>
-  <option value="Tirupur">Tirupur</option>
-</select><span id="customplanpickupid"></span></div>`;
-  let contenttable = `<table>
-  <tr>
-    <th>Pickup Date</th>
-    <th>From</th>
-    <th>To</th>
-    <th>Distance</th>
-  </tr>
-  <tr>
-  <td>
-  <input type="date" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required>
-  </td>
-    <td>
-    <select name="cars" id="customsource" required aria-required="true">
-      <option value="">Pickup Location</option>
-      <option value="Amrita University">Amrita University</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
-    </select>
-    </td>
-    <td>
-    <select name="droplocation" id="droplocation" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource").value, document.getElementById("droplocation").value);'>
-      <option value="">Drop Location</option>  
-      <option value="Alleppey, Kerala">Alleppey, Kerala</option>
-      <option value="Amrita University">Amrita University</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
-    </select>
-    </td>
-    <td><input type="text" id="distanceid" name="fname" required aria-required="true"></td>
-    <td><a><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>
-  </tr>
-</table>`;
-tablediv.id = 'dynamictableID';
-tablediv.classList.add('dynamictabclass');
-tableContent.appendChild(tablediv);
-tablediv.innerHTML = contenttable;
-//const datesetting= document.querySelectorAll('.localdate');
-//datesetting.forEach(item => item.min = currentd);
-}
-
-/*Customize Plan End*/

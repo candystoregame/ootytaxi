@@ -568,12 +568,16 @@
   /*background: #00d8ff;*/
 }
 
+.table-right-content .dynamictabclass {
+  padding-bottom: 1rem;
+}
+
 .table-right-content .dynamictabclass table tbody tr th {
   padding: 0 0 0 40px;
 }
 
 .table-right-content .dynamictabclass table tbody tr td {
-  padding: 0 0 0 3rem;
+  padding: 0 0 0 .5rem;
 }
 
 .table-right-content .dynamictabclass table tbody tr td select,
@@ -618,7 +622,7 @@
 }
 
 .table-right-content .dynamictabclass table tbody tr td a {
-  margin-left: -20px;
+  margin-left: 10px;
   font-size: 2rem;
 }
 
