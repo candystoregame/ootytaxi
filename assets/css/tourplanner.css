@@ -407,6 +407,7 @@
   font-size: var(--medium-font-size);
   font-weight: 600;
   color: black;
+  white-space: nowrap;
 }
 
 .plan-rightcontent .placevisit-right-box .placevisit-right-content div h5::after {
@@ -618,7 +619,8 @@
 }
 
 .placevisit-right-content .customplanpickup select {
-  width: 50%;
+  width: 80%;
+  white-space: nowrap;
 }
 
 .table-right-content .dynamictabclass table tbody tr td a {

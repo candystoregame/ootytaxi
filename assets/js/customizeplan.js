@@ -74,13 +74,18 @@ function GoogleDistace(source, destination) {
           </select>
         </td>
         <td><input type="text" id="distanceid" name="Distance" disabled required aria-required="true"></td>
-        <td><a><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>
+        <td><a id="addnewline"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>
       </tr>
     </table>`;
     tablediv.id = 'dynamictableID';
     tablediv.classList.add('dynamictabclass');
     tableContent.appendChild(tablediv);
     tablediv.innerHTML = contenttable;
+    const addnewline = document.getElementById('addnewline');
+    addnewline.addEventListener('click', function() {
+    document.getElementById('pickupcity').disabled = true;
+    document.getElementById('droplocation').disabled = true;
+    })
   }
   
   /*Customize Plan End*/
