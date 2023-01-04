@@ -574,11 +574,11 @@
 }
 
 .table-right-content .dynamictabclass table tbody tr th {
-  padding: 0 0 0 40px;
+  padding: 20px 0 0 40px;
 }
 
 .table-right-content .dynamictabclass table tbody tr td {
-  padding: 0 0 0 .5rem;
+  padding: 0 0 1rem .5rem;
 }
 
 .table-right-content .dynamictabclass table tbody tr td select,

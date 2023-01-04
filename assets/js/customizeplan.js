@@ -1,5 +1,7 @@
 /*Customize Plan Start*/
-
+const currentd = new Date().toISOString().split('T')[0];
+let contenttable = '';
+let dynamicid;
 /* Function to Calculate Distance using Google Maps */
 
 function GoogleDistace(source, destination) {
@@ -21,13 +23,30 @@ function GoogleDistace(source, destination) {
       }
     });
   }
+
+  function validatecustomdate(ID) {
+    const valdate = document.getElementById(ID).value;
+    if ( valdate.length == 0) {
+      //starterror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+      return false;
+    }
+    if(!valdate.match(/^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/)) {
+        //starterror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        console.log(valdate);
+        return false;
+    }
+    //starterror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    console.log("Date correct, please proceed");
+    return true;
+  }
   
   function assigntosource(ID, tvalue) {
     document.getElementById(ID).value = document.getElementById(tvalue).value;
   }
   
   function customizeplan() {
-    const currentd = new Date().toISOString().split('T')[0];
+    let customplanregister = [];
+    let newlinecounter = 0;
     const tablediv = document.createElement("div");
     const tableContent = document.querySelector('.table-right-content');
     const visitContent = document.querySelector('.placevisit-right-content');
@@ -54,7 +73,7 @@ function GoogleDistace(source, destination) {
         <option value="Tirunelveli">Tirunelveli</option>
         <option value="Tirupur">Tirupur</option>
       </select><span id="customplanpickupid"></span></div>`;
-    let contenttable = `<table>
+    contenttable = `<table id='custumplantable'>
       <tr>
         <th>Pickup Date</th>
         <th>From</th>
@@ -62,8 +81,8 @@ function GoogleDistace(source, destination) {
         <th>Distance</th>
       </tr>
       <tr>
-        <td><input type="date" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required></td>
-        <td><input type="text" id="customsource" name="Source" disabled required aria-required="true"></td>
+        <td><input type="date" id="datecustomid" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid')"></td>
+        <td><input type="text" id="customsource" placeholder="Select Location Above" name="Source" disabled required aria-required="true"></td>
         <td>
           <select name="droplocation" id="droplocation" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource").value, document.getElementById("droplocation").value);'>
             <option value="">Drop Location</option>`;
@@ -81,10 +100,46 @@ function GoogleDistace(source, destination) {
     tablediv.classList.add('dynamictabclass');
     tableContent.appendChild(tablediv);
     tablediv.innerHTML = contenttable;
-    const addnewline = document.getElementById('addnewline');
+    dynamicid = 'addnewline'
+    const addnewline = document.getElementById(dynamicid);
     addnewline.addEventListener('click', function() {
-    document.getElementById('pickupcity').disabled = true;
-    document.getElementById('droplocation').disabled = true;
+      const cpickup = document.getElementById('pickupcity');
+      const cdrop = document.getElementById('droplocation');
+      const cdate = document.getElementById('datecustomid');
+      const ptable = document.getElementById('custumplantable');
+      const distance = (document.getElementById('distanceid').value).split(" ");
+      customplanregister[newlinecounter] = {date: cdate.value, pickup: cpickup.value, drop: cdrop.value, distance: Number(distance[0])};
+      cdate.disabled = true;
+      cpickup.disabled = true;
+      cdrop.disabled = true;
+      console.log(customplanregister);
+      newlinecounter++;
+      let row = ptable.insertRow(-1);
+      let cell = row.insertCell(0);
+      let cell1 = row.insertCell(1);
+      let cell2 = row.insertCell(2);
+      let cell2str;
+      let cell3 = row.insertCell(3);
+      let cell4 = row.insertCell(4);
+      let cell5 = row.insertCell(5);
+      cell.innerHTML = `<td><input type="date" id="datecustomid${newlinecounter}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${newlinecounter}')"></td>`;
+      cell1.innerHTML = `<td><input type="text" id="customsource${newlinecounter}" placeholder="Select Location Above" name="Source" disabled required aria-required="true"></td>`;
+      cell2str = `<td>
+        <select name="droplocation" id="droplocation${newlinecounter}" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource").value, document.getElementById("droplocation").value);'>
+          <option value="">Drop Location</option>`;
+            for (let i = 0; i <= citymap.size; i++) {
+              cell2str += '<option value="'+citymap.get(i)+'">'+citymap.get(i)+'</option>';
+            }
+            cell2str += `
+        </select>
+      </td>`;
+      cell2.innerHTML = cell2str;
+      cell3.innerHTML = `<td><input type="text" id="distanceid${newlinecounter}" name="Distance" disabled required aria-required="true"></td>`;
+      cell4.innerHTML = `<td><a id="addnewline${newlinecounter}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
+      cell5.innerHTML = `<td><a id="removelastline"><i class="fa fa-minus-circle" aria-hidden="true"></i><a></td>`;
+      console.log(newlinecounter);
+      ptable.rows[newlinecounter].deleteCell(4);
+      dynamicid = 'addnewline' + newlinecounter;
     })
   }
   

@@ -210,9 +210,7 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
   });
 
 let planner_booknow_map = [];
-
 let defaultmenu = 'tariff-planner1';
-
 let globalfilepath;
 let globaltableflag = 0;
 
