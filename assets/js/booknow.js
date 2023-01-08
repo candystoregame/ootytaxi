@@ -227,6 +227,20 @@ function validatepphone() {
     return true;
 }
 
+function validatepdate() {
+    let pdate = document.getElementById('plandate').value;
+    if ( pdate.length == 0) {
+        pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    if(!pdate.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
+        pdateerror.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        return false;
+    }
+    pdateerror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}
+
 function validatepadults() {
     let padults = document.getElementById('padults').value;
     if ( padults.length == 0) {
