@@ -16,7 +16,7 @@ const keynotemap = new Map([
 ]);
 
 const keyanimationmap = new Map ([
-  [1, "bounce"],
+  /*[1, "bounce"],
   [2, "flash"],
   [3, "pulse"],
   [4, "rubberBand"],
@@ -38,9 +38,9 @@ const keyanimationmap = new Map ([
   [20, "flipInY"],
   [21, "flipOutX"],
   [22, "flipOutY"],
-  [23, "rotateIn"],
-  [24, "rotateInDownLeft"],
-  [25, "rotateInDownRight"]
+  [23, "rotateIn"],*/
+  [1, "rotateInDownLeft"],
+  [2, "rotateInDownRight"]
 ]);
 
 const citymap = new Map ([
@@ -284,7 +284,7 @@ function fetchTable(fetchMidMenu, sheetName) {
       }
       else if(sheet_data.length > 0) {
         animationcount++;
-        if (animationcount >= 26 || animationcount <=0) animationcount = 1;
+        if (animationcount > 2 || animationcount < 1) animationcount = 1;
         animateCSS('.table-right-content', keyanimationmap.get(animationcount));
         let table_output = '<table class="pln-tbl-content">';
         for(let row = 0; row < sheet_data.length; row++)

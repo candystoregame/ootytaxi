@@ -624,6 +624,22 @@ position: relative;
     padding: 10px 5px;
 }/*travel-select-icon*/
 
+.travel-select-icon span .fa-check-circle,
+.travel-check-icon span .fa-check-circle {
+    position: absolute;
+    margin: -20px  auto auto;
+    font-size: medium;
+    color: greenyellow;
+}
+
+.travel-select-icon span .fa-times-circle,
+.travel-check-icon span .fa-times-circle {
+    position: absolute;
+    margin: -20px  auto auto;
+    font-size: medium;
+    color: red;
+}
+
 .travel-select-icon  select,.travel-check-icon  input {
 	color:#aaa;
 	font-size:14px;
