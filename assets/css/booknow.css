@@ -449,6 +449,7 @@ form .pln-contact-channel .channel-title::before {
     font-size: 1.5rem;
     font-weight: 500;
     width: fit-content;
+    padding: 0.55rem 1.8rem 0 0;
   }
 
   #plandatelabel select {
