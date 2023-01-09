@@ -386,7 +386,7 @@ function bookdetails(lavi) {
   divcount = planner_booknow_map.length;
   const itercount = divcount/tabcount;
   let selectmapdata = (lavi * itercount) - itercount;
-  listplanvarsdata = '<ul><li> Plan: <b>'+planheader+'</b></li>';
+  listplanvarsdata = '<img src="assets/images/blog/cargif.gif" alt="Car Load" style="width:200px;height:150px;"><br><ul><li> Plan: <b>'+planheader+'</b></li>';
   for (let i=0; i<itercount; i++) {
     let mapdata = Number(i+selectmapdata);
     listplanvarsdata += '<li>'+(i+1)+'. '+planner_booknow_map[mapdata].key+': <b>'+planner_booknow_map[mapdata].value+'</b></li>';

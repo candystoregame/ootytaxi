@@ -51,12 +51,13 @@ function assigntosource(ID, tvalue) {
 }
 
 function addnewliner(stub) {
-  const cpickup = document.getElementById('pickupcity'+stub);
+  const cpickup = document.getElementById('datecustomid'+stub);
   const cdrop = document.getElementById('droplocation'+stub);
   const cdate = document.getElementById('datecustomid'+stub);
   const ptable = document.getElementById('custumplantable');
   const distance = (document.getElementById('distanceid'+stub).value).split(" ");
-  if (cpickup && cdrop && cdate && ptable && distance) { 
+  console.log(cpickup.value, cdrop.value, cdate.value, distance.value, stub);
+  if (cpickup.value != null && cdrop.value != null && cdate.value != null && ptable.value != null && distance.value != null) { 
     customplanregister[stub] = {date: cdate.value, pickup: cpickup.value, drop: cdrop.value, distance: Number(distance[0])};
     cdate.disabled = true;
     cpickup.disabled = true;
@@ -69,7 +70,7 @@ function addnewliner(stub) {
     let cell3 = row.insertCell(3);
     let cell4 = row.insertCell(4);
     let cell5 = row.insertCell(5);
-    cell.innerHTML = `<td><input type="date" id="datecustomid${stub}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${newlinecounter}')"></td>`;
+    cell.innerHTML = `<td><input type="date" id="datecustomid${stub}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${stub}')"></td>`;
     cell1.innerHTML = `<td><input type="text" id="customsource${stub}" placeholder="Select Location Above" name="Source" disabled required aria-required="true"></td>`;
     cell2str = `<td>
       <select name="droplocation" id="droplocation${stub}" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource${stub}").value, document.getElementById("droplocation${stub}").value, distanceid${stub});'>
@@ -85,7 +86,7 @@ function addnewliner(stub) {
     cell4.innerHTML = `<td><a id="addnewline${stub}"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
     cell5.innerHTML = `<td><a id="removelastline${stub}"><i class="fa fa-minus-circle" aria-hidden="true"></i><a></td>`;
     console.log(stub);
-    ptable.rows[stub].deleteCell(4);
+    ptable.rows[stub].deleteCell(2);
   }
 }
   
@@ -96,9 +97,11 @@ function addnewliner(stub) {
     const tableContent = document.querySelector('.table-right-content');
     const visitContent = document.querySelector('.placevisit-right-content');
     document.querySelector('.plan-midmenu').innerHTML = "";
-    const addEvent = (id, event = 'click') => {
-      document.getElementById(id).addEventListener(event, addnewliner(newlinecounter++));
-    }
+    /*const addEvent = (id, event = 'click') => {
+      if (id != null) {
+        document.getElementById(id).addEventListener(event, addnewliner(newlinecounter++));
+      }
+    }*/
     document.getElementById('planner-right-container').innerHTML = "";
     document.querySelector('.heading-right-content').innerHTML = `<h3>Customize your plan</h3>`;
     tableContent.innerHTML = "";
@@ -148,10 +151,10 @@ function addnewliner(stub) {
     tablediv.classList.add('dynamictabclass');
     tableContent.appendChild(tablediv);
     tablediv.innerHTML = contenttable;
-    //const addnewline = document.getElementById("addnewline0");
-    //addnewline.addEventListener('click', addnewliner(newlinecounter))
+    const addnewline = document.getElementById("addnewline0");
+    addnewline.addEventListener('click', addnewliner(newlinecounter))
     //newlinecounter++;
-    addEvent('addnewline0');
+    //addEvent('addnewline0');
   }
   
   /*Customize Plan End*/
