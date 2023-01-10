@@ -465,7 +465,7 @@
 													<div class="single-tab-select-box">
 														<h2>Plan your travel</h2>
 														<div class="travel-select-icon">
-															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onchange="validatehpickup()">
+															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validatehpickup(); GoogleDistace(this.value, document.getElementById("home_destination").value,"home_distance");'>
 																<option value="">enter your pickup location</option><!-- /.option-->
 																<option value="Alleppey, Kerala">Alleppey, Kerala</option>
                                                                 <option value="Amrita University">Amrita University</option>
@@ -614,7 +614,7 @@
 															<span id="home_source_error"></span>
 														</div><!-- /.travel-select-icon -->
 														<div class="travel-select-icon">
-															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onchange="validatehdesti()">
+															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validatehdesti();GoogleDistace(document.getElementById("home_pickup").value, this.value,"home_distance");'>
 																<option value="">enter your destination location</option><!-- /.option-->
 																<option value="Alleppey, Kerala">Alleppey, Kerala</option>
                                                                 <option value="Amrita University">Amrita University</option>
@@ -793,16 +793,14 @@
 														<h2>Vehicle</Select></h2>
 														<div class="travel-select-icon">
 															<select id="home_car" class="form-control" aria-label="Plan Travel">
-																<option value="Indica">Indica</option><!-- /.option-->
+																<option value="Innova AC">Innova A/C</option><!-- /.option-->
 																<option value="Tavera">Tavera</option><!-- /.option-->
 																<option value="Traveller">Traveller</option><!-- /.option-->
-																<option value="Indigo AC">Indigo A/C</option><!-- /.option-->
 																<option value="Logan AC">Logan A/C</option><!-- /.option-->
 																<option value="Swift dZire AC">Swift dZire A/C</option><!-- /.option-->
 																<option value="Toyota ETIOS AC">Toyota ETIOS A/C</option><!-- /.option-->
 																<option value="Mahindra XYLO AC">Mahindra XYLO A/C</option><!-- /.option-->
 																<option value="Tavera AC">Tavera A/C</option><!-- /.option-->
-																<option value="Innova AC">Innova A/C</option><!-- /.option-->
 																<option value="Traveller AC">Traveller A/C</option><!-- /.option-->
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->
@@ -810,14 +808,9 @@
 												</div><!--/.col-->
 												<div class="col-lg-2 col-md-1 col-sm-4">
 													<div class="single-tab-select-box">
-														<h2>members</h2>
-														<div class="travel-select-icon">
-															<select id="home_members" class="form-control" aria-label="Plan Travel">
-																<option value="1">1</option><!-- /.option-->
-																<option value="2">2</option><!-- /.option-->
-																<option value="4">4</option><!-- /.option-->
-																<option value="8">8</option><!-- /.option-->
-															</select><!-- /.select-->
+														<h2>distance</h2>
+														<div class="travel-check-icon distance">
+															<input id="home_distance" type="text" name="check_out" class="form-control" aria-label="Plan Travel" disabled>
 														</div><!-- /.travel-select-icon -->
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
@@ -1480,6 +1473,38 @@
 	    		}
 	    	  });
 	    	}*/
+
+			function GoogleDistace(source, destination, ID) {
+				if (source > -1) {
+                    return false;
+				}
+                else if (destination > -1) {
+                  return false;
+                }
+                else if (ID == null) {
+					return false;
+                }
+                else {
+					console.log(source, destination);
+					let directionsService = new google.maps.DirectionsService();
+                    const logdistance = document.getElementById(ID);
+                    let request = {
+                      origin: source,
+                      destination: destination,
+                      travelMode: google.maps.TravelMode.DRIVING,
+                      unitSystem: google.maps.UnitSystem.METRIC
+                    }
+                    directionsService.route(request, (result, status) => {
+						if ( status == google.maps.DirectionsStatus.OK) {
+							const output = result.routes[0].legs[0].distance.text;
+                            logdistance.value = output;
+						}
+                        else {
+							logdistance.value = "Unable fetch distance";
+						}
+					});
+				}
+			}
     
 	    	function validate() {
 	    		let fname = document.getElementById("fname");
@@ -1537,7 +1562,7 @@
 			let home_start = document.getElementById("home_start");
 			let home_end = document.getElementById("home_end");
 			let home_car = document.getElementById("home_car");
-			let home_members = document.getElementById("home_members");
+			let home_distance = document.getElementById("home_distance");
             let dot;
             var markedCheckbox = document.querySelectorAll('[dname]');
             submit.addEventListener("click", (e) => {
@@ -1587,13 +1612,13 @@
 				}
 				else {
 					let homeboxvars = document.querySelector('.listofitems-selected');
-				    let listvarsdata = '<img src="assets/images/blog/carload.gif" alt="Car Load" style="width:200px;height:150px;"><br><ul>';
+				    let listvarsdata = '<img src="assets/images/blog/carload.gif" alt="Car Load" style="width:100%;height:40%;border-radius: 5px;"><br><ul>';
 				    	listvarsdata += '<li>Pickup: <b>'+home_pickup.value+'</b></li>';
 				    	listvarsdata += '<li>Destination: <b>'+home_destination.value+'</b></li>';
 				    	listvarsdata += '<li>Start Date: <b>'+home_start.value+'</b></li>';
 				    	listvarsdata += '<li>End Date: <b>'+home_end.value+'</b></li>';
 				    	listvarsdata += '<li>Car: <b>'+home_car.value+'</b></li>';
-				    	listvarsdata += '<li>Total Members: <b>'+home_members.value+'</b></li>';
+				    	listvarsdata += '<li>Approximate Distance: <b>'+home_distance.value+'</b></li>';
 				    	listvarsdata += '</ul>';
 				    poppln_home.style.display = 'block';
 				    homeboxvars.innerHTML = listvarsdata;

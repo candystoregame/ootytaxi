@@ -624,6 +624,10 @@ position: relative;
     padding: 10px 5px;
 }/*travel-select-icon*/
 
+.travel-check-icon.distance:after {
+    content: "";
+}/*travel-select-icon*/
+
 .travel-select-icon span .fa-check-circle,
 .travel-check-icon span .fa-check-circle {
     position: absolute;
