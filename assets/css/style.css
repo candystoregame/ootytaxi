@@ -1637,11 +1637,13 @@ position: relative;
 }
 
 .single-footer-txt p a:hover{
-    -webkit-transition:scaleX(1.2);
+    /*-webkit-transition:scaleX(1.2);
     -moz-transition:scaleX(1.2);
     -ms-transition:scaleX(1.2);
     -o-transition:scaleX(1.2);
-    transition:scaleX(1.2);
+    transition:scaleX(1.2);*/
+    transition: transform 800ms ease-in-out;
+    transform: scale(1.2);
     color: #00d8ff;
 }/*single-footer-txt*/
 
