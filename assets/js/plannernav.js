@@ -12,7 +12,8 @@ const keynotemap = new Map([
   ["Five Days Tour Packages.xlsx", "tariffnote1"],
   ["Six Days Tour Packages.xlsx", "tariffnote1"],
   ["Seven Days Tour Packages.xlsx", "tariffnote1"],
-  ["Honeymoon Tour Packages.xlsx", "tariffnote5"]
+  ["Honeymoon Tour Packages.xlsx", "tariffnote5"],
+  ["Customize Plan", "tariffnote6"]
 ]);
 
 const keyanimationmap = new Map ([
