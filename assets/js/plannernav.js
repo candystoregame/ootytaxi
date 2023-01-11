@@ -277,7 +277,7 @@ function fetchTable(fetchMidMenu, sheetName) {
           if(i==0){PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button active" value="'+multisheet[i]+'" onclick="sprma(value);">';}
           else {PlanContent += '<button type="button" id="'+multisheet[i]+'" class="options-button" value="'+multisheet[i]+'" onclick="sprma(value);">';}
           PlanContent += '<span class="button__content">'+SplitVar[1]+' Hours</span>';
-          PlanContent += '<span class="button__icon"><ion-icon name="car-sport-outline"></ion-icon></span></button>';
+          PlanContent += '<span class="button__icon"><i class="fa-solid fa-car"></i></span></button>';
         }
         PlanContent += '</div></div>';
         rightMainDiv.innerHTML = PlanContent;

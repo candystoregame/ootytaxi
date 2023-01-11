@@ -1,822 +1,820 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
-<head>
-	<!-- META DATA -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-	<!--font-family-->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-			
-		<!-- TITLE OF SITE -->
-	<title>Ooty Taxi</title>
-
-	<!-- favicon img -->
-	<link rel="shortcut icon" type="image/icon" href="assets/logo/Alpha_Logo.png">
-
-	<!--font-awesome.min.css-->
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-	<!--animate.css-->
-	<link rel="stylesheet" href="assets/css/animate.css">
-
-	<!--hover.css-->
-	<link rel="stylesheet" href="assets/css/hover-min.css">
-
-	<!--datepicker.css-->
-	<link rel="stylesheet" href="assets/css/datepicker.css">
-
-	<!--book now button.css-->
-
-	<link rel="stylesheet" href="assets/css/booknow.css">
-
-	<!--owl.carousel.css-->
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-
-	<!-- range css-->
-	<link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-
-	<!--bootstrap.min.css-->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-	<!-- bootsnav -->
-	<link rel="stylesheet" href="assets/css/bootsnav.css">
-
-	<!--style.css-->
-	<link rel="stylesheet" href="assets/css/style.css">
-
-	<!--responsive.css-->
-	<link rel="stylesheet" href="assets/css/responsive.css">
-
-	<!--tourplanner.css-->
-	<link rel="stylesheet" href="assets/css/tourplanner.css">
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-</head>
-
-<body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-			your browser</a> to improve your experience and security.</p>
-		<![endif]-->
-
-	<!-- main-menu Start -->
-	<header class="top-area planner-toparea">
-		<div class="header-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="logo">
-							<a href="index.html">
-								<img src="assets/logo/Alpha_Logo.png" alt="Primary Log" width="40" height="40">
-								Ooty<span>Taxi</span>
-							</a>
-						</div><!-- /.logo-->
-					</div><!-- /.col-->
-					<div class="col-sm-10">
-						<div class="main-menu">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-								<button title="Menu" type="button" class="navbar-toggle" data-toggle="collapse"
-									data-target=".navbar-collapse">
-									<i class="fa fa-bars"></i>
-								</button><!-- / button-->
-							</div><!-- /.navbar-header-->
-							<div class="collapse navbar-collapse">
-								<ul class="nav navbar-nav navbar-right">
-									<li id="phonecustombox" class="smooth-menu1"><a href="tel:+91938-452-8990"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp24/7 Call&nbsp:<span>+91 93845 28990</span></a></li>
-									<li class="justlink"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> home</a></li>
-									<li class="justlink"><a href="#gallery">Tariff</a>
-										<ul>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner1')">local sightseeing(hour basis)</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner2')">dropping duty(fixed)</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner3')">out station duty(KM basis) </a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner4')">dropping duty (KM basis)</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner5')">tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner6')">Minimum charges(dayrent & km basis)</a>
-											</li>
-										</ul>
-									</li>
-									<li class="justlink"><a href="#pack">Tour Packages </a>
-										<ul>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner1')">one day tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner2')">two days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner3')">three days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner4')">four days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner5')">five days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner6')">six days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner7')">seven days tour packages</a></li>
-											<li class="justlink"><a href="#" onclick="localmenu('packages-planner8')">Honey Moon tour packages</a></li>
-										</ul>
-									</li>
-									<li class="justlink"><a href="#" onclick="localmenu('tariff-planner1')">Tour Planner</a></li>
-									<li class="smooth-menu"><a href="#contact">Contact us</a></li>
-									<!--<li class="smooth-menu"><a href="#blog">blog</a></li>  -->
-									<!--<li class="smooth-menu"><a href="#subs">subscription</a></li> -->
-									<!--<li>
-											<button class="book-btn">book now
-											</button>-->
-									</li>
-									<!--/.project-btn-->
-								</ul>
-							</div><!-- /.navbar-collapse -->
-						</div><!-- /.main-menu-->
-					</div><!-- /.col-->
-				</div><!-- /.row -->
-				<div class="home-border"></div><!-- /.home-border-->
-			</div><!-- /.container-->
-		</div><!-- /.header-area -->
-	</header><!-- /.top-area-->
-	<!-- main-menu End -->
-
-	<!--Mouse Tracker Start-->
-
-	<div class="cursor-dot-outline"></div>
-    <div class="cursor-dot"></div>
-
-	<!--Mouse Tracker End-->
-
-<!--Book Now Popup Start-->
-<div id="modal-open" class="booknow"><img src="assets/logo/booknowpng1.png" width="50" height="50" alt="Book Now"></div>
-<div id="contact-modal" class="modal">
-	<div id="modal-content">
-		<div id="modal-header">
-			<div class="title">Contact Us...</div>
-			<button data-close-button class="close-button">&times;</button>
-		</div>
-		<div id="modal-body">
-			<form action="#" id="myform">
-				<div class="user-details">
-				  <div class="input-box">
-					<span class="details">First Name</span>
-					<input type="text" id="fname" placeholder="First Name" required onkeyup="validatefname()">
-					<span id="fname-error"></span>
-				  </div>
-				  <div class="input-box">
-					<span class="details">Last Name</span>
-					<input type="text" id="lname" placeholder="Last Name" required onkeyup="validatelname()">
-					<span id="lname-error"></span>
-				  </div>
-				  <div class="input-box">
-					<span class="details">Email</span>
-					<input type="text" id="mail" placeholder="Email" required onkeyup="validateemail()">
-					<span id="email-error"></span>
-				  </div>
-				  <div class="input-box">
-					<span class="details">Phone Number</span>
-					<input type="text" id="phone" placeholder="Phone" required onkeyup="validatephone()">
-					<span id="phone-error"></span>
-				  </div>
-				  <div class="input-box">
-					<label class="details" for="source">Choose Source Location</label>
-					<select name="source" id="source" required onkeyup="validatesource()">
-						<option value="">Select</option>
-						<option value="Ooty">Ooty</option>
-						<option value="Coimbatore">Coimbatore</option>
-						<option value="Coonoor">Coonoor</option>
-						<option value="Kotagiri">Kotagiri</option>
-					</select>
-					<span id="source-error"></span>
-				  </div>
-				  <div class="input-box">
-					<label class="details" for="destination">Choose Destination Location</label>
-					<select name="destination" id="destination" required onkeyup="validatedestination()">
-						<option value="">Select</option>
-						<option value="Ooty">Ooty</option>
-						<option value="Coimbatore">Coimbatore</option>
-						<option value="Coonoor">Coonoor</option>
-						<option value="Kotagiri">Kotagiri</option>
-					</select>
-					<span id="destination-error"></span>
-				  </div>
-				</div>
-				<div class="input-box">
-				  <label for="message">Your Message</label>
-				  <textarea id="message" rows="2" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
-				  <span id="message-error"></span>
-				</div>
-				<div class="contact-channel" id="book_radio_select">
-				  <input bnname="channel" class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
-				  <input bnname="channel" class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
-				  <input bnname="channel" class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
-				  <span class="channel-title">Preferred channel to reach you:</span>
-				  <div class="category">
-					<label for="dot-1">
-					  <span class="dot one"></span>
-					  <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
-					</label>
-					<label for="dot-2">
-					  <span class="dot two"></span>
-					  <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
-					</label>
-					<label for="dot-3">
-					  <span class="dot three"></span>
-					  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
-					</label>
-				  </div>
-				  <span id="contact-channel-error"></span>
-				</div>
-				<div class="button" type="button" id="submit">
-				  <input type="submit" value="Submit">
-				  <span id="submit-error"></span>
-				</div>
-			  </form>
-		</div>
-	</div>
-</div>
-</div>
-<!--Book Now Popup End-->
-
-	<!--Slider Start-->
-
-	<div id="ootyslider-popup">
-		<div id="ootyslider-container-id" class="ootyslider-container">
-			<div id="slider_image_switch" class="img-slider"></div>
-			<div id="ootyslider-pop-header">
-				<a href="#" class="close-ootyslider-pop">&times;</a>
-			</div>
-		</div>
-	</div>
-
-	<!--Slider End-->
-
-	<div class="whatsapp">
-		<a href="https://wa.me/919743096772?text=Congratulations" title="click to open whatsapp chat">
-			<img title="Open WhatsApp" src="assets/logo/whatsapp.png" alt="WhatsApp Icon" width="50" height="45"></a>
-	</div>
-
-<!--Planner Book Now Start-->
-<div id="contact-pln-pop" class="popplnmodal">
-    <div id="pln-pop-content">
-      <div id="pln-pop-header">
-        <div class="title">Book Now</div>
-        <button data-close-button class="close-pln-pop">&times;</button>
-      </div>
-      <div class = "booknow-grid">
-        <div class="booknow-leftpane">
-			<div class="booknowleftpanebox">
-				<div class="listofitems-selected"></div>
-			</div>
+    <head>
+    	<!-- META DATA -->
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    	<!--font-family-->
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    			
+    	<!-- TITLE OF SITE -->
+    	<title>Ooty Taxi</title>
+    
+    	<!-- favicon img -->
+    	<link rel="shortcut icon" type="image/icon" href="assets/logo/Alpha_Logo.png">
+    
+    	<!--font-awesome.min.css-->
+    	<!--<link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+    
+    	<!--animate.css-->
+    	<link rel="stylesheet" href="assets/css/animate.css">
+    
+    	<!--hover.css-->
+    	<link rel="stylesheet" href="assets/css/hover-min.css">
+    
+    	<!--datepicker.css-->
+    	<link rel="stylesheet" href="assets/css/datepicker.css">
+    
+    	<!--book now button.css-->
+    	<link rel="stylesheet" href="assets/css/booknow.css">
+    
+    	<!--owl.carousel.css-->
+    	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    
+    	<!-- range css-->
+    	<link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    
+    	<!--bootstrap.min.css-->
+    	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    	<!-- bootsnav -->
+    	<link rel="stylesheet" href="assets/css/bootsnav.css">
+    
+    	<!--style.css-->
+    	<link rel="stylesheet" href="assets/css/style.css">
+    
+    	<!--responsive.css-->
+    	<link rel="stylesheet" href="assets/css/responsive.css">
+    
+    	<!--tourplanner.css-->
+    	<link rel="stylesheet" href="assets/css/tourplanner.css">
+    
+    	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+    	<!--[if lt IE 9]>
+    		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    		<![endif]-->
+    </head>
+    <body>
+    	<!--[if lte IE 9]>
+    		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    			your browser</a> to improve your experience and security.</p>
+    		<![endif]-->
+    
+    	<!-- main-menu Start -->
+    	<header class="top-area planner-toparea">
+    		<div class="header-area">
+    			<div class="container">
+    				<div class="row">
+    					<div class="col-sm-2">
+    						<div class="logo">
+    							<a href="index.html">
+    								<img src="assets/logo/Alpha_Logo.png" alt="Primary Log" width="40" height="40">
+    								Ooty<span>Taxi</span>
+    							</a>
+    						</div><!-- /.logo-->
+    					</div><!-- /.col-->
+    					<div class="col-sm-10">
+    						<div class="main-menu">
+    							<!-- Brand and toggle get grouped for better mobile display -->
+    							<div class="navbar-header">
+    								<button title="Menu" type="button" class="navbar-toggle" data-toggle="collapse"
+    									data-target=".navbar-collapse">
+    									<i class="fa fa-bars"></i>
+    								</button><!-- / button-->
+    							</div><!-- /.navbar-header-->
+    							<div class="collapse navbar-collapse">
+    								<ul class="nav navbar-nav navbar-right">
+    									<li id="phonecustombox" class="smooth-menu1"><a href="tel:+91938-452-8990"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp24/7 Call&nbsp:<span>+91 93845 28990</span></a></li>
+    									<li class="justlink"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> home</a></li>
+    									<li class="justlink"><a href="#gallery">Tariff</a>
+    										<ul>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner1')">local sightseeing(hour basis)</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner2')">dropping duty(fixed)</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner3')">out station duty(KM basis) </a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner4')">dropping duty (KM basis)</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner5')">tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('tariff-planner6')">Minimum charges(dayrent & km basis)</a>
+    											</li>
+    										</ul>
+    									</li>
+    									<li class="justlink"><a href="#pack">Tour Packages </a>
+    										<ul>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner1')">one day tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner2')">two days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner3')">three days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner4')">four days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner5')">five days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner6')">six days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner7')">seven days tour packages</a></li>
+    											<li class="justlink"><a href="#" onclick="localmenu('packages-planner8')">Honey Moon tour packages</a></li>
+    										</ul>
+    									</li>
+    									<li class="justlink"><a href="#" onclick="localmenu('tariff-planner1')">Tour Planner</a></li>
+    									<li class="smooth-menu"><a href="#contact">Contact us</a></li>
+    									<!--<li class="smooth-menu"><a href="#blog">blog</a></li>  -->
+    									<!--<li class="smooth-menu"><a href="#subs">subscription</a></li> -->
+    									<!--<li>
+    											<button class="book-btn">book now
+    											</button>-->
+    									</li>
+    									<!--/.project-btn-->
+    								</ul>
+    							</div><!-- /.navbar-collapse -->
+    						</div><!-- /.main-menu-->
+    					</div><!-- /.col-->
+    				</div><!-- /.row -->
+    				<div class="home-border"></div><!-- /.home-border-->
+    			</div><!-- /.container-->
+    		</div><!-- /.header-area -->
+    	</header><!-- /.top-area-->
+    	<!-- main-menu End -->
+    
+    	<!--Mouse Tracker Start-->
+    
+    	<div class="cursor-dot-outline"></div>
+        <div class="cursor-dot"></div>
+    
+    	<!--Mouse Tracker End-->
+    
+        <!--Book Now Popup Start-->
+        <div id="modal-open" class="booknow">
+        	<img src="assets/logo/booknowpng1.png" width="50" height="50" alt="Book Now">
         </div>
-        <div id="pop-pln-body">
-          <form id="plan-form-id" action="#">
-            <div class="pln-pop-user-details">
-              <div class="pln-pop-forms-group">
-                <span class="details">First Name</span>
-                <input id="pfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
-				<span id="plan-fname-error"></span>
-              </div>
-              <div class="pln-pop-forms-group">
-                <span class="details">Last Name</span>
-                <input id="plname" type="text" placeholder="Enter your Last Name" required onkeyup="validateplname()">
-				<span id="plan-lname-error"></span>
-              </div>
-              <div class="pln-pop-forms-group">
-                <span class="details">Email</span>
-                <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
-				<span id="plan-email-error"></span>
-              </div>
-              <div class="pln-pop-forms-group">
-                <span class="details">Phone Number</span>
-                <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
-				<span id="plan-phone-error"></span>
-              </div>
-              <div class="pln-pop-forms-group">
-                <label for="Adults">Adults:</label>
-                <select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
-                  <option value="">Select</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-				<span id="plan-padult-error"></span>
-              </div>
-              <div class="pln-pop-forms-group">
-                <label for="child">Children:</label>
-                <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
-                  <option value="">Select</option>
-				  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-				<span id="plan-pchild-error"></span>
-              </div>
-            </div>
-            <div id="plandatelabel" class="pln-pop-forms-group">
-              <label for="Pickup">Pickup Date</label>
-              <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="MM/DD/YYYY" required onchange="validatepdate()">
-			  <span id="pickup-date-error"></span>
-            </div>
-            <div class="pln-pop-forms-group">
-              <label for="message">Pickup Address</label>
-              <textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
-			  <span id="plan-message-error"></span>
-            </div>
-            <div class="pln-contact-channel">
-              <input dname="channel" type="radio" value="Phone" name="channel" id="plan-dot-1" required>
-              <input dname="channel" type="radio" value="Email" name="channel" id="plan-dot-2">
-              <input dname="channel" type="radio" value="WhatsApp" name="channel" id="plan-dot-3">
-              <span class="channel-title">Preferred channel to reach you:</span>
-              <div class="pln-category">
-                <label for="plan-dot-1">
-                  <span class="dot one"></span>
-                  <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
-                </label>
-                <label for="plan-dot-2">
-                  <span class="dot two"></span>
-                  <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
-                </label>
-                <label for="plan-dot-3">
-                  <span class="dot three"></span>
-                  <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
-                </label>
-              </div>
-			  <span id="plan-contact-channel-error"></span>
-            </div>
-            <div id="plan_submit" class="pln-book-button">
-              <input type="submit" value="Submit">
-			  <span id="plan-submit-error"></span>
-            </div>
-          </form>
+        <div id="contact-modal" class="modal">
+        	<div id="modal-content">
+        		<div id="modal-header">
+        			<div class="title">Contact Us...</div>
+        			<button data-close-button class="close-button">&times;</button>
+        		</div>
+        		<div id="modal-body">
+        			<form action="#" id="myform">
+        				<div class="user-details">
+        					<div class="input-box">
+        						<span class="details">First Name</span>
+        						<input type="text" id="fname" placeholder="First Name" required onkeyup="validatefname()">
+        						<span id="fname-error"></span>
+        					</div>
+        					<div class="input-box">
+        					    <span class="details">Last Name</span>
+        					    <input type="text" id="lname" placeholder="Last Name" required onkeyup="validatelname()">
+        					    <span id="lname-error"></span>
+        				    </div>
+        				    <div class="input-box">
+        				  	    <span class="details">Email</span>
+        				  	    <input type="text" id="mail" placeholder="Email" required onkeyup="validateemail()">
+        				  	    <span id="email-error"></span>
+        				    </div>
+        					<div class="input-box">
+        					    <span class="details">Phone Number</span>
+        					    <input type="text" id="phone" placeholder="Phone" required onkeyup="validatephone()">
+        					    <span id="phone-error"></span>
+        				    </div>
+        				    <div class="input-box">
+        					    <label class="details" for="source">Choose Source Location</label>
+        					    <select name="source" id="source" required onkeyup="validatesource()">
+        					    	<option value="">Select</option>
+        					    	<option value="Ooty">Ooty</option>
+        					    	<option value="Coimbatore">Coimbatore</option>
+        					    	<option value="Coonoor">Coonoor</option>
+        					    	<option value="Kotagiri">Kotagiri</option>
+        					    </select>
+        					    <span id="source-error"></span>
+        					</div>
+        					<div class="input-box">
+        						<label class="details" for="destination">Choose Destination Location</label>
+        						<select name="destination" id="destination" required onkeyup="validatedestination()">
+        							<option value="">Select</option>
+        						    <option value="Ooty">Ooty</option>
+        						    <option value="Coimbatore">Coimbatore</option>
+        						    <option value="Coonoor">Coonoor</option>
+        						    <option value="Kotagiri">Kotagiri</option>
+        						</select>
+        					    <span id="destination-error"></span>
+        					</div>
+        				</div>
+        				<div class="input-box">
+        					<label for="message">Your Message</label>
+        					<textarea id="message" rows="2" placeholder="Enter Your Message" required onkeyup="validatemessage()"></textarea>
+        				    <span id="message-error"></span>
+        				</div>
+        				<div class="contact-channel" id="book_radio_select">
+        					<input bnname="channel" class="booknow_radio" type="radio" value="Phone" name="channel" id="dot-1" required>
+        				    <input bnname="channel" class="booknow_radio" type="radio" value="Email" name="channel" id="dot-2">
+        				    <input bnname="channel" class="booknow_radio" type="radio" value="WhatsApp" name="channel" id="dot-3">
+        				    <span class="channel-title">Preferred channel to reach you:</span>
+        					<div class="category">
+        					    <label for="dot-1">
+        					        <span class="dot one"></span>
+        					        <span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
+        					    </label>
+        					    <label for="dot-2">
+        					        <span class="dot two"></span>
+        					        <span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
+        					    </label>
+        					    <label for="dot-3">
+        					        <span class="dot three"></span>
+        					        <span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
+        					    </label>
+        					</div>
+        					<span id="contact-channel-error"></span>
+        				</div>
+        				<div class="button" type="button" id="submit">
+        					<input type="submit" value="Submit">
+        					<span id="submit-error"></span>
+        				</div>
+        			</form>
+        		</div>
+        	</div>
         </div>
-      </div>
-    </div>
-  </div>
-
-<!--Planner Book Now End-->
-
-
-	<!--Grid Planner Start-->
-	<div class="plan-grid">
-		<div class="plan-sidebar">
-			<div class="centered-planner">
-				<h3> OUR TARIFFS</h3>
-				<ul class="tariff-planner">
-					<li><button type = "button" id="tariff-planner1" class="btn-plan-style active" value="Local Sightseeing (Hour Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Local Sightseeing(Hour Basis)</button></li>
-					<li><button type = "button" id="tariff-planner2" class="btn-plan-style" value="Dropping Duty (Fixed).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(Fixed)</button></li>
-					<li><button type = "button" id="tariff-planner3" class="btn-plan-style" value="Out Station Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Out Station Duty(KM Basis)</button></li>
-					<li><button type = "button" id="tariff-planner4" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
-					<li><button type = "button" id="tariff-planner5" class="btn-plan-style" value="Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Tour Packages</button></li>
-					<li><button type = "button" id="tariff-planner6" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Minimum Charges Day Rent(KM Basis)</button></li>
-					<li><button type = "button" id="tariff-planner7" class="btn-plan-style" value="Customize Plan" onclick="rma();customizeplan();this.classList.toggle('active');">Customize Plan</button></li>
-				</ul>
-				<h3>TOUR PACKAGES</h3>
-				<ul class="packages-planner">
-					<li><button type = "button" id="packages-planner1" class="btn-plan-style" value="One Day Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">One Day Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner2" class="btn-plan-style" value="Two Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Two Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner3" class="btn-plan-style" value="Three Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Three Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner4" class="btn-plan-style" value="Four Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Four Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner5" class="btn-plan-style" value="Five Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Five Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner6" class="btn-plan-style" value="Six Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Six Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner7" class="btn-plan-style" value="Seven Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Seven Days Tour Packages</button></li>
-					<li><button type = "button" id="packages-planner8" class="btn-plan-style" value="Honeymoon Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Honey Moon Tour Packages</button></li>
-				</ul>
-			</div>
-		</div>
-		<div class="plan-midmenu" id="midmenu-planner"></div>
-		<div class="plan-rightcontent" >
-			<div id="planner-right-container"></div>
-			<div class="heading-right-box">
-				<div class="heading-right-content"></div>
-			</div>
-			<div class="placevisit-right-box">
-				<div class="placevisit-right-content"></div>
-			</div>
-			<div class="table-right-box">
-				<div class="table-right-content"></div>
-			</div>
-			<div class="plan-notesection">
-				<div class="plan-note-container">
-					<div id= "tariffnote1" class="plan-note">
-						<h4 class="technoplan">Note:</h4>
-						<ol>
-							<li>Excluding Parking, and Toll charges.</li>
-							<li>Total Kilometres and Time will be calculated from office to office.</li>
-							<li>Air Conditioning (AC) <span>will not work in Hill areas (upward journey)</span> and in parked vehicles.</li>
-							<li>Driver Allowance will be extra if the driver drives between 10.00PM & 6.00AM</li>
-							<li>Season time 10% Extra.</li>
-						</ol>
-					</div>
-					<div id= "tariffnote2" class="plan-note active">
-						<h4 class="technoplan">Note:</h4>
-						<ol>
-							<li>GST will be applicable.</li>
-							<li>The above cost including Cab Rent, Fuel & Driver Allowance.</li>
-							<li>Season time 10% extra.</li>
-							<li>Excluding Parking, Toll, and Inter-State permit charges.</li>
-							<li>If any deviation in the dropping route it will be charged extra.</li>
-							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
-							<li>Total Kilometres and Time will be calculated from office to office.</li>
-							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and in parked vehicles.</li>
-							<li>Hill Station charges applicable.</li>
-						</ol>
-					</div>
-					<div id= "tariffnote3" class="plan-note">
-						<h4 class="technoplan">Note:</h4>
-						<ol>
-							<li>Book Taxi for Bothways & Get a 5% Discount on your Taxi fare.</li>
-							<li>The above cost including Cab Rent, Fuel & Driver Allowance.</li>
-							<li>Excluding Parking, and Toll charges.</li>
-							<li>If any deviation in the dropping route it will be charged extra.</li>
-							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and parked vehicles.</li>
-							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
-						</ol>
-					</div>
-					<div id= "tariffnote4" class="plan-note">
-						<h4 class="technoplan">Note:</h4>
-						<ol>
-							<li>GST will be applicable.</li>
-							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
-							<li>Total Kilometres and Time will be calculated from the office.</li>
-							<li>If any deviation in the dropping route it will be charged extra.</li>
-							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and parked vehicles.</li>
-							<li>Driver Allowance will be extra if the driver drives after 10.00PM and before 6.00AM.</li>
-							<li>Season time 10% Extra.</li>
-						</ol>
-					</div>
-					<div id= "tariffnote5" class="plan-note">
-						<h4 class="technoplan">Note:</h4>
-						<ul>
-							<li>For queries and information:</li>
-							<li>Call:  +91 9786000162, +91 9787111067</li>
-							<li>Email: ootytaxisservice@gmail.com</li>
-						</ul>
-					</div>
-					<div id= "tariffnote6" class="plan-note">
-						<h4 class="technoplan">Note:</h4>
-						<ul>
-							<li>The distance is calculated approximately and for plan's pricing, this will not be considered.</li>
-							<li>Call:  +91 9786000162, +91 9787111067</li>
-							<li>Email: ootytaxisservice@gmail.com</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="plan-footer">
-			<footer id="contact" class="footer-copyright">
-				<div class="container">
-					<div class="footer-content">
-						<div class="row">
-
-							<div class="col-sm-3">
-								<div class="single-footer-item">
-									<div class="footer-logo">
-										<img src="assets/logo/Alpha_Logo.png" alt="Primary Log" width="60" height="60">
-										<a href="index.html">
-											Ooty<span>Taxi</span>
-										</a>
-										<p>
-											a subsidiary of Alpha Tours & travels
-										</p>
-									</div>
-								</div>
-								<!--/.single-footer-item-->
-							</div>
-							<!--/.col-->
-
-							<div class="col-sm-3">
-								<div class="single-footer-item">
-									<h2>link</h2>
-									<div class="single-footer-txt">
-										<p><a href="index.html">home</a></p>
-										<p><a href="#" onclick="fetchElement(document.getElementById('tariff-planner1').value);">Tariff</a></p>
-										<p><a href="#" onclick="fetchElement(document.getElementById('packages-planner1').value);">tour packages</a></p>
-										<p class="return-to-top"><a href="#">tour planner</a></p>
-										<p><a href="privacy.html">privacy policy</a></p>
-									    <p><a href="terms.html">terms and conditions</a></p>
-									</div>
-									<!--/.single-footer-txt-->
-								</div>
-								<!--/.single-footer-item-->
-
-							</div>
-							<!--/.col-->
-
-							<div class="col-sm-3">
-								<div class="single-footer-item">
-									<h2>popular destination</h2>
-									<div class="single-footer-txt">
-										<p><a href="#contact" value="Ooty" onclick="clickslider(this.getAttribute('value'));">Ooty</a></p>
-										<p><a href="#contact" value="Coonoor" onclick="clickslider(this.getAttribute('value'));">Coonoor</a></p>
-										<p><a href="#contact" value="Kotagiri" onclick="clickslider(this.getAttribute('value'));">Kotagiri</a></p>
-										<p><a href="#contact" value="Munnar" onclick="clickslider(this.getAttribute('value'));">Munnar</a></p>
-										<p><a href="#contact" value="Mysore" onclick="clickslider(this.getAttribute('value'));">Mysore</a></p>
-									</div>
-									<!--/.single-footer-txt-->
-								</div>
-								<!--/.single-footer-item-->
-							</div>
-							<!--/.col-->
-
-							<div class="col-sm-3">
-								<div class="single-footer-item text-center">
-									<h2 class="text-left">contact us</h2>
-									<div class="single-footer-txt text-left">
-										<p><a href="tel:+919786000162">+91 9786000162</a></p>
-										<p><a href="tel:+919787111067">+91 9787111067</a></p>
-										<p class="foot-email"><a href="#">ootytaxiservice@gmail.com</a></p>
-										<p># 9 /11, Abu sait street , Main Bazzar, The Nilgiris
-											Fernhill post,Ooty
-											Tamilnadu, India</p>
-
-									</div>
-									<!--/.single-footer-txt-->
-								</div>
-								<!--/.single-footer-item-->
-							</div>
-							<!--/.col-->
-
-						</div>
-						<!--/.row-->
-
-					</div>
-					<!--/.footer-content-->
-					<hr>
-					<div class="foot-icons ">
-						<ul class="footer-social-links list-inline list-unstyled">
-							<li><a href="https://www.facebook.com/ootytaxiservice" title = "Facebook" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/alphatravelooty" title = "Twitter" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.instagram.com/alpha_sadiq" title = "Instagram" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/alphatoursandtravels" title = "LinkedIn" target="_blank" class="foot-icon-bg-1"><i class="fa fa-linkedin"></i></a></li>
-						    <li><a href="https://www.youtube.com/c/Alphatoursandtravelstoursandtravelsooty" title = "Youtube" target="_blank" class="foot-icon-bg-3"><i class="fa fa-youtube"></i></a></li>
-						</ul>
-						<p>&copy; 2022 <a href="https://www.bridgewisely.com">BridgeWisely</a>. All Right Reserved</p>
-
-					</div>
-					<!--/.foot-icons-->
-					<div id="scroll-Top">
-						<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip"
-							data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
-					</div>
-					<!--/.scroll-Top-->
-				</div><!-- /.container-->
-			</footer><!-- /.footer-copyright-->
-		</div>
-	</div>
-	<!--Grid Planner Start-->
-
-	<script src="assets/js/booknow.js"></script>
-	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8j80bnbdH4s_s-Lbj5fMO2EqTa4o5-A&libraries=places"></script>
-	<!-- footer-copyright end -->
-	<script>let planner_blob = []; let planheader;</script>
-	<script src="assets/js/jquery.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<!--Including Ion Icons Script-->
-	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<!-- ExcelJS Library-->
-	<!-- Including SheetJS Latest Version Library -->
-	<script src="assets/js/xlsx.mini.min.js"></script>
-	<!--modernizr.min.js-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-	<!--bootstrap.min.js-->
-	<script src="assets/js/bootstrap.min.js"></script>
-	<!-- bootsnav js -->
-	<script src="assets/js/bootsnav.js"></script>
-	<!-- jquery.filterizr.min.js -->
-	<script src="assets/js/jquery.filterizr.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
-	<!--jquery-ui.min.js-->
-	<script src="assets/js/jquery-ui.min.js"></script>
-
-	<!-- counter js -->
-	<script src="assets/js/jquery.counterup.min.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-
-	<!--owl.carousel.js-->
-	<script src="assets/js/owl.carousel.min.js"></script>
-
-	<!-- jquery.sticky.js -->
-	<script src="assets/js/jquery.sticky.js"></script>
-
-	<!--datepicker.js-->
-	<script src="assets/js/datepicker.js"></script>
-	<!--plannerna.js-->
-	<script src="assets/js/plannernav.js"></script>
-	<!--Custom JS-->
-	<script src="assets/js/custom.js"></script>
-
-	<!--my carousel JS-->
-	<script src="assets/js/mycarousel.js"></script>
-	<!--GSAP CDN-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script>
-		window.addEventListener("load", () => {
-			let lolelement = localStorage.getItem('thelolname');
-            if (lolelement !== null) {
-				localStorage.removeItem('thelolname');
+        <!--Book Now Popup End-->
+    
+    	<!--Slider Start-->
+    
+    	<div id="ootyslider-popup">
+    		<div id="ootyslider-container-id" class="ootyslider-container">
+    			<div id="slider_image_switch" class="img-slider"></div>
+    			<div id="ootyslider-pop-header">
+    				<a href="#" class="close-ootyslider-pop">&times;</a>
+    			</div>
+    		</div>
+    	</div>
+    
+    	<!--Slider End-->
+    
+    	<div class="whatsapp">
+    		<a href="https://wa.me/919743096772?text=Congratulations" title="click to open whatsapp chat">
+    			<img title="Open WhatsApp" src="assets/logo/whatsapp.png" alt="WhatsApp Icon" width="50" height="45">
+    		</a>
+    	</div>
+    
+        <!--Planner Book Now Start-->
+        <div id="contact-pln-pop" class="popplnmodal">
+        	<div id="pln-pop-content">
+        		<div id="pln-pop-header">
+        			<div class="title">Book Now</div>
+        			<button data-close-button class="close-pln-pop">&times;</button>
+        		</div>
+        		<div class = "booknow-grid">
+        			<div class="booknow-leftpane">
+        				<div class="booknowleftpanebox">
+        					<div class="listofitems-selected"></div>
+        				</div>
+        			</div>
+        			<div id="pop-pln-body">
+        				<form id="plan-form-id" action="#">
+        					<div class="pln-pop-user-details">
+        						<div class="pln-pop-forms-group">
+        							<span class="details">First Name</span>
+        							<input id="pfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
+        						    <span id="plan-fname-error"></span>
+        					    </div>
+        					    <div class="pln-pop-forms-group">
+        					    	<span class="details">Last Name</span>
+                                    <input id="plname" type="text" placeholder="Enter your Last Name" required onkeyup="validateplname()">
+        				            <span id="plan-lname-error"></span>
+                                </div>
+        					    <div class="pln-pop-forms-group">
+        					    	<span class="details">Email</span>
+                                    <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
+        				            <span id="plan-email-error"></span>
+        					    </div>
+        					    <div class="pln-pop-forms-group">
+        					    	<span class="details">Phone Number</span>
+                                    <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
+        				            <span id="plan-phone-error"></span>
+        					    </div>
+        					    <div class="pln-pop-forms-group">
+        					    	<label for="Adults">Adults:</label>
+        					    	<select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+        					    		<option value="">Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+        					    	</select>
+        					    	<span id="plan-padult-error"></span>
+        					    </div>
+        					    <div class="pln-pop-forms-group">
+        					    	<label for="child">Children:</label>
+        					    	<select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+        					    		<option value="">Select</option>
+        				                <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+        					    	</select>
+        					    	<span id="plan-pchild-error"></span>
+        					    </div>
+        					</div>
+        				    <div id="plandatelabel" class="pln-pop-forms-group">
+        				    	<label for="Pickup">Pickup Date</label>
+                                <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="MM/DD/YYYY" required onchange="validatepdate()">
+        			            <span id="pickup-date-error"></span>
+        				    </div>
+        				    <div class="pln-pop-forms-group">
+        				    	<label for="message">Pickup Address</label>
+        				    	<textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
+        				    	<span id="plan-message-error"></span>
+        				    </div>
+        				    <div class="pln-contact-channel">
+        				    	<input dname="channel" type="radio" value="Phone" name="channel" id="plan-dot-1" required>
+        				    	<input dname="channel" type="radio" value="Email" name="channel" id="plan-dot-2">
+        				    	<input dname="channel" type="radio" value="WhatsApp" name="channel" id="plan-dot-3">
+        				    	<span class="channel-title">Preferred channel to reach you:</span>
+        				    	<div class="pln-category">
+        				    		<label for="plan-dot-1">
+        				    			<span class="dot one"></span>
+        				    			<span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
+        				    		</label>
+        				    		<label for="plan-dot-2">
+        				    			<span class="dot two"></span>
+        				    			<span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
+        				    		</label>
+        				    		<label for="plan-dot-3">
+        				    			<span class="dot three"></span>
+        				    			<span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
+        				    		</label>
+        				    	</div>
+        				    	<span id="plan-contact-channel-error"></span>
+        				    </div>
+        				    <div id="plan_submit" class="pln-book-button">
+        				    	<input type="submit" value="Submit">
+        				    	<span id="plan-submit-error"></span>
+        				    </div>
+        				</form>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!--Planner Book Now End-->
+    
+    
+    	<!--Grid Planner Start-->
+    	<div class="plan-grid">
+    		<div class="plan-sidebar">
+    			<div class="centered-planner">
+    				<h3> OUR TARIFFS</h3>
+    				<ul class="tariff-planner">
+    					<li><button type = "button" id="tariff-planner1" class="btn-plan-style active" value="Local Sightseeing (Hour Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Local Sightseeing(Hour Basis)</button></li>
+    					<li><button type = "button" id="tariff-planner2" class="btn-plan-style" value="Dropping Duty (Fixed).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(Fixed)</button></li>
+    					<li><button type = "button" id="tariff-planner3" class="btn-plan-style" value="Out Station Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Out Station Duty(KM Basis)</button></li>
+    					<li><button type = "button" id="tariff-planner4" class="btn-plan-style" value="Dropping Duty (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Dropping Duty(KM Basis)</button></li>
+    					<li><button type = "button" id="tariff-planner5" class="btn-plan-style" value="Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Tour Packages</button></li>
+    					<li><button type = "button" id="tariff-planner6" class="btn-plan-style" value="Minimum Charges Day Rent (KM Basis).xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Minimum Charges Day Rent(KM Basis)</button></li>
+    					<li><button type = "button" id="tariff-planner7" class="btn-plan-style" value="Customize Plan" onclick="rma();customizeplan();this.classList.toggle('active');">Customize Plan</button></li>
+    				</ul>
+    				<h3>TOUR PACKAGES</h3>
+    				<ul class="packages-planner">
+    					<li><button type = "button" id="packages-planner1" class="btn-plan-style" value="One Day Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">One Day Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner2" class="btn-plan-style" value="Two Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Two Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner3" class="btn-plan-style" value="Three Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Three Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner4" class="btn-plan-style" value="Four Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Four Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner5" class="btn-plan-style" value="Five Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Five Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner6" class="btn-plan-style" value="Six Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Six Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner7" class="btn-plan-style" value="Seven Days Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Seven Days Tour Packages</button></li>
+    					<li><button type = "button" id="packages-planner8" class="btn-plan-style" value="Honeymoon Tour Packages.xlsx" onclick="rma();fetchElement(value);this.classList.toggle('active');">Honey Moon Tour Packages</button></li>
+    				</ul>
+    			</div>
+    		</div>
+    		<div class="plan-midmenu" id="midmenu-planner"></div>
+    		<div class="plan-rightcontent" >
+    			<div id="planner-right-container"></div>
+    			<div class="heading-right-box">
+    				<div class="heading-right-content"></div>
+    			</div>
+    			<div class="placevisit-right-box">
+    				<div class="placevisit-right-content"></div>
+    			</div>
+    			<div class="table-right-box">
+    				<div class="table-right-content"></div>
+    			</div>
+    			<div class="plan-notesection">
+    				<div class="plan-note-container">
+    					<div id= "tariffnote1" class="plan-note">
+    						<h4 class="technoplan">Note:</h4>
+    						<ol>
+    							<li>Excluding Parking, and Toll charges.</li>
+    							<li>Total Kilometres and Time will be calculated from office to office.</li>
+    							<li>Air Conditioning (AC) <span>will not work in Hill areas (upward journey)</span> and in parked vehicles.</li>
+    							<li>Driver Allowance will be extra if the driver drives between 10.00PM & 6.00AM</li>
+    							<li>Season time 10% Extra.</li>
+    						</ol>
+    					</div>
+    					<div id= "tariffnote2" class="plan-note active">
+    						<h4 class="technoplan">Note:</h4>
+    						<ol>
+    							<li>GST will be applicable.</li>
+    							<li>The above cost including Cab Rent, Fuel & Driver Allowance.</li>
+    							<li>Season time 10% extra.</li>
+    							<li>Excluding Parking, Toll, and Inter-State permit charges.</li>
+    							<li>If any deviation in the dropping route it will be charged extra.</li>
+    							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
+    							<li>Total Kilometres and Time will be calculated from office to office.</li>
+    							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and in parked vehicles.</li>
+    							<li>Hill Station charges applicable.</li>
+    						</ol>
+    					</div>
+    					<div id= "tariffnote3" class="plan-note">
+    						<h4 class="technoplan">Note:</h4>
+    						<ol>
+    							<li>Book Taxi for Bothways & Get a 5% Discount on your Taxi fare.</li>
+    							<li>The above cost including Cab Rent, Fuel & Driver Allowance.</li>
+    							<li>Excluding Parking, and Toll charges.</li>
+    							<li>If any deviation in the dropping route it will be charged extra.</li>
+    							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and parked vehicles.</li>
+    							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
+    						</ol>
+    					</div>
+    					<div id= "tariffnote4" class="plan-note">
+    						<h4 class="technoplan">Note:</h4>
+    						<ol>
+    							<li>GST will be applicable.</li>
+    							<li>Driver Allowance will be extra if the driver drives after 10.00 pm and before 6.00 am.</li>
+    							<li>Total Kilometres and Time will be calculated from the office.</li>
+    							<li>If any deviation in the dropping route it will be charged extra.</li>
+    							<li>Air Conditioning (AC) will not work in Hill areas (upward journey) and parked vehicles.</li>
+    							<li>Driver Allowance will be extra if the driver drives after 10.00PM and before 6.00AM.</li>
+    							<li>Season time 10% Extra.</li>
+    						</ol>
+    					</div>
+    					<div id= "tariffnote5" class="plan-note">
+    						<h4 class="technoplan">Note:</h4>
+    						<ul>
+    							<li>For queries and information:</li>
+    							<li>Call:  +91 9786000162, +91 9787111067</li>
+    							<li>Email: ootytaxisservice@gmail.com</li>
+    						</ul>
+    					</div>
+    					<div id= "tariffnote6" class="plan-note">
+    						<h4 class="technoplan">Note:</h4>
+    						<ul>
+    							<li>The distance is calculated approximately and for plan's pricing, this will not be considered.</li>
+    							<li>Call:  +91 9786000162, +91 9787111067</li>
+    							<li>Email: ootytaxisservice@gmail.com</li>
+    						</ul>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		
+    		<div class="plan-footer">
+    			<footer id="contact" class="footer-copyright">
+    				<div class="container">
+    					<div class="footer-content">
+    						<div class="row">
+    
+    							<div class="col-sm-3">
+    								<div class="single-footer-item">
+    									<div class="footer-logo">
+    										<img src="assets/logo/Alpha_Logo.png" alt="Primary Log" width="60" height="60">
+    										<a href="index.html">
+    											Ooty<span>Taxi</span>
+    										</a>
+    										<p>
+    											a subsidiary of Alpha Tours & travels
+    										</p>
+    									</div>
+    								</div>
+    								<!--/.single-footer-item-->
+    							</div>
+    							<!--/.col-->
+    
+    							<div class="col-sm-3">
+    								<div class="single-footer-item">
+    									<h2>link</h2>
+    									<div class="single-footer-txt">
+    										<p><a href="index.html">home</a></p>
+    										<p><a href="#" onclick="fetchElement(document.getElementById('tariff-planner1').value);">Tariff</a></p>
+    										<p><a href="#" onclick="fetchElement(document.getElementById('packages-planner1').value);">tour packages</a></p>
+    										<p class="return-to-top"><a href="#">tour planner</a></p>
+    										<p><a href="privacy.html">privacy policy</a></p>
+    									    <p><a href="terms.html">terms and conditions</a></p>
+    									</div>
+    									<!--/.single-footer-txt-->
+    								</div>
+    								<!--/.single-footer-item-->
+    
+    							</div>
+    							<!--/.col-->
+    
+    							<div class="col-sm-3">
+    								<div class="single-footer-item">
+    									<h2>popular destination</h2>
+    									<div class="single-footer-txt">
+    										<p><a href="#contact" value="Ooty" onclick="clickslider(this.getAttribute('value'));">Ooty</a></p>
+    										<p><a href="#contact" value="Coonoor" onclick="clickslider(this.getAttribute('value'));">Coonoor</a></p>
+    										<p><a href="#contact" value="Kotagiri" onclick="clickslider(this.getAttribute('value'));">Kotagiri</a></p>
+    										<p><a href="#contact" value="Munnar" onclick="clickslider(this.getAttribute('value'));">Munnar</a></p>
+    										<p><a href="#contact" value="Mysore" onclick="clickslider(this.getAttribute('value'));">Mysore</a></p>
+    									</div>
+    									<!--/.single-footer-txt-->
+    								</div>
+    								<!--/.single-footer-item-->
+    							</div>
+    							<!--/.col-->
+    
+    							<div class="col-sm-3">
+    								<div class="single-footer-item text-center">
+    									<h2 class="text-left">contact us</h2>
+    									<div class="single-footer-txt text-left">
+    										<p><a href="tel:+919786000162">+91 9786000162</a></p>
+    										<p><a href="tel:+919787111067">+91 9787111067</a></p>
+    										<p class="foot-email"><a href="#">ootytaxiservice@gmail.com</a></p>
+    										<p># 9 /11, Abu sait street , Main Bazzar, The Nilgiris
+    											Fernhill post,Ooty
+    											Tamilnadu, India</p>
+    
+    									</div>
+    									<!--/.single-footer-txt-->
+    								</div>
+    								<!--/.single-footer-item-->
+    							</div>
+    							<!--/.col-->
+    
+    						</div>
+    						<!--/.row-->
+    
+    					</div>
+    					<!--/.footer-content-->
+    					<hr>
+    					<div class="foot-icons ">
+    						<ul class="footer-social-links list-inline list-unstyled">
+    							<li><a href="https://www.facebook.com/ootytaxiservice" title = "Facebook" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
+    							<li><a href="https://twitter.com/alphatravelooty" title = "Twitter" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
+    							<li><a href="https://www.instagram.com/alpha_sadiq" title = "Instagram" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+    							<li><a href="https://www.linkedin.com/in/alphatoursandtravels" title = "LinkedIn" target="_blank" class="foot-icon-bg-1"><i class="fa fa-linkedin"></i></a></li>
+    						    <li><a href="https://www.youtube.com/c/Alphatoursandtravelstoursandtravelsooty" title = "Youtube" target="_blank" class="foot-icon-bg-3"><i class="fa fa-youtube"></i></a></li>
+    						</ul>
+    						<p>&copy; 2022 <a href="https://www.bridgewisely.com">BridgeWisely</a>. All Right Reserved</p>
+    
+    					</div>
+    					<!--/.foot-icons-->
+    					<div id="scroll-Top">
+    						<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip"
+    							data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+    					</div>
+    					<!--/.scroll-Top-->
+    				</div><!-- /.container-->
+    			</footer><!-- /.footer-copyright-->
+    		</div>
+    	</div>
+    	<!--Grid Planner Start-->
+        <script src="https://kit.fontawesome.com/cfa0eaa503.js" crossorigin="anonymous"></script>
+    	<script src="assets/js/booknow.js"></script>
+    	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8j80bnbdH4s_s-Lbj5fMO2EqTa4o5-A&libraries=places"></script>
+    	<!-- footer-copyright end -->
+    	<script>let planner_blob = []; let planheader;</script>
+    	<script src="assets/js/jquery.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<!--Including Ion Icons Script-->
+    	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    	<!-- ExcelJS Library-->
+    	<!-- Including SheetJS Latest Version Library -->
+    	<script src="assets/js/xlsx.mini.min.js"></script>
+    	<!--modernizr.min.js-->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    	<!--bootstrap.min.js-->
+    	<script src="assets/js/bootstrap.min.js"></script>
+    	<!-- bootsnav js -->
+    	<script src="assets/js/bootsnav.js"></script>
+    	<!-- jquery.filterizr.min.js -->
+    	<script src="assets/js/jquery.filterizr.min.js"></script>
+    
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    
+    	<!--jquery-ui.min.js-->
+    	<script src="assets/js/jquery-ui.min.js"></script>
+    
+    	<!-- counter js -->
+    	<script src="assets/js/jquery.counterup.min.js"></script>
+    	<script src="assets/js/waypoints.min.js"></script>
+    
+    	<!--owl.carousel.js-->
+    	<script src="assets/js/owl.carousel.min.js"></script>
+    
+    	<!-- jquery.sticky.js -->
+    	<script src="assets/js/jquery.sticky.js"></script>
+    
+    	<!--datepicker.js-->
+    	<script src="assets/js/datepicker.js"></script>
+    	<!--plannerna.js-->
+    	<script src="assets/js/plannernav.js"></script>
+    	<!--Custom JS-->
+    	<script src="assets/js/custom.js"></script>
+    
+    	<!--my carousel JS-->
+    	<script src="assets/js/mycarousel.js"></script>
+    	<!--GSAP CDN-->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    	<script>
+    		window.addEventListener("load", () => {
+    			let lolelement = localStorage.getItem('thelolname');
+                if (lolelement !== null) {
+    				localStorage.removeItem('thelolname');
+                    rma();
+                    document.getElementById(lolelement).className += " active";
+                    fetchElement(document.getElementById(lolelement).value);
+                    lolelement = null;
+    			}
+    			else if (defaultmenu !== null) { localmenu(defaultmenu); }
+    			defaultmenu = null;
+    		})
+    
+            function localmenu(lval) {
                 rma();
-                document.getElementById(lolelement).className += " active";
-                fetchElement(document.getElementById(lolelement).value);
-                lolelement = null;
-			}
-			else if (defaultmenu !== null) { localmenu(defaultmenu); }
-			defaultmenu = null;
-		})
-
-        function localmenu(lval) {
-            rma();
-            fetchElement(document.getElementById(lval).value);
-            document.getElementById(lval).className += ' active';
-        }
-	</script>
-	<!--Email JS-->
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-	<script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
-	<!--Sweet Alert-->
-	<script src="assets/js/sweetalert.min.js"></script>
-	<script>
-		/*function whatsapp(){
-		var fname = document.getElementById('fname').value;
-		var lname = document.getElementById('lname').value;
-		var mail = document.getElementById('mail').value;
-		var phone = document.getElementById('phone').value;
-		var message = document.getElementById('message').value;
-
-		var url = "https://wa.me/919743096772?text="
-		+"First Name: "+fname+"%0a"
-		+"Last Name: "+lname+"%0a"
-		+"Email: "+mail+"%0a"
-		+"Phone: "+phone+"%0a"
-		+"Message: "+message ;
-		
-		window.open(url,'_blank').focus();
-		submit.addEventListener("click", (e)=>{
-			e.preventDefault();
-  
-			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
-			  inputEmpty();
-			} else {
-			  success();
-			}
-		  });
-		}*/
-
-		function converttostring(obj) {
-			let stri=`Plan: ${planheader}\n`;
-			for (let o=0; o < obj.length; o++) {
-				stri += `${obj[o].key}: ${obj[o].value}\n`;
-			}
-			return stri;
-		}
-
-		function validate() {
-			let fname = document.getElementById("fname");
-			let lname = document.getElementById("lname");
-			let email = document.getElementById("mail");
-			let phone = document.getElementById("phone");
-			let message = document.getElementById("message");
-			let submit = document.getElementById("submit");
-			let bsource = document.getElementById('source');
-			let bdest = document.getElementById('destination');
-			let dot;
-			var markedCheckbox = document.querySelectorAll('[bnname]');
-			submit.addEventListener("click", (e) => {
-				e.preventDefault();
-				for (let checkbox of markedCheckbox){
-					if(checkbox.checked) {
-						dot = checkbox.value;
-					}
-				}
-				if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatesource() || !validatedestination() || !validatemessage() || !validatechannel()) {
-					submiterror.style.display = 'block';
-					//submiterror.innerHTML = 'Please fix error to Submit';
-					inputEmpty();
-					setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
-					return false;
-				}
-				else {
-					let sting = `First Name: ${fname.value}\n`;
-			        sting += `Last Name: ${lname.value}\n`;
-				    sting += `Email Address: ${email.value}\n`;
-				    sting += `Phone Numer: ${phone.value}\n`;
-				    sting += `Source: ${bsource.value}\n`;
-				    sting += `Destination: ${bdest.value}\n`;
-				    sting += `Message: ${message.value}\n`;
-				    sting += `Preferred Channel To Contact Me: ${dot}`;
-					sendMail("Book Online Form", sting);
-					success();
-					document.getElementById('myform').reset();
-				}
-			});
-		} validate();
-
-		function pvalidate() {
-            let fname = document.getElementById("pfname");
-            let lname = document.getElementById("plname");
-            let email = document.getElementById("pemail");
-            let message = document.getElementById("message-plan");
-            let pphone = document.getElementById("pphone");
-            let padults = document.getElementById("padults");
-            let pchild = document.getElementById("pchild");
-            let submit = document.getElementById("plan_submit");
-            let plandate = document.getElementById("plandate");
-            let dot;
-            var markedCheckbox = document.querySelectorAll('[dname]');
-            submit.addEventListener("click", (e) => {
-                e.preventDefault();
-                for (let checkbox of markedCheckbox){
-                    if(checkbox.checked) {
-                        dot = checkbox.value;
+                fetchElement(document.getElementById(lval).value);
+                document.getElementById(lval).className += ' active';
+            }
+    	</script>
+    	<!--Email JS-->
+    	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    	<script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
+    	<!--Sweet Alert-->
+    	<script src="assets/js/sweetalert.min.js"></script>
+    	<script>
+    		/*function whatsapp(){
+    		var fname = document.getElementById('fname').value;
+    		var lname = document.getElementById('lname').value;
+    		var mail = document.getElementById('mail').value;
+    		var phone = document.getElementById('phone').value;
+    		var message = document.getElementById('message').value;
+    
+    		var url = "https://wa.me/919743096772?text="
+    		+"First Name: "+fname+"%0a"
+    		+"Last Name: "+lname+"%0a"
+    		+"Email: "+mail+"%0a"
+    		+"Phone: "+phone+"%0a"
+    		+"Message: "+message ;
+    		
+    		window.open(url,'_blank').focus();
+    		submit.addEventListener("click", (e)=>{
+    			e.preventDefault();
+      
+    			if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
+    			  inputEmpty();
+    			} else {
+    			  success();
+    			}
+    		  });
+    		}*/
+    
+    		function converttostring(obj) {
+    			let stri=`Plan: ${planheader}\n`;
+    			for (let o=0; o < obj.length; o++) {
+    				stri += `${obj[o].key}: ${obj[o].value}\n`;
+    			}
+    			return stri;
+    		}
+    
+    		function validate() {
+    			let fname = document.getElementById("fname");
+    			let lname = document.getElementById("lname");
+    			let email = document.getElementById("mail");
+    			let phone = document.getElementById("phone");
+    			let message = document.getElementById("message");
+    			let submit = document.getElementById("submit");
+    			let bsource = document.getElementById('source');
+    			let bdest = document.getElementById('destination');
+    			let dot;
+    			var markedCheckbox = document.querySelectorAll('[bnname]');
+    			submit.addEventListener("click", (e) => {
+    				e.preventDefault();
+    				for (let checkbox of markedCheckbox){
+    					if(checkbox.checked) {
+    						dot = checkbox.value;
+    					}
+    				}
+    				if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatesource() || !validatedestination() || !validatemessage() || !validatechannel()) {
+    					submiterror.style.display = 'block';
+    					//submiterror.innerHTML = 'Please fix error to Submit';
+    					inputEmpty();
+    					setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
+    					return false;
+    				}
+    				else {
+    					let sting = `First Name: ${fname.value}\n`;
+    			        sting += `Last Name: ${lname.value}\n`;
+    				    sting += `Email Address: ${email.value}\n`;
+    				    sting += `Phone Numer: ${phone.value}\n`;
+    				    sting += `Source: ${bsource.value}\n`;
+    				    sting += `Destination: ${bdest.value}\n`;
+    				    sting += `Message: ${message.value}\n`;
+    				    sting += `Preferred Channel To Contact Me: ${dot}`;
+    					sendMail("Book Online Form", sting);
+    					success();
+    					document.getElementById('myform').reset();
+    				}
+    			});
+    		} validate();
+    
+    		function pvalidate() {
+                let fname = document.getElementById("pfname");
+                let lname = document.getElementById("plname");
+                let email = document.getElementById("pemail");
+                let message = document.getElementById("message-plan");
+                let pphone = document.getElementById("pphone");
+                let padults = document.getElementById("padults");
+                let pchild = document.getElementById("pchild");
+                let submit = document.getElementById("plan_submit");
+                let plandate = document.getElementById("plandate");
+                let dot;
+                var markedCheckbox = document.querySelectorAll('[dname]');
+                submit.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    for (let checkbox of markedCheckbox){
+                        if(checkbox.checked) {
+                            dot = checkbox.value;
+                        }
                     }
-                }
-                if (!validatepfname() || !validateplname() || !validatepemail() || !validatepphone() || !validatepadults() || !validatepchild() || !validatepdate() || !validatepmessage() || !validatepchannel()) {
-                    psubmiterror.style.display = 'block';
-                    //psubmiterror.innerHTML = 'Please fix error to Submit';
-                    inputEmpty();
-                    setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
-                    return false;
-                }
-                else {
-                    sendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value, converttostring(planner_blob));
-                    success();
-                    document.getElementById('plan-form-id').reset();
-                }
-            });
-		} pvalidate();
-  
-		function sendMail(title, blob) {				
-			emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
-				title : title,
-				blob: blob,
-			});
-		}
-		function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate, blob) {
-			let poppln = document.getElementById('contact-pln-pop');
-			poppln.style.display = 'none';
-			resetplanerrortags();
-			emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
-				date: plandate,
-                fname: fname,
-                lname: lname,
-                email: email,
-                phone: phone,
-                address: address,
-                adults: adults,
-                children: children,
-                dot: dot,
-				plan: blob,
-			});
-		}
-		function success2() {
-			swal({
-				title: "Thank you!",
-				text: "Whatsapp initiated, redirecting",
-				icon: "success",
-				timer: 3000,
-			});
-			function me() {
-				location.reload(true);
-				tr.hide();
-			};
-		}
-		function success() {
-			bmodal.style.display = 'none';
-			swal({
-				title: "Thank you!",
-				text: "Email sent successfully, we'll contact you shortly...",
-				icon: "success",
-			});
-		}
-		function inputEmpty() {
-			swal({
-				title: "Oops...!",
-				text: "Please fix error to Submit...!",
-				icon: "error",
-			});
-		}
-	</script>
-	<script src="assets/js/customizeplan.js"></script>
-</body>
+                    if (!validatepfname() || !validateplname() || !validatepemail() || !validatepphone() || !validatepadults() || !validatepchild() || !validatepdate() || !validatepmessage() || !validatepchannel()) {
+                        psubmiterror.style.display = 'block';
+                        //psubmiterror.innerHTML = 'Please fix error to Submit';
+                        inputEmpty();
+                        setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
+                        return false;
+                    }
+                    else {
+                        sendMailBookNow(dot, fname.value, lname.value, email.value, message.value, pphone.value, padults.value, pchild.value, plandate.value, converttostring(planner_blob));
+                        success();
+                        document.getElementById('plan-form-id').reset();
+                    }
+                });
+    		} pvalidate();
+      
+    		function sendMail(title, blob) {				
+    			emailjs.send('service_4xhn7mk', 'template_rsivdhg', {
+    				title : title,
+    				blob: blob,
+    			});
+    		}
+    		function sendMailBookNow(dot, fname, lname, email, address, phone, adults, children, plandate, blob) {
+    			let poppln = document.getElementById('contact-pln-pop');
+    			poppln.style.display = 'none';
+    			resetplanerrortags();
+    			emailjs.send('service_4xhn7mk', 'template_wj7bd4f', {
+    				date: plandate,
+                    fname: fname,
+                    lname: lname,
+                    email: email,
+                    phone: phone,
+                    address: address,
+                    adults: adults,
+                    children: children,
+                    dot: dot,
+    				plan: blob,
+    			});
+    		}
+    		function success2() {
+    			swal({
+    				title: "Thank you!",
+    				text: "Whatsapp initiated, redirecting",
+    				icon: "success",
+    				timer: 3000,
+    			});
+    			function me() {
+    				location.reload(true);
+    				tr.hide();
+    			};
+    		}
+    		function success() {
+    			bmodal.style.display = 'none';
+    			swal({
+    				title: "Thank you!",
+    				text: "Email sent successfully, we'll contact you shortly...",
+    				icon: "success",
+    			});
+    		}
+    		function inputEmpty() {
+    			swal({
+    				title: "Oops...!",
+    				text: "Please fix error to Submit...!",
+    				icon: "error",
+    			});
+    		}
+    	</script>
+    	<script src="assets/js/customizeplan.js"></script>
+    </body>
 </html>

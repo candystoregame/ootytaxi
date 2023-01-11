@@ -539,7 +539,7 @@
 
 .plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button .button__icon {
   position: relative;
-  padding: 8px 5px 0;  
+  padding: 3px 5px 0;  
   background: linear-gradient(to right, rgb(67,124,205), rgb(69,214,202));
   font-size: var(--car-icon-font-size);
   background-clip: text;
