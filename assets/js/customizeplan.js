@@ -11,14 +11,7 @@ function erroralert(message) {
   });
 }
 
-
-
-
-
-
-
 /* Function to Calculate Distance using Google Maps */
-
 function GoogleDistace(source, destination, ID) {
   if (source > -1) {
     erroralert("Please select Pickup Location first...");
@@ -105,7 +98,7 @@ function addnewliner(stub) {
   const cdrop = document.getElementById('droplocation'+stub);
   const cdate = document.getElementById('datecustomid'+stub);
   const ptable = document.getElementById('custumplantable');
-  const distance = document.getElementById('distanceid'+stub).value.split(" ")[0];
+  const distance = document.getElementById('distanceid'+stub).value.split(" ");
   if (cpickup.value != null && cdrop.value != null && cdate.value != null && distance != null) { 
     customplanregister[stub] = {date: cdate.value, pickup: cpickup.value, drop: cdrop.value, distance: Number(distance[0])};
     console.log(customplanregister);
@@ -137,6 +130,14 @@ function addnewliner(stub) {
     cell4.innerHTML = `<td><a id="addnewline${stubrev}" onclick="validatecustomrow(${stubrev});"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
     cell5.innerHTML = `<td><a id="removelastline${stubrev}" onclick="neglastline(${stubrev});"><i class="fa fa-minus-circle" aria-hidden="true"></i><a></td>`;
     assigntosource('customsource'+stubrev, 'droplocation'+stub);
+    if (customplanregister.length != 1) {
+      document.getElementById('customtotalkms').value = Number(document.getElementById('customtotalkms').value) + Number(customplanregister[customplanregister.length-1].distance);
+      document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
+    }
+    if (customplanregister.length == 1) {
+      document.getElementById('customtotalkms').value = Number(customplanregister[customplanregister.length-1].distance);
+      document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
+    }
     if (stub == 0) {
       ptable.rows[stub+1].deleteCell(4);
     }
@@ -172,6 +173,8 @@ function neglastline(row) {
     trc.deleteRow(-1);
   }
   if ((trclength-2) < datalength) {
+    document.getElementById('customtotalkms').value = Number(document.getElementById('customtotalkms').value) - Number(customplanregister[customplanregister.length-1].distance);
+    document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
     customplanregister.pop();
     console.log("Array Length: " + customplanregister.length);
   }
@@ -253,6 +256,15 @@ function customizeplan() {
   tableoptionsdiv.id = 'tableoptionsdivID';
   tableoptionsdiv.classList.add('tableoptions_section');
   tableContent.appendChild(tableoptionsdiv);
+  let contenttableoptions = `
+  <div class="tablecustomoptions>
+  <label font-weight: 600; for="Distance In Kilometers">Total Distance In km(s)</label>
+  <input style="text-align: center;" id="customtotalkms" type="text" name="Distance In Kilometers" placeholder="Approximate Kilometers" readonly>
+  <label style="font-weight: 600;" for="Rupees">Approximate Total Price</label>
+  <input style="text-align: center;" id="customplanprice" type="text" name="Rupees" placeholder="Approximate Price" readonly>
+  <input type="submit" value="Validate">
+  </div>`;
+  tableoptionsdiv.innerHTML = contenttableoptions;
 }
   
 /**Customize Plan End*/

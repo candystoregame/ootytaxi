@@ -583,9 +583,10 @@
 .placevisit-right-content select {
   position: relative;
   height: 30px;
-  width: 100%;
+  width: fit-content;
   outline: none;
   font-size: 1.5rem;
+  padding: 0 5px 0 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
   border-bottom-width: 2px;
@@ -654,4 +655,50 @@
   margin-bottom: 5px;
 }
 
+.table-right-content .tableoptions_section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-right-content .tableoptions_section input[type='text'] {
+  height: 30px;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.table-right-content .tableoptions_section label {
+  font-weight: 600;
+}
+
+.table-right-content .tableoptions_section input[type='submit'] {
+  width: 100px;
+  text-decoration: none;
+  margin: -4px 0 0 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  line-height: 25px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--booknow-button-background-color);
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: var(--normal-font-size);
+  opacity: 1;
+}
+
+.table-right-content .tableoptions_section input[type='submit']:hover {
+  transition: transform 800ms ease-in-out;
+  transform: scale(1.1);
+}
 /*Customize Plan End*/
