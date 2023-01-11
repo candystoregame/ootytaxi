@@ -191,7 +191,7 @@ function customizeplan() {
   visitContent.innerHTML = "";
   visitContent.innerHTML = 
   `<div class="customplanpickup">
-    <a>Select Pickup City</a>
+    <a>Select Pickup City<sup style="color: red;">*</sup></a>
     <select style="text-align: center;" name="pickupcity" id="pickupcity0" onchange="assigntosource('customsource0', 'pickupcity0'); GoogleDistace(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required aria-required="true">
       <option value="">Select Pickup Location</option>
       <option value="Bengaluru">Bengaluru</option>
