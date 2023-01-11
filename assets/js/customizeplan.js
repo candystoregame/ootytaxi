@@ -191,7 +191,7 @@ function customizeplan() {
   visitContent.innerHTML = "";
   visitContent.innerHTML = 
   `<div class="customplanpickup">
-    <a>Please select the pickup city</a>
+    <a>Select Pickup City</a>
     <select style="text-align: center;" name="pickupcity" id="pickupcity0" onchange="assigntosource('customsource0', 'pickupcity0'); GoogleDistace(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required aria-required="true">
       <option value="">Select Pickup Location</option>
       <option value="Bengaluru">Bengaluru</option>
@@ -206,7 +206,23 @@ function customizeplan() {
       <option value="Thanjavur">Thanjavur</option>
       <option value="Tirunelveli">Tirunelveli</option>
       <option value="Tirupur">Tirupur</option>
-    </select><span id="customplanpickupid"></span></div>`;
+    </select>
+    <span id="customplanpickupid"></span>
+    <a>Select Vehicle</a>
+    <select style="text-align: center;" name="Vehicle" id="vehicleid" required>
+      <option value="">Select Vehicle</option>
+      <option value="Innova AC">Innova A/C</option>
+			<option value="Tavera">Tavera</option>
+			<option value="Traveller">Traveller</option>
+			<option value="Logan AC">Logan A/C</option>
+			<option value="Swift dZire AC">Swift dZire A/C</option>
+			<option value="Toyota ETIOS AC">Toyota ETIOS A/C</option>
+			<option value="Mahindra XYLO AC">Mahindra XYLO A/C</option>
+			<option value="Tavera AC">Tavera A/C</option>
+			<option value="Traveller AC">Traveller A/C</option>
+    </select>
+    <span id="customplanvehicleid"></span>
+  </div>`;
   contenttable = `<table id='custumplantable'>
     <tr>
       <th style="text-align: center;">Pickup Date</th>
@@ -239,4 +255,4 @@ function customizeplan() {
   tableContent.appendChild(tableoptionsdiv);
 }
   
-/*Customize Plan End*/
+/**Customize Plan End*/

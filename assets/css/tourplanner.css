@@ -527,16 +527,13 @@
 
 /* Customize Plan Start*/
 
-.placevisit-right-content select {
-  height: 30px;
+.placevisit-right-content .customplanpickup {
+  display: flex;
   width: 100%;
-  outline: none;
-  font-size: 1.5rem;
-  border-radius: 5px;
-  padding-left: 5px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+  height: auto;
+  gap: 10px;
+  align-content: center;
+  align-items: center;
 }
 
 
@@ -561,8 +558,8 @@
   transform: scale(.95);
 }
 
-.table-right-content .dynamictabclass,
-.placevisit-right-content .customplanpickup {
+.table-right-content .dynamictabclass
+/*.placevisit-right-content .customplanpickup*/ {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -618,7 +615,7 @@
 }
 
 .placevisit-right-content .customplanpickup select {
-  width: 80%;
+  width: fit-content;
   white-space: nowrap;
 }
 
@@ -630,7 +627,6 @@
 .placevisit-right-content .customplanpickup a {
   font-weight: 600;
   padding: 0 5px 0 0;
-  width: 320px;
   font-size: 1.5rem;
   color: rgba(0, 120, 255, 0.5);
 }
@@ -648,3 +644,14 @@
   font-size: 2rem;
   margin-left: 1rem;
 }
+
+.table-right-content .tableoptions_section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+/*Customize Plan End*/
