@@ -26,6 +26,7 @@
   grid-template-columns: 22% fit-content(28%) 1fr;
   grid-template-areas: "plan-sidebar plan-midmenu plan-rightcontent"
                        "plan-notesection plan-notesection plan-notesection"
+                       "carslider carslider carslider"
                        "plan-footer plan-footer plan-footer";
 }
 
@@ -65,6 +66,10 @@
 
 .plan-notesection {
   grid-area: plan-notesection;
+}
+
+.carslider {
+  grid-area: carslider;
 }
 
 .plan-footer {

@@ -562,7 +562,7 @@ function fetchslidecontent(sheetName) {
   const slideContent = document.getElementById('slider_image_switch');
   const newDiv = document.createElement("div");
   const fName = './assets/dataFiles/sliderref.xlsx';
-  let slidepath, slideheading, slidefilename, slidecomments, sliedeliteralpath;
+  let slidepath, slideheading, slidefilename, slidecomments, slideliteralpath;
   let slide_output="";
   let slide_btn_output="";
   (
@@ -589,13 +589,13 @@ function fetchslidecontent(sheetName) {
             }
           }
           if (row == 1) {
-            sliedeliteralpath = slidepath+slidefilename;
-            slide_output = '<div class="ooty-slide active"><img src="'+sliedeliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            slideliteralpath = slidepath+slidefilename;
+            slide_output = '<div class="ooty-slide active"><img src="'+slideliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
             slide_btn_output = '<div class="slider-btn active"></div>';
           }
           if (row > 1) {
-            sliedeliteralpath = slidepath+slidefilename;
-            slide_output += '<div class="ooty-slide"><img src="'+sliedeliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
+            slideliteralpath = slidepath+slidefilename;
+            slide_output += '<div class="ooty-slide"><img src="'+slideliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
             slide_btn_output += '<div class="slider-btn"></div>';
           }
         }

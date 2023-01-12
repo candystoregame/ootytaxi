@@ -857,7 +857,8 @@ position: relative;
     font-family: 'Poppins', sans-serif;
     padding-bottom:14px;
 }
-.gallary-header p{
+.gallary-header p,
+.gallary-header p a {
     position:relative;
     color:#aaa;  
     font-size:16px;
