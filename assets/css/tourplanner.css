@@ -70,6 +70,10 @@
 
 .carslider {
   grid-area: carslider;
+  display: flex;
+  margin-top: 10rem;
+  border-radius: 8px;
+  position: relative;
 }
 
 .plan-footer {
@@ -707,3 +711,48 @@
   transform: scale(1.1);
 }
 /*Customize Plan End*/
+
+/*Carslider */
+
+.cars-single {
+  max-width: 345px;
+  max-height: 625px;
+  background: black;
+  padding: 0 0;
+  box-shadow: 0 0 20px rgba(0,0,0,.1);
+  transition: .5s;
+}
+.cars-single:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+.carsasitem.item {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/*.home1-testm-img*/
+.carslider-main .owl-carousel .owl-item img {
+  /*display: inline-block;*/
+  width:100%;
+  object-fit: cover;
+}/*.home1-testm-img*/
+
+/*owl-carousel*/
+.carslider-main .owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  padding: 0 19px;
+}
+.carslider-main .owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: 20px;
+}
+.carslider-main .owl-theme .owl-dots .owl-dot span {
+  width: 15px;
+  height: 15px;
+  margin: 5px 3px;
+  border-radius:50%;
+  background: #aaa; 
+}
+.carslider-main .owl-theme .owl-dots .owl-dot.active span{
+  background: #00d8ff;
+}/*owl-carousel*/

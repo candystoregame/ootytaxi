@@ -121,38 +121,35 @@ $(document).ready(function(){
         // i. #testimonial-carousel
     
         
-        var owl=$('#testemonial-carousel');
+        const owl=$('#testemonial-carousel');
         owl.owlCarousel({
             items:3,
+            animateOut: 'animate__slideOutDown',
+            animateIn: 'animate__flipInX',
             margin:0,
-            
             loop:true,
             autoplay:true,
             smartSpeed:100,
-            
-            //nav:false,
+            //nav:true,
             //navText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
-            
             dots:true,
             autoplayHoverPause:true,
         
             responsiveClass:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    640:{
-                        items:1
-                    },
-                    767:{
-                        items:2
-                    },
-                    992:{
-                        items:3
-                    }
+            responsive:{
+                0:{
+                    items:1
+                },
+                640:{
+                    items:1
+                },
+                767:{
+                    items:2
+                },
+                992:{
+                    items:3
                 }
-            
-            
+            }
         });
 
     // 5. datepicker
