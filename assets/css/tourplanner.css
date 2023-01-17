@@ -715,10 +715,12 @@
 /*Carslider */
 
 .cars-single {
-  max-width: 345px;
-  max-height: 625px;
+  display: flex;
+  max-width: 335px;
+  max-height: 250px;
   background: black;
   padding: 0 0;
+  margin-left: 35px;
   box-shadow: 0 0 20px rgba(0,0,0,.1);
   transition: .5s;
 }
@@ -732,8 +734,9 @@
 
 /*.home1-testm-img*/
 .carslider-main .owl-carousel .owl-item img {
-  /*display: inline-block;*/
+  display: block;
   width:100%;
+  height: 100%;
   object-fit: cover;
 }/*.home1-testm-img*/
 
@@ -756,3 +759,164 @@
 .carslider-main .owl-theme .owl-dots .owl-dot.active span{
   background: #00d8ff;
 }/*owl-carousel*/
+
+/*Customize plan validate form*/
+
+.customplanform #mainformsection {
+  display: flex;
+  width: 40%;
+  margin: 10px 5px;
+  padding: 10px 5px;
+  height: fit-content;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--page-background-color);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#mainformsection form .custom-pop-user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 0px 0;
+}
+
+#mainformsection form .custom-pop-user-details .custom-pop-forms-group {
+  margin-bottom: 5px;
+  width: calc(80% / 2 + 40px);
+}
+
+#mainformsection form .custom-pop-forms-group span.details {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+#mainformsection form .custom-pop-forms-group label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+#mainformsection form .custom-pop-forms-group textarea {
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  margin-top: 3px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+#mainformsection form #customdatelabel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+#mainformsection form #customdatelabel label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  width: fit-content;
+  padding: 0.55rem 1.8rem 0 0;
+}
+
+#mainformsection form #customdatelabel select {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+#mainformsection form .custom-contact-channel .channel-title {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-bottom: 3px;
+}
+
+#mainformsection form .custom-contact-channel .channel-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
+
+#mainformsection form .custom-contact-channel .custom-category {
+  display: flex;
+  width: 100%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+#mainformsection form .custom-contact-channel .custom-category label {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 500;
+  align-items: center;
+  cursor: pointer;
+}
+
+#mainformsection form .custom-contact-channel .custom-category label .dotz {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#customz-dot-1:checked~.custom-category label .one,
+#customz-dot-2:checked~.custom-category label .two,
+#customz-dot-3:checked~.custom-category label .three {
+  background: #00d8ff;
+  border-color: #d9d9d9;
+}
+
+#mainformsection form input[type="radio"] {
+  display: none;
+}
+
+#mainformsection form .custom-book-button {
+  height: 45px;
+  margin: 20px 0;
+}
+
+#mainformsection form .custom-book-button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
+
+#mainformsection form .custom-book-button input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #00d8ff);
+}

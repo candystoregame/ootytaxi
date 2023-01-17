@@ -102,98 +102,111 @@ function cusplanform() {
   formcontent = `
   <div class="mainform" id="mainformsection">
     <form id="custom-form-id" action="#">
-    	<div class="pln-pop-user-details">
-    		<div class="pln-pop-forms-group">
-    			<span class="details">First Name</span>
-    			<input id="pfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
-    		    <span id="plan-fname-error"></span>
-    	    </div>
-    	    <div class="pln-pop-forms-group">
-    	    	<span class="details">Last Name</span>
-                        <input id="plname" type="text" placeholder="Enter your Last Name" required onkeyup="validateplname()">
-                <span id="plan-lname-error"></span>
-                    </div>
-    	    <div class="pln-pop-forms-group">
-    	    	<span class="details">Email</span>
-                        <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
-                <span id="plan-email-error"></span>
-    	    </div>
-    	    <div class="pln-pop-forms-group">
-    	    	<span class="details">Phone Number</span>
-                        <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
-                <span id="plan-phone-error"></span>
-    	    </div>
-    	    <div class="pln-pop-forms-group">
-    	    	<label for="Adults">Adults:</label>
-    	    	<select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
-    	    		<option value="">Select</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-    	    	</select>
-    	    	<span id="plan-padult-error"></span>
-    	    </div>
-    	    <div class="pln-pop-forms-group">
-    	    	<label for="child">Children:</label>
-    	    	<select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
-    	    		<option value="">Select</option>
-                    <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-    	    	</select>
-    	    	<span id="plan-pchild-error"></span>
-    	    </div>
+    	<div class="custom-pop-user-details">
+    		<div class="custom-pop-forms-group">
+          <span class="details">First Name</span>
+          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
+          <span id="custom-fname-error"></span>
+    	  </div>
+    	  <div class="custom-pop-forms-group">
+    	    <span class="details">Last Name</span>
+          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeyup="validatecustomame()">
+          <span id="custom-lname-error"></span>
+        </div>
+    	  <div class="custom-pop-forms-group">
+    	    <span class="details">Email</span>
+          <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
+          <span id="custom-email-error"></span>
+    	  </div>
+    	  <div class="custom-pop-forms-group">
+    	    <span class="details">Phone Number</span>
+          <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
+          <span id="custom-phone-error"></span>
+    	  </div>
+    	  <div class="custom-pop-forms-group">
+    	   	<label for="Adults">Adults:</label>
+    	    <select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+    	      <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+    	    </select>
+    	    <span id="custom-padult-error"></span>
+    	  </div>
+    	  <div class="custom-pop-forms-group">
+    	    <label for="child">Children:</label>
+    	    <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+    	    	<option value="">Select</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+    	    </select>
+    	    <span id="custom-pchild-error"></span>
+    	  </div>
     	</div>
-        <div id="plandatelabel" class="pln-pop-forms-group">
-        	<label for="Pickup">Pickup Date</label>
-                    <input id="plandate" type="text" name="Pickup" class="form-control" data-toggle="datepicker" placeholder="MM/DD/YYYY" required onchange="validatepdate()">
-              <span id="pickup-date-error"></span>
+      <div id="customdatelabel" class="custom-pop-forms-group">
+        <label for="Pickup">Accommodation Required</label>
+        <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+    	    <option value="">Select</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+    	    </select>
+        <span id="pickup-date-error"></span>
+      </div>
+      <div class="custom-pop-forms-group">
+        <label for="message">Pickup Address</label>
+        <textarea id="message-custom" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
+        <span id="custom-message-error"></span>
+      </div>
+      <div class="custom-contact-channel">
+        <input cuname="channel" type="radio" value="Phone" name="channel_custom" id="customz-dot-1" required>
+        <input cuname="channel" type="radio" value="Email" name="channel_custom" id="customz-dot-2">
+        <input cuname="channel" type="radio" value="WhatsApp" name="channel_custom" id="customz-dot-3">
+        <span class="channel-title">Preferred channel to reach you:</span>
+        <div class="custom-category">
+        	<label for="customz-dot-1">
+        		<span class="dotz one"></span>
+        		<span class="channel"><i class="fa-solid fa-phone"></i>&nbsp Phone</span>
+        	</label>
+        	<label for="customz-dot-2">
+        		<span class="dotz two"></span>
+        		<span class="channel"><i class="fa-solid fa-envelope"></i>&nbsp Email</span>
+        	</label>
+        	<label for="customz-dot-3">
+        		<span class="dotz three"></span>
+        		<span class="channel"><i class="fa-brands fa-whatsapp"></i>&nbsp WhatsApp</span>
+        	</label>
         </div>
-        <div class="pln-pop-forms-group">
-        	<label for="message">Pickup Address</label>
-        	<textarea id="message-plan" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
-        	<span id="plan-message-error"></span>
-        </div>
-        <div class="pln-contact-channel">
-        	<input dname="channel" type="radio" value="Phone" name="channel" id="plan-dot-1" required>
-        	<input dname="channel" type="radio" value="Email" name="channel" id="plan-dot-2">
-        	<input dname="channel" type="radio" value="WhatsApp" name="channel" id="plan-dot-3">
-        	<span class="channel-title">Preferred channel to reach you:</span>
-        	<div class="pln-category">
-        		<label for="plan-dot-1">
-        			<span class="dot one"></span>
-        			<span class="channel"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp Phone</span>
-        		</label>
-        		<label for="plan-dot-2">
-        			<span class="dot two"></span>
-        			<span class="channel"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp Email</span>
-        		</label>
-        		<label for="plan-dot-3">
-        			<span class="dot three"></span>
-        			<span class="channel"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp WhatsApp</span>
-        		</label>
-        	</div>
-        	<span id="plan-contact-channel-error"></span>
-        </div>
-        <div id="plan_submit" class="pln-book-button">
-        	<input type="submit" value="Submit">
-        	<span id="plan-submit-error"></span>
-        </div>
+        <span id="custom-contact-channel-error"></span>
+      </div>
+      <div id="custom_submit" class="custom-book-button">
+        <input type="submit" value="Submit">
+        <span id="custom-submit-error"></span>
+      </div>
     </form>
   </div>`;
   formdiv.innerHTML = formcontent;
