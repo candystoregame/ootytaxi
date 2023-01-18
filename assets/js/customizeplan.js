@@ -102,30 +102,31 @@ function cusplanform() {
   formcontent = `
   <div class="mainform" id="mainformsection">
     <form id="custom-form-id" action="#">
+      <span class="custom-details-title">Please Fill Your Details</span>
     	<div class="custom-pop-user-details">
     		<div class="custom-pop-forms-group">
           <span class="details">First Name</span>
-          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeyup="validatepfname()">
+          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeyup="validatecustomfname()">
           <span id="custom-fname-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Last Name</span>
-          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeyup="validatecustomame()">
+          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeyup="validatecustomlname()">
           <span id="custom-lname-error"></span>
         </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Email</span>
-          <input id="pemail" type="email" placeholder="Enter your email" required onkeyup="validatepemail()">
+          <input id="customemail" type="email" placeholder="Enter your email" required onkeyup="validatecustomemail()">
           <span id="custom-email-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Phone Number</span>
-          <input id="pphone" type="text" placeholder="Enter your number" required onkeyup="validatepphone()">
+          <input id="customphone" type="text" placeholder="Enter your number" required onkeyup="validatecustomphone()">
           <span id="custom-phone-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	   	<label for="Adults">Adults:</label>
-    	    <select title="Total Adults" id="padults" name="Adults" id="Adults" required onkeyup="validatepadults()">
+    	    <select title="Total Adults" id="customadults" name="Adults" required onkeyup="validatecustomadults()">
     	      <option value="">Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -142,7 +143,7 @@ function cusplanform() {
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <label for="child">Children:</label>
-    	    <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+    	    <select title="Total Child" id="customchild" name="child" required onkeyup="validatecustomchild()">
     	    	<option value="">Select</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -161,25 +162,16 @@ function cusplanform() {
     	</div>
       <div id="customdatelabel" class="custom-pop-forms-group">
         <label for="Pickup">Accommodation Required</label>
-        <select title="Total Child" id="pchild" name="child" id="child" required onkeyup="validatepchild()">
+        <select title="Total Child" id="pchild" name="child" required onkeyup="validatepchild()">
     	    <option value="">Select</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-    	    </select>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+    	  </select>
         <span id="pickup-date-error"></span>
       </div>
       <div class="custom-pop-forms-group">
         <label for="message">Pickup Address</label>
-        <textarea id="message-custom" rows="3" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
+        <textarea id="custom-address" rows="5" placeholder="Enter Your Pickup Address" required onchange="validatepmessage()"></textarea>
         <span id="custom-message-error"></span>
       </div>
       <div class="custom-contact-channel">
@@ -204,7 +196,7 @@ function cusplanform() {
         <span id="custom-contact-channel-error"></span>
       </div>
       <div id="custom_submit" class="custom-book-button">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onmouseover="mouseOver()">
         <span id="custom-submit-error"></span>
       </div>
     </form>

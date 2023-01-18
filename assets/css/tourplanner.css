@@ -762,11 +762,29 @@
 
 /*Customize plan validate form*/
 
+.customplanform #mainformsection .custom-details-title {
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+}
+
+.customplanform #mainformsection .custom-details-title::before {
+  content: "";
+  position: absolute;
+  margin-bottom: 0;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 40px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #00d8ff);
+}
+
 .customplanform #mainformsection {
   display: flex;
-  width: 40%;
-  margin: 10px 5px;
-  padding: 10px 5px;
+  width: 55%;
+  margin: 50px 5px 10px 5px;
+  padding: 10px 25px 0px 25px;
   height: fit-content;
   flex-direction: row;
   justify-content: center;
@@ -781,6 +799,7 @@
 #mainformsection form .custom-pop-user-details {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 5px;
   justify-content: space-between;
   margin: 0 0 0px 0;
 }
@@ -817,11 +836,40 @@
   transition: all 0.3s ease;
 }
 
+#mainformsection form .custom-pop-forms-group textarea:focus,
+#mainformsection form .custom-pop-forms-group textarea:valid {
+    outline: none !important;
+    border-color: 2px #00d8ff;
+    box-shadow: 0 0 5px #00d8ff;
+}
+
 #mainformsection form #customdatelabel {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   justify-items: center;
+}
+
+.custom-pop-user-details .custom-pop-forms-group input,
+.custom-pop-user-details .custom-pop-forms-group select {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.custom-pop-user-details .custom-pop-forms-group input:focus,
+.custom-pop-user-details .custom-pop-forms-group input:valid,
+.custom-pop-user-details .custom-pop-forms-group select:focus,
+.custom-pop-user-details .custom-pop-forms-group select:valid,
+#mainformsection form #customdatelabel select:focus,
+#mainformsection form #customdatelabel select:valid {
+  border-color: #00d8ff;
 }
 
 #mainformsection form #customdatelabel label {
@@ -887,9 +935,10 @@
   transition: all 0.3s ease;
 }
 
-#customz-dot-1:checked~.custom-category label .one,
-#customz-dot-2:checked~.custom-category label .two,
-#customz-dot-3:checked~.custom-category label .three {
+#customz-dot-1:checked~.custom-contact-channel .custom-category label .one,
+#customz-dot-2:checked~.custom-contact-channel .custom-category label .two,
+#customz-dot-3:checked~.custom-contact-channel .custom-category label .three {
+  z-index: 4;
   background: #00d8ff;
   border-color: #d9d9d9;
 }
