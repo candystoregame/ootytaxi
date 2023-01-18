@@ -716,8 +716,8 @@
 
 .cars-single {
   display: flex;
-  max-width: 335px;
-  max-height: 250px;
+  max-width: 345px;
+  max-height: 200px;
   background: black;
   padding: 0 0;
   margin-left: 35px;
