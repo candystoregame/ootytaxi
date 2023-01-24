@@ -400,6 +400,18 @@ const owl=$('#carslidermaincontent');
                 0:{
                     items:1
                 },
+                375: {
+                    items:1
+                },
+                360: {
+                    items:1
+                },
+                393: {
+                    items:1
+                },
+                412: {
+                    items:1
+                },
                 640:{
                     items:1
                 },
