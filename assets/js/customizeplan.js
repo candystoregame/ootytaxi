@@ -11,6 +11,10 @@ function erroralert(message) {
   });
 }
 
+function initMap() {
+  GoogleDistace();
+}
+
 /* Function to Calculate Distance using Google Maps */
 function GoogleDistace(source, destination, ID) {
   if (source > -1) {
@@ -60,7 +64,7 @@ function validatecustomdate(ID) {
       }
     }
     if(valdate.length == 0) {
-      erroralert("Please select date...");
+      erroralert("Please select Pickup Date...");
       return false;
     }
     if(!valdate.match(/^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/)) {
@@ -400,10 +404,10 @@ const owl=$('#carslidermaincontent');
                 0:{
                     items:1
                 },
-                375: {
+                360: {
                     items:1
                 },
-                360: {
+                375: {
                     items:1
                 },
                 393: {
