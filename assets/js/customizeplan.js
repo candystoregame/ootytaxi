@@ -11,45 +11,37 @@ function erroralert(message) {
   });
 }
 
-function initMap() {
-  GoogleDistace();
-}
+//function initMap() {
+//  GoogleDistace();
+//}
 
 /* Function to Calculate Distance using Google Maps */
 function GoogleDistace(source, destination, ID) {
-  if (source > -1) {
-    erroralert("Please select Pickup Location first...");
-    document.getElementById('droplocation0').value = '';
+  if (source.length === 0 || destination.length === 0 || ID.length === 0) {
     return false;
   }
-  else if (destination > -1) {
-    return false;
+
+  let directionsService = new google.maps.DirectionsService();
+  const logdistance = document.getElementById(ID);
+  let request = {
+    origin: source,
+    destination: destination,
+    travelMode: google.maps.TravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC
   }
-  else if (ID == null) {
-    return false;
-  }
-  else {
-    let directionsService = new google.maps.DirectionsService();
-    const logdistance = document.getElementById(ID);
-    let request = {
-      origin: source,
-      destination: destination,
-      travelMode: google.maps.TravelMode.DRIVING,
-      unitSystem: google.maps.UnitSystem.METRIC
+
+  directionsService.route(request, (result, status) => {
+    if (status === google.maps.DirectionsStatus.OK) {
+      const output = result.routes[0].legs[0].distance.text;
+      logdistance.value = output;
+    } else {
+      logdistance.value = "Unable to fetch distance";
     }
-    directionsService.route(request, (result, status) => {
-      if ( status == google.maps.DirectionsStatus.OK) {
-        const output = result.routes[0].legs[0].distance.text;
-        logdistance.value = output;
-      }
-      else {
-        logdistance.value = "Unable fetch distance";
-      }
-    });
-  }
+  });
 }
 
-function validatecustomdate(ID) {
+
+/*function validatecustomdate(ID) {
   if(ID != null) {
     const valdate = document.getElementById(ID).value;
     if(ID.substring(12) > 0) {
@@ -74,7 +66,39 @@ function validatecustomdate(ID) {
     }
     return true;
   }
+}*/
+
+function validatecustomdate(ID) {
+  if (!ID) return false;
+  const dateField = document.getElementById(ID);
+  if (!dateField) return false;
+  const dateValue = dateField.value;
+  if (!dateValue) {
+    erroralert("Please select a pickup date.");
+    return false;
+  }
+  const prevIndex = ID.substring(12) - 1;
+  if (prevIndex >= 0) {
+    const prevDateField = document.getElementById(`${ID.substring(0, 12)}${prevIndex}`);
+    if (prevDateField) {
+      const prevDateValue = prevDateField.value;
+      if (prevDateValue && new Date(dateValue) < new Date(prevDateValue)) {
+        erroralert("Please select a later date than the previous one.");
+        dateField.value = '';
+        return false;
+      }
+    }
+  }
+  const dateRegex = /^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/;//^((19|20)\d{2}[-]0?[1-9]|1[0-2])-$/;
+  if (!dateValue.match(dateRegex)) {
+    erroralert("Please choose a valid date format MM/DD/YYYY.");
+    dateField.value = '';
+    return false;
+  }
+  return true;
 }
+
+
 
 function assigntosource(ID, tvalue) {
   if(ID != null && tvalue != null) {
@@ -82,7 +106,7 @@ function assigntosource(ID, tvalue) {
   }
 }
 
-function validatecustomrow(row) {
+/*function validatecustomrow(row) {
   if (row != null) {
     if(validatecustomdate('datecustomid' + row)) {
       const desti = document.getElementById('droplocation' + row).value;
@@ -94,7 +118,28 @@ function validatecustomrow(row) {
       }
     }
   }
+}*/
+
+function validatecustomrow(row) {
+  //if (!row) return;
+  const date = document.getElementById(`datecustomid${row}`).value;
+  const dest = document.getElementById(`droplocation${row}`).value;
+  if (!date) {
+    erroralert("Please select Pickup Date...");
+    return;
+  }
+  if (!/^(19|20)\d{2}[-](0?[1-9]|1[0-2])[-](0?[1-9]|[12]\d|3[01])$/.test(date)) {
+    erroralert("Please choose valid date format YYYY-MM-DD");
+    document.getElementById(`datecustomid${row}`).value = "";
+    return;
+  }
+  if (!dest) {
+    erroralert("Please select Drop Location...");
+    return;
+  }
+  addnewliner(row);
 }
+
 
 function cusplanform() {
   const formdiv = document.createElement("div");

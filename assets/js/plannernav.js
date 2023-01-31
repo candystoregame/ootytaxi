@@ -193,21 +193,19 @@ const citymap = new Map ([
 let animationcount = 1;
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
+  new Promise((resolve) => {
+    const animationClass = `${prefix}${animation}`;
     const node = document.querySelector(element);
+    
+    if (!node) return resolve('Element not found');
 
-    node.classList.add(`${prefix}animated`, animationName);
-
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
+    node.classList.add(`${prefix}animated`, animationClass);
+    node.addEventListener('animationend', function handleAnimationEnd(event) {
       event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
+      node.classList.remove(`${prefix}animated`, animationClass);
+      node.removeEventListener('animationend', handleAnimationEnd);
       resolve('Animation ended');
-    }
-
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    }, { once: true });
   });
 
 let planner_booknow_map = [];
@@ -334,82 +332,98 @@ function fetchTable(fetchMidMenu, sheetName) {
 }
 
 
-function fetchMidMenu(fileName)
-{
-  const newDiv = document.createElement("div");
+async function fetchMidMenu(fileName) {
   const fName = './assets/dataFiles/' + fileName;
   const midMenu = document.querySelector('.plan-midmenu');
   globaltableflag = 0;
-  midMenu.innerHTML='';
-    (
-      async() => {
-        let text, _button, counter = 0, token;
-        const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
-        const worksheet = workbook.SheetNames;
-        const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
-        if(worksheet.length > 2) {
-          for (let key in html) {
-            for (let header in html[key]) {
-              text = html[key][header];
-              token = header;
-              _button = document.createElement("button");
-              _button.type = 'button';
-              _button.id = 'btn-plan-submenu-id' + (counter + 1);
-              if (counter == 0) {_button.classList.add("btn-plan-submenu"); _button.className += ' active';}
-              else {_button.classList.add("btn-plan-submenu");}
-              _button.value = 'Sheet' + (2+counter)
-              _button.onclick = function() { rsma(); fetchTable (fName, this.value); this.classList.toggle('active');};
-              _button.innerHTML = text;
-            }
-            newDiv.classList.add("plan-btn-pane");
-            if (counter == 0) { let hEader = document.createElement("h3"); hEader.innerHTML=token; newDiv.appendChild(hEader); }
-            newDiv.appendChild(_button);
-            midMenu.appendChild(newDiv);
-            counter = counter+1;
-          }
-        }
-      }
-    )()
-    fetchTable(fName, 'Sheet2');
-    globalfilepath = fName;
-    return fName;
+  midMenu.innerHTML = '';
+
+  const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), { type: 'array' });
+  const worksheet = workbook.SheetNames;
+  const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
+
+  if (worksheet.length > 2) {
+    const btnContainer = document.createElement("div");
+    btnContainer.classList.add("plan-btn-pane");
+
+    let header = document.createElement("h3");
+    header.innerHTML = Object.keys(html[0])[0];
+    btnContainer.appendChild(header);
+
+    for (let key in html) {
+      const text = html[key][header.innerHTML];
+      const _button = document.createElement("button");
+      _button.type = 'button';
+      _button.id = `btn-plan-submenu-id${key}`;
+      _button.classList.add("btn-plan-submenu");
+      _button.value = `Sheet${2 + key}`;
+      if (key === 0) _button.classList.add('active');
+      _button.onclick = function() {
+        rsma();
+        fetchTable(fName, this.value);
+        document.querySelectorAll('.btn-plan-submenu').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+      };
+      _button.innerHTML = text;
+      btnContainer.appendChild(_button);
+    }
+    midMenu.appendChild(btnContainer);
+  }
+  fetchTable(fName, 'Sheet2');
+  globalfilepath = fName;
+  return fName;
 }
 
 function bookdetails(lavi) {
   let poppln = document.getElementById('contact-pln-pop'),
       listplanvars = document.querySelector('.listofitems-selected'),
       closepoppln = document.querySelector('.close-pln-pop');
-      document.getElementById('plan-form-id').reset();
+  
+  document.getElementById('plan-form-id').reset();
+
   let listplanvarsdata, tabcount, divcount;
-  tabcount = planner_booknow_map[planner_booknow_map.length-1].planmap;
+  tabcount = planner_booknow_map[planner_booknow_map.length - 1].planmap;
   lavi = Number(lavi.substring(10));
   tabcount = Number(tabcount.substring(10));
   divcount = planner_booknow_map.length;
-  const itercount = divcount/tabcount;
+
+  const itercount = divcount / tabcount;
   let selectmapdata = (lavi * itercount) - itercount;
-  listplanvarsdata = '<img src="assets/images/blog/cargif.gif" alt="Car Load" style="width:100%;height:40%;"><br><ul><li> Plan: <b>'+planheader+'</b></li>';
-  for (let i=0; i<itercount; i++) {
-    let mapdata = Number(i+selectmapdata);
-    listplanvarsdata += '<li>'+(i+1)+'. '+planner_booknow_map[mapdata].key+': <b>'+planner_booknow_map[mapdata].value+'</b></li>';
+  
+  let planheader = ""; // get the header
+
+  let planner_blob = [];
+  for (let i = 0; i < itercount; i++) {
+    let mapdata = Number(i + selectmapdata);
     let heep = planner_booknow_map[mapdata].key;
     let heepvalue = planner_booknow_map[mapdata].value;
-    planner_blob[i] = {key: heep, value: heepvalue};
+    planner_blob.push({key: heep, value: heepvalue});
   }
-  listplanvarsdata += '</ul>';
+
+  listplanvarsdata = `
+    <img src="assets/images/blog/cargif.gif" alt="Car Load" style="width:100%;height:40%;"><br>
+    <ul>
+      <li> Plan: <b>${planheader}</b></li>
+      ${planner_blob.map((item, index) => 
+          `<li>${index + 1}. ${item.key}: <b>${item.value}</b></li>`
+        ).join('')}
+    </ul>`;
+
   listplanvars.innerHTML = listplanvarsdata;
-  console.log(planner_blob);
+  
   poppln.style.display = 'block';
+
   closepoppln.addEventListener('click', function() {
     poppln.style.display = 'none';
     resetplanerrortags();
-  })
+  });
 
-  window.addEventListener('click',function(e) {
-    if(e.target == poppln) {
-        poppln.style.display = 'none';
-        resetplanerrortags();
+  window.addEventListener('click', function(e) {
+    if (e.target === poppln) {
+      poppln.style.display = 'none';
+      resetplanerrortags();
     }
-  })
+  });
 }
 
 /* Mouse Tracker Function Start */
@@ -559,54 +573,48 @@ cursor.init();
 /*Slider Fetch Table Start*/
 
 function fetchslidecontent(sheetName) {
-  const slideContent = document.getElementById('slider_image_switch');
+  const slideContent = document.getElementById("slider_image_switch");
   const newDiv = document.createElement("div");
-  const fName = './assets/dataFiles/sliderref.xlsx';
-  let slidepath, slideheading, slidefilename, slidecomments, slideliteralpath;
-  let slide_output="";
-  let slide_btn_output="";
-  (
-    async() => {
-      const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
-      const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
-      if(sheet_data.length > 0) {
-        slideContent.innerHTML='';
-        for(let row = 0; row < sheet_data.length; row++)
-        {
-          for(let cell = 0; cell < sheet_data[row].length; cell++)
-          {
-            if (row > 0 && cell == 0) {
-              slidepath = sheet_data[row][cell];
-            }
-            if (row > 0 && cell == 1) {
-              slideheading = sheet_data[row][cell];
-            }
-            if (row > 0 && cell == 2) {
-              slidefilename = sheet_data[row][cell];
-            }
-            if (row > 0 && cell == 3) {
-              slidecomments = sheet_data[row][cell];
-            }
-          }
-          if (row == 1) {
-            slideliteralpath = slidepath+slidefilename;
-            slide_output = '<div class="ooty-slide active"><img src="'+slideliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
-            slide_btn_output = '<div class="slider-btn active"></div>';
-          }
-          if (row > 1) {
-            slideliteralpath = slidepath+slidefilename;
-            slide_output += '<div class="ooty-slide"><img src="'+slideliteralpath+'" loading="eager" alt="Slides"><div class="info"><h2>'+slideheading+'</h2><p>'+slidecomments+'</p></div></div>';
-            slide_btn_output += '<div class="slider-btn"></div>';
-          }
+  const fName = "./assets/dataFiles/sliderref.xlsx";
+  let slide_output = "";
+  let slide_btn_output = "";
+
+  (async () => {
+    const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), { type: "array" });
+    const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
+    if (sheetData.length > 0) {
+      slideContent.innerHTML = "";
+      sheetData.forEach((row, index) => {
+        if (index === 0) return;
+        const [slidePath, slideHeading, slideFileName, slideComments] = row;
+        const slideliteralpath = `${slidePath}${slideFileName}`;
+        if (index === 1) {
+          slide_output = `<div class="ooty-slide active">
+            <img src="${slideliteralpath}" loading="eager" alt="Slides">
+            <div class="info">
+              <h2>${slideHeading}</h2>
+              <p>${slideComments}</p>
+            </div>
+          </div>`;
+          slide_btn_output = '<div class="slider-btn active"></div>';
+        } else {
+          slide_output += `<div class="ooty-slide">
+            <img src="${slideliteralpath}" loading="eager" alt="Slides">
+            <div class="info">
+              <h2>${slideHeading}</h2>
+              <p>${slideComments}</p>
+            </div>
+          </div>`;
+          slide_btn_output += '<div class="slider-btn"></div>';
         }
-        slideContent.innerHTML = slide_output;
-        newDiv.id = "slider_btn_navigation";
-        newDiv.classList.add("slider-navigation");
-        slideContent.appendChild(newDiv);
-        newDiv.innerHTML = slide_btn_output;
-      }
+      });
+      slideContent.innerHTML = slide_output;
+      newDiv.id = "slider_btn_navigation";
+      newDiv.classList.add("slider-navigation");
+      slideContent.appendChild(newDiv);
+      newDiv.innerHTML = slide_btn_output;
     }
-  )()
+  })();
 }
 
 /*Slider Fetch Table End*/

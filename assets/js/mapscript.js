@@ -61,10 +61,10 @@ window.addEventListener('load', (event) => { initMap;});
 window.initMap = initMap;
 
 function starmapping(quantify) {
-    let starquantify='';
-    quantify = Number(quantify);
-    for ( let i = 0; i < quantify; i++) {
-      starquantify += '&#11088;';
-    }
-    return starquantify;
+  let starquantify='';
+  quantify = Number(quantify);
+  for ( let i = 0; i < quantify; i++) {
+    starquantify += '&#11088;';
+  }
+  return starquantify;
   }

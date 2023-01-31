@@ -521,6 +521,7 @@ form .pln-contact-channel .channel-title::before {
   position: relative;
   width: 192px;
   height: 75px;
+  text-align: center;
   background: rgba(77,78,84,1);
   border-radius: 8px;
   overflow: hidden;
@@ -609,7 +610,7 @@ form .pln-contact-channel .channel-title::before {
 #phonecustombox a {
   position: absolute;
   color: yellow;
-  font-size: 1rem;
+  font-size: 1.1rem;
   inset: 2px;
   z-index: 5;
   background: rgba(77,78,84,1);
@@ -618,7 +619,7 @@ form .pln-contact-channel .channel-title::before {
 }
 
 #phonecustombox a span {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: white;
 }
 
