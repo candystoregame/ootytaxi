@@ -11,9 +11,9 @@ function erroralert(message) {
   });
 }
 
-//function initMap() {
-//  GoogleDistace();
-//}
+function initMap() {
+  return;
+}
 
 /* Function to Calculate Distance using Google Maps */
 function GoogleDistace(source, destination, ID) {
