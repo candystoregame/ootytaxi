@@ -49,7 +49,7 @@ function custommessage() {
     message += `${(i + 1)}) Date: ${customplanregister[i].date}, Pickup Location: ${customplanregister[i].pickup}, Drop Location: ${customplanregister[i].drop}, Distance: ${customplanregister[i].distance}\n`;
   }
 
-  sendMail("Booked Custom Plan", message);
+  sendMail("Custom Plan", message);
   success();
   customizeplan();
 }
