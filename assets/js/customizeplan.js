@@ -3,6 +3,19 @@ let formIndex = 0;
 const currentd = new Date().toISOString().split('T')[0];
 let contenttable = '';
 let customplanregister = [];
+let carMenu = [];
+
+function justFetchTable() {
+  const fName = "./assets/dataFiles/Dropping Duty (KM Basis).xlsx";
+  (async () => {
+    const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), { type: "array" });
+    const worksheet = workbook.SheetNames;
+    const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[1]], {header:1});
+    for(let i=0, len = sheet_data.length - 3; i < len; i++) {
+      carMenu[i] = {carType: sheet_data[3+i][0], kmPrice: parseFloat((sheet_data[3+i][1]).match(/\d+(?:\.\d{2})?/)[0])};
+    }
+  })();
+} justFetchTable();
 
 function erroralert(message) {
   swal({
@@ -129,45 +142,44 @@ function assigntosource(ID, tvalue) {
   }
 }
 
+function validateCustomFields(row) {
+  const date = document.getElementById(`datecustomid${row}`).value;
+  const dest = document.getElementById(`droplocation${row}`).value;
+  const vehicle = document.getElementById('vehicleid').value;
+  const pickupCity = document.getElementById('pickupcity0').value;
+
+  const dateRegex = /^(19|20)\d{2}[-](0?[1-9]|1[0-2])[-](0?[1-9]|[12]\d|3[01])$/;
+
+  if (!pickupCity) {
+    erroralert("Please select Pickup City");
+    return false;
+  }
+  if (!vehicle) {
+    erroralert("Please select Vehicle");
+    return false;
+  }
+  if (!date) {
+    erroralert("Please select Pickup Date");
+    return false;
+  }
+  if (!dateRegex.test(date)) {
+    erroralert("Invalid date format. Use YYYY-MM-DD");
+    document.getElementById(`datecustomid${row}`).value = "";
+    return false;
+  }
+  if (!dest) {
+    erroralert("Please select Drop Location");
+    return false;
+  }
+  return true;
+}
+
+
 function validatecustomrow(row) {
   const date = document.getElementById(`datecustomid${row}`).value;
   const dest = document.getElementById(`droplocation${row}`).value;
-  if (!date) {
-    erroralert("Please select Pickup Date...");
-    return;
-  }
-  if (!/^(19|20)\d{2}[-](0?[1-9]|1[0-2])[-](0?[1-9]|[12]\d|3[01])$/.test(date)) {
-    erroralert("Please choose valid date format YYYY-MM-DD");
-    document.getElementById(`datecustomid${row}`).value = "";
-    return;
-  }
-  if (!dest) {
-    erroralert("Please select Drop Location...");
-    return;
-  }
+  if(!validateCustomFields(row)) return;
   addnewliner(row);
-}
-
-function validatecustomro(row) {
-  //if (!row) return;
-  const date = document.getElementById(`datecustomid${row}`).value;
-  const dest = document.getElementById(`droplocation${row}`).value;
-  if (!date) {
-    erroralert("Please select Pickup Date...");
-    return false;
-  }
-  if (!/^(19|20)\d{2}[-](0?[1-9]|1[0-2])[-](0?[1-9]|[12]\d|3[01])$/.test(date)) {
-    erroralert("Please choose valid date format YYYY-MM-DD");
-    document.getElementById(`datecustomid${row}`).value = "";
-    return false;
-  }
-  if (!dest) {
-    erroralert("Please select Drop Location...");
-    return false;
-  }
-  else {
-    return true;
-  }
 }
 
 function validateBlank(StringElement, ErrorId) {
@@ -229,7 +241,7 @@ function cusplanform() {
   const trc = document.getElementById('custumplantable');
   const trclength = trc.rows.length;
   (trclength-2);
-  if (!validatecustomro(trclength-2)) { return };
+  if (!validateCustomFields(trclength-2)) { return };
   const cpickup = document.getElementById(`droplocation${(trclength-2)}`);
   const cdate = document.getElementById(`datecustomid${(trclength-2)}`);
   const cdrop = document.getElementById(`droplocation${(trclength-2)}`);
@@ -370,6 +382,7 @@ function addnewliner(stub) {
     distance: Number(distance)
   };
   document.getElementById('pickupcity0').disabled = true;
+  document.getElementById('vehicleid').disabled = true;
   cdate.disabled = true;
   cpickup.disabled = true;
   cdrop.disabled = true;
@@ -449,6 +462,7 @@ function neglastline(row) {
 function customizeplan() {
   noterma('Customize Plan');
   let newlinecounter = 0;
+  let visittablecontant;
   formIndex = 0;
   const tablediv = document.createElement("div");
   const tableoptionsdiv = document.createElement("div");
@@ -459,7 +473,7 @@ function customizeplan() {
   document.querySelector('.heading-right-content').innerHTML = `<h3>Customize your plan</h3>`;
   tableContent.innerHTML = "";
   visitContent.innerHTML = "";
-  visitContent.innerHTML = 
+  visittablecontant =
   `<div class="customplanpickup">
     <a>Select Pickup City<sup style="color: red;">*</sup></a>
     <select style="text-align: center;" name="pickupcity" id="pickupcity0" onchange="assigntosource('customsource0', 'pickupcity0'); GoogleDistace(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required aria-required="true">
@@ -478,21 +492,17 @@ function customizeplan() {
       <option value="Tirupur">Tirupur</option>
     </select>
     <span id="customplanpickupid"></span>
-    <a>Select Vehicle</a>
-    <select style="text-align: center;" name="Vehicle" id="vehicleid" required>
-      <option value="">Select Vehicle</option>
-      <option value="Innova AC">Innova A/C</option>
-			<option value="Tavera">Tavera</option>
-			<option value="Traveller">Traveller</option>
-			<option value="Logan AC">Logan A/C</option>
-			<option value="Swift dZire AC">Swift dZire A/C</option>
-			<option value="Toyota ETIOS AC">Toyota ETIOS A/C</option>
-			<option value="Mahindra XYLO AC">Mahindra XYLO A/C</option>
-			<option value="Tavera AC">Tavera A/C</option>
-			<option value="Traveller AC">Traveller A/C</option>
-    </select>
+    <a>Select Vehicle<sup style="color: red;">*</sup></a>
+    <select style="text-align: center; text-transform: capitalize;" name="Vehicle" id="vehicleid" required>
+      <option value="">Select Vehicle</option>`;
+      for (let j = 0; j < carMenu.length; j++) {
+        visittablecontant += `<option value="${carMenu[j].carType}">${carMenu[j].carType}</option>`;
+      }
+    visittablecontant +=
+    `</select>
     <span id="vehicleidError"></span>
   </div>`;
+  visitContent.innerHTML = visittablecontant;
   contenttable = `<table id='custumplantable'>
     <tr>
       <th style="text-align: center;">Pickup Date</th>

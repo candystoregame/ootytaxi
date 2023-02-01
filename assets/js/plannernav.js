@@ -259,7 +259,7 @@ function fetchTable(fetchMidMenu, sheetName) {
       const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
       const worksheet = workbook.SheetNames;
       const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header:1});
-      if(sheet_data.length == 0) {
+      if(sheet_data.length === 0) {
         let j=0;
         const multisheet = [];
         globaltableflag = 1;
