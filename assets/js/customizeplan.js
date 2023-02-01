@@ -86,12 +86,19 @@ function GoogleDistance(source, destination, ID) {
   if (!source.length || !destination.length || !ID.length) {
     return false;
   }
-
+  const totalKmsInput = document.getElementById('customtotalkms');
+  const totalPriceInput = document.getElementById('customplanprice');
   const vehicleIdInput = document.getElementById('vehicleid');
   if (!vehicleIdInput.value.length) {
     document.getElementById(`droplocation${ID.substring(10)}`).value = "";
     erroralert("Please select Vehicle...");
     return;
+  }
+
+  if (ID.substring(10) == 0) {
+    totalPriceInput.value="";
+    totalKmsInput.value="";
+
   }
 
   const directionsService = new google.maps.DirectionsService();
@@ -107,11 +114,10 @@ function GoogleDistance(source, destination, ID) {
     if (status === google.maps.DirectionsStatus.OK) {
       const output = result.routes[0].legs[0].distance.text;
       logDistance.value = output;
-      const totalKmsInput = document.getElementById('customtotalkms');
       const demo = Number(totalKmsInput.value.split(" ")[0]);
       totalKmsInput.innerHTML = '';
       totalKmsInput.value = demo + Number(output.split(" ")[0]);
-      document.getElementById('customplanprice').value = Number(
+      totalPriceInput.value = Number(
         (totalKmsInput.value * pricemap.get(vehicleIdInput.value)).toFixed(2)
       );
     } else {
@@ -263,6 +269,7 @@ function cusplanform() {
   const cdrop = document.getElementById(`droplocation${(trclength-2)}`);
   const distance = document.getElementById(`distanceid${(trclength-2)}`).value.split(" ");
   document.getElementById('pickupcity0').disabled = true;
+  document.getElementById('vehicleid').disabled = true;
   cpickup.disabled = true;
   cdate.disabled = true;
   if (trclength == 2) document.getElementById('custumplantable').rows[trclength-1].deleteCell(4);
@@ -437,6 +444,7 @@ function neglastline(row) {
     document.getElementById(`droplocation${table.rows.length - 3}`).disabled = false;
     document.getElementById(`datecustomid${table.rows.length - 3}`).disabled = false;
     document.getElementById('pickupcity0').disabled = false;
+    document.getElementById('vehicleid').disabled = false;
 
     lastRow.insertCell(4).innerHTML = `
       <td>
@@ -509,7 +517,7 @@ function customizeplan() {
     </select>
     <span id="customplanpickupid"></span>
     <a>Select Vehicle<sup style="color: red;">*</sup></a>
-    <select style="text-align: center; text-transform: capitalize;" name="Vehicle" id="vehicleid" required>
+    <select style="text-align: center; text-transform: capitalize;" name="Vehicle" id="vehicleid" onchange="GoogleDistance(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required>
       <option value="">Select Vehicle</option>`;
       for (let j = 0; j < carMenu.length; j++) {
         visittablecontant += `<option style="text-transform: capitalize;" value="${carMenu[j].carType}">${carMenu[j].carType}</option>`;
@@ -551,7 +559,7 @@ function customizeplan() {
   tableContent.appendChild(tableoptionsdiv);
   let contenttableoptions = `
   <div class="tablecustomoptions>
-  <label font-weight: 600; for="Distance In Kilometers">Total Distance In km(s)</label>
+  <label font-weight: 600; for="Distance In Kilometers">Approximate Distance In km(s)</label>
   <input style="text-align: center;" id="customtotalkms" type="text" name="Distance In Kilometers" placeholder="Approximate Kilometers" readonly>
   <label style="font-weight: 600;" for="Rupees">Approximate Total Price</label>
   <input style="text-align: center;" id="customplanprice" type="text" name="Rupees" placeholder="Approximate Price" readonly>
