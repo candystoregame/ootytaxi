@@ -4,18 +4,24 @@ const currentd = new Date().toISOString().split('T')[0];
 let contenttable = '';
 let customplanregister = [];
 let carMenu = [];
+let pricemap = new Map();
 
-function justFetchTable() {
-  const fName = "./assets/dataFiles/Dropping Duty (KM Basis).xlsx";
-  (async () => {
-    const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), { type: "array" });
-    const worksheet = workbook.SheetNames;
-    const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[1]], {header:1});
-    for(let i=0, len = sheet_data.length - 3; i < len; i++) {
-      carMenu[i] = {carType: sheet_data[3+i][0], kmPrice: parseFloat((sheet_data[3+i][1]).match(/\d+(?:\.\d{2})?/)[0])};
-    }
-  })();
-} justFetchTable();
+async function justFetchTable() {
+  const fileName = "./assets/dataFiles/Dropping Duty (KM Basis).xlsx";
+  const response = await fetch(fileName);
+  const buffer = await response.arrayBuffer();
+  const workbook = XLSX.read(buffer, { type: "array" });
+  const sheet_data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[1]], { header: 1 });
+  for (let i = 0, len = sheet_data.length - 3; i < len; i++) {
+    carMenu[i] = {
+      carType: sheet_data[3 + i][0],
+      kmPrice: parseFloat(sheet_data[3 + i][1].match(/\d+(?:\.\d{2})?/)[0])
+    };
+    pricemap.set(carMenu[i].carType, carMenu[i].kmPrice);
+  }
+}
+justFetchTable();
+
 
 function erroralert(message) {
   swal({
@@ -76,30 +82,40 @@ function custommessage() {
 
 
 /* Function to Calculate Distance using Google Maps */
-function GoogleDistace(source, destination, ID) {
-  if (source.length === 0 || destination.length === 0 || ID.length === 0) {
+function GoogleDistance(source, destination, ID) {
+  if (!source.length || !destination.length || !ID.length) {
     return false;
   }
 
-  let directionsService = new google.maps.DirectionsService();
-  const logdistance = document.getElementById(ID);
-  let request = {
+  const vehicleIdInput = document.getElementById('vehicleid');
+  if (!vehicleIdInput.value.length) {
+    document.getElementById(`droplocation${ID.substring(10)}`).value = "";
+    erroralert("Please select Vehicle...");
+    return;
+  }
+
+  const directionsService = new google.maps.DirectionsService();
+  const logDistance = document.getElementById(ID);
+  const request = {
     origin: source,
     destination: destination,
     travelMode: google.maps.TravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC
-  }
+  };
 
   directionsService.route(request, (result, status) => {
     if (status === google.maps.DirectionsStatus.OK) {
       const output = result.routes[0].legs[0].distance.text;
-      logdistance.value = output;
-      const demo = Number(document.getElementById('customtotalkms').value.split(" ")[0]);
-      document.getElementById('customtotalkms').innerHTML = '';
-      document.getElementById('customtotalkms').value = Number(demo) + Number(output.split(" ")[0]);
-      document.getElementById('customplanprice').value = Number(parseFloat(document.getElementById('customtotalkms').value) * 12).toFixed(2);
+      logDistance.value = output;
+      const totalKmsInput = document.getElementById('customtotalkms');
+      const demo = Number(totalKmsInput.value.split(" ")[0]);
+      totalKmsInput.innerHTML = '';
+      totalKmsInput.value = demo + Number(output.split(" ")[0]);
+      document.getElementById('customplanprice').value = Number(
+        (totalKmsInput.value * pricemap.get(vehicleIdInput.value)).toFixed(2)
+      );
     } else {
-      logdistance.value = "Unable to fetch distance";
+      logDistance.value = "Unable to fetch distance";
     }
   });
 }
@@ -396,7 +412,7 @@ function addnewliner(stub) {
   cell.innerHTML = `<input type="date" style="text-align: center;" id="datecustomid${stubrev}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${stubrev}');">`;
   cell1.innerHTML = `<input type="text" style="text-align: center;" id="customsource${stubrev}" placeholder="Select Location Above" name="Source" disabled required aria-required="true">`;
   cell2.innerHTML = `
-    <select name="droplocation" style="text-align: center;" id="droplocation${stubrev}" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource${stubrev}").value, document.getElementById("droplocation${stubrev}").value, "distanceid${stubrev}");'>
+    <select name="droplocation" style="text-align: center;" id="droplocation${stubrev}" required aria-required="true" onchange='GoogleDistance(document.getElementById("customsource${stubrev}").value, document.getElementById("droplocation${stubrev}").value, "distanceid${stubrev}");'>
       <option value="">Drop Location</option>
       ${Array.from(citymap).map(([i, city]) => `<option value="${city}">${city}</option>`).join('')}
     </select>`;
@@ -476,7 +492,7 @@ function customizeplan() {
   visittablecontant =
   `<div class="customplanpickup">
     <a>Select Pickup City<sup style="color: red;">*</sup></a>
-    <select style="text-align: center;" name="pickupcity" id="pickupcity0" onchange="assigntosource('customsource0', 'pickupcity0'); GoogleDistace(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required aria-required="true">
+    <select style="text-align: center;" name="pickupcity" id="pickupcity0" onchange="assigntosource('customsource0', 'pickupcity0'); GoogleDistance(document.getElementById('customsource0').value, document.getElementById('droplocation0').value, 'distanceid0');" required aria-required="true">
       <option value="">Select Pickup Location</option>
       <option value="Bengaluru">Bengaluru</option>
       <option value="Cochin">Cochin</option>
@@ -496,7 +512,7 @@ function customizeplan() {
     <select style="text-align: center; text-transform: capitalize;" name="Vehicle" id="vehicleid" required>
       <option value="">Select Vehicle</option>`;
       for (let j = 0; j < carMenu.length; j++) {
-        visittablecontant += `<option value="${carMenu[j].carType}">${carMenu[j].carType}</option>`;
+        visittablecontant += `<option style="text-transform: capitalize;" value="${carMenu[j].carType}">${carMenu[j].carType}</option>`;
       }
     visittablecontant +=
     `</select>
@@ -514,7 +530,7 @@ function customizeplan() {
       <td><input style="text-align: center;" type="date" id="datecustomid0" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid0')"></td>
       <td><input style="text-align: center;" type="text" id="customsource0" placeholder="Select Location Above" name="Source" disabled required aria-required="true"></td>
       <td>
-        <select style="text-align: center;" name="droplocation" id="droplocation0" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource0").value, document.getElementById("droplocation0").value, "distanceid0");'>
+        <select style="text-align: center;" name="droplocation" id="droplocation0" required aria-required="true" onchange='GoogleDistance(document.getElementById("customsource0").value, document.getElementById("droplocation0").value, "distanceid0");'>
           <option value="">Drop Location</option>`;
             for (let i = 0; i <= citymap.size; i++) {
               contenttable += '<option value="'+citymap.get(i)+'">'+citymap.get(i)+'</option>';
