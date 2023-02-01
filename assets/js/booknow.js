@@ -283,6 +283,7 @@ function validatepmessage() {
     return true;
 }
 
+
 function validatepchannel() {
     const bchannel = document.querySelectorAll('[dname]');
     let j=0, flagger = false;
