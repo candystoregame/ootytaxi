@@ -16,6 +16,12 @@ function initMap() {
   return;
 }
 
+function convertDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const newDate = new Date(date);
+  return newDate.toLocaleDateString('en-US', options);
+}
+
 function custommessage() {
   const formFields = [
     { id: 'customfname', label: 'First Name' },
@@ -28,6 +34,7 @@ function custommessage() {
     { id: 'accomrequired', label: 'Accommodation Required' },
     { id: 'custom-address', label: 'Address' },
     { id: 'vehicleid', label: 'Vehicle' },
+    { id: 'customplanprice', label: 'Approximate Total Price' },
   ];
 
   let dot;
@@ -46,7 +53,7 @@ function custommessage() {
   message += `Preferred Channel To Contact Me: ${dot}\n\n`;
   message += `Plan Details:\n`;
   for (let i = 0; i < customplanregister.length; i++) {
-    message += `${(i + 1)}) Date: ${customplanregister[i].date}, Pickup Location: ${customplanregister[i].pickup}, Drop Location: ${customplanregister[i].drop}, Distance: ${customplanregister[i].distance}\n`;
+    message += `${(i + 1)}) Date: ${convertDate(customplanregister[i].date)}, Pickup Location: ${customplanregister[i].pickup}, Drop Location: ${customplanregister[i].drop}, Distance: ${customplanregister[i].distance}\n`;
   }
 
   sendMail("Custom Plan", message);
@@ -77,7 +84,7 @@ function GoogleDistace(source, destination, ID) {
       const demo = Number(document.getElementById('customtotalkms').value.split(" ")[0]);
       document.getElementById('customtotalkms').innerHTML = '';
       document.getElementById('customtotalkms').value = Number(demo) + Number(output.split(" ")[0]);
-      document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value * 12);
+      document.getElementById('customplanprice').value = Number(parseFloat(document.getElementById('customtotalkms').value) * 12).toFixed(2);
     } else {
       logdistance.value = "Unable to fetch distance";
     }
@@ -105,7 +112,7 @@ function validatecustomdate(ID) {
       }
     }
   }
-  const dateRegex = /^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/;//^((19|20)\d{2}[-]0?[1-9]|1[0-2])-$/;
+  const dateRegex = /^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/;
   if (!dateValue.match(dateRegex)) {
     erroralert("Please choose a valid date format MM/DD/YYYY.");
     dateField.value = '';
@@ -123,7 +130,6 @@ function assigntosource(ID, tvalue) {
 }
 
 function validatecustomrow(row) {
-  //if (!row) return;
   const date = document.getElementById(`datecustomid${row}`).value;
   const dest = document.getElementById(`droplocation${row}`).value;
   if (!date) {
@@ -222,7 +228,7 @@ function cusplanform() {
   const formdiv = document.createElement("div");
   const trc = document.getElementById('custumplantable');
   const trclength = trc.rows.length;
-  console.log(trclength-2);
+  (trclength-2);
   if (!validatecustomro(trclength-2)) { return };
   const cpickup = document.getElementById(`droplocation${(trclength-2)}`);
   const cdate = document.getElementById(`datecustomid${(trclength-2)}`);
@@ -251,27 +257,27 @@ function cusplanform() {
     	<div class="custom-pop-user-details">
     		<div class="custom-pop-forms-group">
           <span class="details">First Name</span>
-          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeyup="validateBlank('customfname', 'custom-fname-error')">
+          <input id="customfname" type="text" placeholder="Enter your First Name" required onchange="validateBlank('customfname', 'custom-fname-error')">
           <span id="custom-fname-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Last Name</span>
-          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeyup="validateBlank('customlname', 'custom-lname-error')">
+          <input id="customlname" type="text" placeholder="Enter your Last Name" required onchange="validateBlank('customlname', 'custom-lname-error')">
           <span id="custom-lname-error"></span>
         </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Email</span>
-          <input id="customemail" type="email" placeholder="Enter your email" required onkeyup="validateEmail('customemail', 'custom-email-error')">
+          <input id="customemail" type="email" placeholder="Enter your email" required onchange="validateEmail('customemail', 'custom-email-error')">
           <span id="custom-email-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Phone Number</span>
-          <input id="customphone" type="text" placeholder="10-Digit Number" required onkeyup="validatePhoneNumber('customphone', 'custom-phone-error')">
+          <input id="customphone" type="text" placeholder="10-Digit Number" required onchange="validatePhoneNumber('customphone', 'custom-phone-error')">
           <span id="custom-phone-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	   	<label for="Adults">Adults:</label>
-    	    <select title="Total Adults" id="customadults" name="Adults" required onkeyup="validateBlank('customadults', 'custom-padult-error')">
+    	    <select title="Total Adults" id="customadults" name="Adults" required onchange="validateBlank('customadults', 'custom-padult-error')">
     	      <option value="">Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -288,7 +294,7 @@ function cusplanform() {
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <label for="child">Children:</label>
-    	    <select title="Total Child" id="customchild" name="child" required onkeyup="validateBlank('customchild', 'custom-pchild-error')">
+    	    <select title="Total Child" id="customchild" name="child" required onchange="validateBlank('customchild', 'custom-pchild-error')">
     	    	<option value="">Select</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -307,7 +313,7 @@ function cusplanform() {
     	</div>
       <div id="customdatelabel" class="custom-pop-forms-group">
         <label for="Pickup">Accommodation Required</label>
-        <select title="Total Child" id="accomrequired" name="child" required onkeyup="validateBlank('accomrequired', 'accom-error')">
+        <select title="Total Child" id="accomrequired" name="child" required onchange="validateBlank('accomrequired', 'accom-error')">
     	    <option value="">Select</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
@@ -350,85 +356,95 @@ function cusplanform() {
 }
 
 function addnewliner(stub) {
-  let stubrev = Number(stub + 1);
-  const cpickup = document.getElementById('customsource'+stub);
-  const cdrop = document.getElementById('droplocation'+stub);
-  const cdate = document.getElementById('datecustomid'+stub);
+  let stubrev = stub + 1;
+  const cpickup = document.getElementById(`customsource${stub}`);
+  const cdrop = document.getElementById(`droplocation${stub}`);
+  const cdate = document.getElementById(`datecustomid${stub}`);
   const ptable = document.getElementById('custumplantable');
-  const distance = document.getElementById('distanceid'+stub).value.split(" ");
-  if (cpickup.value != null && cdrop.value != null && cdate.value != null && distance != null) { 
-    customplanregister[stub] = {date: cdate.value, pickup: cpickup.value, drop: cdrop.value, distance: Number(distance[0])};
-    console.log(customplanregister);
-    document.getElementById('pickupcity0').disabled = true;
-    cdate.disabled = true;
-    cpickup.disabled = true;
-    cdrop.disabled = true;
-    let row = ptable.insertRow(-1), cell = row.insertCell(0), cell1 = row.insertCell(1), cell2 = row.insertCell(2), cell2str, cell3 = row.insertCell(3), cell4 = row.insertCell(4), cell5 = row.insertCell(5);
-    cell.innerHTML = `<td><input style="text-align: center;" type="date" id="datecustomid${stubrev}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${stubrev}');"></td>`;
-    cell1.innerHTML = `<td><input style="text-align: center;" type="text" id="customsource${stubrev}" placeholder="Select Location Above" name="Source" disabled required aria-required="true"></td>`;
-    cell2str = `<td>
-      <select style="text-align: center;" name="droplocation" id="droplocation${stubrev}" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource${stubrev}").value, document.getElementById("droplocation${stubrev}").value, "distanceid${stubrev}");'>
-        <option value="">Drop Location</option>`;
-          for (let i = 0; i <= citymap.size; i++) {
-            cell2str += '<option value="'+citymap.get(i)+'">'+citymap.get(i)+'</option>';
-          }
-          cell2str += `
-      </select>
-    </td>`;
-    cell2.innerHTML = cell2str;
-    cell3.innerHTML = `<td><input style="text-align: center;" type="text" id="distanceid${stubrev}" name="Distance" disabled required aria-required="true"></td>`;
-    cell4.innerHTML = `<td><a id="addnewline${stubrev}" onclick="validatecustomrow(${stubrev});"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
-    cell5.innerHTML = `<td><a id="removelastline${stubrev}" onclick="neglastline(${stubrev});"><i class="fa fa-minus-circle" aria-hidden="true"></i><a></td>`;
-    assigntosource('customsource'+stubrev, 'droplocation'+stub);
-    if (customplanregister.length != 1) {
-      document.getElementById('customtotalkms').value = Number(document.getElementById('customtotalkms').value) + Number(customplanregister[customplanregister.length-1].distance);
-      document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
-    }
-    if (customplanregister.length == 1) {
-      //document.getElementById('customtotalkms').value = Number(customplanregister[customplanregister.length-1].distance);
-      document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
-    }
-    if (stub == 0) {
-      ptable.rows[stub+1].deleteCell(4);
-    }
-    else {
-      ptable.rows[stub+1].deleteCell(4);
-      ptable.rows[stub+1].deleteCell(4);
-    }
+  const distance = document.getElementById(`distanceid${stub}`).value.split(" ")[0];
+  if (!cpickup.value || !cdrop.value || !cdate.value || !distance) return;
+  customplanregister[stub] = {
+    date: cdate.value,
+    pickup: cpickup.value,
+    drop: cdrop.value,
+    distance: Number(distance)
+  };
+  document.getElementById('pickupcity0').disabled = true;
+  cdate.disabled = true;
+  cpickup.disabled = true;
+  cdrop.disabled = true;
+  let row = ptable.insertRow(-1);
+  let cell = row.insertCell(0);
+  let cell1 = row.insertCell(1);
+  let cell2 = row.insertCell(2);
+  let cell3 = row.insertCell(3);
+  let cell4 = row.insertCell(4);
+  let cell5 = row.insertCell(5);
+  cell.innerHTML = `<input type="date" style="text-align: center;" id="datecustomid${stubrev}" placeholder="mm/dd/yyyy" min="${currentd}" class="localdate" required onchange="validatecustomdate('datecustomid${stubrev}');">`;
+  cell1.innerHTML = `<input type="text" style="text-align: center;" id="customsource${stubrev}" placeholder="Select Location Above" name="Source" disabled required aria-required="true">`;
+  cell2.innerHTML = `
+    <select name="droplocation" style="text-align: center;" id="droplocation${stubrev}" required aria-required="true" onchange='GoogleDistace(document.getElementById("customsource${stubrev}").value, document.getElementById("droplocation${stubrev}").value, "distanceid${stubrev}");'>
+      <option value="">Drop Location</option>
+      ${Array.from(citymap).map(([i, city]) => `<option value="${city}">${city}</option>`).join('')}
+    </select>`;
+  cell3.innerHTML = `<input type="text" style="text-align: center;" id="distanceid${stubrev}" name="Distance" disabled required aria-required="true">`;
+  cell4.innerHTML = `<a id="addnewline${stubrev}" onclick="validatecustomrow(${stubrev});"><i class="fa fa-plus-circle" aria-hidden="true"></i><a>`;
+  cell5.innerHTML = `<a id="removelastline${stubrev}" onclick="neglastline(${stubrev});"><i class="fa fa-minus-circle" aria-hidden="true"></i><a>`;
+  assigntosource(`customsource${stubrev}`, `droplocation${stub}`);
+  if (stub == 0) {
+    ptable.rows[stub+1].deleteCell(4);
+  }
+  else {
+    ptable.rows[stub+1].deleteCell(5);
+    ptable.rows[stub+1].deleteCell(4);
   }
 }
-  
+
 function neglastline(row) {
-  const trc = document.getElementById('custumplantable');
-  const trclength = trc.rows.length;
-  const datalength = customplanregister.length;
-  const lrlc = trc.rows[trclength-2];
-  console.log("Array Length: " + customplanregister.length);
-  console.log("Table Length: " + trclength);
-  if (trclength == 3) {
-    document.getElementById('droplocation'+ (trclength-3)).disabled = false;
-    document.getElementById('datecustomid'+ (trclength-3)).disabled = false;
+  const table = document.getElementById('custumplantable');
+  const lastRow = table.rows[table.rows.length - 2];
+  const dataLength = customplanregister.length;
+  if (table.rows.length === 3) {
+    document.getElementById(`droplocation${table.rows.length - 3}`).disabled = false;
+    document.getElementById(`datecustomid${table.rows.length - 3}`).disabled = false;
     document.getElementById('pickupcity0').disabled = false;
-    let lrlcdata = lrlc.insertCell(4);
-    lrlcdata.innerHTML = `<td><a id="addnewline${trclength-3}" onclick="validatecustomrow(${trclength-3});"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
-    trc.deleteRow(-1);
+
+    lastRow.insertCell(4).innerHTML = `
+      <td>
+        <a id="addnewline${table.rows.length - 3}" onclick="validatecustomrow(${table.rows.length - 3});">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </a>
+      </td>
+    `;
+
+    table.deleteRow(-1);
   }
-  if (trclength > 3) {
-    document.getElementById('droplocation'+ (trclength-3)).disabled = false;
-    document.getElementById('datecustomid'+ (trclength-3)).disabled = false;
-    let lrlcdata = lrlc.insertCell(4);
-    let lrlcdata2 = lrlc.insertCell(5);
-    lrlcdata.innerHTML = `<td><a id="addnewline${trclength-3}" onclick="validatecustomrow(${trclength-3});"><i class="fa fa-plus-circle" aria-hidden="true"></i><a></td>`;
-    lrlcdata2.innerHTML = `<td><a id="removelastline${trclength-3}" onclick="neglastline(${trclength-3});"><i class="fa fa-minus-circle" aria-hidden="true"></i><a></td>`;
-    trc.deleteRow(-1);
+  else if (table.rows.length > 3) {
+    document.getElementById(`droplocation${table.rows.length - 3}`).disabled = false;
+    document.getElementById(`datecustomid${table.rows.length - 3}`).disabled = false;
+
+    lastRow.insertCell(4).innerHTML = `
+      <td>
+        <a id="addnewline${table.rows.length - 3}" onclick="validatecustomrow(${table.rows.length - 3});">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </a>
+      </td>
+    `;
+    lastRow.insertCell(5).innerHTML = `
+      <td>
+        <a id="removelastline${table.rows.length - 3}" onclick="neglastline(${table.rows.length - 3});">
+          <i class="fa fa-minus-circle" aria-hidden="true"></i>
+        </a>
+      </td>
+    `;
+
+    table.deleteRow(-1);
   }
-  if ((trclength-2) < datalength) {
-    //document.getElementById('customtotalkms').value = Number(document.getElementById('customtotalkms').value) - Number(customplanregister[customplanregister.length-1].distance);
-    document.getElementById('customplanprice').value = Number(document.getElementById('customtotalkms').value) * 12;
+  if (table.rows.length - 2 < dataLength) {
     customplanregister.pop();
-    console.log("Array Length: " + customplanregister.length);
   }
-} 
+}
+ 
 
 function customizeplan() {
   noterma('Customize Plan');
