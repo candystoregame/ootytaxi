@@ -438,50 +438,50 @@ function addnewliner(stub) {
 
 function neglastline(row) {
   const table = document.getElementById('custumplantable');
-  const lastRow = table.rows[table.rows.length - 2];
+  const tableRowLength = table.rows.length;
+  const lastRow = table.rows[tableRowLength - 2];
   const dataLength = customplanregister.length;
-  if (table.rows.length === 3) {
-    document.getElementById(`droplocation${table.rows.length - 3}`).disabled = false;
-    document.getElementById(`datecustomid${table.rows.length - 3}`).disabled = false;
+  const addCellHTML = `
+    <td>
+      <a id="addnewline${tableRowLength - 3}" onclick="validatecustomrow(${tableRowLength - 3});">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </a>
+    </td>
+  `;
+
+  if (tableRowLength === 3) {
+    document.getElementById(`droplocation${tableRowLength - 3}`).disabled = false;
+    document.getElementById(`datecustomid${tableRowLength - 3}`).disabled = false;
     document.getElementById('pickupcity0').disabled = false;
     document.getElementById('vehicleid').disabled = false;
 
-    lastRow.insertCell(4).innerHTML = `
-      <td>
-        <a id="addnewline${table.rows.length - 3}" onclick="validatecustomrow(${table.rows.length - 3});">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </a>
-      </td>
-    `;
-
-    table.deleteRow(-1);
+    lastRow.insertCell(4).innerHTML = addCellHTML;
   }
-  else if (table.rows.length > 3) {
-    document.getElementById(`droplocation${table.rows.length - 3}`).disabled = false;
-    document.getElementById(`datecustomid${table.rows.length - 3}`).disabled = false;
+  else if (tableRowLength > 3) {
+    document.getElementById(`droplocation${tableRowLength - 3}`).disabled = false;
+    document.getElementById(`datecustomid${tableRowLength - 3}`).disabled = false;
 
-    lastRow.insertCell(4).innerHTML = `
-      <td>
-        <a id="addnewline${table.rows.length - 3}" onclick="validatecustomrow(${table.rows.length - 3});">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </a>
-      </td>
-    `;
+    lastRow.insertCell(4).innerHTML = addCellHTML;
     lastRow.insertCell(5).innerHTML = `
       <td>
-        <a id="removelastline${table.rows.length - 3}" onclick="neglastline(${table.rows.length - 3});">
+        <a id="removelastline${tableRowLength - 3}" onclick="neglastline(${tableRowLength - 3});">
           <i class="fa fa-minus-circle" aria-hidden="true"></i>
         </a>
       </td>
     `;
-
-    table.deleteRow(-1);
   }
-  if (table.rows.length - 2 < dataLength) {
+
+  table.deleteRow(-1);
+  if (tableRowLength - 2 < dataLength) {
     customplanregister.pop();
   }
+  const tdistance = customplanregister.reduce((acc, curr) => acc + curr.distance, 0);
+  const customTotalKms = document.getElementById('customtotalkms');
+  if (tdistance !== parseInt(customTotalKms.value, 10)) {
+    customTotalKms.value = tdistance;
+    document.getElementById('customplanprice').value = (tdistance * pricemap.get(document.getElementById('vehicleid').value)).toFixed(2);
+  }
 }
- 
 
 function customizeplan() {
   noterma('Customize Plan');
