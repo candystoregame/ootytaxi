@@ -45,41 +45,56 @@ function custommessage() {
   const formFields = [
     { id: 'customfname', label: 'First Name' },
     { id: 'customlname', label: 'Last Name' },
-    { id: 'customemail', label: 'Email Address' },
-    { id: 'customphone', label: 'Phone Number' },
     { id: 'customadults', label: 'Adults' },
     { id: 'customchild', label: 'Children' },
-    { id: 'custumplantable', label: 'Message' },
     { id: 'accomrequired', label: 'Accommodation Required' },
-    { id: 'custom-address', label: 'Address' },
+    { id: 'customemail', label: 'Email Address', validate: validateEmail },
+    { id: 'customphone', label: 'Phone Number', validate: validatePhoneNumber },
+    { id: 'custom-address', label: 'Address', validate: validateTextArea },
     { id: 'vehicleid', label: 'Vehicle' },
     { id: 'customplanprice', label: 'Approximate Total Price' },
   ];
 
-  let dot;
-  let markedCheckbox = document.querySelectorAll('[cuname]');
-  for (let checkbox of markedCheckbox) {
-    if (checkbox.checked) {
-      dot = checkbox.value;
+  for (const field of formFields) {
+    if (!field.id) continue;
+    if (field.validate) {
+      if (!field.validate(field.id, `${field.id}-error`)) {
+        inputEmpty();
+        return;
+      }
+    } else {
+      if (!validateBlank(field.id, `${field.id}-error`)) {
+        inputEmpty();
+        return;
+      }
     }
   }
 
-  let message = formFields.reduce((acc, field) => {
-    acc += `${field.label}: ${document.getElementById(field.id).value}\n`;
-    return acc;
-  }, "");
-  
+  let dot;
+  const markedCheckbox = document.querySelectorAll('[cuname]');
+  for (const checkbox of markedCheckbox) {
+    if (checkbox.checked) {
+      dot = checkbox.value;
+      break;
+    }
+  }
+
+  let message = "";
+  for (const field of formFields) {
+    message += `${field.label}: ${document.getElementById(field.id).value}\n`;
+  }
+
   message += `Preferred Channel To Contact Me: ${dot}\n\n`;
   message += `Plan Details:\n`;
   for (let i = 0; i < customplanregister.length; i++) {
-    message += `${(i + 1)}) Date: ${convertDate(customplanregister[i].date)}, Pickup Location: ${customplanregister[i].pickup}, Drop Location: ${customplanregister[i].drop}, Distance: ${customplanregister[i].distance}\n`;
+    const plan = customplanregister[i];
+    message += `${(i + 1)}) Date: ${convertDate(plan.date)}, Pickup Location: ${plan.pickup}, Drop Location: ${plan.drop}, Distance: ${plan.distance}\n`;
   }
 
   sendMail("Custom Plan", message);
   success();
   customizeplan();
 }
-
 
 /* Function to Calculate Distance using Google Maps */
 function GoogleDistance(source, destination, ID) {
@@ -230,32 +245,27 @@ function validateTextArea(TextArea, ErrorId) {
 function validatePhoneNumber(PhoneNumberId, ErrorId) {
   const phone = document.getElementById(PhoneNumberId).value;
   const PhoneError = document.getElementById(ErrorId);
-  const phoneRegex = /^\d{10}$/;
-  if (!phone) {
-    PhoneError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Required';
-    return false;
-  }
-  if (!phone.match(phoneRegex)) {
-    PhoneError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Invalid Phone Number';
-    return false;
+  if (!phone.match(/^\d{10}$/)) {
+      PhoneError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Phone number should be 10 digits and all numeric';
+      return false;
   }
   PhoneError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
   return true;
-  }
+}
 
-  function validateEmail(Email, ErrorId) {
-    const email = document.getElementById(Email).value;
-    const EmailError = document.getElementById(ErrorId);
-    if(email.length == 0) {
-        EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
-        return false;
-    }
-    if(!email.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-        EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Invalid Email';
-        return false;
-    }
-    EmailError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
-    return true;
+function validateEmail(Email, ErrorId) {
+  const email = document.getElementById(Email).value;
+  const EmailError = document.getElementById(ErrorId);
+  if(email.length == 0) {
+      EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+      return false;
+  }
+  if(!email.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+      EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Invalid Email';
+      return false;
+  }
+  EmailError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+  return true;
 }
 
 function cusplanform() {
@@ -292,27 +302,27 @@ function cusplanform() {
     	<div class="custom-pop-user-details">
     		<div class="custom-pop-forms-group">
           <span class="details">First Name</span>
-          <input id="customfname" type="text" placeholder="Enter your First Name" required onchange="validateBlank('customfname', 'custom-fname-error')">
-          <span id="custom-fname-error"></span>
+          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeypress="validateBlank('customfname', 'customfname-error')">
+          <span id="customfname-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Last Name</span>
-          <input id="customlname" type="text" placeholder="Enter your Last Name" required onchange="validateBlank('customlname', 'custom-lname-error')">
-          <span id="custom-lname-error"></span>
+          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeypress="validateBlank('customlname', 'customlname-error')">
+          <span id="customlname-error"></span>
         </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Email</span>
-          <input id="customemail" type="email" placeholder="Enter your email" required onchange="validateEmail('customemail', 'custom-email-error')">
-          <span id="custom-email-error"></span>
+          <input id="customemail" type="email" placeholder="Enter your email" required onkeypress="validateEmail('customemail', 'customemail-error')">
+          <span id="customemail-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Phone Number</span>
-          <input id="customphone" type="text" placeholder="10-Digit Number" required onchange="validatePhoneNumber('customphone', 'custom-phone-error')">
-          <span id="custom-phone-error"></span>
+          <input id="customphone" type="text" placeholder="10-Digit Number" required onkeypress="validatePhoneNumber('customphone', 'customphone-error')">
+          <span id="customphone-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	   	<label for="Adults">Adults:</label>
-    	    <select title="Total Adults" id="customadults" name="Adults" required onchange="validateBlank('customadults', 'custom-padult-error')">
+    	    <select title="Total Adults" id="customadults" name="Adults" required onchange="validateBlank('customadults', 'customadults-error')">
     	      <option value="">Select</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -325,11 +335,11 @@ function cusplanform() {
             <option value="9">9</option>
             <option value="10">10</option>
     	    </select>
-    	    <span id="custom-padult-error"></span>
+    	    <span id="customadults-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <label for="child">Children:</label>
-    	    <select title="Total Child" id="customchild" name="child" required onchange="validateBlank('customchild', 'custom-pchild-error')">
+    	    <select title="Total Child" id="customchild" name="child" required onchange="validateBlank('customchild', 'customchild-error')">
     	    	<option value="">Select</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -343,22 +353,22 @@ function cusplanform() {
             <option value="9">9</option>
             <option value="10">10</option>
     	    </select>
-    	    <span id="custom-pchild-error"></span>
+    	    <span id="customchild-error"></span>
     	  </div>
     	</div>
       <div id="customdatelabel" class="custom-pop-forms-group">
         <label for="Pickup">Accommodation Required</label>
-        <select title="Total Child" id="accomrequired" name="child" required onchange="validateBlank('accomrequired', 'accom-error')">
+        <select title="Total Child" id="accomrequired" name="child" required onchange="validateBlank('accomrequired', 'accomrequired-error')">
     	    <option value="">Select</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
     	  </select>
-        <span id="accom-error"></span>
+        <span id="accomrequired-error"></span>
       </div>
       <div class="custom-pop-forms-group">
         <label for="message">Pickup Address</label>
-        <textarea id="custom-address" rows="5" placeholder="Enter Your Pickup Address" required onchange="validateTextArea('custom-address', 'custom-message-error')"></textarea>
-        <span id="custom-message-error"></span>
+        <textarea id="custom-address" rows="5" placeholder="Enter Your Pickup Address" required onkeypress="validateTextArea('custom-address', 'custom-address-error')"></textarea>
+        <span id="custom-address-error"></span>
       </div>
       <div class="custom-contact-channel">
         <input cuname="channel" type="radio" value="Phone" name="channel" id="customz-dot-1" required>
@@ -383,7 +393,7 @@ function cusplanform() {
       </div>
       <div id="custom_submit" class="custom-book-button">
         <input type="button" value="Submit" onclick="custommessage()">
-        <span id="custom-submit-error"></span>
+        <span id="custom_submit-error"></span>
       </div>
     </form>
   </div>`;
