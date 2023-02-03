@@ -40,8 +40,8 @@ const keyanimationmap = new Map ([
   [21, "flipOutX"],
   [22, "flipOutY"],
   [23, "rotateIn"],*/
-  [1, "rotateInDownLeft"],
-  [2, "rotateInDownRight"]
+  [1, "bounceInRight"],
+  [2, "bounceInRight"]
 ]);
 
 const citymap = new Map ([
@@ -250,7 +250,7 @@ function fetchTable(fetchMidMenu, sheetName) {
   const fName = fetchMidMenu;
   planner_booknow_map = [];
   let buttonmap,indext =0;
-  if (globaltableflag != 1) {
+  if (globaltableflag === 0) {
     rightMainDiv.innerHTML='';
   }
   tableContent.innerHTML='';
@@ -331,47 +331,44 @@ function fetchTable(fetchMidMenu, sheetName) {
   )()
 }
 
-
-async function fetchMidMenu(fileName) {
+function fetchMidMenu(fileName) {
+  const newDiv = document.createElement("div");
   const fName = './assets/dataFiles/' + fileName;
   const midMenu = document.querySelector('.plan-midmenu');
   globaltableflag = 0;
-  midMenu.innerHTML = '';
-
-  const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), { type: 'array' });
-  const worksheet = workbook.SheetNames;
-  const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
-
-  if (worksheet.length > 2) {
-    const btnContainer = document.createElement("div");
-    btnContainer.classList.add("plan-btn-pane");
-
-    let header = document.createElement("h3");
-    header.innerHTML = Object.keys(html[0])[0];
-    btnContainer.appendChild(header);
-
-    for (let key in html) {
-      const text = html[key][header.innerHTML];
-      const _button = document.createElement("button");
-      _button.type = 'button';
-      _button.id = `btn-plan-submenu-id${key}`;
-      _button.classList.add("btn-plan-submenu");
-      _button.value = `Sheet${2 + key}`;
-      if (key === 0) _button.classList.add('active');
-      _button.onclick = function() {
-        rsma();
-        fetchTable(fName, this.value);
-        document.querySelectorAll('.btn-plan-submenu').forEach(el => el.classList.remove('active'));
-        this.classList.add('active');
-      };
-      _button.innerHTML = text;
-      btnContainer.appendChild(_button);
-    }
-    midMenu.appendChild(btnContainer);
-  }
-  fetchTable(fName, 'Sheet2');
-  globalfilepath = fName;
-  return fName;
+  midMenu.innerHTML='';
+    (
+      async() => {
+        let text, _button, counter = 0, token;
+        const workbook = XLSX.read(await (await fetch(fName)).arrayBuffer(), {type: 'array'});
+        const worksheet = workbook.SheetNames;
+        const html = XLSX.utils.sheet_to_json(workbook.Sheets[worksheet[0]]);
+        if(worksheet.length > 2) {
+          for (let key in html) {
+            for (let header in html[key]) {
+              text = html[key][header];
+              token = header;
+              _button = document.createElement("button");
+              _button.type = 'button';
+              _button.id = 'btn-plan-submenu-id' + (counter + 1);
+              if (counter == 0) {_button.classList.add("btn-plan-submenu"); _button.className += ' active';}
+              else {_button.classList.add("btn-plan-submenu");}
+              _button.value = 'Sheet' + (2+counter)
+              _button.onclick = function() { rsma(); fetchTable (fName, this.value); this.classList.toggle('active');};
+              _button.innerHTML = text;
+            }
+            newDiv.classList.add("plan-btn-pane");
+            if (counter == 0) { let hEader = document.createElement("h3"); hEader.innerHTML=token; newDiv.appendChild(hEader); }
+            newDiv.appendChild(_button);
+            midMenu.appendChild(newDiv);
+            counter = counter+1;
+          }
+        }
+      }
+    )()
+    fetchTable(fName, 'Sheet2');
+    globalfilepath = fName;
+    return fName;
 }
 
 function bookdetails(lavi) {

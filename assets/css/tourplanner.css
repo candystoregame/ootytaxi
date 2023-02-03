@@ -562,7 +562,7 @@
 }
 
 .plan-rightcontent #planner-right-container .options-right-box .options-right-content .options-button.active span {
-  color: var(--font-hover-color);
+  color: yellow;
   font-weight: 600;
   transform: scale(.95);
 }
