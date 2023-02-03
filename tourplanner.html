@@ -51,6 +51,9 @@
     
     	<!--tourplanner.css-->
     	<link rel="stylesheet" href="assets/css/tourplanner.css">
+
+		<!--Sweet Alert 2 css-->
+		<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
     
     	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -859,8 +862,8 @@
     	<!--Email JS-->
     	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     	<script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
-    	<!--Sweet Alert-->
-    	<script src="assets/js/sweetalert.min.js"></script>
+    	<!--Sweet Alert 2 JS-->
+		<script src="assets/js/sweetalert2.all.min.js"></script>
     	<script>
     		/*function whatsapp(){
     		var fname = document.getElementById('fname').value;
@@ -958,7 +961,6 @@
                     }
                     if (!validatepfname() || !validateplname() || !validatepemail() || !validatepphone() || !validatepadults() || !validatepchild() || !validatepdate() || !validatepmessage() || !validatepchannel()) {
                         psubmiterror.style.display = 'block';
-                        //psubmiterror.innerHTML = 'Please fix error to Submit';
                         inputEmpty();
                         setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
                         return false;
@@ -994,33 +996,21 @@
     				plan: blob,
     			});
     		}
-    		function success2() {
-    			swal({
-    				title: "Thank you!",
-    				text: "Whatsapp initiated, redirecting",
-    				icon: "success",
-    				timer: 3000,
-    			});
-    			function me() {
-    				location.reload(true);
-    				tr.hide();
-    			};
-    		}
     		function success() {
     			bmodal.style.display = 'none';
-    			swal({
-    				title: "Thank you!",
-    				text: "Email sent successfully, we'll contact you shortly...",
-    				icon: "success",
-    			});
+				Swal.fire({
+                    icon: 'success',
+                    title: 'Thank you!',
+                    text: 'Email sent successfully, we\'ll contact you shortly...',
+				})
     		}
     		function inputEmpty() {
-    			swal({
-    				title: "Oops...!",
-    				text: "Please fix error to Submit...!",
-    				icon: "error",
-    			});
-    		}
+				Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...!',
+                    text: 'Please fix error to Submit...!',
+				})
+			}
     	</script>
     	<script src="assets/js/customizeplan.js"></script>
 		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8j80bnbdH4s_s-Lbj5fMO2EqTa4o5-A&libraries=places&callback=initMap"></script>

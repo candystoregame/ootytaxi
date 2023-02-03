@@ -52,6 +52,9 @@
 	<!--responsive.css-->
 	<link rel="stylesheet" href="assets/css/responsive.css" />
 
+	<!--Sweet Alert 2 css-->
+	<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 
@@ -1434,8 +1437,8 @@
 		<!--Email JS-->
 	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 	    <script type="text/javascript">emailjs.init('tVHA46lNMDT1eJJga')</script>
-		<!--Sweet Alert-->
-		<script src="assets/js/sweetalert.min.js"></script>
+		<!--Sweet Alert 2 JS-->
+		<script src="assets/js/sweetalert2.all.min.js"></script>
 
 	    <script>
 	    	/*function whatsapp(){
@@ -1457,7 +1460,7 @@
 	    		e.preventDefault();
       
 	    		if (fname.value == "" && lname.value == "" && email.value == "" && message.value == "") {
-	    		  inputEmpty();
+	    		  inputEmpty('Please fix error to Submit...!');
 	    		} else {
 	    		  success();
 	    		}
@@ -1517,7 +1520,7 @@
 	    		    if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
 	    		    	submiterror.style.display = 'block';
                         submiterror.innerHTML = 'Please fix error to Submit';
-	    		    	inputEmpty();
+	    		    	inputEmpty('Please fix error to Submit...!');
                         setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
 	    		        return false;
 	    		    }
@@ -1565,8 +1568,7 @@
                 }
                 if (!validatepfname() || !validateplname() || !validatepemail() || !validatepphone() || !validatepadults() || !validatepchild() || !validatepaccom() || !validatepmessage() || !validatepchannel()) {
                     psubmiterror.style.display = 'block';
-                    //psubmiterror.innerHTML = 'Please fix error to Submit';
-                    inputEmpty();
+                    inputEmpty('Please fix error to Submit...!');
                     setTimeout(function() { psubmiterror.style.display = 'none'; }, 3000);
                     return false;
                 }
@@ -1597,7 +1599,7 @@
                 closepoppln_home = document.querySelector('.close-pln-pop');
             open_home_book.addEventListener('click', function() {
 				if (!validatehpickup() || !validatehdesti() || !validatehpdate() || !validatehddate()) {
-					inputEmpty1();
+					inputEmpty('Please fill all the fields...!');
 					return false;
 				}
 				else {
@@ -1631,7 +1633,7 @@
 	    		});
 	    	}
 	        function success2() {
-	    		swal({
+	    		Swal.fire({
 	    			title: "Thank you!",
 	        	    text: "Whatsapp initiated, redirecting",
 	        	    icon: "success",
@@ -1646,24 +1648,16 @@
 	    		bmodal.style.display = 'none';
 				poppln_home.style.display = 'none';
 				reseterrortags();
-	    		swal({
+	    		Swal.fire({
 	    			title: "Thank you!",
 	        	    text: "Email sent successfully, we'll contact you shortly...",
 	        	    icon: "success",
 	    		});
 	    	}
-	        function inputEmpty() {
-	    		swal({
+	        function inputEmpty(message) {
+	    		Swal.fire({
 	    			title: "Oops...!",
-	    			text: "Please fix error to Submit...!",
-	    			icon: "error",
-	    		});
-	    	}
-			function inputEmpty1() {
-				//resethomeerrortags();
-	    		swal({
-	    			title: "Oops...!",
-	    			text: "Please fill all the fields...!",
+	    			text: message,
 	    			icon: "error",
 	    		});
 	    	}

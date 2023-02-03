@@ -24,7 +24,8 @@ justFetchTable();
 
 
 function erroralert(message) {
-  swal({
+  Swal.fire({
+    width: 400,
     title: "Oops...!",
     text: message,
     icon: "error",
@@ -52,6 +53,7 @@ function custommessage() {
     { id: 'customphone', label: 'Phone Number', validate: validatePhoneNumber },
     { id: 'custom-address', label: 'Address', validate: validateTextArea },
     { id: 'vehicleid', label: 'Vehicle' },
+    { id: 'customtotalkms', label: 'Approximate Total Kilometres\'' },
     { id: 'customplanprice', label: 'Approximate Total Price' },
   ];
 
@@ -226,6 +228,7 @@ function validateBlank(StringElement, ErrorId) {
     error.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
     return false;
   }
+  console.log(ErrorId);
   error.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
   return true;
 }
@@ -534,7 +537,7 @@ function customizeplan() {
       }
     visittablecontant +=
     `</select>
-    <span id="vehicleidError"></span>
+    <span id="vehicleid-error"></span>
   </div>`;
   visitContent.innerHTML = visittablecontant;
   contenttable = `<table id='custumplantable'>
@@ -571,8 +574,10 @@ function customizeplan() {
   <div class="tablecustomoptions>
   <label font-weight: 600; for="Distance In Kilometers">Approximate Distance In km(s)</label>
   <input style="text-align: center;" id="customtotalkms" type="text" name="Distance In Kilometers" placeholder="Approximate Kilometers" readonly>
+  <span id='customtotalkms-error'></span>
   <label style="font-weight: 600;" for="Rupees">Approximate Total Price</label>
   <input style="text-align: center;" id="customplanprice" type="text" name="Rupees" placeholder="Approximate Price" readonly>
+  <span id='customplanprice-error'></span>
   <input type="submit" value="Submit" onclick="cusplanform()">
   </div>`;
   tableoptionsdiv.innerHTML = contenttableoptions;
