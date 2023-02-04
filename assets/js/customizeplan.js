@@ -25,7 +25,7 @@ justFetchTable();
 
 function erroralert(message) {
   Swal.fire({
-    width: 400,
+    width: 500,
     title: "Oops...!",
     text: message,
     icon: "error",
