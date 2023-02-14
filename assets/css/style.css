@@ -328,7 +328,7 @@ position: relative;
 /*-------------------------------------
 		3. 	About
 --------------------------------------*/
-.about-us{
+.about-us {
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -340,7 +340,13 @@ position: relative;
 }
 
 .about-us video {
+    width: 100vw;
+    min-height: 1000px;
+    object-fit: cover;
     position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .about-us:before{
@@ -1205,10 +1211,12 @@ position: relative;
     margin: 0 auto;
     padding: 20px 0;
     overflow: hidden;
+    transition-duration: 0.3s;
+    transition-property: max-height;
 }
 .home1-testm-txt p:hover {
     max-height: fit-content;
-    transition: max-height 500ms cubic-bezier(0.075, 0.82, 0.165, 1) ease-in-out;
+    transform: height cubic-bezier(0.075, 0.82, 0.165, 1) ease-in-out;
 }
 .home1-testm-txt h3 a{
     display: block;
