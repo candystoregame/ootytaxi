@@ -159,6 +159,7 @@
 	.single-package-item {max-width: 350px;margin: 0 auto;margin-bottom: 30px;}
 
 	.single-special-shape-txt {left: 30px;}
+	.mainbuttonsection { display: flex;}
 
 }/*max-width:480px*/
 
