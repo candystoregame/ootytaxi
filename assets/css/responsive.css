@@ -137,6 +137,10 @@
 	.desc-tabs .nav-tabs>li>a { padding: 17px 10px 17px 10px;}
 
 	.blog-head h2 {font-size: 18px;}
+	.mainbuttonsection {
+		display: flex;
+		margin: -700px 0 0 110px;
+	}
 
 }/*max-width:640px*/
 
@@ -147,6 +151,10 @@
 	.filtr-item {max-width: 350px;margin: 0 auto;}
 
 	.subscribe-title h2 {font-size: 28px;}
+	.mainbuttonsection {
+		display: flex;
+		margin: -700px 0 0 60px;
+	}
 
 }/*max-width:540px*/
 
@@ -159,7 +167,7 @@
 	.single-package-item {max-width: 350px;margin: 0 auto;margin-bottom: 30px;}
 
 	.single-special-shape-txt {left: 30px;}
-	.mainbuttonsection { display: flex;}
+	.mainbuttonsection {display: flex;}
 
 }/*max-width:480px*/
 
@@ -185,8 +193,7 @@
 
 	.custom-input-group .subscribe-btn {float: left;top: 76px;}
 	.custom-input-group .form-control {padding-right: 0px;font-size: 13px;}
-
-
+	.mainbuttonsection a {width: 80px};
 }/*max-width:400px*/
 
 
@@ -198,12 +205,14 @@
 
 	.subscribe-title h2 {font-size: 20px;}
 	.subscribe-title p {font-size: 14px;}
+	.mainbuttonsection a {width: 60px};
 	
 	
 }/*max-width:350px*/
 
 @media screen and  (max-width: 320px){
 	.dicount-offer-content h2 {font-size: 16px;}
+	.mainbuttonsection a {width: 60px};
 
 }/*max-width:320px*/
 
