@@ -363,10 +363,23 @@ position: relative;
     display: none;
     justify-content: space-between;
     gap: 8px;
-    margin: -200px 0 0 0;
+    margin: -200px 0 0 0px;
 }
 
 .mainbuttonsection input {
+    font-weight: 600;
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    background: #00d8d5;
+    padding: 8px 16px;
+    width: auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mainbuttonsection a {
+    text-decoration: none;
     font-weight: 600;
     color: whitesmoke;
     border: none;

@@ -841,17 +841,19 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script>
     		window.addEventListener("load", () => {
-    			let lolelement = localStorage.getItem('thelolname');
-                if (lolelement !== null) {
-    				localStorage.removeItem('thelolname');
-                    rma();
-                    document.getElementById(lolelement).className += " active";
-                    fetchElement(document.getElementById(lolelement).value);
-                    lolelement = null;
-    			}
-    			else if (defaultmenu !== null) { localmenu(defaultmenu); }
-    			defaultmenu = null;
-    		})
+				const lolelement = localStorage.getItem('thelolname');
+				lolelement !== null
+				? (() => {
+					localStorage.removeItem('thelolname');
+					rma();
+					document.getElementById(lolelement).className += " active";
+					lolelement === "tariff-planner7"
+					? customizeplan()
+					: fetchElement(document.getElementById(lolelement).value);
+				})()
+				: defaultmenu !== null && localmenu(defaultmenu);
+				defaultmenu = null;
+			});
     
             function localmenu(lval) {
                 rma();
