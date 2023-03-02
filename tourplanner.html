@@ -891,7 +891,35 @@
     			  success();
     			}
     		  });
-    		}*/
+    		}
+			
+			function whatsapp(){
+  let form = document.forms[0];
+  let fname = form.elements['fname'].value;
+  let lname = form.elements['lname'].value;
+  let mail = form.elements['mail'].value;
+  let phone = form.elements['phone'].value;
+  let message = form.elements['message'].value;
+
+  let url = `https://wa.me/919743096772?text=
+    First Name: ${fname}%0a
+    Last Name: ${lname}%0a
+    Email: ${mail}%0a
+    Phone: ${phone}%0a
+    Message: ${message}`;
+
+  window.open(url,'_blank').focus();
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (form.checkValidity()) {
+      success();
+    } else {
+      inputEmpty();
+    }
+  });
+}
+*/
     
     		function converttostring(obj) {
     			let stri=`Plan: ${planheader}\n`;
