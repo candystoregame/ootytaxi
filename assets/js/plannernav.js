@@ -358,6 +358,7 @@ function fetchMidMenu(fileName) {
               _button.innerHTML = text;
             }
             newDiv.classList.add("plan-btn-pane");
+            newDiv.id = 'midmenumainadded';
             if (counter == 0) { let hEader = document.createElement("h3"); hEader.innerHTML=token; newDiv.appendChild(hEader); }
             newDiv.appendChild(_button);
             midMenu.appendChild(newDiv);
@@ -615,3 +616,12 @@ function fetchslidecontent(sheetName) {
 }
 
 /*Slider Fetch Table End*/
+
+/* Responsive switch config */
+
+const mainmenutoggle = document.getElementById('mainmenutoggle');
+const sidemainbar = document.querySelector('.plan-sidebar');
+mainmenutoggle.onclick = function() {
+  mainmenutoggle.classList.toggle('active');
+  sidemainbar.classList.toggle('active');
+}

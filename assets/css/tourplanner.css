@@ -83,9 +83,15 @@
 /* Planner's Grid End */
 
 @media (max-width: 767px) {
+  .plan-sidebar {
+    display: none;
+  }
+  .plan-sidebar.active {
+    display: flex;
+  }
   .plan-grid {
     padding: 78px 0 0;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
     grid-template-areas: "plan-sidebar plan-sidebar plan-sidebar"
                          "plan-midmenu plan-midmenu plan-midmenu"
                          "plan-rightcontent plan-rightcontent plan-rightcontent"
@@ -96,6 +102,8 @@
     text-align: center;
   }
   .plan-btn-pane {
+    display: flex;
+    width: 100%;
     justify-content: center;
     align-items:center;
   }
@@ -977,4 +985,48 @@
 
 #mainformsection form .custom-book-button input:hover {
   background: linear-gradient(-135deg, #71b7e6, #00d8ff);
+}
+
+/* Responsive toggle switches */
+
+#mainmenutoggle {
+  display: flex;
+  position: fixed;
+  z-index: 2;
+  top: 78px;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  background: #5cb85c;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainmenutoggle::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+
+#mainmenutoggle::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(5px);
+  transition: 0.2s;
+}
+
+#mainmenutoggle.active::before {
+  transform: translateY(0px) rotate(45deg);
+}
+
+#mainmenutoggle.active::after {
+  transform: translateY(0px) rotate(-45deg);
 }
