@@ -378,7 +378,7 @@ function cusplanform() {
         <input cuname="channel" type="radio" value="Email" name="channel" id="customz-dot-2">
         <input cuname="channel" type="radio" value="WhatsApp" name="channel" id="customz-dot-3">
         <span class="channel-title">Preferred channel to reach you:</span>
-        <div class="custom-category">
+        <div class="customz-category">
         	<label for="customz-dot-1">
         		<span class="dotz one"></span>
         		<span class="channel"><i class="fa-solid fa-phone"></i>&nbsp Phone</span>
@@ -627,3 +627,14 @@ const owl=$('#carslidermaincontent');
                 }
             }
         });
+
+
+/* Responsive switch config */
+
+const mainmenutoggle = document.getElementById('mainmenutoggle');
+const sidemainbar = document.querySelector('.plan-sidebar');
+mainmenutoggle.onclick = function() {
+  mainmenutoggle.classList.toggle('active');
+  sidemainbar.classList.toggle('active');
+  location.href = "#midmenumainadded"
+}

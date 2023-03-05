@@ -616,12 +616,3 @@ function fetchslidecontent(sheetName) {
 }
 
 /*Slider Fetch Table End*/
-
-/* Responsive switch config */
-
-const mainmenutoggle = document.getElementById('mainmenutoggle');
-const sidemainbar = document.querySelector('.plan-sidebar');
-mainmenutoggle.onclick = function() {
-  mainmenutoggle.classList.toggle('active');
-  sidemainbar.classList.toggle('active');
-}

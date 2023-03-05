@@ -927,14 +927,14 @@
   background: linear-gradient(135deg, #71b7e6, #00d8ff);
 }
 
-#mainformsection form .custom-contact-channel .custom-category {
+#mainformsection form .custom-contact-channel .customz-category {
   display: flex;
   width: 100%;
   margin: 14px 0;
   justify-content: space-between;
 }
 
-#mainformsection form .custom-contact-channel .custom-category label {
+#mainformsection form .custom-contact-channel .customz-category label {
   display: flex;
   font-size: 1.5rem;
   font-weight: 500;
@@ -942,7 +942,7 @@
   cursor: pointer;
 }
 
-#mainformsection form .custom-contact-channel .custom-category label .dotz {
+form .customz-category label .dotz {
   height: 18px;
   width: 18px;
   border-radius: 50%;
@@ -952,10 +952,9 @@
   transition: all 0.3s ease;
 }
 
-#customz-dot-1:checked~.custom-contact-channel .custom-category label .one,
-#customz-dot-2:checked~.custom-contact-channel .custom-category label .two,
-#customz-dot-3:checked~.custom-contact-channel .custom-category label .three {
-  z-index: 4;
+#customz-dot-1:checked~.customz-category label .one,
+#customz-dot-2:checked~.customz-category label .two,
+#customz-dot-3:checked~.customz-category label .three {
   background: #00d8ff;
   border-color: #d9d9d9;
 }

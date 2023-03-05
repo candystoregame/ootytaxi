@@ -1220,16 +1220,19 @@ position: relative;
     padding: 0 19px;
 }
 .testemonial .owl-theme .owl-nav.disabled+.owl-dots {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
 }
-.testemonial .owl-theme .owl-dots .owl-dot span {
+
+.testemonial .owl-theme .owl-dots .owl-dot {
     width: 15px;
     height: 15px;
     margin: 5px 3px;
     border-radius:50%;
-    background: #aaa; 
+    background: #aaa;
 }
-.testemonial .owl-theme .owl-dots .owl-dot.active span{
+.testemonial .owl-theme .owl-dots .owl-dot.active {
     background: #00d8ff;
 }/*owl-carousel*/
 
