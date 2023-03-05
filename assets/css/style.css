@@ -199,6 +199,9 @@ position: relative;
 /*.logo*/
 
 /*.main-menu*/
+#main-menu-id.active {
+    display: inline-block;
+}
 .main-menu {position:relative;}
 .main-menu ul .nav .navbar-nav {
     text-align:right;

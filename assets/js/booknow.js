@@ -369,3 +369,18 @@ function validatehdesti() {
     hderror.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
     return true;
 }
+
+/*const mainmenu_idicon = document.getElementById('main-menu-idicon');
+const mainmenu_id = document.getElementById('main-menu-id');
+document.onclick = function(e) {
+    if(e.target.id === 'main-menu-idicon') {
+        mainmenu_id.classList.remove('active');
+    }
+    else {
+        mainmenu_id.classList.toggle('active');
+    }
+}*/
+
+//mainmenu_id.onclick = function() {
+  //  mainmenu_id.classList.toggle('active');
+//}

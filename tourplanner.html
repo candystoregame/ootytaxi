@@ -86,12 +86,12 @@
     						<div class="main-menu">
     							<!-- Brand and toggle get grouped for better mobile display -->
     							<div class="navbar-header">
-    								<button title="Menu" type="button" class="navbar-toggle" data-toggle="collapse"
+    								<button title="Menu" type="button" class="navbar-toggle" id="main-menu-idicon" data-toggle="collapse"
     									data-target=".navbar-collapse">
     									<i class="fa-solid fa-bars"></i>
     								</button><!-- / button-->
     							</div><!-- /.navbar-header-->
-    							<div class="collapse navbar-collapse">
+    							<div class="collapse navbar-collapse" id="main-menu-id">
     								<ul class="nav navbar-nav navbar-right">
     									<li id="phonecustombox" class="smooth-menu1"><a href="tel:+91978-711-1067"><i class="fa-solid fa-phone"></i>&nbsp24/7 Call&nbsp:<span>+91 97871 11067</span></a></li>
     									<li class="justlink"><a href="index.html"><i class="fa-solid fa-house-chimney"></i> home</a></li>
@@ -780,7 +780,6 @@
     							<li><a href="https://www.facebook.com/ootytaxiservice" title = "Facebook" target="_blank" class="foot-icon-bg-1"><i class="fa-brands fa-facebook"></i></a></li>
     							<li><a href="https://twitter.com/alphatravelooty" title = "Twitter" target="_blank" class="foot-icon-bg-2"><i class="fa-brands fa-twitter"></i></a></li>
     							<li><a href="https://www.instagram.com/alpha_sadiq" title = "Instagram" target="_blank" class="foot-icon-bg-3"><i class="fa-brands fa-instagram"></i></a></li>
-    							<li><a href="https://www.linkedin.com/in/alphatoursandtravels" title = "LinkedIn" target="_blank" class="foot-icon-bg-1"><i class="fa-brands fa-linkedin-in"></i></a></li>
     						    <li><a href="https://www.youtube.com/c/Alphatoursandtravelstoursandtravelsooty" title = "Youtube" target="_blank" class="foot-icon-bg-3"><i class="fa-brands fa-youtube"></i></a></li>
     						</ul>
     						<p>&copy; 2022 <a href="https://www.bridgewisely.com">BridgeWisely</a>. All Right Reserved</p>
@@ -807,15 +806,15 @@
     	<!-- Including SheetJS Latest Version Library -->
     	<script src="assets/js/xlsx.mini.min.js"></script>
     	<!--modernizr.min.js-->
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    	<script src="assets/js/modernizr.min.js"></script>
     	<!--bootstrap.min.js-->
     	<script src="assets/js/bootstrap.min.js"></script>
-    	<!-- bootsnav js -->
+		<!-- bootsnav js -->
     	<script src="assets/js/bootsnav.js"></script>
     	<!-- jquery.filterizr.min.js -->
     	<script src="assets/js/jquery.filterizr.min.js"></script>
     
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    	<script src="assets/js/jquery.easing.min.js"></script>
     
     	<!--jquery-ui.min.js-->
     	<script src="assets/js/jquery-ui.min.js"></script>
@@ -839,8 +838,6 @@
     
     	<!--my carousel JS-->
     	<script src="assets/js/mycarousel.js"></script>
-    	<!--GSAP CDN-->
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script>
     		window.addEventListener("load", () => {
 				const lolelement = localStorage.getItem('thelolname');
