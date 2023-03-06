@@ -221,56 +221,6 @@ function validatecustomrow(row) {
   addnewliner(row);
 }
 
-function validateBlank(StringElement, ErrorId) {
-  let loc = document.getElementById(StringElement).value;
-  let error = document.getElementById(ErrorId);
-  if (loc.length === 0) {
-    error.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
-    return false;
-  }
-  console.log(ErrorId);
-  error.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
-  return true;
-}
-
-function validateTextArea(TextArea, ErrorId) {
-  const message = document.getElementById(TextArea).value;
-  const pmessageerror = document.getElementById(ErrorId);
-  const required = 20;
-  const left = required - message.length;
-  pmessageerror.innerHTML =
-    left > 0
-      ? `<i class="fa fa-times-circle" aria-hidden="true"></i> ${left} more characters required`
-      : `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
-  return left <= 0;
-}
-
-function validatePhoneNumber(PhoneNumberId, ErrorId) {
-  const phone = document.getElementById(PhoneNumberId).value;
-  const PhoneError = document.getElementById(ErrorId);
-  if (!phone.match(/^\d{10}$/)) {
-      PhoneError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Phone number should be 10 digits and all numeric';
-      return false;
-  }
-  PhoneError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
-  return true;
-}
-
-function validateEmail(Email, ErrorId) {
-  const email = document.getElementById(Email).value;
-  const EmailError = document.getElementById(ErrorId);
-  if(email.length == 0) {
-      EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
-      return false;
-  }
-  if(!email.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-      EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Invalid Email';
-      return false;
-  }
-  EmailError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
-  return true;
-}
-
 function cusplanform() {
   const formdiv = document.createElement("div");
   const trc = document.getElementById('custumplantable');

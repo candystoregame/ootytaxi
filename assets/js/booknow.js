@@ -20,27 +20,119 @@ window.addEventListener('click',function(e) {
     }
 })
 
+function validateBlank(StringElement, ErrorId) {
+    let loc = document.getElementById(StringElement).value;
+    let error = document.getElementById(ErrorId);
+    if (loc.length === 0) {
+      error.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+      return false;
+    }
+    console.log(ErrorId);
+    error.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+  }
+  
+  function validateTextArea(TextArea, ErrorId) {
+    const message = document.getElementById(TextArea).value;
+    const pmessageerror = document.getElementById(ErrorId);
+    const required = 20;
+    const left = required - message.length;
+    pmessageerror.innerHTML =
+      left > 0
+        ? `<i class="fa fa-times-circle" aria-hidden="true"></i> ${left} more characters required`
+        : `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return left <= 0;
+  }
+  
+  function validatePhoneNumber(PhoneNumberId, ErrorId) {
+    const phone = document.getElementById(PhoneNumberId).value;
+    const PhoneError = document.getElementById(ErrorId);
+    if (!phone.match(/^\d{10}$/)) {
+        PhoneError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Phone number should be 10 digits and all numeric';
+        return false;
+    }
+    PhoneError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+  }
+  
+  function validateEmail(Email, ErrorId) {
+    const email = document.getElementById(Email).value;
+    const EmailError = document.getElementById(ErrorId);
+    if(email.length == 0) {
+        EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    if(!email.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+        EmailError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Invalid Email';
+        return false;
+    }
+    EmailError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+  }
+
+  function validatePreDate(Date, ErrorId) {
+    const date = document.getElementById(Date).value;
+    const PreDateError = document.getElementById(ErrorId);
+    if (date.length === 0) {
+        PreDateError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+        return false;
+    }
+    if(!date.match(/^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/)) {
+        PreDateError.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i> Date Format MM/DD/YYYY';
+        return false;
+    }
+    PreDateError.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+    return true;
+}
+
+function validatePostDate(PreDate, PostDate, ErrorId) {
+    const predateInput = document.getElementById(PreDate);
+    const postdateInput = document.getElementById(PostDate);
+    const errorIdElement = document.getElementById(ErrorId);
+    const predate = predateInput.value;
+    const postdate = postdateInput.value;
+    const startDate = new Date(predate);
+    const endDate = new Date(postdate);
+    if (postdate.length == 0) {
+        errorIdElement.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>`;
+        return false;
+    }
+    if (isNaN(startDate) || isNaN(endDate) || startDate > endDate) {
+        errorIdElement.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>`;
+        return false;
+    }
+    errorIdElement.innerHTML = `<i class="fa fa-check-circle" aria-hidden="true"></i>`;
+    return true;
+}
+
+
 const fnameerror = document.getElementById('fname-error');
 const lnameerror = document.getElementById('lname-error');
 const phoneerror = document.getElementById('phone-error');
-const emailerror = document.getElementById('email-error');
+const emailerror = document.getElementById('mail-error');
 const messageerror = document.getElementById('message-error');
 const submiterror = document.getElementById('submit-error');
 const channelerror = document.getElementById('contact-channel-error');
 const sourceerror = document.getElementById('source-error');
 const desterror = document.getElementById('destination-error');
-
-function reseterrortags() {
-    fnameerror.innerHTML="";
-    lnameerror.innerHTML="";
-    phoneerror.innerHTML="";
-    emailerror.innerHTML="";
-    messageerror.innerHTML="";
-    submiterror.innerHTML="";
-    channelerror.innerHTML="";
-    sourceerror.innerHTML="";
-    desterror.innerHTML="";
-}
+  
+  function reseterrortags() {
+    const errorTags = [
+        document.getElementById('fname-error'),
+        document.getElementById('lname-error'),
+        document.getElementById('phone-error'),
+        document.getElementById('mail-error'),
+        document.getElementById('message-error'),
+        document.getElementById('submit-error'),
+        document.getElementById('contact-channel-error'),
+        document.getElementById('source-error'),
+        document.getElementById('destination-error')
+      ];
+    for (let i = 0; i < errorTags.length; i++) {
+      errorTags[i].innerHTML = "";
+    }
+  }
+  
 
 function validatefname() {
     let name = document.getElementById('fname').value;
@@ -151,29 +243,24 @@ function validatedestination() {
     }
 }
 
-const pfnameerror = document.getElementById('plan-fname-error');
-const plnameerror = document.getElementById('plan-lname-error');
-const pemailerror = document.getElementById('plan-email-error');
-const pphoneerror = document.getElementById('plan-phone-error');
-const padulterror = document.getElementById('plan-padult-error');
-const pchilderror = document.getElementById('plan-pchild-error');
-const pdateerror = document.getElementById('pickup-date-error');
-const pmessageerror = document.getElementById('plan-message-error');
+const pfnameerror = document.getElementById('pfname-error');
+const plnameerror = document.getElementById('plname-error');
+const pemailerror = document.getElementById('pemail-error');
+const pphoneerror = document.getElementById('pphone-error');
+const padulterror = document.getElementById('padults-error');
+const pchilderror = document.getElementById('pchild-error');
+const pdateerror = document.getElementById('plandate-error');
+const pmessageerror = document.getElementById('message-plan-error');
 const pchannelerror = document.getElementById('plan-contact-channel-error');
 const psubmiterror = document.getElementById('plan-submit-error');
 
 function resetplanerrortags() {
-    pfnameerror.innerHTML="";
-    plnameerror.innerHTML="";
-    pemailerror.innerHTML="";
-    pphoneerror.innerHTML="";
-    padulterror.innerHTML="";
-    pchilderror.innerHTML="";
-    pdateerror.innerHTML="";
-    pmessageerror.innerHTML="";
-    pchannelerror.innerHTML="";
-    psubmiterror.innerHTML="";
+    const errorElements = document.querySelectorAll('#pfname-error, #plname-error, #pemail-error, #pphone-error, #padults-error, #pchild-error, #plandate-error, #message-plan-error, #plan-contact-channel-error, #plan-submit-error');
+    errorElements.forEach(element => {
+        element.innerHTML = '';
+    });
 }
+
 
 function validatepfname() {
     let name = document.getElementById('pfname').value;
@@ -303,10 +390,10 @@ function validatepchannel() {
     }
 }
 
-const hserror = document.getElementById('home_source_error');
-const hderror = document.getElementById('home_destination_error');
-const starterror = document.getElementById('pickup_error');
-const enderror = document.getElementById('drop_error');
+const hserror = document.getElementById('home_pickup-error');
+const hderror = document.getElementById('home_destination-error');
+const starterror = document.getElementById('home_start-error');
+const enderror = document.getElementById('home_end-error');
 
 function resethomeerrortags() {
     hserror.innerHTML="";

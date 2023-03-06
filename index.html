@@ -176,7 +176,7 @@
 					  <div class="input-box">
 						<span class="details">Email</span>
 						<input type="text" id="mail" autocomplete="off" placeholder="Email" required onchange="validateemail()">
-						<span id="email-error"></span>
+						<span id="mail-error"></span>
 					  </div>
 					  <div class="input-box">
 						<span class="details">Phone Number</span>
@@ -463,7 +463,7 @@
 													<div class="single-tab-select-box">
 														<h2>Plan your travel</h2>
 														<div class="travel-select-icon">
-															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validatehpickup(); GoogleDistace(this.value, document.getElementById("home_destination").value,"home_distance");'>
+															<select id="home_pickup" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validateBlank("home_pickup", "home_pickup-error"); GoogleDistace(this.value, document.getElementById("home_destination").value,"home_distance");'>
 																<option value="">enter your pickup location</option><!-- /.option-->
 																<option value="Alleppey, Kerala">Alleppey, Kerala</option>
                                                                 <option value="Amrita University">Amrita University</option>
@@ -609,10 +609,10 @@
                                                                 <option value="Wayanad, Kerala">Wayanad, Kerala</option>
                                                                 <option value="Yercaud, Tamil Nadu">Yercaud, Tamil Nadu</option>
 															</select><!-- /.select-->
-															<span id="home_source_error"></span>
+															<span id="home_pickup-error"></span>
 														</div><!-- /.travel-select-icon -->
 														<div class="travel-select-icon">
-															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validatehdesti();GoogleDistace(document.getElementById("home_pickup").value, this.value,"home_distance");'>
+															<select id="home_destination" class="form-control" aria-label="Plan Travel" aria-required="true" onchange='validateBlank("home_destination","home_destination-error");GoogleDistace(document.getElementById("home_pickup").value, this.value,"home_distance");'>
 																<option value="">enter your destination location</option><!-- /.option-->
 																<option value="Alleppey, Kerala">Alleppey, Kerala</option>
                                                                 <option value="Amrita University">Amrita University</option>
@@ -758,7 +758,7 @@
                                                                 <option value="Wayanad, Kerala">Wayanad, Kerala</option>
                                                                 <option value="Yercaud, Tamil Nadu">Yercaud, Tamil Nadu</option>
 															</select><!-- /.select-->
-															<span id="home_destination_error"></span>
+															<span id="home_destination-error"></span>
 														</div><!-- /.travel-select-icon -->
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
@@ -768,8 +768,8 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_start" type="text" name="check_in" class="form-control"
-																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatehpdate()">
-																<span id="pickup_error"></span>
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatePreDate('home_start','home_start-error')">
+																<span id="home_start-error"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -780,8 +780,8 @@
 														<div class="travel-check-icon">
 															<form action="#">
 																<input id="home_end" type="text" name="check_out" class="form-control"
-																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatehddate()">
-																<span id="drop_error" style="color: whitesmoke;"></span>
+																	data-toggle="datepicker" placeholder="MM/DD/YYYY" aria-required="true" onchange="validatePostDate('home_start','home_end','home_end-error')">
+																<span id="home_end-error" style="color: whitesmoke;"></span>
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -1495,45 +1495,40 @@
 			}
     
 	    	function validate() {
-	    		let fname = document.getElementById("fname");
-	    	    let lname = document.getElementById("lname");
-	    	    let email = document.getElementById("mail");
-				let phone = document.getElementById("phone");
-	    	    let message = document.getElementById("message");
-	    	    let submit = document.getElementById("submit");
-				let bsource = document.getElementById('source');
-				let bdest = document.getElementById('destination');
-	    	    let dot;
-	    	    var markedCheckbox = document.getElementsByName("channel");
-	    	    submit.addEventListener("click", (e) => {
-	    			e.preventDefault();
-	    			for (let checkbox of markedCheckbox){
-	    				if(checkbox.checked) {
-	    					dot = checkbox.value;
-	    				}
-	    			}
-	    		    if (!validatefname() || !validatelname() || !validatephone() || !validateemail() || !validatemessage() || !validatechannel() || !validatesource() || !validatedestination()) {
-	    		    	submiterror.style.display = 'block';
-                        submiterror.innerHTML = 'Please fix error to Submit';
-	    		    	inputEmpty('Please fix error to Submit...!');
-                        setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
-	    		        return false;
-	    		    }
-	    		    else {
-						let sting = `First Name: ${fname.value}\n`;
-			            sting += `Last Name: ${lname.value}\n`;
-				        sting += `Email Address: ${email.value}\n`;
-				        sting += `Phone Numer: ${phone.value}\n`;
-				        sting += `Source: ${bsource.value}\n`;
-				        sting += `Destination: ${bdest.value}\n`;
-				        sting += `Message: ${message.value}\n`;
-				        sting += `Preferred Channel To Contact Me: ${dot}`;
-					    sendMail("Book Online", sting);
-	    		        success();
-	    		        document.getElementById('myform').reset();
-	    		    }
-	    		});
-	    	} validate();
+    			let fname = document.getElementById("fname");
+    			let lname = document.getElementById("lname");
+    			let email = document.getElementById("mail");
+    			let phone = document.getElementById("phone");
+    			let message = document.getElementById("message");
+    			let submit = document.getElementById("submit");
+    			let bsource = document.getElementById('source');
+    			let bdest = document.getElementById('destination');
+    			let dot;
+    			let markedCheckbox = document.querySelectorAll('[bnname]');
+    			submit.addEventListener("click", (e) => {
+    				e.preventDefault();
+    				for (let checkbox of markedCheckbox){
+    					if(checkbox.checked) {
+    						dot = checkbox.value;
+    					}
+    				}
+    				if (!validateBlank('fname','fname-error') || !validateBlank('lname','lname-error') || !validatePhoneNumber('phone','phone-error') || !validateEmail('mail','mail-error') || !validateBlank('source','source-error') || !validateBlank('destination','destination-error') || !validateTextArea('message','message-error') || !validatechannel()) {
+    					submiterror.style.display = 'block';
+    					//submiterror.innerHTML = 'Please fix error to Submit';
+    					inputEmpty();
+    					setTimeout(function() { submiterror.style.display = 'none'; }, 3000);
+    					return false;
+    				}
+    				else {
+    					const sting = `First Name: ${fname.value}\nLast Name: ${lname.value}\nEmail Address: ${email.value}\n
+						               Phone Numer: ${phone.value}\nSource: ${bsource.value}\nDestination: ${bdest.value}\n
+									   Message: ${message.value}\nPreferred Channel To Contact Me: ${dot}`;
+    					sendMail("Book Online Form", sting);
+    					success();
+    					document.getElementById('myform').reset();
+    				}
+    			});
+    		} validate();
 
 			function pvalidate() {
             let fname = document.getElementById("pfname");

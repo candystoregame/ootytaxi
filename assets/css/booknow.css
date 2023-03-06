@@ -341,6 +341,10 @@ form .pln-pop-forms-group span.details {
   margin-top: 3px;
 }
 
+#bookplannergif {
+  object-fit: cover;
+}
+
 form .pln-contact-channel .channel-title {
   position: relative;
   font-size: 1.5rem;

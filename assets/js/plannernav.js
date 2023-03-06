@@ -399,7 +399,7 @@ function bookdetails(lavi) {
   }
 
   listplanvarsdata = `
-    <img src="assets/images/blog/cargif.gif" alt="Car Load" style="width:100%;height:40%;"><br>
+    <img id="bookplannergif" src="assets/images/blog/cargif.gif" alt="Car Load" style="width:100%;height:40%;"><br>
     <ul>
       <li> Plan: <b>${planheader}</b></li>
       ${planner_blob.map((item, index) => 
