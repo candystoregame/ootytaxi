@@ -174,7 +174,6 @@ function validatecustomdate(ID) {
 }
 
 
-
 function assigntosource(ID, tvalue) {
   if(ID != null && tvalue != null) {
     document.getElementById(ID).value = document.getElementById(tvalue).value;
@@ -255,22 +254,22 @@ function cusplanform() {
     	<div class="custom-pop-user-details">
     		<div class="custom-pop-forms-group">
           <span class="details">First Name</span>
-          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeypress="validateBlank('customfname', 'customfname-error')">
+          <input id="customfname" type="text" placeholder="Enter your First Name" required onkeyup="validateBlank('customfname', 'customfname-error')">
           <span id="customfname-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Last Name</span>
-          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeypress="validateBlank('customlname', 'customlname-error')">
+          <input id="customlname" type="text" placeholder="Enter your Last Name" required onkeyup="validateBlank('customlname', 'customlname-error')">
           <span id="customlname-error"></span>
         </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Email</span>
-          <input id="customemail" type="email" placeholder="Enter your email" required onkeypress="validateEmail('customemail', 'customemail-error')">
+          <input id="customemail" type="email" placeholder="Enter your email" required onkeyup="validateEmail('customemail', 'customemail-error')">
           <span id="customemail-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
     	    <span class="details">Phone Number</span>
-          <input id="customphone" type="text" placeholder="10-Digit Number" required onkeypress="validatePhoneNumber('customphone', 'customphone-error')">
+          <input id="customphone" type="text" placeholder="10-Digit Number" required onkeyup="validatePhoneNumber('customphone', 'customphone-error')">
           <span id="customphone-error"></span>
     	  </div>
     	  <div class="custom-pop-forms-group">
@@ -320,7 +319,7 @@ function cusplanform() {
       </div>
       <div class="custom-pop-forms-group">
         <label for="message">Pickup Address</label>
-        <textarea id="custom-address" rows="5" placeholder="Enter Your Pickup Address" required onkeypress="validateTextArea('custom-address', 'custom-address-error')"></textarea>
+        <textarea id="custom-address" rows="5" placeholder="Enter Your Pickup Address" required onkeyup="validateTextArea('custom-address', 'custom-address-error')"></textarea>
         <span id="custom-address-error"></span>
       </div>
       <div class="custom-contact-channel">
