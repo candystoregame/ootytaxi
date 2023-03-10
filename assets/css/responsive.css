@@ -81,7 +81,9 @@
 
 
 @media screen and (max-width:768px){
-
+	.cursor-dot {
+		display: none;
+	}
 
 }/*max-width:768px*/
 

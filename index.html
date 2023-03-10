@@ -1471,7 +1471,6 @@
 					return false;
                 }
                 else {
-					console.log(source, destination);
 					const directionsService = new google.maps.DirectionsService();
                     const logdistance = document.getElementById(ID);
                     const request = {
@@ -1557,7 +1556,6 @@
 					for (let checkbox of markedCheckbox) {
 						if(checkbox.checked) {
 							dot = checkbox.value;
-							console.log(dot);
 						}
 					}
 					if (!dot) {

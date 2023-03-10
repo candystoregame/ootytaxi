@@ -27,7 +27,6 @@ function validateBlank(StringElement, ErrorId) {
       error.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
       return false;
     }
-    console.log(ErrorId);
     error.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
     return true;
   }
