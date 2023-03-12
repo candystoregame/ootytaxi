@@ -127,7 +127,9 @@ html,body{
 
 }
 
-
+.top-area .header-area .container .row .col-sm-2 .logo a img{
+    object-fit: cover;
+}
 
 /*=============Style css=========*/
 

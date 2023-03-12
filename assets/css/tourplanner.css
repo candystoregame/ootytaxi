@@ -13,8 +13,8 @@
 --highest-font-size: 1.8rem;
 --medium-font-size: 1.2rem;
 --normal-font-size: 1.2rem;
---accent-color: black; /*white*/
---hover-background-color: #d4af37; /*#222222*/
+--accent-color: black;
+--hover-background-color: #d4af37;
 }
 
 
@@ -92,20 +92,31 @@
   .plan-grid {
     padding: 78px 0 0;
     grid-template-columns: auto;
-    grid-template-areas: "plan-sidebar plan-sidebar plan-sidebar"
-                         "plan-midmenu plan-midmenu plan-midmenu"
-                         "plan-rightcontent plan-rightcontent plan-rightcontent"
-                         "plan-notesection plan-notesection plan-notesection"
-                         "plan-footer plan-footer plan-footer";
+    grid-template-areas: "plan-sidebar"
+                         "plan-midmenu"
+                         "plan-rightcontent"
+                         "plan-notesection"
+                         "plan-footer";
   }
   .centered-planner {
     text-align: center;
   }
   .plan-btn-pane {
-    display: flex;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items:center;
+    align-content: center;
+  }
+  .centered-planner h3 {
+    display: flex;
+    justify-content: center;
+  }
+  .centered-planner h3::before {
+    display: none;
+  }
+  .btn-plan-style {
+    background-color: #2f2f2f;
+    width: 100%;
   }
 }
 
@@ -143,7 +154,7 @@
   .btn-plan-style {
     background-color: var(--page-background-color);
     color: black;
-    padding: var(--border-size-offset);
+    padding: var(--border-size-offset) var(--border-size-offset) var(--border-size-offset) var(--border-size-offset);
     border: none;
     outline: none;
     position: relative;

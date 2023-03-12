@@ -578,7 +578,7 @@ const owl=$('#carslidermaincontent');
         });
 
 
-/* Responsive switch config */
+/* Responsive switch config
 
 const mainmenutoggle = document.getElementById('mainmenutoggle');
 const sidemainbar = document.querySelector('.plan-sidebar');
@@ -586,4 +586,17 @@ mainmenutoggle.onclick = function() {
   mainmenutoggle.classList.toggle('active');
   sidemainbar.classList.toggle('active');
   location.href = "#midmenumainadded"
+}*/
+
+const mainmenutoggle = document.getElementById('mainmenutoggle');
+const sidemainbar = document.querySelector('.plan-sidebar');
+
+mainmenutoggle.onclick = function() {
+  mainmenutoggle.classList.toggle('active');
+  sidemainbar.classList.toggle('active');
+  if (mainmenutoggle.classList.contains('active')) {
+    location.href = "#mainsidebarpivot";
+  } else {
+    location.href = "#midmenumainadded";
+  }
 }
