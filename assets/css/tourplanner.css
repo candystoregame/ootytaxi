@@ -20,6 +20,10 @@
 
 /* Planner's Grid Start */
 
+.footer-logo img {
+  object-fit: cover;
+}
+
 .plan-grid {
   display: grid;
   padding: 78px 0 0;
