@@ -1,21 +1,21 @@
-var map, service;
+let map, service;
 let review_data_map = [];
 function initMap() {
   const mapOptions = {
-    center: { lat: 11.412, lng: 76.704 },
+    center: { lat: 11.412674016237066, lng: 76.70440117221142 },
     zoom: 15,
     gestureHandling: "none",
     zoomControl: false,
   };
   map = new google.maps.Map(document.getElementById("ooty-taxi-map-content"), mapOptions);
   const marker = new google.maps.Marker({
-    position: { lat: 11.412, lng: 76.704 },
+    position: { lat: 11.412674016237066, lng: 76.70440117221142 },
     map: map,
     title: "Ooty Taxi",
   });
   const infowindow = new google.maps.InfoWindow({
     content: `<p class="map_title_display">Ooty<span>&nbsp;Taxi</span></p>`+
-    `<div><p>#9/11, Abu Sait Street, Main Bazzar, The Nilgiris Fernhill Post, Ooty Tamilnadu, India</p></div>`,
+    `<div><p>#167 New Cornation Building, St. Thomas Church Road, Ooty, 643001</p></div>`,
   });
   google.maps.event.addListener(marker, "click", () => {
     infowindow.open(map, marker);
@@ -23,7 +23,7 @@ function initMap() {
   infowindow.open(map, marker);
 
   service = new google.maps.places.PlacesService(map);
-  var request = {
+  let request = {
     placeId: 'ChIJqfItYyuWqDsRjBHi9Xa-URM',
     fields: ['reviews'],
   };
