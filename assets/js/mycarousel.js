@@ -5,6 +5,8 @@ let isSliderActive = false;
 let isSliderInitialized = false;
 let sliderpivot = 1; // Declare sliderpivot as a global variable
 const MIN_SWIPE_DISTANCE = 100; // Define the minimum swipe distance
+let touchStartX;
+let touchEndX; // Declare touchEndX in the global scope
 
 function clickslider(value) {
   // Check if slider is already active
