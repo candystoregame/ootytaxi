@@ -164,9 +164,9 @@ function validatecustomdate(ID) {
       }
     }
   }
-  const dateRegex = /^((19|20)\d{2}[\-]0?[1-9]|1[0-2])[\-](0?[1-9]|[12]\d|3[01])$/;
+  const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
   if (!dateValue.match(dateRegex)) {
-    erroralert("Please choose a valid date format MM/DD/YYYY.");
+    erroralert("Please choose a valid date format DD-MM-YYYY.");
     dateField.value = '';
     return false;
   }
