@@ -126,11 +126,15 @@ function reseterrortags() {
 
 function resetplanerrortags(da) {
     const dateaccom = document.getElementById(da);
-    dateaccom.innerHTML = '';
+    if (dateaccom !== null) {
+        console.log(dateaccom.value);
+        dateaccom.innerHTML = '';
+    }
     errorElements.forEach(element => {
         element.innerHTML = '';
     });
 }
+
 
 const hserror = document.getElementById('home_pickup-error');
 const hderror = document.getElementById('home_destination-error');

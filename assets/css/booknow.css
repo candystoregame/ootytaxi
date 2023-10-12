@@ -304,7 +304,7 @@ form .button input:hover {
     display: grid;
     grid-template-columns: 60% 40%;
     grid-template-areas:
-      'pop-pln-body booknow-leftpane'
+      'pop-pln-body booknow-leftpane';
   }
   
   .booknow-leftpane {
@@ -340,6 +340,17 @@ form .button input:hover {
     max-height: max-content;
     animation-name: modalSlideUp;
     animation-duration: 1s;
+    overflow: auto;
+}
+
+@media (max-width: 600px) {
+  .booknow-leftpane {
+    display: none;
+  }
+
+  #pln-pop-content {
+    max-width: 90%;
+  }
 }
 
 #pln-pop-header {
